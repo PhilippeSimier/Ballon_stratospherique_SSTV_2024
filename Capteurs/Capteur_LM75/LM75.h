@@ -12,12 +12,15 @@
 #include <stdio.h>
 #include <stdint.h>
 #include <iostream>
+#include <unistd.h>
 
 class LM75 {
     
 public:
     
-    LM75();
+    
+    LM75(int8_t address = 0x48);
+    
     LM75(const LM75& orig);
     virtual ~LM75();
     
@@ -25,7 +28,7 @@ public:
     
 private:
     
-    int handle;
+    int fd;
 };
 
 #endif /* LM75_H */

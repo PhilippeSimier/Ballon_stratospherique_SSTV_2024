@@ -8,14 +8,17 @@
 #include "LM75.h"
 
 
-LM75::LM75() {
-    handle = wiringPiI2CSetup(0x48);
+LM75::LM75(int8_t address) {
+
+    fd = wiringPiI2CSetup(address);
+    
 }
 
 LM75::LM75(const LM75& orig) {
 }
 
 LM75::~LM75() {
+    close(fd);
 }
 
 /**
@@ -24,7 +27,7 @@ LM75::~LM75() {
  */
 float LM75::getTemperature() {
 
-    int reg0 = wiringPiI2CReadReg16(handle, 0x00);
+    int reg0 = wiringPiI2CReadReg16(fd, 0x00);
 
     int temp0 = (int8_t) (reg0 & 0x00ff);
     int temp1 = (reg0 & 0x8000) >> 15;
