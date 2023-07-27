@@ -26,13 +26,15 @@ LM75::~LM75() {
  * @return float la valeur de la température en °C
  */
 float LM75::getTemperature() {
+    
+    union {
+        int val;
+        char octet[4];
+    }reg0;
 
-    int reg0 = wiringPiI2CReadReg16(fd, 0x00);
-
-    int temp0 = (int8_t) (reg0 & 0x00ff);
-    int temp1 = (reg0 & 0x8000) >> 15;
+    reg0.val = wiringPiI2CReadReg16(fd, 0x00);
        
-    float temp = temp0 + 0.5 * temp1;
+    float temp = ((int16_t)((reg0.octet[0]<<8) | reg0.octet[1])) / 256.0 ;
     
     return temp;
 

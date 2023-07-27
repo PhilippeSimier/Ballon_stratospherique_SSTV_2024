@@ -7,6 +7,7 @@
 
 #include <cstdlib>
 #include <iostream>
+#include <iomanip>
 #include "LM75.h"
 #include <unistd.h>
 
@@ -17,7 +18,7 @@ int main(int argc, char** argv) {
     LM75 capteur;
 
     while (1) {
-        cout << capteur.getTemperature() << endl;
+        cout << setprecision(3) << capteur.getTemperature() << endl;
         sleep(1);
     }
 
