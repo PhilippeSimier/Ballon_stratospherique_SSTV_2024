@@ -8,7 +8,7 @@
 #ifndef LM75_H
 #define LM75_H
 
-#include <wiringPiI2C.h>
+#include "i2c.h"
 #include <stdio.h>
 #include <stdint.h>
 #include <iostream>
@@ -28,7 +28,8 @@ public:
     
 private:
     
-    int fd;
+    i2c *deviceI2C;                   // file descriptor
+    bool  presence;
 };
 
 #endif /* LM75_H */

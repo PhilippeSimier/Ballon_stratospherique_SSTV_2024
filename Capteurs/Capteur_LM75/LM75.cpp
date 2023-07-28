@@ -7,18 +7,22 @@
 
 #include "LM75.h"
 
+LM75::LM75(int8_t address) :
+presence(false),
+deviceI2C(new i2c(address)) {
+    if (deviceI2C->getError()) {
 
-LM75::LM75(int8_t address) {
+        throw std::runtime_error("Exception in constructor LM75");
+    }
 
-    fd = wiringPiI2CSetup(address);
-    
 }
 
 LM75::LM75(const LM75& orig) {
 }
 
 LM75::~LM75() {
-    close(fd);
+    if (deviceI2C != nullptr)
+        delete deviceI2C;
 }
 
 /**
@@ -26,16 +30,16 @@ LM75::~LM75() {
  * @return float la valeur de la température en °C
  */
 float LM75::getTemperature() {
-    
-    union {
-        int val;
-        char octet[4];
-    }reg0;
 
-    reg0.val = wiringPiI2CReadReg16(fd, 0x00);
-       
-    float temp = ((int16_t)((reg0.octet[0]<<8) | reg0.octet[1])) / 256.0 ;
-    
+    union {
+        int16_t val;
+        char octet[2];
+    } reg0;
+
+    reg0.val = (int16_t) deviceI2C->ReadReg16(0x00);
+
+    float temp = ((int16_t) ((reg0.octet[0] << 8) | reg0.octet[1])) / 256.0;
+
     return temp;
 
 }

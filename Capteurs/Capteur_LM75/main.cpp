@@ -15,13 +15,16 @@ using namespace std;
 
 int main(int argc, char** argv) {
 
-    LM75 capteur;
+    try {
+        LM75 capteur;
 
-    while (1) {
-        cout << setprecision(3) << capteur.getTemperature() << endl;
-        sleep(1);
+        while (1) {
+            cout << setprecision(3) << capteur.getTemperature() << endl;
+            sleep(1);
+        }
+    } catch (const runtime_error &e) {
+        cout << "Exception caught: " << e.what() << endl;
     }
-
 
     return 0;
 }
