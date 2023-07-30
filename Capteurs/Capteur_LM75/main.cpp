@@ -19,7 +19,7 @@ int main(int argc, char** argv) {
         LM75 capteur;
 
         while (1) {
-            cout << setprecision(3) << capteur.getTemperature() << endl;
+            cout << setprecision(3) << capteur.getTemperature() << '\r' <<endl;
             sleep(1);
         }
     } catch (const runtime_error &e) {
