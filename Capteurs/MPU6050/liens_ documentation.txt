@@ -1,1 +1,5 @@
 https://www.siloged.fr/docs/raspberry/index.html?I2C.html
+https://www.siloged.fr/docs/raspberry/index.html?MesurerunangleMPU6050.html
+https://openest.io/linux-embarque/utiliser-mpu6050-raspberry-pi/
+
+https://github.com/montotof123/Raspberry/tree/master/250_MPU6050
