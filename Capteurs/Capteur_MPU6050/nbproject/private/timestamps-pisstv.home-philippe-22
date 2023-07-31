@@ -1,7 +1,10 @@
-#Mon Jul 31 18:46:18 CEST 2023
+#Mon Jul 31 18:57:06 CEST 2023
 /home/philippe/Documents/github/Ballon_stratospherique_SSTV_2024/Capteurs/Capteur_MPU6050/MPU6050.cpp=c1690821878281
 /home/philippe/Documents/github/Ballon_stratospherique_SSTV_2024/Capteurs/Capteur_MPU6050/MPU6050.h=c1690821878277
 /home/philippe/Documents/github/Ballon_stratospherique_SSTV_2024/Capteurs/Capteur_MPU6050/Makefile=c1690815735558
+/home/philippe/Documents/github/Ballon_stratospherique_SSTV_2024/Capteurs/Capteur_MPU6050/doc_MPU6050/MPU-6000-Register-Map1.pdf=c1690815501809
+/home/philippe/Documents/github/Ballon_stratospherique_SSTV_2024/Capteurs/Capteur_MPU6050/doc_MPU6050/README.md=c1690815501809
+/home/philippe/Documents/github/Ballon_stratospherique_SSTV_2024/Capteurs/Capteur_MPU6050/doc_MPU6050/liens_\ documentation.txt=c1690815501809
 /home/philippe/Documents/github/Ballon_stratospherique_SSTV_2024/Capteurs/Capteur_MPU6050/i2c.cpp=c1690530169691
 /home/philippe/Documents/github/Ballon_stratospherique_SSTV_2024/Capteurs/Capteur_MPU6050/i2c.h=c1690530169691
 /home/philippe/Documents/github/Ballon_stratospherique_SSTV_2024/Capteurs/Capteur_MPU6050/main.cpp=c1690821975314
