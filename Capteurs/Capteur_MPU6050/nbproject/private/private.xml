@@ -6,11 +6,6 @@
     </data>
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/home/philippe/Documents/github/Ballon_stratospherique_SSTV_2024/Capteurs/Capteur_MPU6050/MPU6050.h</file>
-            <file>file:/home/philippe/Documents/github/Ballon_stratospherique_SSTV_2024/Capteurs/Capteur_MPU6050/main.cpp</file>
-            <file>file:/home/philippe/Documents/github/Ballon_stratospherique_SSTV_2024/Capteurs/Capteur_MPU6050/i2c.h</file>
-            <file>file:/home/philippe/Documents/github/Ballon_stratospherique_SSTV_2024/Capteurs/Capteur_MPU6050/MPU6050.cpp</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>
