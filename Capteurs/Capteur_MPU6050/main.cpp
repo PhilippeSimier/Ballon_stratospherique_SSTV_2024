@@ -12,10 +12,15 @@
 
 using namespace std;
 
+
+
 int main(int argc, char** argv) {
 
+    
     try {
         MPU6050 mpu;
+        
+        mpu.setAccSensibility(FS_2G);
 
         while (1) {
             cout << setfill('0') << fixed << setprecision(2) << mpu.getAccelX() << " g ";
@@ -29,6 +34,6 @@ int main(int argc, char** argv) {
 
         cout << "Exception caught: " << e.what() << endl;
     }
-    return 0;
+    return 1;
 }
 

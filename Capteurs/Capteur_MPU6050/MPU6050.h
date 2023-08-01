@@ -23,7 +23,7 @@ enum AccelSensibility {
 	LSB_FS_4G = 8192,  
 	LSB_FS_8G = 4096,  
 	LSB_FS_16G = 2048, 
-	ACCEL_MASK = 0xE7 //111x x111
+	ACCEL_MASK = 0x18 //0001 1000
 };
 
 class MPU6050 {
@@ -37,10 +37,14 @@ public:
     float getAccelX();
     float getAccelY();
     float getAccelZ();
+    
+    void setAccSensibility(AccelSensibility range);
+    
 
 private:
 
     i2c *deviceI2C; // file descriptor
+    char sensibility; 
 
     union data {
         short sData;
