@@ -15,7 +15,6 @@
 
 using namespace std;
 
-#include <pigpio.h>
 #include <unistd.h>
 #include "Led.h"
 
