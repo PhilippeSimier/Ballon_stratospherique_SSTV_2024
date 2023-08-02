@@ -17,24 +17,35 @@ using namespace std;
 
 #include <pigpio.h>
 #include <unistd.h>
+#include "Led.h"
 
 #define D2 13
+#define D1 19
 
 int main(int argc, char** argv) {
 
-    if (gpioInitialise() < 0) {
-        return -1;
+    try {
+
+        Led d1(D1);
+        Led d2(D2);
+
+        for (int compteur = 0; compteur < 60; compteur++) {
+
+            d1.setOn();
+            d2.setOff();
+            sleep(1);
+
+            d1.setOff();
+            d2.setOn();
+            sleep(1);
+        }
+        
+    } catch (const runtime_error &e) {
+
+        cout << "Exception caught: " << e.what() << endl;
+        return 1;
     }
 
-    gpioSetMode(D2, PI_OUTPUT);
-
-    for (int compteur = 0; compteur < 60; compteur++) {
-        gpioWrite(D2, 1);
-        sleep(1);
-        gpioWrite(D2, 0);
-        sleep(1);
-    }
-    gpioTerminate();
 
 
     return 0;
