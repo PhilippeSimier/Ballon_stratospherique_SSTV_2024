@@ -46,11 +46,9 @@ String BallonLora::receive(){
         packetSize = LoRa.parsePacket();
     }while (!packetSize);
     
-    digitalWrite(LED,1); // turn the green LED
     while (LoRa.available()) {
             data = LoRa.readString();
     }
-    digitalWrite(LED,0); // turn the LED
     return data;
     
 }
