@@ -1,7 +1,7 @@
 ﻿#  libcamera 
 ## Description de la commande libcamera
 
-**Libcamera** est une bibliothèque logicielle libre et open-source qui permet d'accéder et de contrôler les caméras sur les systèmes embarqués fonctionnant sous Linux. Elle offre une API C++ aux applications et fonctionne au niveau de la configuration de la caméra et de la récupération des images.
+**Libcamera** est une bibliothèque logicielle libre et open-source qui permet d'accéder et de contrôler les caméras sur les systèmes embarqués fonctionnant sous Linux. Elle offre une API C++ aux applications qui permet la configuration de la caméra et de la récupération des images.
 
 **Utilisations :**
 
@@ -48,12 +48,39 @@ Version: ImageMagick 6.9.11-60 Q16 arm 2021-01-25 https://imagemagick.org
 ```
 ## Incruster du texte 
 
-l'option [draw](https://imagemagick.org/script/command-line-options.php#draw) 
+Avec l'option [draw](https://imagemagick.org/script/command-line-options.php#draw) 
 ```bash
 convert -pointsize 20 -draw "text 10,20 'F4KMN'" photo.jpg photo_texte.jpg
 ```
+Avec l'option annotate
+```bash
+convert -pointsize 30 -fill red -annotate +20+30 'F4KMN' photo.jpg photo_texte2.jpg
+```
+1.  **`convert`**: C'est la commande principale de l'outil ImageMagick, utilisée pour la conversion et la manipulation d'images.
+    
+2.  **`-pointsize 30`**: Cela définit la taille du texte à 30 points. C'est la taille du texte qui sera ajouté à l'image.
+    
+3.  **`-fill red`**: Cela spécifie la couleur de remplissage du texte, dans ce cas, le texte sera en rouge.
+    
+4.  **`-annotate +20+30 'F4KMN'`**: Cette partie de la commande ajoute une annotation textuelle à l'image.
+    
+    -   `+20+30` spécifie la position relative où le texte sera ajouté. Dans ce cas, le texte sera décalé de 20 pixels à droite et 30 pixels vers le bas à partir du coin supérieur gauche de l'image.
+    -   `'F4KMN'` est le texte lui-même, qui sera ajouté à l'image.
+5.  **`photo.jpg`**: C'est le nom du fichier source, l'image à laquelle le texte sera ajouté.
+    
+6.  **`photo_texte2.jpg`**: C'est le nom du fichier de sortie, l'image résultante qui contiendra le texte ajouté.
 
+## Changer la police de caractères
 
+Utilisez l'option **-font FONT NAME** pour sélectionner une police.
+La commande affichera la liste complète des polices disponibles :
+```bash
+magick -list font
+```
+Annotation avec la police Courier-bold
+```bash
+convert -font Courier-Bold -pointsize 30 -fill red -annotate +20+30 'F4KMN' photo.jpg photo_texte3.jpg
+```
 # Changelog
 
 **08/02/2024 : ** Creation du README.md 
