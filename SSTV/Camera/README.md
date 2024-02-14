@@ -3,6 +3,12 @@
 
 **Libcamera** est une bibliothèque logicielle libre et open-source qui permet d'accéder et de contrôler les caméras sur les systèmes embarqués fonctionnant sous Linux. Elle offre une API C++ aux applications qui permet la configuration de la caméra et de la récupération des images.
 
+## Instatllation
+```bash
+apt install imagemagick
+```
+
+
 **Utilisations :**
 
 -   **Prise de photos et de vidéos:**  Libcamera peut être utilisée pour prendre des photos et des vidéos avec la caméra connectée au Raspberry Pi 0.
