@@ -73,10 +73,13 @@ convert -pointsize 30 -fill red -annotate +20+30 'F4KMN' photo.jpg photo_texte2.
 ## Changer la police de caractères
 
 Utilisez l'option **-font FONT NAME** pour sélectionner une police.
-La commande affichera la liste complète des polices disponibles :
+La commande suivante affichera la liste complète des polices disponibles :
 ```bash
-magick -list font
+convert -list font
 ```
+Pour chaque police, des informations de plusieurs lignes seront affichées, la ligne avec le nom de la police commence par « **Font :** ». C'est ce nom qu'il faut utiliser avec l'option **-font**.
+
+
 Annotation avec la police Courier-bold
 ```bash
 convert -font Courier-Bold -pointsize 30 -fill red -annotate +20+30 'F4KMN' photo.jpg photo_texte3.jpg
