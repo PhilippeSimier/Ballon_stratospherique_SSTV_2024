@@ -3,7 +3,7 @@
 
 **Libcamera** est une bibliothèque logicielle libre et open-source qui permet d'accéder et de contrôler les caméras sur les systèmes embarqués fonctionnant sous Linux. Elle offre une API C++ aux applications qui permet la configuration de la caméra et de la récupération des images.
 
-## Instatllation
+## Installation
 ```bash
 apt install imagemagick
 ```
