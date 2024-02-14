@@ -90,6 +90,20 @@ Annotation avec la police Courier-bold
 ```bash
 convert -font Courier-Bold -pointsize 30 -fill red -annotate +20+30 'F4KMN' photo.jpg photo_texte3.jpg
 ```
+
+## Conversion en rgb
+
+```bash
+convert -depth 8 ./photo.jpg ./photo.rgb
+```
+1.  **`convert`**: C'est la commande principale de l'outil ImageMagick, utilisée pour la conversion et la manipulation d'images.
+    
+2.  **`-depth 8`**: Cette option spécifie la profondeur de bits par composante pour l'image de sortie. Dans ce cas, elle est fixée à 8 bits, ce qui signifie que chaque composante de couleur (rouge, vert, bleu) aura une plage de valeurs de 0 à 255.
+    
+3.  **`./photo.jpg`**: C'est le chemin vers le fichier source, dans ce cas, `photo.jpg`. C'est l'image d'entrée qui sera convertie.
+    
+4.  **`./photo.rgb`**: C'est le chemin vers le fichier de sortie, dans ce cas, `photo.rgb`. La commande convertit l'image d'entrée en un fichier au format brut RGB, qui peut contenir les valeurs de chaque composante de couleur sans aucune compression ou en-tête de fichier spécifique.
+
 # Changelog
 
 **08/02/2024 : ** Creation du README.md 
