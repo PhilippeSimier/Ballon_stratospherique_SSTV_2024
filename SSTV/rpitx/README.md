@@ -5,6 +5,8 @@
 
 Il permet au Raspberry Pi de générer des signaux RF (Radio Fréquence) sur différentes gammes de fréquences. Cela peut inclure des fréquences radio FM, des signaux de télévision SSTV, des signaux de télécommande, etc.
 
+Branchez un fil sur **GPIO 4**, c'est-à-dire la broche 7 du connecteur d’extension. Ce fil fait office d'antenne. La longueur optimale du fil dépend de la fréquence sur laquelle vous souhaitez transmettre, mais cela peut fonctionne avec quelques centimètres pour des tests locaux.
+
 
 ## Installation rpitx
 ```bash
@@ -49,8 +51,15 @@ Detached kernel driver
 Found Rafael Micro R828D tuner
 ```
 Ouvrir Gqrx dans la fenêtre device choisir la clé SDR
+![le paramétrage de Gqrx](/SSTV/rpitx/Gqrx_water-fall.png ) 
 
+ - Le WaterFall
 
+![le waterfall](/SSTV/rpitx/reglage_device.png ) 
+
+# Slow Scan Television (SSTV)
+Il s'agit du mode de transmission d'images utilisant la modulation audio (mode USB Upper Side Band = Bande Latérale Supérieure). Vous avez besoin d'un logiciel supplémentaire pour décoder et afficher l'image. 
+Cette démo utilise le mode **Martin1** de sstv.
 
 # Changelog
 
