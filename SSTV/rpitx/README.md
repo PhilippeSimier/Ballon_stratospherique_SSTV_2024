@@ -51,11 +51,10 @@ Detached kernel driver
 Found Rafael Micro R828D tuner
 ```
 Ouvrir Gqrx dans la fenêtre device choisir la clé SDR
-![le paramétrage de Gqrx](/SSTV/rpitx/Gqrx_water-fall.png ) 
+![le waterfall](/SSTV/rpitx/reglage_device.png ) 
 
  - Le WaterFall
-
-![le waterfall](/SSTV/rpitx/reglage_device.png ) 
+![le paramétrage de Gqrx](/SSTV/rpitx/Gqrx_water-fall.png ) 
 
 # Slow Scan Television (SSTV)
 Il s'agit du mode de transmission d'images utilisant la modulation audio (mode USB Upper Side Band = Bande Latérale Supérieure). Vous avez besoin d'un logiciel supplémentaire pour décoder et afficher l'image. 
