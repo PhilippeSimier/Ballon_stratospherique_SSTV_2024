@@ -38,6 +38,11 @@ Avec l'option F du menu, choisir une fréquence de base pour les tests.  par exe
 Avec l'option 0 du menu, lancer l'émission en continu d'une porteuse, une fenêtre indiquant **Transmitting** apparaît. 
 Appuyer sur Ok pour arrêter l’émission de la porteuse. 
 
+Vous pouvez aussi lancer l'émission en continu de la porteuse en ligne de commande 
+```bash
+sudo tune -f 28680000
+```
+
 Sur le PC  
 
  - tester la présence de la clé SDR avec `rtl-test`
