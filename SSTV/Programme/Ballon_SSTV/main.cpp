@@ -14,7 +14,7 @@ using namespace std;
 
 // Fonction à exécuter de manière synchronisée
 
-void fonctionSynchronisee() {
+void envoyerPhoto() {
 
     std::cout << "Envoi d'une photo." << std::endl;
     // Prise d'une photo en basse résolution
@@ -37,9 +37,9 @@ int main(int argc, char** argv) {
         auto tmMaintenant = *localtime(&tempsActuel);
 
         // Vérifier si c'est la seconde 0 et que c'est un multiple de 5 minutes
-        if (tmMaintenant.tm_sec == 56 && tmMaintenant.tm_min % 5 == 0) {
+        if (tmMaintenant.tm_sec == 0 && tmMaintenant.tm_min % 5 == 0) {
             // Appeler la fonction synchronisée
-            fonctionSynchronisee();
+            envoyerPhoto();
 
             // Attendre jusqu'à la prochaine minute
             this_thread::sleep_for(chrono::seconds(60));
