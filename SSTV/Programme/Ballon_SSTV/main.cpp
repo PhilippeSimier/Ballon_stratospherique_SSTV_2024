@@ -9,15 +9,13 @@
 #include <unistd.h>
 #include <chrono>
 #include <thread>
+#include "Camera.h"
 
 using namespace std;
 
-// Fonction à exécuter de manière synchronisée
-void envoyerPhoto();
-
-
 int main(int argc, char** argv) {
-
+    
+    int i = 0;
     while (true) {
 
         // Obtenir l'heure actuelle
@@ -25,34 +23,24 @@ int main(int argc, char** argv) {
         auto tempsActuel = chrono::system_clock::to_time_t(maintenant);
         auto tmMaintenant = *localtime(&tempsActuel);
 
-        // Vérifier si c'est un multiple de 5 minutes - 6s
-        if (tmMaintenant.tm_sec == 54 && tmMaintenant.tm_min % 5 == 4) {
-            
-            // Appeler la fonction synchronisée
-            envoyerPhoto();
+        // Vérifier si c'est un multiple de 8 minutes - 6s
+        if (tmMaintenant.tm_sec == 54) {
+            if (tmMaintenant.tm_min % 5 == 4) {
 
-            // Attendre jusqu'à la prochaine minute
-            this_thread::sleep_for(chrono::seconds(60));
-        } else {
-            // Attendre une seconde avant de vérifier à nouveau
-            this_thread::sleep_for(chrono::seconds(1));
-        }
-        
+                // Appeler la fonction synchronisée
+                Camera::envoyerPhoto(29000000);
+            } else{
+                Camera::enregistrerPhoto(i);
+                i++;
+                this_thread::sleep_for(chrono::seconds(1));
+            }
+        } 
+
+
     }
 
     return 0;
 }
 
-void envoyerPhoto() {
 
-    std::cout << "Envoi d'une photo." << std::endl;
-    // Prise d'une photo en basse résolution
-    system("libcamera-still --width 320 --height 256 -o /home/ballon/photo.jpg");
-    // add texte
-    system("convert -pointsize 20 -fill black -draw \"text 10,20 'F4KMN `date +\"%D %T\"`'\" /home/ballon/photo.jpg /home/ballon/photo_date.jpg");
-    // Convertion en RGB 8 bits
-    system("convert -depth 8 /home/ballon/photo_date.jpg /home/ballon/photo_date.rgb");
-    // Emission SSTV
-    system("sudo /home/ballon/rpitx/pisstv /home/ballon/photo_date.rgb 28680000");
-}
 
