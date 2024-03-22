@@ -3,6 +3,7 @@
  * Author: philippe SIMIER
  *
  * Created on 14 mars 2024, 17:13
+ * ajouter l'option de compilation -pthread lors de la compilation
  */
 
 #include <iostream>
@@ -13,8 +14,10 @@
 
 using namespace std;
 
-int main(int argc, char** argv) {
-    
+// Fonction exécutée par le deuxième thread
+
+void threadFunction1() {
+
     int i = 0;
     while (true) {
 
@@ -23,21 +26,38 @@ int main(int argc, char** argv) {
         auto tempsActuel = chrono::system_clock::to_time_t(maintenant);
         auto tmMaintenant = *localtime(&tempsActuel);
 
-        // Vérifier si c'est un multiple de 8 minutes - 6s
-        if (tmMaintenant.tm_sec == 54) {
-            if (tmMaintenant.tm_min % 5 == 4) {
+        if (tmMaintenant.tm_sec == 30) {
+            Camera::enregistrerPhoto(i);
+            i++;
+            this_thread::sleep_for(chrono::seconds(1));
 
-                // Appeler la fonction synchronisée
-                Camera::envoyerPhoto(29000000);
-            } else{
-                Camera::enregistrerPhoto(i);
-                i++;
-                this_thread::sleep_for(chrono::seconds(1));
-            }
-        } 
-
-
+        }
     }
+}
+
+int main(int argc, char** argv) {
+
+    thread t1(threadFunction1);
+
+    while (true) {
+
+        // Obtenir l'heure actuelle
+        auto maintenant = chrono::system_clock::now();
+        auto tempsActuel = chrono::system_clock::to_time_t(maintenant);
+        auto tmMaintenant = *localtime(&tempsActuel);
+
+        // Vérifier si c'est un multiple de 5 minutes - 6s
+        if (tmMaintenant.tm_sec == 54 && tmMaintenant.tm_min % 5 == 4) {
+
+            // Appeler la fonction synchronisée
+            Camera::envoyerPhoto(29000000);
+            this_thread::sleep_for(chrono::seconds(1));
+
+        }
+    }
+
+    // Attente de la fin du deuxième thread
+    t1.join();
 
     return 0;
 }
