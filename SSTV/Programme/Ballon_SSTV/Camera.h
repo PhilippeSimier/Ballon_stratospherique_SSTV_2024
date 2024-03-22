@@ -9,6 +9,7 @@
 #define CAMERA_H
 
 #include <iostream>
+#include <iomanip>
 #include <unistd.h>
 #include <sstream>
 #include <string>

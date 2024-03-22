@@ -1,6 +1,6 @@
 /* 
  * File:   main.cpp
- * Author: philippe simier
+ * Author: philippe SIMIER
  *
  * Created on 14 mars 2024, 17:13
  */
