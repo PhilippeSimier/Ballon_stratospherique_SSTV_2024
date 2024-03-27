@@ -3,7 +3,7 @@
  * Author: philippe SIMIER
  *
  * Created on 27 mars 2024, 08:21
- * ajouter l'option de compilation -pthread lors de la compilation, 
+ *  
  */
 
 #include <iostream>
