@@ -19,7 +19,7 @@ using namespace std;
 int main(int argc, char** argv) {
 
     try {
-        bme280 capteur(0x77);
+        BME280 capteur(0x77);
 
 
         cout << "Capteur BME 280 présent sur le bus I2C\r" << endl;

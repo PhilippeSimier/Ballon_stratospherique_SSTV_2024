@@ -21,7 +21,7 @@ using namespace std;
 
 // Le constructeur
 
-bme280::bme280(int i2cAddress) {
+BME280::BME280(int i2cAddress) {
     deviceI2C = new i2c(i2cAddress);
     if (!deviceI2C->getError()) {
 
@@ -37,7 +37,7 @@ bme280::bme280(int i2cAddress) {
     }
 }
 
-bme280::~bme280() {
+BME280::~BME280() {
     if (deviceI2C != NULL)
         delete deviceI2C;
 }
@@ -45,11 +45,11 @@ bme280::~bme280() {
 
 // Méthode pour obtenir le Chip ID (0x60 pour le BME280)
 
-unsigned int bme280::obtenirChipID() {
+unsigned int BME280::obtenirChipID() {
     return (unsigned int) deviceI2C->ReadReg8(CHIPID);
 }
 
-void bme280::readCalibrationData() {
+void BME280::readCalibrationData() {
     cal.dig_T1 = (uint16_t) deviceI2C->ReadReg16(DIG_T1);
     cal.dig_T2 = (int16_t) deviceI2C->ReadReg16(DIG_T2);
     cal.dig_T3 = (int16_t) deviceI2C->ReadReg16(DIG_T3);
@@ -72,7 +72,7 @@ void bme280::readCalibrationData() {
     cal.dig_H6 = (int8_t) deviceI2C->ReadReg8(DIG_H6);
 }
 
-void bme280::getRawData() {
+void BME280::getRawData() {
 
     deviceI2C->Write(0xf7);
 
@@ -103,7 +103,7 @@ void bme280::getRawData() {
     raw.humidity = (raw.humidity | raw.hlsb);
 }
 
-double bme280::obtenirTemperatureEnC() {
+double BME280::obtenirTemperatureEnC() {
     double var1;
     double var2;
     double temperature;
@@ -126,7 +126,7 @@ double bme280::obtenirTemperatureEnC() {
     return temperature;
 }
 
-double bme280::obtenirTemperatureEnF() {
+double BME280::obtenirTemperatureEnF() {
     double output = obtenirTemperatureEnC();
     output = (output * 9) / 5 + 32;
     return output;
@@ -138,7 +138,7 @@ double bme280::obtenirTemperatureEnF() {
 // (24 bits pour la partie entière et 8 bits pour la partie fractionnaire).
 // 24674867 represente 24674867/256 = 96386.2 Pa ou 24674867/25600 963.862 hPa
 
-double bme280::obtenirPression() {
+double BME280::obtenirPression() {
     double var1;
     double var2;
     double var3;
@@ -177,7 +177,7 @@ double bme280::obtenirPression() {
 
 // retourne le taux d'humidité relative en %
 
-double bme280::obtenirHumidite() {
+double BME280::obtenirHumidite() {
     double humidity;
     double humidity_min = 0.0;
     double humidity_max = 100.0;
@@ -209,7 +209,7 @@ double bme280::obtenirHumidite() {
 // Selon l'atmosphère standard internationale (ISA) ou atmosphère normalisée
 // (appelée aussi QNH en aviation) qui ne tient pas compte de la température réelle.
 
-double bme280::obtenirPression0() {
+double BME280::obtenirPression0() {
     double P = obtenirPression();
     return P * (pow(1.0 - (0.0065 * h / (273.15 + 15)), 5.255));
 }
@@ -217,13 +217,13 @@ double bme280::obtenirPression0() {
 // h = différence d'altitude du capteur avec P (mètres),
 // négatif pour les élévations, positif pour les dépressions (la Mer Morte par exemple)
 
-void bme280::donnerAltitude(double altitude) {
+void BME280::donnerAltitude(double altitude) {
     this->h = altitude * -1.0;
 }
 
 // retourne la valeur du point de rosée
 
-double bme280::obtenirPointDeRosee() {
+double BME280::obtenirPointDeRosee() {
     double ai = 7.45;
     double bi = 235.0;
     double z1, z2, z3, es, e, tau;
@@ -245,7 +245,7 @@ double bme280::obtenirPointDeRosee() {
 
 // retourne la version de la classe
 
-void bme280::version() {
+void BME280::version() {
 
     cout << "\nBME280 PSR Version 2.0\n" << endl;
 

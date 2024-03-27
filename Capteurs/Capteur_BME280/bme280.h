@@ -111,12 +111,12 @@ typedef struct {
     int32_t t_fine;
 } bme280_calib_data;
 
-class bme280 {
+class BME280 {
 public:
     // le constructeur
-    bme280(int i2cAddress = ADRESSE_I2C_BME280);
+    BME280(int i2cAddress = ADRESSE_I2C_BME280);
     // le destructeur
-    ~bme280();
+    ~BME280();
 
 
     // Méthode pour obtenir le Chip ID (0x60 pour le BME280)
