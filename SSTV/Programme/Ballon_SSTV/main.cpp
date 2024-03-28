@@ -11,33 +11,14 @@
 #include <chrono>
 #include <thread>
 #include "Camera.h"
+#include "bme280.h"
 
 using namespace std;
 
-// Fonction exécutée par le deuxième thread
-
+/**
+ *    Fonction exécutée par le deuxième thread
+ */
 void threadFunction1() {
-
-    int i = 0;
-    while (true) {
-
-        // Obtenir l'heure actuelle
-        auto maintenant = chrono::system_clock::now();
-        auto tempsActuel = chrono::system_clock::to_time_t(maintenant);
-        auto tmMaintenant = *localtime(&tempsActuel);
-
-        if (tmMaintenant.tm_sec == 30) {
-            Camera::enregistrerPhoto(i);
-            i++;
-            this_thread::sleep_for(chrono::seconds(1));
-
-        }
-    }
-}
-
-int main(int argc, char** argv) {
-
-    thread t1(threadFunction1);
 
     while (true) {
 
@@ -54,13 +35,39 @@ int main(int argc, char** argv) {
             this_thread::sleep_for(chrono::seconds(1));
 
         }
-    }
 
+    }
+}
+
+int main(int argc, char** argv) {
+
+    BME280 capteur(0x77);
+    thread t1(threadFunction1);  
+    Camera camera;
+
+
+    while (true) {
+
+        // Obtenir l'heure actuelle
+        auto maintenant = chrono::system_clock::now();
+        auto tempsActuel = chrono::system_clock::to_time_t(maintenant);
+        auto tmMaintenant = *localtime(&tempsActuel);
+
+        
+        if (tmMaintenant.tm_sec == 30) {
+            
+            stringstream annotation;
+            annotation << fixed << setprecision(1) << capteur.obtenirPression() << " hPa";
+            camera.enregistrerPhoto(annotation.str());
+            
+            this_thread::sleep_for(chrono::seconds(1));
+
+        }
+    }
     // Attente de la fin du deuxième thread
     t1.join();
 
     return 0;
+
 }
-
-
 

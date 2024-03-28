@@ -16,13 +16,16 @@
 
 class Camera {
 public:
+    
     Camera();
     Camera(const Camera& orig);
     virtual ~Camera();
     
     static void envoyerPhoto(const unsigned long frequence = 28680000);
-    static void enregistrerPhoto(int i);
+    void enregistrerPhoto(const std::string annotation);
+
 private:
+    int i;
 
 };
 
