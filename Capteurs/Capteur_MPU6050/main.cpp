@@ -18,7 +18,7 @@ int main(int argc, char** argv) {
 
     
     try {
-        MPU6050 mpu;
+        MPU6050 mpu(0x69);
         
         mpu.setAccSensibility(FS_2G);
 

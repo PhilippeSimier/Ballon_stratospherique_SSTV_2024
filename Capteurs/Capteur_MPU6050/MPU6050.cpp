@@ -15,11 +15,9 @@ deviceI2C(new i2c(address)) {
 
     // Lecture du registre d'identification
     unsigned char id = deviceI2C->ReadReg8(0x75);
+    
 
-
-
-
-    if (id != address) {
+    if (id != 0x68) {
         throw std::runtime_error("Exception in constructor MPU5060");
     }
 
