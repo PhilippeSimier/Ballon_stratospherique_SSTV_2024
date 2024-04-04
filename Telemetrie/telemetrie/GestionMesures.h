@@ -39,7 +39,7 @@ public:
     void sauvegarderMesures();
 
     // Assesseurs
-    double getTemperature();
+    
     double getTemperatureMpu();
     double getTemperatureLm();
     double getTemperatureBme();
@@ -51,7 +51,7 @@ public:
 
 private:
     
-    double temperature;
+    
     double tempMpu;
     double tempLm;
     double tempBme;

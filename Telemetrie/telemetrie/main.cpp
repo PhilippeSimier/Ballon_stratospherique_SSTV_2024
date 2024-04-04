@@ -10,22 +10,19 @@
 #include <thread>
 #include "GestionMesures.h"
 
-int main(int argc, char **argv)
-{
+int main(int argc, char **argv) {
     std::cout << "[01/04]    | Le programme a bien démarré.\n\rDétection des capteurs..." << std::endl;
 
-    try
-    {
-        GestionMesures gestionMesures;
 
-        std::cout << "[02/04]    | Tous les capteurs sont présents sur le bus I2C, et le capteur MPU 6050 est configuré sur 0x77." << std::endl;
+    GestionMesures gestionMesures;
+
+    try {
 
         std::cout << "[03/04]    | Démarrage des mesures..." << std::endl;
 
-        do
-        {
+        do {
             std::cout
-                << "[04/04]    | Nouvelle mesure  :\n-------------------" << std::endl;
+                    << "[04/04]    | Nouvelle mesure  :\n-------------------" << std::endl;
 
             gestionMesures.effectuerMesures();
 
@@ -40,23 +37,18 @@ int main(int argc, char **argv)
 
             std::cout << "[04/04]    | Fin de la mesure.\n[04/04]    | Vérification des mesures..." << std::endl;
 
-            if (gestionMesures.verifierMesures())
-            {
-                std::cout << "[04/04]    | Les mesures sont cohérentes." << std::endl;
-                std::cout << "[04/04]    | Sauvegarde dans le fichier CSV..." << std::endl;
-                gestionMesures.sauvegarderMesures();
-                std::cout << "[04/04]    | Sauvegarde dans le fichier CSV achevée avec succès." << std::endl;
-            }
-            else
-            {
-                std::cerr << "[04/04]    | Les mesures sont incohérentes, la sauvegarde est annulée." << std::endl;
-            }
+            gestionMesures.verifierMesures();
+
+            std::cout << "[04/04]    | Sauvegarde dans le fichier CSV..." << std::endl;
+            gestionMesures.sauvegarderMesures();
+            std::cout << "[04/04]    | Sauvegarde dans le fichier CSV achevée avec succès." << std::endl;
+
 
             std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+
         } while (1);
-    }
-    catch (const runtime_error &e)
-    {
+
+    } catch (const runtime_error &e) {
         cout << "Exception caught: " << e.what() << endl;
     }
     return 1;

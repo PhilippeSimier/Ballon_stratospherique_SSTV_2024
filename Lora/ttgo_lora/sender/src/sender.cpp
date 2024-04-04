@@ -13,7 +13,8 @@
 
 int counter = 0;
 BallonLora bl;
-char message[255];
+char receivedString[50];
+int id = 0;
 
 void setup() {
     
@@ -33,15 +34,55 @@ void setup() {
 
 void loop() {
     
-    Serial.print("Sending packet: "); 
-    Serial.println(counter);
+    while (Serial.available() > 0) {
 
-    snprintf(message, sizeof (message), "Hello %03d", counter);
-    
-    bl.send(message);
-    
-    afficheur.afficher(message);
-    counter++;  
-    delay(10000);
+        // Lit le caractère suivant
+        char incomingCharacter = Serial.read();
+
+        // Vérifie si le caractère reçu est un retour à la ligne 
+        // ou une nouvelle ligne
+        if (incomingCharacter == '\n' || incomingCharacter == '\r') {
+            // Si c'est le cas, ajoute un caractère de fin de chaîne
+            receivedString[id] = '\0';
+
+            // Affiche la chaîne reçue sur le port série
+            Serial.print("Chaîne reçue : ");
+            Serial.println(receivedString);
+
+            Serial.print("index : ");
+            Serial.println(id);
+
+            afficheur.afficher(String(receivedString));
+
+
+            // send message
+            bl.send(receivedString);
+
+            Serial.println("OK");
+
+            // Réinitialise l'index pour la prochaine lecture
+            id = 0;
+        } else {
+            // Si ce n'est pas un caractère de fin de ligne, ajoute le caractère à la chaîne
+            receivedString[id] = incomingCharacter;
+            // Passe au caractère suivant dans la chaîne
+            id++;
+
+            // Vérifie si la longueur maximale de la chaîne est atteinte
+            if (id >= 49) {
+                // Ajoute un caractère de fin de chaîne
+                receivedString[id] = '\0';
+                // Affiche la chaîne reçue sur le port série
+                Serial.println("Chaîne reçue : " + String(receivedString));
+                bl.send(receivedString);
+                // Réinitialise l'index pour la prochaine lecture
+                id = 0;
+            }
+
+        }
+
+
+    }
+
 }
 

@@ -1,9 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /* 
  * File:   main.c
  * Author: ale
@@ -99,11 +93,12 @@ void tx_f(txData *tx) {
 void * rx_f(void *p) {
     rxData *rx = (rxData *) p;
     printf("rx --------------------------------> done \n\r");
-    printf("CRC error: %d\n", rx->CRC);
-    printf("Data size: %d\n", rx->size);
-    printf("string: %s\n", rx->buf); //Data we'v received
-    printf("RSSI: %d\n", rx->RSSI);
-    printf("SNR: %f\n", rx->SNR);
+    printf("CRC error: %d\n\r", rx->CRC);
+    printf("Data size: %d\n\r", rx->size);
+    printf("string: %s\n\r", rx->buf); //Data we'v received
+    printf("RSSI: %d\n\r", rx->RSSI);
+    printf("SNR: %f\n\r", rx->SNR);
+    memset(fileRX.texte, '\0', sizeof(fileRX.texte));
     strcpy(fileRX.texte,rx->buf);
     printf("buffer %s\n\r",fileRX.texte);
     msgsnd(idFileRX, (void*) &fileRX, sizeof(fileRX.texte), IPC_NOWAIT);
@@ -114,6 +109,7 @@ void * rx_f(void *p) {
 
 int main(int argc, char** argv) {
 
+    printf("Programme LoRa \n\r");
     char txbuf[255];
     char header[255];
     char *payload="!4753.42N/00016.61Eb/A=000261\0";

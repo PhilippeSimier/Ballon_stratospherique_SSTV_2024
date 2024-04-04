@@ -7,12 +7,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/ale/NetBeansProjects/ttgo/rpi_lora_files/LoRa.h</file>
-            <file>file:/home/ale/NetBeansProjects/ttgo/rpi_lora_files/LoRa.c</file>
-            <file>file:/home/ale/NetBeansProjects/ttgo/rpi_lora_files/readConfig.c</file>
-            <file>file:/home/ale/NetBeansProjects/ttgo/rpi_lora_files/main.c</file>
-            <file>file:/home/ale/NetBeansProjects/ttgo/rpi_lora_files/readConfig.h</file>
-            <file>file:/home/ale/NetBeansProjects/ttgo/rpi_lora_files/main_1.c</file>
+            <file>file:/home/USERS/PROFS/psimier/Github/Ballon_stratospherique_SSTV_2024/Lora/rpi_lora_files/main.c</file>
         </group>
     </open-files>
 </project-private>

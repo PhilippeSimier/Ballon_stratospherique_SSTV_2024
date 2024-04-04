@@ -15,13 +15,13 @@ CND_PACKAGE_DIR_Debug=dist/Debug/GNU-Linux/package
 CND_PACKAGE_NAME_Debug=rpilorafiles.tar
 CND_PACKAGE_PATH_Debug=dist/Debug/GNU-Linux/package/rpilorafiles.tar
 # Release configuration
-CND_PLATFORM_Release=GNU-Linux
-CND_ARTIFACT_DIR_Release=dist/Release/GNU-Linux
+CND_PLATFORM_Release=None-Linux
+CND_ARTIFACT_DIR_Release=dist/Release/None-Linux
 CND_ARTIFACT_NAME_Release=rpi_lora_files
-CND_ARTIFACT_PATH_Release=dist/Release/GNU-Linux/rpi_lora_files
-CND_PACKAGE_DIR_Release=dist/Release/GNU-Linux/package
+CND_ARTIFACT_PATH_Release=dist/Release/None-Linux/rpi_lora_files
+CND_PACKAGE_DIR_Release=dist/Release/None-Linux/package
 CND_PACKAGE_NAME_Release=rpilorafiles.tar
-CND_PACKAGE_PATH_Release=dist/Release/GNU-Linux/package/rpilorafiles.tar
+CND_PACKAGE_PATH_Release=dist/Release/None-Linux/package/rpilorafiles.tar
 #
 # include compiler specific variables
 #
