@@ -96,8 +96,8 @@ void * rx_f(void *p) {
     printf("CRC error: %d\n\r", rx->CRC);
     printf("Data size: %d\n\r", rx->size);
     rx->buf[rx->size] = '\0';  // Ajoute une fin de chaîne de Caratères
-    printf("RSSI: %d\n\r", rx->RSSI);
-    printf("SNR: %f\n\r", rx->SNR);
+    printf("RSSI: %d dBm\n\r", rx->RSSI);
+    printf("SNR: %f  dB\n\r", rx->SNR);
     strcpy(fileRX.texte,rx->buf);
     free(p);
     printf("buffer %s \n\r",fileRX.texte);
@@ -132,16 +132,16 @@ int main(int argc, char** argv) {
 
     readConfiguration(&modem, header);
 
-    printf("Config du fichier ini\n\r");
+    printf("Configuration à partir de config.ini\n\r");
     // Afficher les valeurs de la structure
     printf("spiCS = %d\n\r", modem.spiCS);
-    printf("bw = %d\n\r",    modem.eth.bw);
-    printf("sf = %d\n\r",    modem.eth.sf);
-    printf("ecr = %d\n\r",   modem.eth.ecr);
-    printf("CRC = %d\n\r",   modem.eth.CRC);
+    printf("bw   = %d\n\r",    modem.eth.bw);
+    printf("sf   = %d\n\r",    modem.eth.sf);
+    printf("ecr  = %d\n\r",   modem.eth.ecr);
+    printf("CRC  = %d\n\r",   modem.eth.CRC);
     printf("freq = %f\n\r",  modem.eth.freq);
     printf("resetGpioN = %d\n\r", modem.eth.resetGpioN);
-    printf("dio0GpioN = %d\n\r", modem.eth.dio0GpioN);
+    printf("dio0GpioN  = %d\n\r", modem.eth.dio0GpioN);
 
     modem.rx.data.userPtr = (void *)(&modem);//To handle with chip from rx callback
     modem.tx.data.userPtr = (void *)(&modem);//To handle with chip from tx callback
@@ -160,25 +160,21 @@ int main(int argc, char** argv) {
 
     LoRa_begin(&modem);
     LoRa_receive(&modem);
-    /*
-    while(LoRa_get_op_mode(&modem) != SLEEP_MODE){
-        sleep(1);
-    }
-     */
+
     while (1) {
-        //trame à transmettre à la station sol
+        //reception dans la file d'une trame à transmettre à la station sol
         ret = msgrcv(idFileTX, (void*) &fileTX, sizeof(txbuf), 2, IPC_NOWAIT);
         if (ret != -1) {
-            printf("Reception d'une trame à émettre en LoRa");
-	    printf("%s", fileTX.texte);	
+            printf("Reception d'une trame à émettre en LoRa\r\n");
+	    printf("%s\r\n", fileTX.texte);	
             LoRa_stop_receive(&modem);  //stop la réception
-            //LoRa_sleep(&modem); // pas besoin ?
+
             memset(txbuf, '\0', sizeof(txbuf)); //header + payload de la file
             strcpy(txbuf, header);
             strcat(txbuf,fileTX.texte);
             txbuf[1] = 0xff;
             txbuf[2] = 0x01;
-            printf("Trame APRS %s %d\n\r", txbuf, strlen(txbuf)); 
+            printf("Trame APRS %s\n\r len : %d\n\r", txbuf, strlen(txbuf)); 
             modem.tx.data.size = strlen(txbuf); //Payload len
             LoRa_send(&modem);              //c'est parti, confirmation dans le handler tx_f
             printf("Tsym: %f\n\r", modem.tx.data.Tsym);
