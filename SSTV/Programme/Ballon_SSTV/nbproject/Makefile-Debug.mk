@@ -36,6 +36,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/Camera.o \
+	${OBJECTDIR}/Led.o \
 	${OBJECTDIR}/bme280.o \
 	${OBJECTDIR}/i2c.o \
 	${OBJECTDIR}/main.o
@@ -63,12 +64,17 @@ LDLIBSOPTIONS=
 
 ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/ballon_sstv: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
-	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/ballon_sstv ${OBJECTFILES} ${LDLIBSOPTIONS} -pthread
+	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/ballon_sstv ${OBJECTFILES} ${LDLIBSOPTIONS} -pthread -lpigpio
 
 ${OBJECTDIR}/Camera.o: Camera.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Camera.o Camera.cpp
+
+${OBJECTDIR}/Led.o: Led.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Led.o Led.cpp
 
 ${OBJECTDIR}/bme280.o: bme280.cpp
 	${MKDIR} -p ${OBJECTDIR}

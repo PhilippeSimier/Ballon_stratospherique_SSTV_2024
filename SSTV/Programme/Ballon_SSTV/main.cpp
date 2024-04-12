@@ -4,6 +4,7 @@
  *
  * Created on 14 mars 2024, 17:13
  * ajouter l'option de compilation -pthread lors de la compilation
+ * et l'option -lpigpio
  */
 
 #include <iostream>
@@ -12,6 +13,7 @@
 #include <thread>
 #include "Camera.h"
 #include "bme280.h"
+#include "Led.h"
 
 using namespace std;
 
@@ -20,6 +22,8 @@ using namespace std;
  */
 void threadFunction1() {
 
+    
+    
     while (true) {
 
         // Obtenir l'heure actuelle
@@ -31,7 +35,9 @@ void threadFunction1() {
         if (tmMaintenant.tm_sec == 54 && tmMaintenant.tm_min % 5 == 4) {
 
             // Appeler la fonction synchronisée
+            
             Camera::envoyerPhoto(29000000);
+            
             this_thread::sleep_for(chrono::seconds(1));
 
         }
@@ -44,8 +50,11 @@ int main(int argc, char** argv) {
     BME280 capteur(0x77);
     thread t1(threadFunction1);  
     Camera camera;
-
-
+    
+    Led* ptt = new Led(6);  // Commande Push To Talk
+    ptt->setOn();           // active l'ampli en émission
+    delete ptt;
+    
     while (true) {
 
         // Obtenir l'heure actuelle
