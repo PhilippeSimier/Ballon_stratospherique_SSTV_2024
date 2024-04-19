@@ -160,7 +160,9 @@ int main(int argc, char** argv) {
 
     LoRa_begin(&modem);
     LoRa_receive(&modem);
-
+    
+    //gpioTerminate();
+    
     while (1) {
         //reception dans la file d'une trame à transmettre à la station sol
         ret = msgrcv(idFileTX, (void*) &fileTX, sizeof(txbuf), 2, IPC_NOWAIT);

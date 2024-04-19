@@ -8,48 +8,89 @@
 #include <iostream>
 #include <chrono>
 #include <thread>
+#include <sstream>
+#include <iomanip>
+#include <stdexcept>
+#include <sys/types.h>
+#include <sys/ipc.h>
+#include <sys/msg.h>
+#include <mutex>
 #include "GestionMesures.h"
 
+const int MAX_MESSAGE_SIZE = 100; // taille maximum du message
+const int FILE_KEY = 5679; // clef de la file de messages
+const int MSG_FLAG = 0666 | IPC_CREAT; // flag de creation de la file de messages
+const int SLEEP_DURATION_MEASUREMENTS = 10; // seconds
+const int SLEEP_DURATION_LORA = 12; // seconds (2 minutes)
+
+struct Message {
+    long mtype;
+    char mtext[MAX_MESSAGE_SIZE];
+};
+
+GestionMesures gestionMesures;
+std::mutex globalMutex;
+
+void envoyerMessageALaFile(int msgid, const std::string &payload) {
+    Message message;
+    message.mtype = 2;
+
+    payload.copy(message.mtext, sizeof (message.mtext) - 1);
+    message.mtext[sizeof (message.mtext) - 1] = '\0';
+
+    // Utilisation de std::lock_guard pour verrouiller automatiquement
+    std::lock_guard<std::mutex> lock(globalMutex);
+    if (msgsnd(msgid, &message, sizeof (message.mtext), 0) == -1) {
+        throw std::runtime_error("Erreur lors de l'envoi du message.");
+    }
+
+    std::cout << "Message envoyé : " << payload << std::endl;
+}
+
 int main(int argc, char **argv) {
-    std::cout << "[01/04]    | Le programme a bien démarré.\n\rDétection des capteurs..." << std::endl;
-
-
-    GestionMesures gestionMesures;
+    int msgid;
 
     try {
 
-        std::cout << "[03/04]    | Démarrage des mesures..." << std::endl;
+        if ((msgid = msgget((key_t) FILE_KEY, MSG_FLAG)) == -1) {
+            throw std::runtime_error("Erreur lors de la création de la file de messages.");
+        }
 
-        do {
-            std::cout
-                    << "[04/04]    | Nouvelle mesure  :\n-------------------" << std::endl;
+        while (true) {
 
-            gestionMesures.effectuerMesures();
+            // Obtenir l'heure actuelle
+            auto maintenant = chrono::system_clock::now();
+            auto tempsActuel = chrono::system_clock::to_time_t(maintenant);
+            auto tmMaintenant = *localtime(&tempsActuel);
 
-            std::cout << "[04/04]    | (MPU 6050) | Acc Z    : " << std::setfill('0') << std::fixed << std::setprecision(2) << gestionMesures.getAccelerationVerticale() << " g " << std::endl;
-            std::cout << "[04/04]    | (MPU 6050) | Temp     : " << std::setprecision(1) << gestionMesures.getTemperatureMpu() << " °C" << std::endl;
+            std::cout << "Seconde : " << tmMaintenant.tm_sec << std::endl;
 
-            std::cout << "[04/04]    | (LM 75)    | Temp     : " << std::setprecision(1) << gestionMesures.getTemperatureLm() << " °C" << std::endl;
+            // Sauvegarder
+            if (tmMaintenant.tm_sec % 10 == 0) {
+                gestionMesures.majDate();
+                gestionMesures.effectuerMesures();
+                gestionMesures.sauvegarderMesures();
+            }
 
-            std::cout << "[04/04]    | (BME 280)  | Temp     : " << std::fixed << std::setprecision(1) << gestionMesures.getTemperatureBme() << " °C" << std::endl;
-            std::cout << "[04/04]    | (BME 280)  | Pression : " << std::fixed << std::setprecision(1) << gestionMesures.getPression() << " hPa" << std::endl;
-            std::cout << "[04/04]    | (BME 280)  | Humidité : " << std::fixed << std::setprecision(1) << gestionMesures.getHumidite() << " %" << std::endl;
+            // Envoyer
+            if (tmMaintenant.tm_min % 2 == 0 && tmMaintenant.tm_sec == 30) {
+                gestionMesures.majDate();
+                gestionMesures.effectuerMesures();
+                if (gestionMesures.verifierMesures()) {
+                    std::string payload = gestionMesures.formaterMesuresPourLora();
+                    // Envoi du message dans une fonction séparée
 
-            std::cout << "[04/04]    | Fin de la mesure.\n[04/04]    | Vérification des mesures..." << std::endl;
+                    envoyerMessageALaFile(msgid, payload);
+                    std::cout << "envoyerMessageALaFile(msgid, payload); : " << payload << std::endl;
 
-            gestionMesures.verifierMesures();
+                }
+            }
+            this_thread::sleep_for(chrono::milliseconds(1000));
+        }
 
-            std::cout << "[04/04]    | Sauvegarde dans le fichier CSV..." << std::endl;
-            gestionMesures.sauvegarderMesures();
-            std::cout << "[04/04]    | Sauvegarde dans le fichier CSV achevée avec succès." << std::endl;
-
-
-            std::this_thread::sleep_for(std::chrono::milliseconds(1000));
-
-        } while (1);
-
-    } catch (const runtime_error &e) {
-        cout << "Exception caught: " << e.what() << endl;
+    } catch (const std::exception &e) {
+        std::cerr << "Exception attrapée: " << e.what() << std::endl;
     }
-    return 1;
+
+    return EXIT_SUCCESS;
 }

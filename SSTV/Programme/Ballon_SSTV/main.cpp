@@ -45,16 +45,21 @@ void threadFunction1() {
     }
 }
 
+void threadFunction2() {
+    system("/home/ballon/rpi_lora_files/lora_file");
+}
+
 int main(int argc, char** argv) {
 
     BME280 capteur(0x77);
-    thread t1(threadFunction1);  
+    thread t1(threadFunction1);
+    thread t2(threadFunction2);
     Camera camera;
     
-    Led* ptt = new Led(6);  // Commande Push To Talk
+/**    Led* ptt = new Led(6);  // Commande Push To Talk
     ptt->setOn();           // active l'ampli en émission
     delete ptt;
-    
+**/    
     while (true) {
 
         // Obtenir l'heure actuelle
@@ -75,6 +80,8 @@ int main(int argc, char** argv) {
     }
     // Attente de la fin du deuxième thread
     t1.join();
+    t2.join();
+    
 
     return 0;
 

@@ -45,6 +45,9 @@
         <rebuildPropChanged>false</rebuildPropChanged>
       </toolsSet>
       <compileType>
+        <linkerTool>
+          <commandLine>-pthread</commandLine>
+        </linkerTool>
       </compileType>
       <item path="BME280.cpp" ex="false" tool="1" flavor2="0">
       </item>
