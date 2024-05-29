@@ -37,7 +37,7 @@ int main(void)
       if (value == LOW)
       {
           printf("bouton pousoir actionné\r\n");
-          system("halt -p");
+          system("/usr/sbin/halt -p");
       }
 
       sleep(1);
