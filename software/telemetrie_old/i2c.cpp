@@ -5,10 +5,10 @@
     \license  BSD (see license.txt)
     \brief    Classe pour le bus I2C
     \detail  I2C (pronounce: I squared C) is a protocol developed by Philips. It is a
-             slow two-wire protocol (variable speed, up to 400 kHz), with a high speed
-             extension (3.4 MHz).  It provides an inexpensive bus for connecting many
-             types of devices with in frequent or low bandwidth communications needs.
-             I2C is widely used with embedded systems.
+	     slow two-wire protocol (variable speed, up to 400 kHz), with a high speed
+	     extension (3.4 MHz).  It provides an inexpensive bus for connecting many
+	     types of devices with in frequent or low bandwidth communications needs.
+	     I2C is widely used with embedded systems.
     \version v1.0 - First release
 */
 
@@ -32,15 +32,15 @@
         }
         // test de la présence du composant sur le bus
         if (i2c_smbus_access (I2C_SMBUS_READ, 0, I2C_SMBUS_BYTE, &data)){
-            error = true ;
-        }
-        else{
-            error = false ;
-        }
+	    error = true ;
+	}
+	else{
+	    error = false ;
+	}
     }
 
     bool i2c::getError(){
-        return error;
+	return error;
     }
 
     int i2c::i2c_smbus_access (char rw, uint8_t command, int size, union i2c_smbus_data *data)
@@ -105,13 +105,13 @@
     }
 
     int i2c::WriteBlockData (int reg, int length, int *values){
-        union i2c_smbus_data data ;
+	union i2c_smbus_data data ;
         int i;
         if (length > 32)
-            length = 32;
+	    length = 32;
         for (i = 1; i <= length; i++)
-            data.block[i] = values[i-1];
-        data.block[0] = length;
+	    data.block[i] = values[i-1];
+	data.block[0] = length;
         return i2c_smbus_access (I2C_SMBUS_WRITE, reg, I2C_SMBUS_I2C_BLOCK_BROKEN , &data) ;
     }
 
@@ -124,9 +124,9 @@
          data.block[0] = length;
          if (i2c_smbus_access(I2C_SMBUS_READ, reg, length == 32 ? I2C_SMBUS_I2C_BLOCK_BROKEN :
                                I2C_SMBUS_I2C_BLOCK_DATA,&data)){
-             error = true;
+	     error = true;
              return -1;
-         }
+	 }
          else {
                  for (i = 1; i <= data.block[0]; i++)
                          values[i-1] = data.block[i];

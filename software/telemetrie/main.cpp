@@ -3,94 +3,98 @@
  * Author: dbrochard
  *
  * Created on 27 mars 2024, 15:01
+ * 
+ * 
+ * 
+ * sudo g++ -o ./main ./*.cpp ./*.h -lpthread -lrt && sudo ./main
  */
 
-#include <iostream>
-#include <chrono>
-#include <thread>
-#include <sstream>
-#include <iomanip>
-#include <stdexcept>
-#include <sys/types.h>
-#include <sys/ipc.h>
-#include <sys/msg.h>
-#include <mutex>
 #include "GestionMesures.h"
+#include "GestionTemps.h"
+#include "GestionFile.h"
 
-const int MAX_MESSAGE_SIZE = 100; // taille maximum du message
-const int FILE_KEY = 5679; // clef de la file de messages
-const int MSG_FLAG = 0666 | IPC_CREAT; // flag de creation de la file de messages
-const int SLEEP_DURATION_MEASUREMENTS = 10; // seconds
-const int SLEEP_DURATION_LORA = 12; // seconds (2 minutes)
+#include <chrono>
+#include <iostream>
+#include <mutex>
+#include <stdexcept>
+#include <thread>
 
-struct Message {
-    long mtype;
-    char mtext[MAX_MESSAGE_SIZE];
-};
+int main(int argc, char **argv)
+{
+  try
+  {
+    GestionMesures gestionMesures; // Objet pour la gestion des mesures
+    GestionFile gestionFile;       // Objet pour la gestion des files de messages
+    GestionTemps gestionTemps;     // Objet pour la gestion du temps
 
-GestionMesures gestionMesures;
-std::mutex globalMutex;
+    // Obtenir l'heure actuelle
+    std::tm tmMaintenant = gestionTemps.obtenirHeureActuelle();
+    std::tm tmPrecedent = gestionTemps.obtenirHeureActuelle();
+    tmPrecedent.tm_sec = tmPrecedent.tm_sec - 1;
 
-void envoyerMessageALaFile(int msgid, const std::string &payload) {
-    Message message;
-    message.mtype = 2;
+    while (true)
+    {
+      tmMaintenant = gestionTemps.obtenirHeureActuelle();
+      gestionTemps.majDate();
 
-    payload.copy(message.mtext, sizeof (message.mtext) - 1);
-    message.mtext[sizeof (message.mtext) - 1] = '\0';
-
-    // Utilisation de std::lock_guard pour verrouiller automatiquement
-    std::lock_guard<std::mutex> lock(globalMutex);
-    if (msgsnd(msgid, &message, sizeof (message.mtext), 0) == -1) {
-        throw std::runtime_error("Erreur lors de l'envoi du message.");
-    }
-
-    std::cout << "Message envoyé : " << payload << std::endl;
-}
-
-int main(int argc, char **argv) {
-    int msgid;
-
-    try {
-
-        if ((msgid = msgget((key_t) FILE_KEY, MSG_FLAG)) == -1) {
-            throw std::runtime_error("Erreur lors de la création de la file de messages.");
+      if (tmPrecedent.tm_sec != tmMaintenant.tm_sec)
+      {
+        // Sauvegarder les mesures toutes les 10 secondes
+        if (tmMaintenant.tm_sec % 10 == 0)
+        {
+          gestionMesures.effectuerMesures();
+          gestionMesures.sauvegarderMesures();
+          std::cout << "-CSV--------------------------------CSV-\n"
+                    << gestionTemps.getDateFormatee() << " | Sauvegarde des mesures\n----------------------------------------" << std::endl;
+        }
+        else
+        { // Sinon afficher le temps avant la prochaine sauvegarde
+          std::cout << gestionTemps.getDateFormatee() << " | " << std::setfill(' ') << std::setw(3) << gestionTemps.getTempsAvantProchaineSauvegarde() << "s avant la prochaine sauvegarde des mesures dans le CSV" << std::endl;
         }
 
-        while (true) {
-
-            // Obtenir l'heure actuelle
-            auto maintenant = chrono::system_clock::now();
-            auto tempsActuel = chrono::system_clock::to_time_t(maintenant);
-            auto tmMaintenant = *localtime(&tempsActuel);
-
-            // std::cout << "Seconde : " << tmMaintenant.tm_sec << std::endl;
-
-            // Sauvegarder
-            if (tmMaintenant.tm_sec % 10 == 0) {
-                gestionMesures.majDate();
-                gestionMesures.effectuerMesures();
-                gestionMesures.sauvegarderMesures();
+        // Envoyer les mesures par LoRa toutes les 2 minutes à la seconde 30
+        if (tmMaintenant.tm_min % 2 == 0 && tmMaintenant.tm_sec == 30)
+        {
+          gestionMesures.effectuerMesures();
+          if (gestionMesures.verifierMesures())
+          {
+            std::string payload = gestionMesures.formaterMesuresPourLora(); // Formater payload au format lisible par APRS.fi (station WX)
+            if (!gestionFile.ecrireDansLaFileIPC(payload))
+            {
+              std::cout << gestionTemps.getDateFormatee() << " | Erreur lors de l'écriture dans la file." << std::endl;
             }
-
-            // Envoyer
-            if (tmMaintenant.tm_min % 2 == 0 && tmMaintenant.tm_sec == 30) {
-                gestionMesures.majDate();
-                gestionMesures.effectuerMesures();
-                if (gestionMesures.verifierMesures()) {
-                    std::string payload = gestionMesures.formaterMesuresPourLora();
-                    // Envoi du message dans une fonction séparée
-
-                    envoyerMessageALaFile(msgid, payload);
-                    std::cout << "envoyerMessageALaFile(msgid, payload); : " << payload << std::endl;
-
-                }
+            else
+            {
+              std::cout << "=LORA==============================LORA=\n"
+                        << gestionTemps.getDateFormatee() << " | Envoie de la mesure dans la file IPC avec le payload : " << payload << "\n========================================" << std::endl;
             }
-            this_thread::sleep_for(chrono::milliseconds(1000));
+          }
+        }
+        else if (tmMaintenant.tm_min % 2 == 0 && tmMaintenant.tm_sec != 30)
+        {
+          if (tmMaintenant.tm_sec < 30 && tmMaintenant.tm_sec >= 0)
+            std::cout << gestionTemps.getDateFormatee() << " | " << std::setfill(' ') << std::setw(3) << gestionTemps.getTempsAvantProchainEnvoiLoRa() << "s avant le prochain envoie de trame LoRa" << std::endl;
+          else if (tmMaintenant.tm_sec > 30 && tmMaintenant.tm_sec < 60)
+            std::cout << gestionTemps.getDateFormatee() << " | " << std::setfill(' ') << std::setw(3) << gestionTemps.getTempsAvantProchainEnvoiLoRa() << "s avant le prochain envoie de trame LoRa" << std::endl;
+        }
+        else if (tmMaintenant.tm_min % 2 == 1)
+        {
+          if (tmMaintenant.tm_sec < 30 && tmMaintenant.tm_sec >= 0)
+            std::cout << gestionTemps.getDateFormatee() << " | " << std::setfill(' ') << std::setw(3) << gestionTemps.getTempsAvantProchainEnvoiLoRa() << "s avant le prochain envoie de trame LoRa" << std::endl;
+          else
+            std::cout << gestionTemps.getDateFormatee() << " | " << std::setfill(' ') << std::setw(3) << gestionTemps.getTempsAvantProchainEnvoiLoRa() << "s avant le prochain envoie de trame LoRa" << std::endl;
         }
 
-    } catch (const std::exception &e) {
-        std::cerr << "Exception attrapée: " << e.what() << std::endl;
-    }
+        tmPrecedent = tmMaintenant;
+      }
 
-    return EXIT_SUCCESS;
+      std::this_thread::sleep_for(std::chrono::milliseconds(500)); // Attendre pour ne pas surcharger avec la lecture des capteurs
+    }
+  }
+  catch (const std::exception &e)
+  {
+    std::cerr << "Exception attrapée: " << e.what() << std::endl;
+  }
+
+  return EXIT_SUCCESS;
 }

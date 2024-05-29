@@ -1,5 +1,5 @@
 /**************************************************************************
-!
+/*!
     \file     bme280.h
     \author   Philippe SIMIER (Touchard Wahington le Mans)
     \license  BSD (see license.txt)

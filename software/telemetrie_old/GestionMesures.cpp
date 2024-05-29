@@ -1,18 +1,10 @@
-/*
- * File:   GestionMesures.cpp
- * Author: dbrochard
- *
- * Created on 27 mars 2024, 15:01
- */
- 
 #include "GestionMesures.h"
 
-GestionMesures::GestionMesures() : bme280(ADDRESS_BME280), mpu6050(ADDRESS_MPU6050)
+GestionMesures::GestionMesures() : bme280(ADDRESS_BME280),
+                                   mpu6050(ADDRESS_MPU6050)
 {
-    // Initialisation de la sensibilité de l'accéléromètre MPU6050
-    mpu6050.setAccSensibility(FS_2G);
 
-    // Ouverture du fichier CSV et écriture de l'en-tête
+    mpu6050.setAccSensibility(FS_2G);
     std::ofstream fichier(CSV_PATH);
     if (fichier.is_open())
     {
@@ -31,20 +23,20 @@ GestionMesures::~GestionMesures()
 
 void GestionMesures::effectuerMesures()
 {
-    // Obtention des mesures des capteurs
     mesuresNonFormatees.accelerationVerticale = mpu6050.getAccelZ();
+
     mesuresNonFormatees.tempMpu = mpu6050.getTemperature();
     mesuresNonFormatees.tempLm = lm75.getTemperature();
     mesuresNonFormatees.tempBme = bme280.obtenirTemperatureEnC();
+
     mesuresNonFormatees.pression = bme280.obtenirPression();
+
     mesuresNonFormatees.humidite = bme280.obtenirHumidite();
 }
 
 bool GestionMesures::verifierMesures()
 {
-    bool valid = true; // Variable pour indiquer si les mesures sont valides
-
-    // Vérification de la validité des mesures
+    bool valid = true;
     if (mesuresNonFormatees.pression <= VAL_MIN_PRESSION || mesuresNonFormatees.pression >= VAL_MAX_PRESSION)
     {
         valid = false;
@@ -82,13 +74,12 @@ bool GestionMesures::verifierMesures()
         mesuresNonFormatees.accelerationVerticale = NAN;
     }
 
-    return valid; // Retourne vrai si toutes les mesures sont valides, sinon faux
+    return valid;
 }
 
 std::string GestionMesures::formaterMesuresPourLora()
 {
-    effectuerMesures(); // Effectue les mesures
-
+    effectuerMesures();
     // Stockage des mesures dans des variables locales
     double t_double = mesuresNonFormatees.tempBme;
     double h_double = mesuresNonFormatees.humidite;
@@ -133,22 +124,19 @@ std::string GestionMesures::formaterMesuresPourLora()
         p_str = "00" + p_str;
     }
 
-    // Construction du message formaté pour LoRa
-    std::string messageStr = "_" + gestionTemps.getDateMois() + gestionTemps.getDateJour() + gestionTemps.getDateHeure() + gestionTemps.getDateMinute() + "c...s...g...t" + t_str + "h" + h_str + "b" + p_str + " " + std::to_string(a_double); // \:F4KMN____:test
+    std::string messageStr = "_" + getDateMois() + getDateJour() + getDateHeure() + getDateMinute() + "c...s...g...t" + t_str + "h" + h_str + "b" + p_str + " " + std::to_string(a_double); // \:F4KMN____:test
     return messageStr;
 }
 
 void GestionMesures::sauvegarderMesures()
 {
-    // Ouverture du fichier CSV pour ajouter des données
     std::ofstream fichier(CSV_PATH, std::ios_base::app);
     if (fichier.is_open())
     {
-        // Création de l'horodatage
-        gestionTemps.majDate();
-        fichier << gestionTemps.getDateFormatee();
+        std::string timeStamp = temps.annee + "-" + temps.mois + "-" + temps.jour + " " + temps.heure + ":" + temps.minute + ":" + temps.seconde;
+        std::cout << timeStamp << std::endl;
+        fichier << timeStamp;
 
-        // Écriture des mesures dans le fichier CSV
         fichier << setfill('0') << fixed << setprecision(2) << "," << mesuresNonFormatees.tempBme << "," << mesuresNonFormatees.tempLm << "," << mesuresNonFormatees.tempMpu;
         fichier << "," << mesuresNonFormatees.pression << "," << mesuresNonFormatees.humidite << "," << mesuresNonFormatees.accelerationVerticale << std::endl;
 
@@ -158,4 +146,60 @@ void GestionMesures::sauvegarderMesures()
     {
         throw std::runtime_error("Impossible d'ouvrir le fichier pour enregistrer les mesures.");
     }
+}
+
+void GestionMesures::majDate()
+{
+    auto tempsMaintenant = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
+
+    struct tm *tempsLocal = std::localtime(&tempsMaintenant);
+
+    temps.annee = std::to_string(tempsLocal->tm_year + 1900);
+    if (tempsLocal->tm_year + 1900 < 1000)
+        temps.annee = "0" + temps.annee;
+    temps.mois = std::to_string(tempsLocal->tm_mon + 1);
+    if (tempsLocal->tm_mon + 1 < 10)
+        temps.mois = "0" + temps.mois;
+    temps.jour = std::to_string(tempsLocal->tm_mday);
+    if (tempsLocal->tm_mday + 1 < 10)
+        temps.jour = "0" + temps.jour;
+    temps.heure = std::to_string(tempsLocal->tm_hour);
+    if (tempsLocal->tm_hour + 1 < 10)
+        temps.heure = "0" + temps.heure;
+    temps.minute = std::to_string(tempsLocal->tm_min);
+    if (tempsLocal->tm_min + 1 < 10)
+        temps.minute = "0" + temps.minute;
+    temps.seconde = std::to_string(tempsLocal->tm_sec);
+    if (tempsLocal->tm_sec + 1 < 10)
+        temps.seconde = "0" + temps.seconde;
+}
+
+std::string GestionMesures::getDateAnnee() const
+{
+    return temps.annee;
+}
+
+std::string GestionMesures::getDateMois() const
+{
+    return temps.mois;
+}
+
+std::string GestionMesures::getDateJour() const
+{
+    return temps.jour;
+}
+
+std::string GestionMesures::getDateHeure() const
+{
+    return temps.heure;
+}
+
+std::string GestionMesures::getDateMinute() const
+{
+    return temps.minute;
+}
+
+std::string GestionMesures::getDateSeconde() const
+{
+    return temps.seconde;
 }

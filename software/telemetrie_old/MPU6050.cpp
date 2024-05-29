@@ -150,3 +150,4 @@ void MPU6050::setAccSensibility(AccelSensibility range){
     deviceI2C->WriteReg8(0x1C , val0 | range);
     sensibility = deviceI2C->ReadReg8(0x1C) & ACCEL_MASK;
 }
+

@@ -15,15 +15,15 @@
 #include <unistd.h>
 
 enum AccelSensibility {
-        FS_2G = 0x00,     //xxx0 0xxx
-        FS_4G = 0x08,     //xxx0 1xxx
-        FS_8G = 0x10,     //xxx1 0xxx
-        FS_16G = 0x18,    //xxx1 1xxx
-        LSB_FS_2G = 16384, 
-        LSB_FS_4G = 8192,  
-        LSB_FS_8G = 4096,  
-        LSB_FS_16G = 2048, 
-        ACCEL_MASK = 0x18 //0001 1000
+	FS_2G = 0x00,     //xxx0 0xxx
+	FS_4G = 0x08,     //xxx0 1xxx
+	FS_8G = 0x10,     //xxx1 0xxx
+	FS_16G = 0x18,    //xxx1 1xxx
+	LSB_FS_2G = 16384, 
+	LSB_FS_4G = 8192,  
+	LSB_FS_8G = 4096,  
+	LSB_FS_16G = 2048, 
+	ACCEL_MASK = 0x18 //0001 1000
 };
 
 class MPU6050 {
@@ -54,3 +54,4 @@ private:
 };
 
 #endif /* MPU6050_H */
+

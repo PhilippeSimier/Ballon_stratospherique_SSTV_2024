@@ -1,34 +1,26 @@
-/*
- * File:   GestionMesures.h
- * Author: dbrochard
- *
- * Created on 27 mars 2024, 15:01
- */
-
 #ifndef GESTIONMESURES_H
 #define GESTIONMESURES_H
 
 #include "MPU6050.h"
 #include "LM75.h"
 #include "BME280.h"
-#include "GestionTemps.h"
 
 #include <ctime>
 #include <fstream>
 #include <iostream>
 #include <iomanip>
 #include <stdexcept>
+#include <fstream>
 #include <chrono>
 #include <thread>
 
 namespace
 {
-    constexpr char CSV_PATH[] = "/home/ballon/data.csv"; // Chemin du fichier CSV
+    constexpr char CSV_PATH[] = "/home/ballon/data.csv";
 
-    constexpr int ADDRESS_BME280 = 0x77; // Adresse du capteur BME280
-    constexpr int ADDRESS_MPU6050 = 0x69; // Adresse du capteur MPU6050
+    constexpr int ADDRESS_BME280 = 0x77;
+    constexpr int ADDRESS_MPU6050 = 0x69;
 
-    // Définition des valeurs minimales et maximales pour les mesures
     constexpr double VAL_MIN_TEMPERATURE = -30.0;
     constexpr double VAL_MAX_TEMPERATURE = 120.0;
     constexpr double VAL_MIN_PRESSION = 0.0;
@@ -39,7 +31,16 @@ namespace
     constexpr double VAL_MAX_ACCELERATION = 10.0;
 }
 
-// Structure pour stocker les mesures non formatées
+struct Temps
+{
+    std::string annee{};
+    std::string mois{};
+    std::string jour{};
+    std::string heure{};
+    std::string minute{};
+    std::string seconde{};
+};
+
 struct MesuresNonFormatees
 {
     double tempMpu;
@@ -50,7 +51,6 @@ struct MesuresNonFormatees
     double accelerationVerticale;
 };
 
-// Structure pour stocker les mesures formatées pour LoRa
 struct MesuresFormateesPourLora
 {
     double tempMpu;
@@ -65,15 +65,15 @@ class GestionMesures
 {
 
 public:
-    GestionMesures(); // Constructeur
-    ~GestionMesures(); // Destructeur
+    GestionMesures();
+    ~GestionMesures();
 
-    void effectuerMesures(); // Fonction pour effectuer les mesures
-    bool verifierMesures(); // Fonction pour vérifier les mesures
-    std::string formaterMesuresPourLora(); // Fonction pour formater les mesures pour LoRa
-    void sauvegarderMesures(); // Fonction pour sauvegarder les mesures dans un fichier
+    void effectuerMesures();
+    bool verifierMesures();
+    std::string formaterMesuresPourLora();
+    void sauvegarderMesures();
+    void majDate();
 
-    // Fonctions pour obtenir les différentes mesures
     double getTemperatureMpu();
     double getTemperatureLm();
     double getTemperatureBme();
@@ -81,15 +81,19 @@ public:
     double getHumidite();
     double getAccelerationVerticale();
 
+    std::string getDateAnnee() const;
+    std::string getDateMois() const;
+    std::string getDateJour() const;
+    std::string getDateHeure() const;
+    std::string getDateMinute() const;
+    std::string getDateSeconde() const;
 
 private:
-    GestionTemps gestionTemps; // Variable pour stocker le temps
+    Temps temps;
 
-    // Variables pour stocker les mesures
     MesuresNonFormatees mesuresNonFormatees;
     MesuresFormateesPourLora mesuresFormateesPourLora;
 
-    // Objets des capteurs
     BME280 bme280;
     MPU6050 mpu6050;
     LM75 lm75;
