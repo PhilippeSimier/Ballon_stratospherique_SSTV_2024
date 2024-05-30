@@ -1,0 +1,1653 @@
+rx --------------------------------> done 
+RSSI: -72 dBm
+buffer <ÿf4kmn-8>APLT00,WIDE1-1:_05291528c...s...g...t075h57b10072 1.161377 
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05291530c...s...g...t085h44b10074 1.103516¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05291530c...s...g...t085h44b10074 1.103516¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05291532c...s...g...t085h44b10073 1.093994¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05291532c...s...g...t085h44b10073 1.093994¾"
+
+rx --------------------------------> done 
+RSSI: -74 dBm
+buffer damien 
+rx --------------------------------> done 
+RSSI: -77 dBm
+buffer toto 
+rx --------------------------------> done 
+RSSI: -76 dBm
+buffer thommas 
+rx --------------------------------> done 
+RSSI: -66 dBm
+buffer touchard 
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05291534c...s...g...t085h43b10072 1.104248¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05291534c...s...g...t085h43b10072 1.104248¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05291536c...s...g...t085h43b10072 1.094482¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05291536c...s...g...t085h43b10072 1.094482¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05291538c...s...g...t085h44b10073 1.107910¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05291538c...s...g...t085h44b10073 1.107910¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05291540c...s...g...t084h45b10072 1.105225¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05291540c...s...g...t084h45b10072 1.105225¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05291542c...s...g...t085h44b10072 1.099121¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05291542c...s...g...t085h44b10072 1.099121¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05291544c...s...g...t085h43b10073 1.107422¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05291544c...s...g...t085h43b10073 1.107422¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05291546c...s...g...t085h44b10072 1.113037¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05291546c...s...g...t085h44b10072 1.113037¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05291548c...s...g...t085h43b10073 1.089355¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05291548c...s...g...t085h43b10073 1.089355¾"
+
+rx --------------------------------> done 
+RSSI: -73 dBm
+buffer <ÿf4kmn-8>APLT00,WIDE1-1:_05291558c...s...g...t075h57b10070 1.157715 
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05291550c...s...g...t080h49b10072 1.120850¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05291550c...s...g...t080h49b10072 1.120850¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05291600c...s...g...t080h50b10071 1.111328¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05291600c...s...g...t080h50b10071 1.111328¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05291602c...s...g...t080h49b10072 1.119629¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05291602c...s...g...t080h49b10072 1.119629¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05291604c...s...g...t081h49b10072 1.107422¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05291604c...s...g...t081h49b10072 1.107422¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05291606c...s...g...t082h48b10072 1.108398¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05291606c...s...g...t082h48b10072 1.108398¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05291608c...s...g...t082h47b10071 1.096436¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05291608c...s...g...t082h47b10071 1.096436¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05291610c...s...g...t083h46b10070 1.110107¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05291610c...s...g...t083h46b10070 1.110107¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05291612c...s...g...t083h46b10071 1.119873¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05291612c...s...g...t083h46b10071 1.119873¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05291614c...s...g...t083h46b10072 1.114502¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05291614c...s...g...t083h46b10072 1.114502¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05291616c...s...g...t083h46b10071 1.110352¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05291616c...s...g...t083h46b10071 1.110352¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05291618c...s...g...t083h46b10070 1.109131¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05291618c...s...g...t083h46b10070 1.109131¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05291620c...s...g...t084h46b10070 1.100098¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05291620c...s...g...t084h46b10070 1.100098¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05291622c...s...g...t084h46b10069 1.123779¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05291622c...s...g...t084h46b10069 1.123779¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05291624c...s...g...t084h47b10069 1.107910¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05291624c...s...g...t084h47b10069 1.107910¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05300822c...s...g...t067h61b10078 1.135498¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05300822c...s...g...t067h61b10078 1.135498¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05300824c...s...g...t068h59b10079 1.132324¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05300824c...s...g...t068h59b10079 1.132324¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05300826c...s...g...t069h58b10078 1.128906¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05300826c...s...g...t069h58b10078 1.128906¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05300828c...s...g...t070h56b10078 1.123535¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05300828c...s...g...t070h56b10078 1.123535¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05300830c...s...g...t071h55b10078 1.117432¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05300830c...s...g...t071h55b10078 1.117432¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05300832c...s...g...t071h54b10078 1.116455¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05300832c...s...g...t071h54b10078 1.116455¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05300834c...s...g...t072h54b10078 1.115723¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05300834c...s...g...t072h54b10078 1.115723¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05300836c...s...g...t073h53b10078 1.130127¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05300836c...s...g...t073h53b10078 1.130127¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05300838c...s...g...t073h52b10079 1.115479¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05300838c...s...g...t073h52b10079 1.115479¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05300840c...s...g...t073h52b10079 1.118896¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05300840c...s...g...t073h52b10079 1.118896¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05300842c...s...g...t074h51b10078 1.126221¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05300842c...s...g...t074h51b10078 1.126221¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05300844c...s...g...t074h49b10078 1.118896¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05300844c...s...g...t074h49b10078 1.118896¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05300846c...s...g...t074h51b10078 1.113770¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05300846c...s...g...t074h51b10078 1.113770¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05300848c...s...g...t074h51b10079 1.114014¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05300848c...s...g...t074h51b10079 1.114014¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05300850c...s...g...t074h51b10078 1.120850¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05300850c...s...g...t074h51b10078 1.120850¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05300852c...s...g...t075h49b10078 1.115967¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05300852c...s...g...t075h49b10078 1.115967¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05300854c...s...g...t075h49b10078 1.118896¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05300854c...s...g...t075h49b10078 1.118896¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05300856c...s...g...t075h50b10078 1.113281¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05300856c...s...g...t075h50b10078 1.113281¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05300858c...s...g...t075h49b10079 1.109619¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05300858c...s...g...t075h49b10079 1.109619¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_0530900c...s...g...t076h48b10079 1.116943“¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_0530900c...s...g...t076h48b10079 1.116943“¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_0530902c...s...g...t076h48b10080 1.122803“¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_0530902c...s...g...t076h48b10080 1.122803“¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_0530904c...s...g...t077h46b10079 1.100830“¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_0530904c...s...g...t077h46b10079 1.100830“¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_0530906c...s...g...t077h47b10079 1.104004“¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_0530906c...s...g...t077h47b10079 1.104004“¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_0530908c...s...g...t077h47b10080 1.111084“¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_0530908c...s...g...t077h47b10080 1.111084“¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_0530910c...s...g...t076h48b10079 1.107422“¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_0530910c...s...g...t076h48b10079 1.107422“¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_0530912c...s...g...t077h47b10079 1.101807“¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_0530912c...s...g...t077h47b10079 1.101807“¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_0530914c...s...g...t077h46b10079 1.109375“¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_0530914c...s...g...t077h46b10079 1.109375“¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_0530916c...s...g...t077h47b10079 1.118408“¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_0530916c...s...g...t077h47b10079 1.118408“¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_0530918c...s...g...t077h46b10079 1.117188“¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_0530918c...s...g...t077h46b10079 1.117188“¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_0530920c...s...g...t077h46b10079 1.110596“¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_0530920c...s...g...t077h46b10079 1.110596“¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_0530922c...s...g...t078h46b10080 1.113037“¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_0530922c...s...g...t078h46b10080 1.113037“¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_0530924c...s...g...t078h46b10079 1.104248“¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_0530924c...s...g...t078h46b10079 1.104248“¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_0530926c...s...g...t078h46b10079 1.106934“¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_0530926c...s...g...t078h46b10079 1.106934“¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_0530928c...s...g...t079h44b10080 1.111084“¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_0530928c...s...g...t079h44b10080 1.111084“¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_0530930c...s...g...t079h44b10080 1.104736“¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_0530930c...s...g...t079h44b10080 1.104736“¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_0530932c...s...g...t080h43b10081 1.104492“¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_0530932c...s...g...t080h43b10081 1.104492“¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_0530934c...s...g...t080h43b10079 1.103516“¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_0530934c...s...g...t080h43b10079 1.103516“¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_0530936c...s...g...t080h44b10079 1.106445“¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_0530936c...s...g...t080h44b10079 1.106445“¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_0530938c...s...g...t080h43b10079 1.114014“¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_0530938c...s...g...t080h43b10079 1.114014“¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_0530940c...s...g...t079h44b10079 1.114990“¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_0530940c...s...g...t079h44b10079 1.114990“¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_0530942c...s...g...t080h43b10078 1.106445“¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_0530942c...s...g...t080h43b10078 1.106445“¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_0530944c...s...g...t079h44b10078 1.124756“¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_0530944c...s...g...t079h44b10078 1.124756“¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_0530946c...s...g...t080h43b10078 1.108887“¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_0530946c...s...g...t080h43b10078 1.108887“¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_0530948c...s...g...t080h44b10079 1.106201“¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_0530948c...s...g...t080h44b10079 1.106201“¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_0530950c...s...g...t080h42b10078 1.116699“¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_0530950c...s...g...t080h42b10078 1.116699“¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_0530952c...s...g...t081h42b10078 1.094971“¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_0530952c...s...g...t081h42b10078 1.094971“¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_0530954c...s...g...t081h42b10078 1.103271“¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_0530954c...s...g...t081h42b10078 1.103271“¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_0530956c...s...g...t080h42b10078 1.124756“¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_0530956c...s...g...t080h42b10078 1.124756“¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_0530958c...s...g...t080h42b10077 1.107422“¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_0530958c...s...g...t080h42b10077 1.107422“¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301000c...s...g...t081h42b10077 1.106445¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301000c...s...g...t081h42b10077 1.106445¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301002c...s...g...t081h42b10077 1.103027¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301002c...s...g...t081h42b10077 1.103027¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301004c...s...g...t082h42b10076 1.124512¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301004c...s...g...t082h42b10076 1.124512¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301006c...s...g...t082h41b10077 1.111328¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301006c...s...g...t082h41b10077 1.111328¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301008c...s...g...t082h41b10077 1.100830¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301008c...s...g...t082h41b10077 1.100830¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301010c...s...g...t082h40b10077 1.096680¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301010c...s...g...t082h40b10077 1.096680¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301012c...s...g...t082h41b10077 1.100342¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301012c...s...g...t082h41b10077 1.100342¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301014c...s...g...t082h41b10078 1.105957¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301014c...s...g...t082h41b10078 1.105957¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301016c...s...g...t082h41b10076 1.108887¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301016c...s...g...t082h41b10076 1.108887¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301018c...s...g...t082h40b10077 1.122070¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301018c...s...g...t082h40b10077 1.122070¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301020c...s...g...t083h40b10076 1.108398¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301020c...s...g...t083h40b10076 1.108398¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301022c...s...g...t083h39b10077 1.100342¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301022c...s...g...t083h39b10077 1.100342¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301024c...s...g...t083h39b10077 1.110596¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301024c...s...g...t083h39b10077 1.110596¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301026c...s...g...t083h40b10076 1.103516¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301026c...s...g...t083h40b10076 1.103516¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301028c...s...g...t083h40b10076 1.107666¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301028c...s...g...t083h40b10076 1.107666¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301030c...s...g...t083h39b10076 1.102783¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301030c...s...g...t083h39b10076 1.102783¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301032c...s...g...t083h40b10077 1.106689¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301032c...s...g...t083h40b10077 1.106689¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301034c...s...g...t083h40b10076 1.107178¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301034c...s...g...t083h40b10076 1.107178¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301036c...s...g...t083h39b10076 1.105957¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301036c...s...g...t083h39b10076 1.105957¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301038c...s...g...t083h40b10075 1.100830¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301038c...s...g...t083h40b10075 1.100830¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301040c...s...g...t083h40b10076 1.081055¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301040c...s...g...t083h40b10076 1.081055¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301042c...s...g...t083h40b10075 1.107910¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301042c...s...g...t083h40b10075 1.107910¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301044c...s...g...t084h39b10075 1.105469¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301044c...s...g...t084h39b10075 1.105469¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301046c...s...g...t084h39b10074 1.099609¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301046c...s...g...t084h39b10074 1.099609¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301048c...s...g...t085h38b10073 1.104004¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301048c...s...g...t085h38b10073 1.104004¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301050c...s...g...t085h37b10073 1.095215¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301050c...s...g...t085h37b10073 1.095215¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301052c...s...g...t085h37b10074 1.101074¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301052c...s...g...t085h37b10074 1.101074¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301054c...s...g...t085h37b10074 1.104492¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301054c...s...g...t085h37b10074 1.104492¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301056c...s...g...t084h37b10074 1.099609¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301056c...s...g...t084h37b10074 1.099609¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301058c...s...g...t084h38b10074 1.104492¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301058c...s...g...t084h38b10074 1.104492¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301100c...s...g...t085h38b10074 1.108154¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301100c...s...g...t085h38b10074 1.108154¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301102c...s...g...t085h38b10074 1.097168¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301102c...s...g...t085h38b10074 1.097168¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301104c...s...g...t085h37b10073 1.103516¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301104c...s...g...t085h37b10073 1.103516¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301106c...s...g...t085h38b10074 1.105225¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301106c...s...g...t085h38b10074 1.105225¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301108c...s...g...t083h39b10075 1.123291¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301108c...s...g...t083h39b10075 1.123291¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301110c...s...g...t083h39b10073 1.104492¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301110c...s...g...t083h39b10073 1.104492¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301112c...s...g...t083h39b10073 1.103516¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301112c...s...g...t083h39b10073 1.103516¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301114c...s...g...t083h39b10074 1.114990¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301114c...s...g...t083h39b10074 1.114990¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301116c...s...g...t083h39b10073 1.114258¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301116c...s...g...t083h39b10073 1.114258¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301118c...s...g...t084h38b10074 1.105225¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301118c...s...g...t084h38b10074 1.105225¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301120c...s...g...t084h38b10072 1.107910¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301120c...s...g...t084h38b10072 1.107910¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301122c...s...g...t084h39b10072 1.111816¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301122c...s...g...t084h39b10072 1.111816¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301124c...s...g...t083h39b10072 1.100586¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301124c...s...g...t083h39b10072 1.100586¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301126c...s...g...t084h39b10071 1.082520¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301126c...s...g...t084h39b10071 1.082520¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301128c...s...g...t084h37b10072 1.096436¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301128c...s...g...t084h37b10072 1.096436¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301130c...s...g...t085h37b10071 1.100098¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301130c...s...g...t085h37b10071 1.100098¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301132c...s...g...t085h37b10072 1.093750¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301132c...s...g...t085h37b10072 1.093750¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301134c...s...g...t086h36b10073 1.099121¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301134c...s...g...t086h36b10073 1.099121¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301136c...s...g...t086h36b10073 1.095947¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301136c...s...g...t086h36b10073 1.095947¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301138c...s...g...t086h36b10073 1.103027¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301138c...s...g...t086h36b10073 1.103027¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301140c...s...g...t086h36b10073 1.102051¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301140c...s...g...t086h36b10073 1.102051¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301142c...s...g...t086h36b10072 1.094971¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301142c...s...g...t086h36b10072 1.094971¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301144c...s...g...t086h36b10072 1.107422¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301144c...s...g...t086h36b10072 1.107422¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301146c...s...g...t086h35b10073 1.098389¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301146c...s...g...t086h35b10073 1.098389¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301148c...s...g...t087h35b10071 1.080566¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301148c...s...g...t087h35b10071 1.080566¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301150c...s...g...t087h35b10072 1.101074¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301150c...s...g...t087h35b10072 1.101074¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301152c...s...g...t087h35b10072 1.108887¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301152c...s...g...t087h35b10072 1.108887¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301154c...s...g...t087h35b10074 1.090576¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301154c...s...g...t087h35b10074 1.090576¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301156c...s...g...t087h35b10074 1.110840¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301156c...s...g...t087h35b10074 1.110840¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301158c...s...g...t087h35b10075 1.094482¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301158c...s...g...t087h35b10075 1.094482¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301304c...s...g...t073h55b10078 1.118408¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301304c...s...g...t073h55b10078 1.118408¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301306c...s...g...t075h52b10078 1.119873¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301306c...s...g...t075h52b10078 1.119873¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301308c...s...g...t077h50b10077 1.118164¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301308c...s...g...t077h50b10077 1.118164¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301310c...s...g...t079h47b10078 1.134277¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301310c...s...g...t079h47b10078 1.134277¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301312c...s...g...t080h45b10076 1.094238¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301312c...s...g...t080h45b10076 1.094238¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301314c...s...g...t082h43b10081 1.117432¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301314c...s...g...t082h43b10081 1.117432¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301352c...s...g...t075h49b10075 1.093506¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301352c...s...g...t075h49b10075 1.093506¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301354c...s...g...t077h48b10077 1.112793¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301354c...s...g...t077h48b10077 1.112793¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301356c...s...g...t078h46b10077 1.113281¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301356c...s...g...t078h46b10077 1.113281¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301358c...s...g...t081h43b10078 1.124756¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301358c...s...g...t081h43b10078 1.124756¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301400c...s...g...t082h41b10080 1.108887¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301400c...s...g...t082h41b10080 1.108887¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301402c...s...g...t084h40b10081 1.136475¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301402c...s...g...t084h40b10081 1.136475¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301404c...s...g...t086h38b10081 1.096191¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301404c...s...g...t086h38b10081 1.096191¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301406c...s...g...t087h37b10080 1.099121¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301406c...s...g...t087h37b10080 1.099121¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301408c...s...g...t088h35b10086 1.140869¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301408c...s...g...t088h35b10086 1.140869¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301410c...s...g...t088h32b10088 1.095703¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301410c...s...g...t088h32b10088 1.095703¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301412c...s...g...t088h31b10087 1.107910¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301412c...s...g...t088h31b10087 1.107910¾"
+
+rx --------------------------------> done 
+RSSI: -24 dBm
+buffer <ÿf4kmn-11>APLT00,WIDE1-1:!4759.73N/00012.21EO288/001/A=000150Bat:4.12V/-106mA 
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301414c...s...g...t086h31b10089 1.045898¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301414c...s...g...t086h31b10089 1.045898¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301416c...s...g...t082h36b10092 1.114014¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301416c...s...g...t082h36b10092 1.114014¾"
+
+rx --------------------------------> done 
+RSSI: -22 dBm
+buffer <ÿf4kmn-11>APLT00,WIDE1-1:!4759.74N/00012.22EO060/006/A=000270Bat:4.12V/-106mA 
+rx --------------------------------> done 
+RSSI: -23 dBm
+buffer <ÿf4kmn-11>APLT00,WIDE1-1:!4759.72N/00012.22EO060/001/A=000149Bat:4.12V/-104mA 
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301418c...s...g...t079h38b10091 1.102539¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301418c...s...g...t079h38b10091 1.102539¾"
+
+rx --------------------------------> done 
+RSSI: -23 dBm
+buffer <ÿf4kmn-11>APLT00,WIDE1-1:!4759.72N/00012.21EO060/000/A=000127Bat:4.12V/-102mA 
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301420c...s...g...t079h39b10091 1.104004¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301420c...s...g...t079h39b10091 1.104004¾"
+
+rx --------------------------------> done 
+RSSI: -25 dBm
+buffer <ÿf4kmn-11>APLT00,WIDE1-1:!4759.76N/00012.22EO007/007/A=000309Bat:4.12V/-101mA 
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301422c...s...g...t081h37b10092 1.110596¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301422c...s...g...t081h37b10092 1.110596¾"
+
+rx --------------------------------> done 
+RSSI: -25 dBm
+buffer <ÿf4kmn-11>APLT00,WIDE1-1:!4759.71N/00012.22EO093/001/A=000098Bat:4.12V/-104mA 
+rx --------------------------------> done 
+RSSI: -25 dBm
+buffer <ÿf4kmn-11>APLT00,WIDE1-1:!4759.73N/00012.22EO093/000/A=000155Bat:4.12V/-100mA 
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301424c...s...g...t082h36b10091 1.107910¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301424c...s...g...t082h36b10091 1.107910¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301426c...s...g...t080h37b10092 1.115479¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301426c...s...g...t080h37b10092 1.115479¾"
+
+rx --------------------------------> done 
+RSSI: -25 dBm
+buffer <ÿf4kmn-11>APLT00,WIDE1-1:!4759.69N/00012.23EO346/000/A=-00094Bat:4.11V/-108mA 
+rx --------------------------------> done 
+RSSI: -20 dBm
+buffer <ÿf4kmn-11>APLT00,WIDE1-1:!4759.73N/00012.23EO025/001/A=000208Bat:4.11V/-103mA 
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301428c...s...g...t082h36b10090 1.101074¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301428c...s...g...t082h36b10090 1.101074¾"
+
+rx --------------------------------> done 
+RSSI: -20 dBm
+buffer <ÿf4kmn-11>APLT00,WIDE1-1:!4759.73N/00012.23EO025/000/A=000222Bat:4.11V/-101mA 
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301430c...s...g...t081h36b10091 1.114502¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301430c...s...g...t081h36b10091 1.114502¾"
+
+rx --------------------------------> done 
+RSSI: -20 dBm
+buffer <ÿf4kmn-11>APLT00,WIDE1-1:!4759.73N/00012.23EO058/000/A=000190Bat:4.11V/-100mA 
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301432c...s...g...t080h38b10090 1.108643¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301432c...s...g...t080h38b10090 1.108643¾"
+
+rx --------------------------------> done 
+RSSI: -21 dBm
+buffer <ÿf4kmn-11>APLT00,WIDE1-1:!4759.73N/00012.23EO029/000/A=000171Bat:4.11V/-98mA 
+rx --------------------------------> done 
+RSSI: -21 dBm
+buffer <ÿf4kmn-11>APLT00,WIDE1-1:!4759.73N/00012.23EO026/000/A=000187Bat:4.11V/-99mA 
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301434c...s...g...t082h36b10090 1.105713¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301434c...s...g...t082h36b10090 1.105713¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301436c...s...g...t082h35b10089 1.108643¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301436c...s...g...t082h35b10089 1.108643¾"
+
+rx --------------------------------> done 
+RSSI: -20 dBm
+buffer <ÿf4kmn-11>APLT00,WIDE1-1:!4759.73N/00012.22EO013/000/A=000193Bat:4.11V/-100mA 
+rx --------------------------------> done 
+RSSI: -20 dBm
+buffer <ÿf4kmn-11>APLT00,WIDE1-1:!4759.73N/00012.23EO013/000/A=000172Bat:4.11V/-98mA 
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301438c...s...g...t084h33b10089 1.106445¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301438c...s...g...t084h33b10089 1.106445¾"
+
+rx --------------------------------> done 
+RSSI: -20 dBm
+buffer <ÿf4kmn-11>APLT00,WIDE1-1:!4759.73N/00012.23EO013/000/A=000154Bat:4.11V/-98mA 
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301440c...s...g...t082h34b10088 1.106934¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301440c...s...g...t082h34b10088 1.106934¾"
+
+rx --------------------------------> done 
+RSSI: -19 dBm
+buffer <ÿf4kmn-11>APLT00,WIDE1-1:!4759.74N/00012.23EO006/000/A=000189Bat:4.10V/-97mA 
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301442c...s...g...t084h33b10088 1.097900¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301442c...s...g...t084h33b10088 1.097900¾"
+
+rx --------------------------------> done 
+RSSI: -21 dBm
+buffer <ÿf4kmn-11>APLT00,WIDE1-1:!4759.73N/00012.23EO006/000/A=000158Bat:4.10V/-98mA 
+rx --------------------------------> done 
+RSSI: -21 dBm
+buffer <ÿf4kmn-11>APLT00,WIDE1-1:!4759.73N/00012.23EO006/000/A=000145Bat:4.10V/-98mA 
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301444c...s...g...t084h31b10088 1.097168¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301444c...s...g...t084h31b10088 1.097168¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301446c...s...g...t085h32b10089 1.107666¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301446c...s...g...t085h32b10089 1.107666¾"
+
+rx --------------------------------> done 
+RSSI: -20 dBm
+buffer <ÿf4kmn-11>APLT00,WIDE1-1:!4759.73N/00012.23EO231/000/A=000127Bat:4.10V/-100mA 
+rx --------------------------------> done 
+RSSI: -20 dBm
+buffer <ÿf4kmn-11>APLT00,WIDE1-1:!4759.73N/00012.23EO231/000/A=000146Bat:4.10V/-96mA 
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301448c...s...g...t086h32b10086 1.100830¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301448c...s...g...t086h32b10086 1.100830¾"
+
+rx --------------------------------> done 
+RSSI: -20 dBm
+buffer <ÿf4kmn-11>APLT00,WIDE1-1:!4759.73N/00012.23EO231/000/A=000148Bat:4.10V/-100mA 
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301450c...s...g...t088h30b10087 1.093994¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301450c...s...g...t088h30b10087 1.093994¾"
+
+rx --------------------------------> done 
+RSSI: -20 dBm
+buffer <ÿf4kmn-11>APLT00,WIDE1-1:!4759.73N/00012.23EO231/000/A=000184Bat:4.10V/-103mA 
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301452c...s...g...t086h31b10086 1.109131¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301452c...s...g...t086h31b10086 1.109131¾"
+
+rx --------------------------------> done 
+RSSI: -19 dBm
+buffer <ÿf4kmn-11>APLT00,WIDE1-1:!4759.73N/00012.23EO231/000/A=000133Bat:4.10V/-95mA 
+rx --------------------------------> done 
+RSSI: -20 dBm
+buffer <ÿf4kmn-11>APLT00,WIDE1-1:!4759.73N/00012.23EO231/000/A=000138Bat:4.10V/-99mA 
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301454c...s...g...t086h30b10085 1.104736¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301454c...s...g...t086h30b10085 1.104736¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301456c...s...g...t087h30b10084 1.103271¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301456c...s...g...t087h30b10084 1.103271¾"
+
+rx --------------------------------> done 
+RSSI: -20 dBm
+buffer <ÿf4kmn-11>APLT00,WIDE1-1:!4759.73N/00012.23EO231/000/A=000144Bat:4.10V/-99mA 
+rx --------------------------------> done 
+RSSI: -21 dBm
+buffer <ÿf4kmn-11>APLT00,WIDE1-1:!4759.73N/00012.23EO231/000/A=000171Bat:4.10V/-98mA 
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301458c...s...g...t088h29b10085 1.095703¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301458c...s...g...t088h29b10085 1.095703¾"
+
+rx --------------------------------> done 
+RSSI: -20 dBm
+buffer <ÿf4kmn-11>APLT00,WIDE1-1:!4759.73N/00012.23EO231/000/A=000164Bat:4.10V/-98mA 
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301500c...s...g...t088h29b10086 1.097168¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301500c...s...g...t088h29b10086 1.097168¾"
+
+rx --------------------------------> done 
+RSSI: -20 dBm
+buffer <ÿf4kmn-11>APLT00,WIDE1-1:!4759.74N/00012.23EO017/000/A=000178Bat:4.09V/-99mA 
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301502c...s...g...t089h28b10085 1.109131¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301502c...s...g...t089h28b10085 1.109131¾"
+
+rx --------------------------------> done 
+RSSI: -20 dBm
+buffer <ÿf4kmn-11>APLT00,WIDE1-1:!4759.73N/00012.23EO017/001/A=000174Bat:4.09V/-99mA 
+rx --------------------------------> done 
+RSSI: -20 dBm
+buffer <ÿf4kmn-11>APLT00,WIDE1-1:!4759.73N/00012.23EO102/000/A=000155Bat:4.09V/-100mA 
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301504c...s...g...t090h28b10084 1.088867¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301504c...s...g...t090h28b10084 1.088867¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301506c...s...g...t092h27b10084 1.093018¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301506c...s...g...t092h27b10084 1.093018¾"
+
+rx --------------------------------> done 
+RSSI: -20 dBm
+buffer <ÿf4kmn-11>APLT00,WIDE1-1:!4759.73N/00012.24EO126/000/A=000283Bat:4.09V/-101mA 
+rx --------------------------------> done 
+RSSI: -20 dBm
+buffer <ÿf4kmn-11>APLT00,WIDE1-1:!4759.73N/00012.24EO126/000/A=000259Bat:4.09V/-101mA 
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301508c...s...g...t093h26b10082 1.093262¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301508c...s...g...t093h26b10082 1.093262¾"
+
+rx --------------------------------> done 
+RSSI: -21 dBm
+buffer <ÿf4kmn-11>APLT00,WIDE1-1:!4759.73N/00012.23EO248/000/A=000167Bat:4.09V/-100mA 
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301510c...s...g...t095h26b10086 1.088867¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301510c...s...g...t095h26b10086 1.088867¾"
+
+rx --------------------------------> done 
+RSSI: -19 dBm
+buffer <ÿf4kmn-11>APLT00,WIDE1-1:!4759.74N/00012.22EO240/001/A=000008Bat:4.09V/-103mA 
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301512c...s...g...t096h25b10085 1.087891¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301512c...s...g...t096h25b10085 1.087891¾"
+
+rx --------------------------------> done 
+RSSI: -21 dBm
+buffer <ÿf4kmn-11>APLT00,WIDE1-1:!4759.73N/00012.22EO240/000/A=000125Bat:4.09V/-99mA 
+rx --------------------------------> done 
+RSSI: -20 dBm
+buffer <ÿf4kmn-11>APLT00,WIDE1-1:!4759.73N/00012.22EO240/000/A=000119Bat:4.09V/-102mA 
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301514c...s...g...t097h24b10086 1.087646¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301514c...s...g...t097h24b10086 1.087646¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301516c...s...g...t097h24b10084 1.081299¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301516c...s...g...t097h24b10084 1.081299¾"
+
+rx --------------------------------> done 
+RSSI: -20 dBm
+buffer <ÿf4kmn-11>APLT00,WIDE1-1:!4759.73N/00012.23EO331/000/A=000165Bat:4.09V/-101mA 
+rx --------------------------------> done 
+RSSI: -20 dBm
+buffer <ÿf4kmn-11>APLT00,WIDE1-1:!4759.73N/00012.23EO331/000/A=000145Bat:4.09V/-95mA 
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301518c...s...g...t097h24b10085 1.076660¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301518c...s...g...t097h24b10085 1.076660¾"
+
+rx --------------------------------> done 
+RSSI: -20 dBm
+buffer <ÿf4kmn-11>APLT00,WIDE1-1:!4759.73N/00012.23EO331/000/A=000155Bat:4.09V/-95mA 
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301520c...s...g...t098h23b10085 1.085205¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301520c...s...g...t098h23b10085 1.085205¾"
+
+rx --------------------------------> done 
+RSSI: -20 dBm
+buffer <ÿf4kmn-11>APLT00,WIDE1-1:!4759.73N/00012.23EO348/000/A=000209Bat:4.09V/-99mA 
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301522c...s...g...t099h24b10085 1.071777¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301522c...s...g...t099h24b10085 1.071777¾"
+
+rx --------------------------------> done 
+RSSI: -21 dBm
+buffer <ÿf4kmn-11>APLT00,WIDE1-1:!4759.73N/00012.23EO325/000/A=000102Bat:4.09V/-99mA 
+rx --------------------------------> done 
+RSSI: -21 dBm
+buffer <ÿf4kmn-11>APLT00,WIDE1-1:!4759.73N/00012.23EO274/000/A=000162Bat:4.09V/-99mA 
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301524c...s...g...t100h22b10085 1.071777¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301524c...s...g...t100h22b10085 1.071777¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301526c...s...g...t099h22b10084 1.086182¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301526c...s...g...t099h22b10084 1.086182¾"
+
+rx --------------------------------> done 
+RSSI: -20 dBm
+buffer <ÿf4kmn-11>APLT00,WIDE1-1:!4759.73N/00012.21EO237/000/A=000042Bat:4.09V/-100mA 
+rx --------------------------------> done 
+RSSI: -81 dBm
+buffer lora 
+rx --------------------------------> done 
+RSSI: -20 dBm
+buffer <ÿf4kmn-11>APLT00,WIDE1-1:!4759.73N/00012.23EO237/000/A=000119Bat:4.08V/-101mA 
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301528c...s...g...t100h22b10085 1.073975¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301528c...s...g...t100h22b10085 1.073975¾"
+
+rx --------------------------------> done 
+RSSI: -21 dBm
+buffer <ÿf4kmn-11>APLT00,WIDE1-1:!4759.73N/00012.23EO237/000/A=000147Bat:4.08V/-100mA 
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301530c...s...g...t100h22b10086 1.067871¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301530c...s...g...t100h22b10086 1.067871¾"
+
+rx --------------------------------> done 
+RSSI: -20 dBm
+buffer <ÿf4kmn-11>APLT00,WIDE1-1:!4759.73N/00012.22EO319/001/A=000040Bat:4.08V/-104mA 
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301532c...s...g...t100h22b10083 1.074463¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301532c...s...g...t100h22b10083 1.074463¾"
+
+rx --------------------------------> done 
+RSSI: -21 dBm
+buffer <ÿf4kmn-11>APLT00,WIDE1-1:!4759.73N/00012.22EO293/000/A=000186Bat:4.08V/-101mA 
+rx --------------------------------> done 
+RSSI: -21 dBm
+buffer <ÿf4kmn-11>APLT00,WIDE1-1:!4759.73N/00012.23EO310/000/A=000160Bat:4.08V/-100mA 
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301534c...s...g...t101h22b10084 1.083496¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301534c...s...g...t101h22b10084 1.083496¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301536c...s...g...t101h21b10084 1.067139¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301536c...s...g...t101h21b10084 1.067139¾"
+
+rx --------------------------------> done 
+RSSI: -21 dBm
+buffer <ÿf4kmn-11>APLT00,WIDE1-1:!4759.73N/00012.23EO138/000/A=000207Bat:4.08V/-101mA 
+rx --------------------------------> done 
+RSSI: -20 dBm
+buffer <ÿf4kmn-11>APLT00,WIDE1-1:!4759.73N/00012.23EO261/000/A=000229Bat:4.08V/-99mA 
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301538c...s...g...t102h21b10085 1.066650¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301538c...s...g...t102h21b10085 1.066650¾"
+
+rx --------------------------------> done 
+RSSI: -20 dBm
+buffer <ÿf4kmn-11>APLT00,WIDE1-1:!4759.73N/00012.22EO261/000/A=000118Bat:4.08V/-101mA 
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301540c...s...g...t102h21b10085 1.075195¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301540c...s...g...t102h21b10085 1.075195¾"
+
+rx --------------------------------> done 
+RSSI: -20 dBm
+buffer <ÿf4kmn-11>APLT00,WIDE1-1:!4759.73N/00012.23EO211/000/A=000203Bat:4.08V/-102mA 
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301542c...s...g...t102h21b10084 1.067627¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301542c...s...g...t102h21b10084 1.067627¾"
+
+rx --------------------------------> done 
+RSSI: -20 dBm
+buffer <ÿf4kmn-11>APLT00,WIDE1-1:!4759.73N/00012.22EO351/000/A=000218Bat:4.07V/-101mA 
+rx --------------------------------> done 
+RSSI: -20 dBm
+buffer <ÿf4kmn-11>APLT00,WIDE1-1:!4759.73N/00012.22EO351/000/A=000239Bat:4.07V/-99mA 
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301544c...s...g...t103h21b10083 1.074951¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301544c...s...g...t103h21b10083 1.074951¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301546c...s...g...t103h21b10084 1.063232¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301546c...s...g...t103h21b10084 1.063232¾"
+
+rx --------------------------------> done 
+RSSI: -20 dBm
+buffer <ÿf4kmn-11>APLT00,WIDE1-1:!4759.72N/00012.21EO189/000/A=000154Bat:4.07V/-100mA 
+rx --------------------------------> done 
+RSSI: -20 dBm
+buffer <ÿf4kmn-11>APLT00,WIDE1-1:!4759.73N/00012.22EO189/000/A=000217Bat:4.07V/-99mA 
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301548c...s...g...t103h21b10084 1.068115¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301548c...s...g...t103h21b10084 1.068115¾"
+
+rx --------------------------------> done 
+RSSI: -20 dBm
+buffer <ÿf4kmn-11>APLT00,WIDE1-1:!4759.73N/00012.22EO189/000/A=000227Bat:4.07V/-99mA 
+rx --------------------------------> done 
+RSSI: -103 dBm
+buffer 52 
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301550c...s...g...t103h20b10084 1.072266¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301550c...s...g...t103h20b10084 1.072266¾"
+
+rx --------------------------------> done 
+RSSI: -21 dBm
+buffer <ÿf4kmn-11>APLT00,WIDE1-1:!4759.73N/00012.22EO172/000/A=000176Bat:4.07V/-100mA 
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301552c...s...g...t103h20b10083 1.079102¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301552c...s...g...t103h20b10083 1.079102¾"
+
+rx --------------------------------> done 
+RSSI: -21 dBm
+buffer <ÿf4kmn-11>APLT00,WIDE1-1:!4759.73N/00012.22EO160/000/A=000237Bat:4.07V/-98mA 
+rx --------------------------------> done 
+RSSI: -20 dBm
+buffer <ÿf4kmn-11>APLT00,WIDE1-1:!4759.73N/00012.22EO120/000/A=000223Bat:4.07V/-97mA 
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301554c...s...g...t102h20b10083 1.083252¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301554c...s...g...t102h20b10083 1.083252¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301556c...s...g...t102h20b10083 1.090820¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301556c...s...g...t102h20b10083 1.090820¾"
+
+rx --------------------------------> done 
+RSSI: -20 dBm
+buffer <ÿf4kmn-11>APLT00,WIDE1-1:!4759.74N/00012.23EO325/000/A=000270Bat:4.07V/-101mA 
+rx --------------------------------> done 
+RSSI: -20 dBm
+buffer <ÿf4kmn-11>APLT00,WIDE1-1:!4759.73N/00012.23EO325/000/A=000187Bat:4.07V/-99mA 
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301558c...s...g...t101h20b10085 1.076904¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301558c...s...g...t101h20b10085 1.076904¾"
+
+rx --------------------------------> done 
+RSSI: -21 dBm
+buffer <ÿf4kmn-11>APLT00,WIDE1-1:!4759.73N/00012.23EO325/000/A=000144Bat:4.07V/-98mA 
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301600c...s...g...t098h21b10083 1.082520¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301600c...s...g...t098h21b10083 1.082520¾"
+
+rx --------------------------------> done 
+RSSI: -20 dBm
+buffer <ÿf4kmn-11>APLT00,WIDE1-1:!4759.73N/00012.23EO325/000/A=000063Bat:4.07V/-100mA 
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301602c...s...g...t099h21b10084 1.086426¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301602c...s...g...t099h21b10084 1.086426¾"
+
+rx --------------------------------> done 
+RSSI: -20 dBm
+buffer <ÿf4kmn-11>APLT00,WIDE1-1:!4759.73N/00012.23EO325/000/A=000130Bat:4.07V/-101mA 
+rx --------------------------------> done 
+RSSI: -20 dBm
+buffer <ÿf4kmn-11>APLT00,WIDE1-1:!4759.73N/00012.23EO232/000/A=000141Bat:4.07V/-98mA 
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301604c...s...g...t098h22b10083 1.085938¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301604c...s...g...t098h22b10083 1.085938¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301606c...s...g...t099h21b10083 1.091797¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301606c...s...g...t099h21b10083 1.091797¾"
+
+rx --------------------------------> done 
+RSSI: -20 dBm
+buffer <ÿf4kmn-11>APLT00,WIDE1-1:!4759.72N/00012.23EO098/000/A=000051Bat:4.07V/-100mA 
+rx --------------------------------> done 
+RSSI: -20 dBm
+buffer <ÿf4kmn-11>APLT00,WIDE1-1:!4759.73N/00012.23EO236/002/A=000140Bat:4.07V/-97mA 
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301608c...s...g...t100h21b10084 1.087158¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301608c...s...g...t100h21b10084 1.087158¾"
+
+rx --------------------------------> done 
+RSSI: -20 dBm
+buffer <ÿf4kmn-11>APLT00,WIDE1-1:!4759.73N/00012.22EO321/000/A=000193Bat:4.07V/-101mA 
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301610c...s...g...t100h21b10083 1.090820¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301610c...s...g...t100h21b10083 1.090820¾"
+
+rx --------------------------------> done 
+RSSI: -21 dBm
+buffer <ÿf4kmn-11>APLT00,WIDE1-1:!4759.73N/00012.23EO312/000/A=000110Bat:4.07V/-102mA 
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301612c...s...g...t100h21b10083 1.081055¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301612c...s...g...t100h21b10083 1.081055¾"
+
+rx --------------------------------> done 
+RSSI: -21 dBm
+buffer <ÿf4kmn-11>APLT00,WIDE1-1:!4759.73N/00012.26EO128/001/A=000183Bat:4.07V/-99mA 
+rx --------------------------------> done 
+RSSI: -20 dBm
+buffer <ÿf4kmn-11>APLT00,WIDE1-1:!4759.74N/00012.24EO128/008/A=000179Bat:4.06V/-106mA 
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301614c...s...g...t099h21b10078 1.087646¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301614c...s...g...t099h21b10078 1.087646¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301616c...s...g...t099h22b10078 1.084229¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301616c...s...g...t099h22b10078 1.084229¾"
+
+rx --------------------------------> done 
+RSSI: -23 dBm
+buffer <ÿf4kmn-11>APLT00,WIDE1-1:!4759.74N/00012.24EO128/008/A=000179Bat:4.06V/-118mA 
+rx --------------------------------> done 
+RSSI: -23 dBm
+buffer <ÿf4kmn-11>APLT00,WIDE1-1:!4759.74N/00012.24EO128/008/A=000179Bat:4.06V/-107mA 
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301618c...s...g...t100h22b10078 1.084961¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301618c...s...g...t100h22b10078 1.084961¾"
+
+rx --------------------------------> done 
+RSSI: -23 dBm
+buffer <ÿf4kmn-11>APLT00,WIDE1-1:!4759.74N/00012.24EO128/008/A=000179Bat:4.06V/-113mA 
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301620c...s...g...t100h22b10077 1.085205¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301620c...s...g...t100h22b10077 1.085205¾"
+
+rx --------------------------------> done 
+RSSI: -23 dBm
+buffer <ÿf4kmn-11>APLT00,WIDE1-1:!4759.74N/00012.24EO128/008/A=000179Bat:4.06V/-120mA 
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301622c...s...g...t100h22b10077 1.066650¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301622c...s...g...t100h22b10077 1.066650¾"
+
+rx --------------------------------> done 
+RSSI: -24 dBm
+buffer <ÿf4kmn-11>APLT00,WIDE1-1:!4759.74N/00012.24EO128/008/A=000179Bat:4.06V/-112mA 
+rx --------------------------------> done 
+RSSI: -23 dBm
+buffer <ÿf4kmn-11>APLT00,WIDE1-1:!4759.74N/00012.24EO128/008/A=000179Bat:4.06V/-107mA 
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301624c...s...g...t100h22b10077 1.082520¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301624c...s...g...t100h22b10077 1.082520¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301626c...s...g...t100h22b10076 1.095215¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301626c...s...g...t100h22b10076 1.095215¾"
+
+rx --------------------------------> done 
+RSSI: -23 dBm
+buffer <ÿf4kmn-11>APLT00,WIDE1-1:!4759.74N/00012.24EO128/008/A=000179Bat:4.06V/-119mA 
+rx --------------------------------> done 
+RSSI: -23 dBm
+buffer <ÿf4kmn-11>APLT00,WIDE1-1:!4759.74N/00012.24EO128/008/A=000179Bat:4.06V/-112mA 
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301628c...s...g...t101h22b10077 1.080566¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301628c...s...g...t101h22b10077 1.080566¾"
+
+rx --------------------------------> done 
+RSSI: -23 dBm
+buffer <ÿf4kmn-11>APLT00,WIDE1-1:!4759.74N/00012.24EO128/008/A=000179Bat:4.06V/-113mA 
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301630c...s...g...t101h22b10077 1.080566¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301630c...s...g...t101h22b10077 1.080566¾"
+
+rx --------------------------------> done 
+RSSI: -23 dBm
+buffer <ÿf4kmn-11>APLT00,WIDE1-1:!4759.74N/00012.24EO128/008/A=000179Bat:4.06V/-125mA 
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301632c...s...g...t102h22b10077 1.086670¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301632c...s...g...t102h22b10077 1.086670¾"
+
+rx --------------------------------> done 
+RSSI: -22 dBm
+buffer <ÿf4kmn-11>APLT00,WIDE1-1:!4759.74N/00012.24EO128/008/A=000179Bat:4.06V/-113mA 
+rx --------------------------------> done 
+RSSI: -23 dBm
+buffer <ÿf4kmn-11>APLT00,WIDE1-1:!4759.74N/00012.24EO128/008/A=000179Bat:4.06V/-122mA 
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301634c...s...g...t103h22b10079 1.082764¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301634c...s...g...t103h22b10079 1.082764¾"
+
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301636c...s...g...t103h22b10080 1.089600¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301636c...s...g...t103h22b10080 1.089600¾"
+
+rx --------------------------------> done 
+RSSI: -22 dBm
+buffer <ÿf4kmn-11>APLT00,WIDE1-1:!4759.74N/00012.24EO128/008/A=000179Bat:4.05V/-125mA 
+rx --------------------------------> done 
+RSSI: -23 dBm
+buffer <ÿf4kmn-11>APLT00,WIDE1-1:!4759.74N/00012.24EO128/008/A=000179Bat:4.05V/-125mA 
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301638c...s...g...t104h22b10080 1.073975¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301638c...s...g...t104h22b10080 1.073975¾"
+
+rx --------------------------------> done 
+RSSI: -24 dBm
+buffer <ÿf4kmn-11>APLT00,WIDE1-1:!4759.74N/00012.24EO128/008/A=000179Bat:4.06V/-116mA 
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301640c...s...g...t104h22b10081 1.078125¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301640c...s...g...t104h22b10081 1.078125¾"
+
+rx --------------------------------> done 
+RSSI: -23 dBm
+buffer <ÿf4kmn-11>APLT00,WIDE1-1:!4759.74N/00012.24EO128/008/A=000179Bat:4.05V/-125mA 
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301642c...s...g...t105h21b10080 1.089844¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301642c...s...g...t105h21b10080 1.089844¾"
+
+rx --------------------------------> done 
+RSSI: -23 dBm
+buffer <ÿf4kmn-11>APLT00,WIDE1-1:!4759.74N/00012.24EO128/008/A=000179Bat:4.05V/-124mA 
+rx --------------------------------> done 
+RSSI: -23 dBm
+buffer <ÿf4kmn-11>APLT00,WIDE1-1:!4759.74N/00012.24EO128/008/A=000179Bat:4.05V/-121mA 
+Trame Ã  Ã©mettre
+Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05301644c...s...g...t106h21b10080 1.071533¾
+ len : 71
+tx --------------------------------> done;
+sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05301644c...s...g...t106h21b10080 1.071533¾"
+
