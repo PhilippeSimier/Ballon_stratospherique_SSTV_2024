@@ -1,0 +1,1901 @@
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311226c...s...g...t078h44b10134 1.129150æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311226c...s...g...t078h44b10134 1.129150æ"
+
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311228c...s...g...t080h41b10133 1.122314æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311228c...s...g...t080h41b10133 1.122314æ"
+
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311230c...s...g...t082h38b10133 1.125244æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311230c...s...g...t082h38b10133 1.125244æ"
+
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311232c...s...g...t084h38b10133 1.116699æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311232c...s...g...t084h38b10133 1.116699æ"
+
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311234c...s...g...t086h36b10134 1.111816æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311234c...s...g...t086h36b10134 1.111816æ"
+
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311236c...s...g...t087h35b10133 1.115723æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311236c...s...g...t087h35b10133 1.115723æ"
+
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311238c...s...g...t089h34b10132 1.105225æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311238c...s...g...t089h34b10132 1.105225æ"
+
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311240c...s...g...t090h32b10133 1.112305æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311240c...s...g...t090h32b10133 1.112305æ"
+
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311242c...s...g...t091h32b10134 1.101807æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311242c...s...g...t091h32b10134 1.101807æ"
+
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311244c...s...g...t092h31b10134 1.100830æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311244c...s...g...t092h31b10134 1.100830æ"
+
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311246c...s...g...t093h30b10133 1.111084æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311246c...s...g...t093h30b10133 1.111084æ"
+
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311248c...s...g...t094h30b10133 1.094971æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311248c...s...g...t094h30b10133 1.094971æ"
+
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311250c...s...g...t094h29b10134 1.094727æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311250c...s...g...t094h29b10134 1.094727æ"
+
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311252c...s...g...t094h26b10140 1.109863æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311252c...s...g...t094h26b10140 1.109863æ"
+
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311254c...s...g...t086h30b10139 1.127930æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311254c...s...g...t086h30b10139 1.127930æ"
+
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311256c...s...g...t080h35b10139 1.115723æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311256c...s...g...t080h35b10139 1.115723æ"
+
+rx --------------------------------> done 
+RSSI: -22 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4759.72N/00012.31EO000/000/A=000162Bat:4.14V/-97mA 
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311258c...s...g...t083h33b10139 1.133545æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311258c...s...g...t083h33b10139 1.133545æ"
+
+rx --------------------------------> done 
+RSSI: -22 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4759.72N/00012.32EO000/000/A=000137Bat:4.13V/-106mA 
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311300c...s...g...t085h31b10139 1.119385æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311300c...s...g...t085h31b10139 1.119385æ"
+
+rx --------------------------------> done 
+RSSI: -21 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4759.72N/00012.32EO031/000/A=000158Bat:4.13V/-96mA 
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311302c...s...g...t087h31b10139 1.125000æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311302c...s...g...t087h31b10139 1.125000æ"
+
+rx --------------------------------> done 
+RSSI: -21 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4759.72N/00012.32EO031/000/A=000156Bat:4.13V/-102mA 
+rx --------------------------------> done 
+RSSI: -21 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4759.72N/00012.32EO031/000/A=000140Bat:4.13V/-99mA 
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311304c...s...g...t089h29b10139 1.118652æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311304c...s...g...t089h29b10139 1.118652æ"
+
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311306c...s...g...t090h29b10138 1.122314æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311306c...s...g...t090h29b10138 1.122314æ"
+
+rx --------------------------------> done 
+RSSI: -20 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4759.72N/00012.32EO009/000/A=000139Bat:4.13V/-100mA 
+rx --------------------------------> done 
+RSSI: -19 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4759.72N/00012.32EO009/000/A=000149Bat:4.12V/-101mA 
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311308c...s...g...t092h28b10137 1.234619æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311308c...s...g...t092h28b10137 1.234619æ"
+
+rx --------------------------------> done 
+RSSI: -21 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4759.72N/00012.32EO009/000/A=000154Bat:4.12V/-99mA 
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311310c...s...g...t093h27b10138 1.083496æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311310c...s...g...t093h27b10138 1.083496æ"
+
+rx --------------------------------> done 
+RSSI: -21 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4759.72N/00012.32EO111/000/A=000187Bat:4.12V/-101mA 
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311312c...s...g...t093h26b10108 1.220459æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311312c...s...g...t093h26b10108 1.220459æ"
+
+rx --------------------------------> done 
+RSSI: -21 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4759.55N/00012.46EO146/013/A=000871Bat:4.12V/-100mA 
+rx --------------------------------> done 
+RSSI: -21 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4759.36N/00012.57EO172/010/A=001772Bat:4.12V/-98mA 
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311314c...s...g...t092h24b09470 1.095215æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311314c...s...g...t092h24b09470 1.095215æ"
+
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311316c...s...g...t091h23b08892 1.071777æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311316c...s...g...t091h23b08892 1.071777æ"
+
+rx --------------------------------> done 
+RSSI: -21 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4758.61N/00012.85EO175/016/A=004296Bat:4.12V/-101mA 
+rx --------------------------------> done 
+RSSI: -19 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4758.32N/00012.98EO166/019/A=005288Bat:4.12V/-106mA 
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311318c...s...g...t089h21b08301 1.105957æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311318c...s...g...t089h21b08301 1.105957æ"
+
+rx --------------------------------> done 
+RSSI: -20 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4758.02N/00013.15EO157/018/A=006286Bat:4.12V/-99mA 
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311320c...s...g...t086h19b07672 1.160889æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311320c...s...g...t086h19b07672 1.160889æ"
+
+rx --------------------------------> done 
+RSSI: -21 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4757.05N/00013.64EO170/015/A=009263Bat:4.12V/-104mA 
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311322c...s...g...t085h18b07150 1.165527æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311322c...s...g...t085h18b07150 1.165527æ"
+
+rx --------------------------------> done 
+RSSI: -106 dBm
+buffer <ˇF1ZNV-3>APDR16:!4930.50NI00009.75E#APRS LORA F6KOH SHTSF  
+rx --------------------------------> done 
+RSSI: -20 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4756.75N/00013.72EO155/020/A=010021Bat:4.12V/-99mA 
+rx --------------------------------> done 
+RSSI: -20 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4756.47N/00013.97EO164/018/A=010741Bat:4.12V/-102mA 
+rx --------------------------------> done 
+RSSI: -104 dBm
+buffer <ˇf4kmn-11>ÅÌ”Sºä¨IQät‚∏Ê[™˛ò˙")4X›à‡<@êvÛoT[üQkÄx∑ì[˝!N¸˝X∆ËdÙÒÅÿW$Ê©¨8XŸ… 
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311324c...s...g...t083h16b06746 1.105957æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311324c...s...g...t083h16b06746 1.105957æ"
+
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311326c...s...g...t082h14b06305 1.168213æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311326c...s...g...t082h14b06305 1.168213æ"
+
+rx --------------------------------> done 
+RSSI: -22 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4755.46N/00014.61EO168/027/A=013357Bat:4.12V/-105mA 
+rx --------------------------------> done 
+RSSI: -20 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4755.10N/00014.70EO168/018/A=014331Bat:4.11V/-100mA 
+rx --------------------------------> done 
+RSSI: -103 dBm
+buffer <ˇf4kmn-11>APLT00,F4GPJ-10*:!4755.10N/00014.70EO168/018/A=014331Bat:4.11V/-100mA 
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311328c...s...g...t082h10b05824 1.161133æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311328c...s...g...t082h10b05824 1.161133æ"
+
+rx --------------------------------> done 
+RSSI: -21 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4754.75N/00014.84EO168/021/A=015464Bat:4.11V/-102mA 
+rx --------------------------------> done 
+RSSI: -107 dBm
+buffer <ˇ°Ô°¿ıU±1©ÆAX’“÷π:%|∏•p‡g7zUÆâΩÚAOlv>QFFÃ8æ1≈”B~∑'H¶ı-Lò 
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311330c...s...g...t081h08b05344 1.093750æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311330c...s...g...t081h08b05344 1.093750æ"
+
+rx --------------------------------> done 
+RSSI: -21 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4753.42N/00015.13EO185/034/A=018505Bat:4.11V/-102mA 
+rx --------------------------------> done 
+RSSI: -108 dBm
+buffer <ˇf4kmn-11>APLT00,F4GPJ-10*:!4753.42N/00015.13EO1®5/034/Åµ8Ò8505Bat:4.11V/-102mA 
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311332c...s...g...t079h06b04936 1.188721æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311332c...s...g...t079h06b04936 1.188721æ"
+
+rx --------------------------------> done 
+RSSI: -21 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4752.91N/00015.15EO170/026/A=019506Bat:4.11V/-101mA 
+rx --------------------------------> done 
+RSSI: -21 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4752.36N/00015.27EO175/030/A=020401Bat:4.11V/-99mA 
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311334c...s...g...t078h05b04557 1.105957æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311334c...s...g...t078h05b04557 1.105957æ"
+
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311336c...s...g...t077h05b04196 1.248047æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311336c...s...g...t077h05b04196 1.248047æ"
+
+rx --------------------------------> done 
+RSSI: -22 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4750.79N/00016.09EO160/037/A=023284Bat:4.11V/-101mA 
+rx --------------------------------> done 
+RSSI: -108 dBm
+buffer <ˇF1ZNV-3>APDR16:!4930.50NI00009.75E#APRS LORA F6KOH SHTSF  
+rx --------------------------------> done 
+RSSI: -21 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4750.22N/00016.33EO162/038/A=024310Bat:4.11V/-100mA 
+rx --------------------------------> done 
+RSSI: -109 dBm
+buffer <ˇëÛÒg¯.	∑ﬂî…Wûñç£Ú`@ˆŒû\ÇœLGaG˝*04gÙäÑ\N/000°T7∏ì5y˙`1Â7uB”ÆmX9Aqb!¥Æﬂ+\4I8?« 
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311338c...s...g...t076h04b03855 1.053223æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311338c...s...g...t076h04b03855 1.053223æ"
+
+rx --------------------------------> done 
+RSSI: -108 dBm
+buffer <ˇF6KID-10>APLRG1,TCPIP,F4DVK-10:!L5F;PO@?(a xGLoRa APRS 
+rx --------------------------------> done 
+RSSI: -109 dBm
+buffer <ˇF6KID-10>APLRG1,F4D∆ã±Ù5,7)àEù 0ãLıﬂ7úJ@?(a xGLoRa APRS 
+rx --------------------------------> done 
+RSSI: -22 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4749.59N/00016.56EO158/043/A=025318Bat:4.11V/-95mA 
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311340c...s...g...t074h03b03503 1.150146æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311340c...s...g...t074h03b03503 1.150146æ"
+
+rx --------------------------------> done 
+RSSI: -22 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4746.91N/00017.56EO164/056/A=028397Bat:4.11V/-96mA 
+rx --------------------------------> done 
+RSSI: -108 dBm
+buffer <ˇf4km>Y=ê9*Çû0éÊ±XVQ$63d∞3\Ùhó#'√Ü4K≤zQSäX∫R
+h*SYõ|ía0n®69;D°4:4*11V/-9ˆmŸ 
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311342c...s...g...t072h03b03219 1.184570æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311342c...s...g...t072h03b03219 1.184570æ"
+
+rx --------------------------------> done 
+RSSI: -21 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4745.97N/00017.94EO165/057/A=029302Bat:4.11V/-96mA 
+rx --------------------------------> done 
+RSSI: -107 dBm
+buffer <ˇf4kmn-11>A\’T0<*FQZN÷-s,WIDE1*:!47$.)'O/00017.94a35? 46?A029≥±≥¬ËÑ¢!'7tΩm 
+rx --------------------------------> done 
+RSSI: -21 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4745.06N/00018.37EO151/049/A=030261Bat:4.10V/-98mA 
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311344c...s...g...t071h04b03005 1.143555æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311344c...s...g...t071h04b03005 1.143555æ"
+
+rx --------------------------------> done 
+RSSI: -107 dBm
+buffer <ˇF1ZVV-10>¡Xƒ“«9:-% 53.11NL00139.02EaLoRa iGATE & Digi 433.775MHz 
+rx --------------------------------> done 
+RSSI: -107 dBm
+buffer <ˇJ¯HPG-10>APLG01:=4939.58NL00318.83E&LoRa iGATE & Digi, Info: github.com/lora-aprs/LoRa_APRS_iGate 
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311346c...s...g...t069h03b03005 1.285645æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311346c...s...g...t069h03b03005 1.285645æ"
+
+rx --------------------------------> done 
+RSSI: -21 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4742.84N/00020.00EO159/049/A=033161Bat:4.10V/-104mA 
+rx --------------------------------> done 
+RSSI: -108 dBm
+buffer <ˇf4kmn-11>APL‹∞0,F4DVW|fG[N-
+Z"741æ≤‹|uzy ÚaﬁÍU/kz5/coQ?p){9`2•È``Od+1ƒ@ )54a‘ 
+rx --------------------------------> done 
+RSSI: -108 dBm
+buffer <ˇF5HT_-! .@pLRG0RJBE4x5>µL•ˇæN)}§)xGçk^m,ÃbI ∫:ë‡€™>∆•« 
+rx --------------------------------> done 
+RSSI: -21 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4742.07N/00020.51EO161/043/A=034238Bat:4.10V/-100mA 
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311348c...s...g...t068h03b03005 1.284180æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311348c...s...g...t068h03b03005 1.284180æ"
+
+rx --------------------------------> done 
+RSSI: -109 dBm
+buffer <ˇf4kmn-9>APLT00,F8KII+n_05311348c.NNsN(.g...t068h03b033#1.284180æ 
+rx --------------------------------> done 
+RSSI: -22 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4741.42N/00020.93EO155/050/A=035223Bat:4.10V/-98mA 
+rx --------------------------------> done 
+RSSI: -109 dBm
+buffer <ˇf4kmn-11>APLT00,F1ZNV-3,WIDE1*:!4741.42N/00020.93EO155/050/A=035223Bat:Ù.=0\èç92mA 
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311350c...s...g...t068h04b03005 1.253662æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311350c...s...g...t068h04b03005 1.253662æ"
+
+rx --------------------------------> done 
+RSSI: -21 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4739.58N/00022.23EO140/041/A=038070Bat:4.10V/-100mA 
+rx --------------------------------> done 
+RSSI: -107 dBm
+buffer <ˇf4kmn-11>APLT00,F1ZNV-3,˜!Yè¡ u§∑ãéã‘WÆï∑$`yÉÆÖ:Àè±! O§7Â+>U5h5I3ëA ˇ7r2v•)€î:h‰ 
+rx --------------------------------> done 
+RSSI: -108 dBm
+buffer <ˇf4kmn-11>APLT00,F6KyG):!4739.58N/00022.23EO140/041/A=038070Bat:4.10V/-100mA 
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311352c...s...g...t067h04b03005 1.183838æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311352c...s...g...t067h04b03005 1.183838æ"
+
+rx --------------------------------> done 
+RSSI: -108 dBm
+buffer <ˇF1ZNV-3>APDR16:!4930.50NI00009.75E#APRS–zL≠¥,F6KOH SHTSF  
+rx --------------------------------> done 
+RSSI: -106 dBm
+buffer <ˇf4kmn-11>APLT00,F5ZYD-1*:!4739.58N/00022.23EO140/041/A=038070Bat:4.10V/-100mA 
+rx --------------------------------> done 
+RSSI: -21 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4739.12N/00022.66EO160/027/A=039050Bat:4.10V/-95mA 
+rx --------------------------------> done 
+RSSI: -109 dBm
+buffer <ˇi∞≈D∆m-11>APLT00,F4DVNM10,WIDE1*:!74c?.12N/00022.66EO160/027/A=039050Bat:4.10V/-95mA 
+rx --------------------------------> done 
+RSSI: -109 dBm
+buffer <ˇf4kmn-11>APLT00,F6KiD(:!4739.12M/00022.66EO160/027/A=039050Bat:4.10V/-95mA 
+rx --------------------------------> done 
+RSSI: -110 dBm
+buffer <ˇF6KID-10>APLRG1,WIDE1-1:!L5F;PO@?(a xGLoRa APRS 
+rx --------------------------------> done 
+RSSI: -107 dBm
+buffer <ˇF6KID-10>APLRG1,TCPIP,F4DVK-10:!L5F;PO@?(a xGLoRa APRS 
+rx --------------------------------> done 
+RSSI: -109 dBm
+buffer <ˇF6KID-10>APLRG1,F4DVK-10,WIDE1*:!L5F;PO@?(a xGLoRa APRS 
+rx --------------------------------> done 
+RSSI: -109 dBm
+buffer <ˇF4HKP-8>APLRT1,WIDE1-1:!/61*;O3Ci> /Q 
+rx --------------------------------> done 
+RSSI: -20 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4738.69N/00023.00EO149/030/A=039957Bat:4.10V/-99mA 
+rx --------------------------------> done 
+RSSI: -106 dBm
+buffer <ˇf4kmn-11>APLT00,F1ZNV-3,WY@Q1+:!47s<*r=N/00023.00EO149/030/1¢ÄˆxèW∆ 
+rx --------------------------------> done 
+RSSI: -105 dBm
+buffer <ˇf4kmn-11>APLT0∞,F>√ID-10*:!4738.69N/00023.00EO149/:30è)h"eD•æºy2≠ï1bì5(‘3÷ 
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311354c...s...g...t066h04b03005 1.064697æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311354c...s...g...t066h04b03005 1.064697æ"
+
+rx --------------------------------> done 
+RSSI: -109 dBm
+buffer <ˇf4kmn-9>APLT00,F6KID-10*:_05311354c...s...g...t066h04b03005 1.064697æ 
+rx --------------------------------> done 
+RSSI: -109 dBm
+buffer <ˇf4kmn-11>APLT00,F5ZYD-1*:!4739.12N/00022.66EO160/027/A=039050Bat:4.10V/-95mA 
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311356c...s...g...t065h04b03005 1.069336æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311356c...s...g...t065h04b03005 1.069336æ"
+
+rx --------------------------------> done 
+RSSI: -21 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4737.40N/00023.94EO145/021/A=042825Bat:4.10V/-97mA 
+rx --------------------------------> done 
+RSSI: -108 dBm
+buffer <ˇf4kmn-11>APLT00,F4DVK-10,WIDE1*:!4737.40N/00023.9§F∆
+é, 
+rx --------------------------------> done 
+RSSI: -108 dBm
+buffer <ˇf4kmn-11>APLT00,F5ZYD-1*:!4737.40N/00023.94EO145/021/A=042825Bat:4.10V/-97mA 
+rx --------------------------------> done 
+RSSI: -20 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4737.03N/00024.12EO184/021/A=043886Bat:4.09V/-100mA 
+rx --------------------------------> done 
+RSSI: -106 dBm
+buffer <ˇf4km-QÒxA‘.Tö$HÄπ\ÿu∑¿VKN◊Ω;zÀ«k$d{=ÕŒxóÁ&}W≠}+Ùg,`ﬁa*›7¯438k?Cadq4Ã Ñùn∏ÕÖ 
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311358c...s...g...t065h04b03005 1.079590æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311358c...s...g...t065h04b03005 1.079590æ"
+
+rx --------------------------------> done 
+RSSI: -107 dBm
+buffer <ˇf4kmn-9>APLTπ∞,F4GPJ-10Ç
+_35011358C.,q..n+..}`j4b0f1Èb•1‚˘7π%π®™ò 
+rx --------------------------------> done 
+RSSI: -105 dBm
+buffer <ˇf4kmn-9>APLT00,F6KID-10*:_05311358c...s...g...t065h04b03005 1.079590æ 
+rx --------------------------------> done 
+RSSI: -21 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4736.75N/00024.33EO145/013/A=044828Bat:4.10V/-99mA 
+rx --------------------------------> done 
+RSSI: -107 dBm
+buffer <ˇf4kmn-11>APLT00,F6KID-10*:!4736.75N/00024.33EO145/013/A=044828Bat:4.10V/-99mA 
+rx --------------------------------> done 
+RSSI: -104 dBm
+buffer <ˇF1ZVV-10>APLRG1:=5043.11NL00139.02EaLoR¡*iÔAtE 
+rx --------------------------------> done 
+RSSI: -108 dBm
+buffer <ˇF4DVK-10>APLG01:=4939.58NL00318.83E&LoRa iGATE & Digi, Info: github.com/lora-aprs/LoRa_APRS_iGate 
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311400c...s...g...t064h03b03005 1.234131æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311400c...s...g...t064h03b03005 1.234131æ"
+
+rx --------------------------------> done 
+RSSI: -22 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4735.90N/00024.60EO166/008/A=047674Bat:4.09V/-96mA 
+rx --------------------------------> done 
+RSSI: -108 dBm
+buffer <ˇF8BLS-8>APLRT1,F8KII-1*:!/58=/NgGJ>>CQ 
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311402c...s...g...t064h03b03005 1.220459æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311402c...s...g...t064h03b03005 1.220459æ"
+
+rx --------------------------------> done 
+RSSI: -106 dBm
+buffer <ˇf4kmn-9>APLT00,F6KID-10*:_05311402c...s...g...t064h03b03005 1.220459æ 
+rx --------------------------------> done 
+RSSI: -107 dBm
+buffer <ˇf4kmn-11>APLT00,F5ZYD-1*:!4736.15N/00024.61EO160/021/A=046728Bat:4.09V/-100mA 
+rx --------------------------------> done 
+RSSI: -22 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4735.79N/00024.74EO158/009/A=048690Bat:4.09V/-95mA 
+rx --------------------------------> done 
+RSSI: -108 dBm
+buffer <ˇf4kmn-11>q‚∆›+π~U˝3Û∂dçä=–VPX¢TãgW£{T(â‡+c]ÎE\å|µÛ`åmÃôVI 
+rx --------------------------------> done 
+RSSI: -109 dBm
+buffer <ˇF6ZBD-10>APSFLG,EA2TZ-14,WIDE1*:!4339.88NL00122.00WzAPRS/LoÀ+π„˙ÛR1:k%x	QÕa|5ÖÖ≈B@Ïﬁ (ddi	Ç 
+rx --------------------------------> done 
+RSSI: -104 dBm
+buffer <ˇON3M“i1<>EPLRG·|ﬁÇg(glA,0zB~OS+8& xGLoRa APRS MaÚ·o ß3 “a}t=>Ñ:4 
+rx --------------------------------> done 
+RSSI: -20 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4735.65N/00024.91EO135/013/A=049649Bat:4.09V/-99mA 
+rx --------------------------------> done 
+RSSI: -102 dBm
+buffer <ˇf4kmn=11>APLT00,F4DVK/10,WIDE1*9 735.65N/00024.91EO135/013/A=049649Bat:4.09V/-99mA 
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311404c...s...g...t064h04b03005 1.266357æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311404c...s...g...t064h04b03005 1.266357æ"
+
+rx --------------------------------> done 
+RSSI: -109 dBm
+buffer <ˇf4kmn-9>APLT00,F6KID-10*:_05311404c...s...g.~{!064h04b03005 1.266357æ( 
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311406c...s...g...t064h05b03005 1.062744æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311406c...s...g...t064h05b03005 1.062744æ"
+
+rx --------------------------------> done 
+RSSI: -21 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4735.26N/00025.11EO162/006/A=052485Bat:4.09V/-96mA 
+rx --------------------------------> done 
+RSSI: -104 dBm
+buffer <ˇf4kmn-11>APLT00,F6KID-10*:!4735.26N/00025.11EO162/006/A=052485Bat:4.09V/-96mA 
+rx --------------------------------> done 
+RSSI: -109 dBm
+buffer <ˇF4CYQ-10>APLRG1,EA2TZ-14,WIDE1*:!L8G:jN/st# xGLoRa APRS Landes  
+rx --------------------------------> done 
+RSSI: -107 dBm
+buffer <ˇf4kmn-11>APLT00,F5ZYD-1*:!4735.58N/00025.09EO125/021/A=050571Bat:4.09V/-97mA 
+rx --------------------------------> done 
+RSSI: -21 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4735.10N/00025.05EO196/010/A=053411Bat:4.09V/-98mA 
+rx --------------------------------> done 
+RSSI: -108 dBm
+buffer <ˇf2mn-11>aAOd†/O˝–π}tƒã?!4735.10N/00025.05EO1∞∂/910/A=053417Bt<4.09V/-98mA 
+rx --------------------------------> done 
+RSSI: -109 dBm
+buffer <ˇf4kmn-11>APLT0,F6KIDΩ10z:±=>34.10*ee07•.9<LO196/010/A=053411Bat:4.09V/-98mA 
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311408c...s...g...t063h05b03005 1.102539æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311408c...s...g...t063h05b03005 1.102539æ"
+
+rx --------------------------------> done 
+RSSI: -108 dBm
+buffer <ˇf4kmn-9>APLT00,F6KID-10*:_05311408c...s...g...t063h05b03005 1.102539æ 
+rx --------------------------------> done 
+RSSI: -108 dBm
+buffer <ˇF6KID-10>APLRG1,WIDE1-1:!L5F;PO@?(Ò)qGLfRa APRS 
+rx --------------------------------> done 
+RSSI: -109 dBm
+buffer <ˇF6KID-10>APLRG1,TCPIP,F4DVK-10:!L5F;PO@?(a xGLoRa APRS 
+rx --------------------------------> done 
+RSSI: -108 dBm
+buffer <ˇF6KID-10>APLRG1,F4DVK-10,WIDE1*:!L5F;PO@?(a xGLoRa APRS 
+rx --------------------------------> done 
+RSSI: -108 dBm
+buffer <ˇF4HKP-8>APLRT1,WIDE1-1:!/61*;O3C_> @Q 
+rx --------------------------------> done 
+RSSI: -108 dBm
+buffer <ˇF4HKP-8>APLRT1,F4ILM-4*:!/61*;O3C_> @Q 
+rx --------------------------------> done 
+RSSI: -9 dBm
+buffer <ˇf4kmn-9>APLT00,F5ZYD-1*:55311406c./>r.Ô¡ÿâ&õ/≈:–ós‘ª àz∫lœ≤u‹•?Fo 
+rx --------------------------------> done 
+RSSI: -106 dBm
+buffer <ˇf4kmn-11>APLT00,F4DVK-10,WIDE1*:!4734.97N/00025.00EO191/006/A=054356Bat:4.09V/-95mA 
+rx --------------------------------> done 
+RSSI: -108 dBm
+buffer <ˇf4kl.-qu>APLW5,F6KID-10*:!47Û>®9uÓ°í%X>5.00EO191/006/A=054356Bat:4.0i*}l5mA 
+rx --------------------------------> done 
+RSSI: -107 dBm
+buffer <ˇf4kmn-11>APLT00,F5ZYD-1*:!4735.26N/00025.11EO162/006/A=052485Bat:4.09V/-96mA 
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311410c...s...g...t063h04b03005 1.094482æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311410c...s...g...t063h04b03005 1.094482æ"
+
+rx --------------------------------> done 
+RSSI: -20 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4734.61N/00025.26EO167/013/A=057237Bat:4.09V/-100mA 
+rx --------------------------------> done 
+RSSI: -106 dBm
+buffer <ˇf4kmn-11>APLT00,F4ILM-4*:!4734.61N/00025.26EO167/013/A=057237Bat:4.09V/-100mA 
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311412c...s...g...t063h05b03005 1.073975æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311412c...s...g...t063h05b03005 1.073975æ"
+
+rx --------------------------------> done 
+RSSI: -108 dBm
+buffer <ˇf4kmn-11>APLT00,F5ZYD-1*:!4734.78N/00025.20EO114/005/A=056301Bat:4.09V/-94mA 
+rx --------------------------------> done 
+RSSI: -108 dBm
+buffer <ˇf4kmn-9>APLT00,F6KID-10*:_05311412c...s...g...t063h05b03005 1.073975æ 
+rx --------------------------------> done 
+RSSI: -106 dBm
+buffer 14h13 - Ruben 
+rx --------------------------------> done 
+RSSI: -105 dBm
+buffer 14h13 - thomas 
+rx --------------------------------> done 
+RSSI: -103 dBm
+buffer <ˇf4kmn-11>APLT00,F6KID-10™2!¥∑4æÓí:85.28ÂˆÇ5ø
+09/A=058bUXQ<p:4.09R+-1pp- 
+rx --------------------------------> done 
+RSSI: -106 dBm
+buffer 14h13 - z 
+rx --------------------------------> done 
+RSSI: -109 dBm
+buffer 14h13 - lol 
+rx --------------------------------> done 
+RSSI: -108 dBm
+buffer <ˇf4kmn-11>APLT00,F5ZYD-1*:!4734.46N/00025.28EO176/009/A=058239Bat:4.09V/-100mA 
+rx --------------------------------> done 
+RSSI: -109 dBm
+buffer <ˇON3MR-10>APLRG1,WIDE7m1%L4z@IUMX‡ ∏G@_UÁbS4UFKgrio 73 Batt=4.00V 
+rx --------------------------------> done 
+RSSI: -108 dBm
+buffer 14h13 - ballon 
+rx --------------------------------> done 
+RSSI: -21 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4734.38N/00025.31EO211/004/A=059211Bat:4.09V/-98mA 
+rx --------------------------------> done 
+RSSI: -106 dBm
+buffer <ˇf4kmn-11>APLT00,F4DV€-°,WIDEë#ôàóƒ\0„s7B/` 
+rx --------------------------------> done 
+RSSI: -105 dBm
+buffer 14h14 - Ruben 
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311414c...s...g...t063h05b03005 1.272461æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311414c...s...g...t063h05b03005 1.272461æ"
+
+rx --------------------------------> done 
+RSSI: -104 dBm
+buffer 14h14 - Ruben 
+rx --------------------------------> done 
+RSSI: -104 dBm
+buffer 14h14 - Ruben 
+rx --------------------------------> done 
+RSSI: -108 dBm
+buffer <ˇF4DVK-10>APLG01:=4939.58NL00318.83E&LoRa iGATE & Digi, Info: github.com/lora-aprs/LoRa_APRS_iGate 
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311416c...s...g...t062h05b03005 1.190430æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311416c...s...g...t062h05b03005 1.190430æ"
+
+rx --------------------------------> done 
+RSSI: -21 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4734.25N/00025.14EO200/005/A=062289Bat:4.08V/-95mA 
+rx --------------------------------> done 
+RSSI: -106 dBm
+buffer <ˇf4kmn-11>APLT00,F4ILM-4*:!4734.25N/00025.14EO200/005/A=062289Bat:4.08ˆè-55-â 
+rx --------------------------------> done 
+RSSI: -107 dBm
+buffer <ˇF4DIW-9>APDR15,WIDE1	
+EtKIN-11 :73's de F4DIW depuis 77{1
+ 
+rx --------------------------------> done 
+RSSI: -107 dBm
+buffer <ˇF4DIW-9>APLRT1,WIDE1-1,F4DIW-10:!/5p3vO/c!>@=Q 
+rx --------------------------------> done 
+RSSI: -108 dBm
+buffer <ˇF4BQN-9>Ap~QG"/_ALE1-1:!/7;p9Nksa(GCQ Bat=0.29V ( 0%) 
+rx --------------------------------> done 
+RSSI: -107 dBm
+buffer 14h18 - Ruben 
+rx --------------------------------> done 
+RSSI: -106 dBm
+buffer <ˇf4kmn-9>APLT00,F5ZYD-1*:_05311416c...s...g...t062h05b03005 1.190430æ 
+rx --------------------------------> done 
+RSSI: -106 dBm
+buffer 14h18 - Ruben 
+rx --------------------------------> done 
+RSSI: -108 dBm
+buffer <ˇëˇÙß§¢-1=>HPLP00,F6K…D,! 	7ó3ûé:ôN/00049EM20/014/A=063386Ba‘04.08V/-100mA 
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311418c...s...g...t062h05b03005 1.154541æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311418c...s...g...t062h05b03005 1.154541æ"
+
+rx --------------------------------> done 
+RSSI: -106 dBm
+buffer 14h18- Ruben 
+rx --------------------------------> done 
+RSSI: -107 dBm
+buffer 14h18 - Ruben 
+rx --------------------------------> done 
+RSSI: -105 dBm
+buffer <ˇF4DI),/TTDR15,WIDE1-1	
+E4KMN-11 :7Úß≥ÏPeÂ‘∑)b&;≥€#µ
+bx 
+rx --------------------------------> done 
+RSSI: -108 dBm
+buffer 14h18 - Ruben 
+rx --------------------------------> done 
+RSSI: -107 dBm
+buffer <ˇF4BQN-9>A–DR‹9vYdT0P	Bçc_8AkƒkPEo”%ﬂP÷¿ÅL#eŸÉ·»ö∑e.*˜ÿπ'‰»‡AÇ	 +V≠[∂ü∞i 
+rx --------------------------------> done 
+RSSI: -4 dBm
+buffer 148—¯·±+‚7ó ‰ 
+rx --------------------------------> done 
+RSSI: -107 dBm
+buffer 14h19 - Ruben 
+rx --------------------------------> done 
+RSSI: -105 dBm
+buffer <ˇf4kmn-11>APLT00,F6KID-10*:!47≥<.0≤N/00024.79EO230/011/A=064288Bat:4.0¯ZÎ)µ»3 
+rx --------------------------------> done 
+RSSI: -108 dBm
+buffer <ˇF4DIW-9>APLRT1,WIDE1-1,F4DIW-10:!/5p5gO/`;>@.Q 
+rx --------------------------------> done 
+RSSI: -108 dBm
+buffer 14h19 - Ruben 
+rx --------------------------------> done 
+RSSI: -108 dBm
+buffer 14h19 - Ruben 
+rx --------------------------------> done 
+RSSI: -108 dBm
+buffer 14h19 - Ruben 
+rx --------------------------------> done 
+RSSI: -106 dBm
+buffer <ˇ1≥È—gRIék›X^µÆW[Â ˝üy4òúxb/€Ó¨w[E»áÒJ‹ˆîò´?`Geãu,)ædz 
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311420c...s...g...t062h06b03005 1.220215æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311420c...s...g...t062h06b03005 1.220215æ"
+
+rx --------------------------------> done 
+RSSI: -21 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4733.92N/00024.69EO316/006/A=067432Bat:4.08V/-100mA 
+rx --------------------------------> done 
+RSSI: -103 dBm
+buffer <ˇf4kmn-11>APLT00,ON8BZ-3*,WIDE1*:!4733.92N/00024.69EO316/006/A=067432Bat:4.08V/-100mA 
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311422c...s...g...t062h06b03005 1.267334æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311422c...s...g...t062h06b03005 1.267334æ"
+
+rx --------------------------------> done 
+RSSI: -16 dBm
+buffer <ˇF5ZYD-1>APLG01:=5022.37NL00332.05E&*****Digi LoRa du Radio C»ªnÃ∏ËÃêŸ*çÇ 
+rx --------------------------------> done 
+RSSI: -108 dBm
+buffer esrhgsth 
+rx --------------------------------> done 
+RSSI: -107 dBm
+buffer 14h23- thomas 
+rx --------------------------------> done 
+RSSI: -107 dBm
+buffer 14h23- damien 
+rx --------------------------------> done 
+RSSI: -109 dBm
+buffer <ˇF6KID-10>APLRG1,F4DVK-10,WIDE1*:!L5F;PO@?(a xGLoRa APRS 
+rx --------------------------------> done 
+RSSI: -110 dBm
+buffer 14h24- ruben 
+rx --------------------------------> done 
+RSSI: -21 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4733.91N/00024.65EO045/011/A=069585Bat:4.08V/-97mA 
+rx --------------------------------> done 
+RSSI: -106 dBm
+buffer 14h24- balcon 
+rx --------------------------------> done 
+RSSI: -108 dBm
+buffer 14h24- ruche 
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311424c...s...g...t061h06b03005 1.189453æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311424c...s...g...t061h06b03005 1.189453æ"
+
+rx --------------------------------> done 
+RSSI: -106 dBm
+buffer 14h24- abeille 
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311426c...s...g...t061h06b03005 1.316895æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311426c...s...g...t061h06b03005 1.316895æ"
+
+rx --------------------------------> done 
+RSSI: -21 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4733.99N/00024.02EO277/011/A=072891Bat:4.07V/-101mA 
+rx --------------------------------> done 
+RSSI: -104 dBm
+buffer <ˇf4kmn-11>Q{Ôe10,F4ILM-4*:!4733.99N/00024.02EO277/011/A=072891Bat:4.07V/-101mA 
+rx --------------------------------> done 
+RSSI: -109 dBm
+buffer <ˇF0KK‰áë:>PIBeö≠4Ã∞è/§OJp˛5ø(0≤Uã4S/Ã!qÒÂÄ& >:Eœ4DFgLËÁ§y*‚Ñß%E(g 
+rx --------------------------------> done 
+RSSI: -107 dBm
+buffer <ˇf4kmn-11>APLT00,F5ZYD-1*:!4733.90N/00024.61EO310/015/A=070678Bat:4.08V/-95mA 
+rx --------------------------------> done 
+RSSI: -108 dBm
+buffer <ˇ∆<CYY-10>APLRG1,WIDE1-1:E~C]stC@Z.{Rx∞APRS L1n10#% 
+rx --------------------------------> done 
+RSSI: -108 dBm
+buffer <ˇF4CYQ-10>APLRG1,EA2TZ-14,WIDE1*:!L8G:jN/st# xGLoRa APRS Landes  
+rx --------------------------------> done 
+RSSI: -106 dBm
+buffer 14h28 - Ruben 
+rx --------------------------------> done 
+RSSI: -105 dBm
+buffer <ˇf4kmn-11>A—LT°°,ﬂdA|Mç5)ä9Á˝<-i?ãyUÙ H√ú·Ö§=ø⁄ÎF‹ßLPÒ}'82F5º	ÑágÍ]oa0Úbà 
+rx --------------------------------> done 
+RSSI: -106 dBm
+buffer 14h28 - Ruben 
+rx --------------------------------> done 
+RSSI: -104 dBm
+buffer 14h28 - Ruben 
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311428c...s...g...t061h06b03005 1.053467æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311428c...s...g...t061h06b03005 1.053467æ"
+
+rx --------------------------------> done 
+RSSI: -103 dBm
+buffer 14h28 - Ruben 
+rx --------------------------------> done 
+RSSI: -104 dBm
+buffer 14h28 - Ruben 
+rx --------------------------------> done 
+RSSI: -104 dBm
+buffer 14h28 - Ruben 
+rx --------------------------------> done 
+RSSI: -106 dBm
+buffer 14h28 - Ruben 
+rx --------------------------------> done 
+RSSI: -104 dBm
+buffer 14h28 - Ruben 
+rx --------------------------------> done 
+RSSI: -16 dBm
+buffer 14h39 ,¿tí
+∂ 
+rx --------------------------------> done 
+RSSI: -103 dBm
+buffer <ˇf4kmn-11>APLT00,ON8BZ-3*,WIDE1*2°<óSi˚1mN/`00¢:ß4®7~5)·p¡Mûúd∆±ºM•>Wuy(702mA 
+rx --------------------------------> done 
+RSSI: -104 dBm
+buffer 14h29 - Ruben 
+rx --------------------------------> done 
+RSSI: -104 dBm
+buffer 14h29 - Ruben 
+rx --------------------------------> done 
+RSSI: -104 dBm
+buffer 14h29 - Ruben 
+rx --------------------------------> done 
+RSSI: -104 dBm
+buffer 14h29 - Ruben 
+rx --------------------------------> done 
+RSSI: -106 dBm
+buffer 14h29 - rUBEN 
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311430c...s...g...t061h06b03005 1.193115æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311430c...s...g...t061h06b03005 1.193115æ"
+
+rx --------------------------------> done 
+RSSI: -9 dBm
+buffer <ˇW1[GC-10>APSFLG,WIDE1-1:!4342Ærz— d…ê˝.È'g\4⁄›Ms6ˆ‚{‡^äüçì ú}9øÆ¡j‚\,ŒM%ÎéÊd∆N^V;0µ> 
+rx --------------------------------> done 
+RSSI: -105 dBm
+buffer <ˇf4kmn-11>APLT00,F4ILM-4*:!4733.93N/00022.82EO249/009/A=078320Bat:4.07V/-99mA 
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311432c...s...g...t061h06b03005 1.290527æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311432c...s...g...t061h06b03005 1.290527æ"
+
+rx --------------------------------> done 
+RSSI: -108 dBm
+buffer ¸ˆ1u5hWL-11>APLRG±ºWIME1-1:!L5l.'O.y1a xGLoRa Aq?!—¸lÌlc∞v: 
+rx --------------------------------> done 
+RSSI: -21 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4734.01N/00022.61EO329/008/A=079493Bat:4.07V/-99mA 
+rx --------------------------------> done 
+RSSI: -102 dBm
+buffer <ˇ°F6kn-11>APLT00hcaE-PKFõ£a+úÑ?•<·J#é&RC¢∫P⁄Mj¥±ˆ€^Oò6lµ˘œ„°‡¶àå÷kT¸ 
+rx --------------------------------> done 
+RSSI: -20 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4734.07N/00022.55EO074/005/A=080654Bat:4.07V/-101mA 
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311434c...s...g...t061h06b03005 1.213867æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311434c...s...g...t061h06b03005 1.213867æ"
+
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311436c...s...g...t061h06b03005 1.220215æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311436c...s...g...t061h06b03005 1.220215æ"
+
+rx --------------------------------> done 
+RSSI: -20 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4733.95N/00021.74EO263/021/A=084058Bat:4.07V/-102mA 
+rx --------------------------------> done 
+RSSI: -105 dBm
+buffer <ˇf4kmn#|±rp·ê9£ºŒ4Äº„yvk˛Ûhy#ÑÌ«ÆqU¶â5<z7Ù’'0e*17˝ÉÅ4v0pA6cë./Ñ±-•_uPbMnr 
+rx --------------------------------> done 
+RSSI: -105 dBm
+buffer <ˇf4kmn-11>APLT00,F5ZYD-1*:!4734.07N/00022.55EO074/005/A=080654Bat:4.07 
+rx --------------------------------> done 
+RSSI: -107 dBm
+buffer <ˇF1ZNV-3>APDR16:!4930.50NI00009Ñó5Ô#APRS LORA F6KOH SHTS  
+rx --------------------------------> done 
+RSSI: -107 dBm
+buffer <ˇF4CYQ-10>APLRG1,F4WBN-10*:!L8G:jN/st# xG/Ra APRS LandeÛ  
+rx --------------------------------> done 
+RSSI: -21 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4734.10N/00021.53EO314/012/A=085344Bat:4.07V/-93mA 
+rx --------------------------------> done 
+RSSI: -104 dBm
+buffer <ˇ!dFRN-3>A@CR+ .O/A=000000 0S 2.91V Jugend forscht 2024
+ 
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311438c...s...g...t061h06b03005 1.208740æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311438c...s...g...t061h06b03005 1.208740æ"
+
+rx --------------------------------> done 
+RSSI: -107 dBm
+buffer <ˇf4kmn-9>APLT00,F6KID-10*:_05311438c...s...g...t061h06b03005 1.208740æ 
+rx --------------------------------> done 
+RSSI: -109 dBm
+buffer <ˇF6KID-10>APLRG1,TCPIP,F4DVH-10:!L5F;PO@ˇ(aÏ¥KLoRa APRS 
+rx --------------------------------> done 
+RSSI: -108 dBm
+buffer <ˇEC2BAÈatöG…)Ôÿ=LKk2TZ-14,WIDE1*:!L8YI[MYLza  XLorÀ*¡pÿ a≈tg 
+rx --------------------------------> done 
+RSSI: -108 dBm
+buffer <ˇF4HKP-8>APLRT1,F4ILM-4*:!/61*aO3Ci> 7Q 
+rx --------------------------------> done 
+RSSI: -8 dBm
+buffer <ˇF4ILM-4>APLG01∫ø6≤≤‹‚ç
+-ûV#Go^9÷Ì=q¬¡]C'jâÄèÙ¡8ºU:hæ~>0 
+rx --------------------------------> done 
+RSSI: -106 dBm
+buffer <ˇDC1MPP-3>APLC13:!/7=B<Oiv"vE%QLoRa-System 
+rx --------------------------------> done 
+RSSI: -107 dBm
+buffer <ˇf4kmn-11>APLT00,F5ZYD-1*:!4733.98N/00022.19EO255/016/A=082886Bat:4.07V/-99mA 
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311440c...s...g...t061h06b03005 1.246094æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311440c...s...g...t061h06b03005 1.246094æ"
+
+rx --------------------------------> done 
+RSSI: -21 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4734.47N/00021.03EO228/007/A=089889Bat:4.07V/-108mA 
+rx --------------------------------> done 
+RSSI: -107 dBm
+buffer <ˇf4kmn-11>APLT00,F4IlIit":74.47N/00021.03EO228/007/A=08989@Av84.07F+mamQ 
+rx --------------------------------> done 
+RSSI: -109 dBm
+buffer <ˇf4kmn-11>APLT00,F6KID-10*:!4734.47N/00021.03EO228/007/A=089889Bat:4.07V/-108mA 
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311442c...s...g...t062h08b03005 1.129639æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311442c...s...g...t062h08b03005 1.129639æ"
+
+rx --------------------------------> done 
+RSSI: -107 dBm
+buffer <ˇf4kmn-9>APLT00,F6KID-10*:_05311442c...s...g...t062h08b03005 1.129639æ 
+rx --------------------------------> done 
+RSSI: -109 dBm
+buffer -ˇF5ZEE>APDπ∞‰é®|*B$E\]@8ì•{j˘ñJá ÅÆ≤ã∆rl[X¨‡?6àÏOäy>@:eÌ1 
+rx --------------------------------> done 
+RSSI: -17 dBm
+buffer <ˇDF?⁄Niw~	R–¿è}M&y){1ﬁ¯ Y 03F4.91V JugeÓ4™™Ü®πGêƒ*:U∏ 
+rx --------------------------------> done 
+RSSI: -106 dBm
+buffer <ˇf4km+Q7~Å¸>•8 4E,--^@6 %&24.æñNï˘!rNPcL297/008/A=09π880Bat:4.07V/-90mA 
+rx --------------------------------> done 
+RSSI: -107 dBm
+buffer <ˇf4kmn-11>APLT00,F6KID-10*:!4734.46N/00020.76EO297/0ê8ÖK=091080Bat:4.07V/-90mA 
+rx --------------------------------> done 
+RSSI: -106 dBm
+buffer <ˇF6ZBD-10>APSFLG,F4CYQ-10*:!4339.(9NL00122.00WzAPRS/LoRa UHF Beacon + iGate @SAUBION (40)
+ 
+rx --------------------------------> done 
+RSSI: -105 dBm
+buffer <ˇDC1MPP-3>APLC13:!/7;cUOk)*vE2¡‹6[h-€q{Ùem 
+rx --------------------------------> done 
+RSSI: -109 dBm
+buffer <ˇf4kmn-11>APLT00,F5ZYD-1*:!4734.19N/00021.42EO264/009/A=086577Bat:4.07V/-99mA 
+rx --------------------------------> done 
+RSSI: -106 dBm
+buffer <ˇF5ZEE>APDW18,F4FXL-11*:}DB1NTO-2>APRS,TCPIP,Ê5˙EÂ*:0B‚deg/öˇsYa1 
+rx --------------------------------> done 
+RSSI: -21 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4734.54N/00020.48EO291/010/A=092286Bat:4.07V/-101mA 
+rx --------------------------------> done 
+RSSI: -104 dBm
+buffer <ˇf4kmn-11>APLT00,ON8BZ-3*,WIDE1*:!4734.54N/00020.48EO291/010/A=092286Bat:4.07V/-101mA 
+rx --------------------------------> done 
+RSSI: -108 dBm
+buffer <ˇf4kmn-11>APLT00,F6KID-10*:!4734.54N/00020.48EO291/010/A=092286Bat:4.07V/-101mA 
+rx --------------------------------> done 
+RSSI: -107 dBm
+buffer <ˇÒ…7\2xêdLSa6¸@E]=¨hÃï;á++_)h™¯˝∏ˇDÔ˜|f5!.fb 
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311444c...s...g...t062h07b03005 1.216309æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311444c...s...g...t062h07b03005 1.216309æ"
+
+rx --------------------------------> done 
+RSSI: -109 dBm
+buffer <ˇf4kmn-9>APLT00,F6KIDk10*n
+5e41444c...s...g...t062h07b03005 1.216309æ 
+rx --------------------------------> done 
+RSSI: -108 dBm
+buffer <ˇDF7PN-3>APRS:!0000.00N/00000.00EO/A=000000 0S 2.91V Jugend forscht 2024
+ 
+rx --------------------------------> done 
+RSSI: -109 dBm
+buffer <ˇF4DVK-10>APLG01:=493e.5>(,06s18.83E&LoRa iGATE & Digi, Info: github.com/lora-aprs/LoRa_APRS_iGate 
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311446c...s...g...t063h06b03005 1.069092æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311446c...s...g...t063h06b03005 1.069092æ"
+
+rx --------------------------------> done 
+RSSI: -20 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4734.79N/00019.40EO290/027/A=095909Bat:4.07V/-101mA 
+rx --------------------------------> done 
+RSSI: -103 dBm
+buffer <ˇf4kmn-11>APLT0†%F§…EM-4*:!4734.79N/00019.40E´4p-Pzw´á±›Ûó9e©Ç$VëJ≠`+Çß;±-p 
+rx --------------------------------> done 
+RSSI: -104 dBm
+buffer <ˇf4kmn-11>APLT00,F5ZYD-1*:!4734.47N/00021.03EO228/007/A=089889Bat:4.07V/-108mA 
+rx --------------------------------> done 
+RSSI: -21 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4735.02N/00018.86EO312/017/A=097106Bat:4.07V/-109mA 
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311448c...s...g...t064h06b03005 1.216553æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311448c...s...g...t064h06b03005 1.216553æ"
+
+rx --------------------------------> done 
+RSSI: -106 dBm
+buffer <ˇÅŒ9RJ-3`Vu<?4ôT®&4#NE006 
+rx --------------------------------> done 
+RSSI: -9 dBm
+buffer <ˇF4ILM-4>APLG01˙∆ﬂ›é€úkºê)Ùú7˜ƒ#^Ç¬/‡]ÆÏˆ@ùP{ŸMı9 ÀÆãç*Ù≈ 
+rx --------------------------------> done 
+RSSI: -107 dBm
+buffer <ˇf4kmn-11>APLT00,F6KâDÌ=0*:!4=ä0bÙÏ%ê0:1>N0r—÷0/015/A=098274Batrt5V/-1∞)A 
+rx --------------------------------> done 
+RSSI: -105 dBm
+buffer <ˇf4kmn-11>APLT00,F5ZYD-1*:!4734.46N/00020.76EO297/008/A=091080Bat:4.07V/-90mA 
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311450c...s...g...t065h06b03005 1.121582æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311450c...s...g...t065h06b03005 1.121582æ"
+
+rx --------------------------------> done 
+RSSI: -21 dBm
+buffer <ˇf4kmN/CrPT{J3	èmñtË¸ˆ´s]‹]2∑_úg «ê≠n'®}√VÊÆΩj∫L¶=òû¥Fe'ºO¨¶¿°á 
+rx --------------------------------> done 
+RSSI: -106 dBm
+buffer <ˇf2kmn-11>APLT00,F4ILM-4*:!473ï.û5N'00017+16RyZ€?]¯"</Sbf 5?∞◊·t±0ËE\1|%Ä 
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311452c...s...g...t066h06b03005 1.061279æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311452c...s...g...t066h06b03005 1.061279æ"
+
+rx --------------------------------> done 
+RSSI: -21 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4735.44N/00017.26EO293/024/A=103141Bat:4.06V/-97mA 
+rx --------------------------------> done 
+RSSI: -103 dBm
+buffer <ˇF6ZBD-10>APSFLG,F4CYQ-10*:!4339.88NL00122.00WzAPRS/LoRa UHF Beacon + iGate @SAUBION (40)
+ 
+rx --------------------------------> done 
+RSSI: -108 dBm
+buffer <ˇF6KID-10>APLRG1,TCPIP,F4DVK-10:!L5F;PO@?(a xGLoRa APRS 
+rx --------------------------------> done 
+RSSI: -107 dBm
+buffer <ˇDF0A–≠±4≤Õ/àJºö<òÅã†ùWipV∆Ú«82PF 
+rx --------------------------------> done 
+RSSI: -105 dBm
+buffer <ˇDF7PN-3>APRS:!/O/A=000000 0S 2.91V Jugend forscht‡202ÙV 
+rx --------------------------------> done 
+RSSI: -21 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4735.51N/00016.73EO284/018/A=104307Bat:4.06V/-96mA 
+rx --------------------------------> done 
+RSSI: -105 dBm
+buffer <ˇf4kmn-11>AXL\8,F'KLM-4*:!4735.51N/00016.73EO284/018/A=104307Bat:4.06V/-96mA 
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311454c...s...g...t068h06b03005 1.178467æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311454c...s...g...t068h06b03005 1.178467æ"
+
+rx --------------------------------> done 
+RSSI: -106 dBm
+buffer <ˇDC0SK-9>APLC13,DL0OJ-14*:!4951.28NH00830.65E>APRScube 
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311456c...s...g...t069h06b03005 1.156738æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311456c...s...g...t069h06b03005 1.156738æ"
+
+rx --------------------------------> done 
+RSSI: -20 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4735.49N/00015.60EO267/024/A=107752Bat:4.06V/-96mA 
+rx --------------------------------> done 
+RSSI: -106 dBm
+buffer <ˇf4kmn-11>APLT00,F4ILM-4*:45.49N/00015.60EO267/024/A=107752Bat:4.06V/-96mA 
+rx --------------------------------> done 
+RSSI: -108 dBm
+buffer <ˇDC1MPP-3>APLC13:!/7:RZOl*]vE9QLoRa-System 
+rx --------------------------------> done 
+RSSI: -104 dBm
+buffer <ˇf4kmn-11>APLT00,F5ZYD-1*:!4735.16N/00018.62EO335/015/A=098274Bat:4.07V/-103mA 
+rx --------------------------------> done 
+RSSI: -107 dBm
+buffer <ˇDC1MPP-3>APLC13:!/7:AnOl6fvE7QLoRa-System 
+rx --------------------------------> done 
+RSSI: -108 dBm
+buffer <ˇF4CYQ-10>APLRG!,GIDE1-1:!L8G:jN/st# xGLoRa APRS Landes  
+rx --------------------------------> done 
+RSSI: -106 dBm
+buffer <ˇf4kmn-11>APT00/l3Z	Bm1*∫"t735},&ﬁø ∞x18~ßDﬂ53/8±>A3∂ª37Yû„t:W‡∞6VÎÎ6mq 
+rx --------------------------------> done 
+RSSI: -13 dBm
+buffer <ˇDK3QA-8>APLC13,DL0OJ-14*ÍÖ’;±c°¸j9Ñíú4:Ç±^ñ´E∂õ 
+rx --------------------------------> done 
+RSSI: -107 dBm
+buffer <ˇDC1MPP-3>APLC1Û\%#Òº∆≤ó!5=„zùØ˙Gﬂ˘km 
+rx --------------------------------> done 
+RSSI: -106 dBm
+buffer <ˇF4FSZ-9>APÄÀqsæå≤|['+W`4fszƒ≠yFovtllok.fÚ 
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311458c...s...g...t071h05b03005 1.158936æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311458c...s...g...t071h05b03005 1.158936æ"
+
+rx --------------------------------> done 
+RSSI: -108 dBm
+buffer <ˇDK3QA-8>APLC3é\\
+ˆ¢·®8É6!<±5:.83NL©0134.86E&LoRa 
+rx --------------------------------> done 
+RSSI: -109 dBm
+buffer <ˇF4DIW-9>APLRT1,WIDE1-1,F4DIW-10:!/5p[*O.m:>!!Q 
+rx --------------------------------> done 
+RSSI: -108 dBm
+buffer <ˇF5ZYD-1>APLG01:=502.17lN00332.05E&*****Digi LoRaPr$%£fdio Club F6KJU***** 
+rx --------------------------------> done 
+RSSI: -21 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4735.42N/00014.99EO313/010/A=098563Bat:4.06V/-90mA 
+rx --------------------------------> done 
+RSSI: -109 dBm
+buffer <ˇ1G@1~SP-3>APLC13:!/79SeOljsvEGQLoRa-System 
+rx --------------------------------> done 
+RSSI: -109 dBm
+buffer <ˇf4kmn-11>APLT00,F5ZYD-1*:!4735.44N/00017.26EO293/024/A=103141Bat:4.06V/-97mA 
+rx --------------------------------> done 
+RSSI: -107 dBm
+buffer <ˇF4FXL-9>A`Ûî∆V¥lääµ‡9¥N 
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311500c...s...g...t072h05b03005 1.135254æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311500c...s...g...t072h05b03005 1.135254æ"
+
+rx --------------------------------> done 
+RSSI: -21 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4735.27N/00013.97EO257/029/A=082977Bat:4.06V/-96mA 
+rx --------------------------------> done 
+RSSI: -109 dBm
+buffer <ˇf4kmn-11>APLT00,F4I|D7*ö 4µ35PÓ·RY
+êdøn|^P+b0Qy4?K!;@9GuWb7∏.≠∞≠j4†Ël 
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311502c...s...g...t073h04b03005 1.348145æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311502c...s...g...t073h04b03005 1.348145æ"
+
+rx --------------------------------> done 
+RSSI: -109 dBm
+buffer <ˇf4kmn-9>APLT00,F8KII-1*:_05311502c...s...g...t073h04b03005 1.348145æ 
+rx --------------------------------> done 
+RSSI: -105 dBm
+buffer <ˇf4kmn-11>APLT00,F5ZYD-1*:!4735.40N/00014.33EO224/028/A=092703Bat:4.06f/.	
+mA 
+rx --------------------------------> done 
+RSSI: -12 dBm
+buffer <ˇON7ULM-12>APLRT1,ON∏ X/íz∑ü^—ı„r»4ü¢„˚Ö„Çôôq‚ƒ; 
+rx --------------------------------> done 
+RSSI: -106 dBm
+buffer <ˇf4kmn-11>APLT00,F4ILM-4*:°473=.27N/0001ÛÓ˚4çœªÉ•§ÉTŒ K$;e¯Ò˘;5ò0%V|}¨Ód$ 
+rx --------------------------------> done 
+RSSI: -107 dBm
+buffer <ˇf4kmn-11>APLT00,F5ZYD-1*:!4735.26N/00014.08EO193/026/A=087769Bat:4.06V/-95mA 
+rx --------------------------------> done 
+RSSI: -108 dBm
+buffer <ˇDC1M¿Sûyîπ6#£9¢≤|ûÚb@Iw»ˇ\@∏\˜Q)+ 
+rx --------------------------------> done 
+RSSI: -110 dBm
+buffer <ˇON3MR-10>APLRG1,WIDE1-1:!L4z@zOS+8& xGLoRa APRS Mario 73 BaÙ∏{rŒ91V 
+rx --------------------------------> done 
+RSSI: -9 dBm
+buffer <ˇÅ'"Qù˛◊Uñ«KﬁîBY¶EåÂ=]7»ê+…3òpºöM∞µÇX2ë$˜> 
+rx --------------------------------> done 
+RSSI: -110 dBm
+buffer <ˇf4kmn-11>PHT0 
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311504c...s...g...t074h04b03005 1.302002æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311504c...s...g...t074h04b03005 1.302002æ"
+
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311506c...s...g...t074h03b03005 1.414062æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311506c...s...g...t074h03b03005 1.414062æ"
+
+rx --------------------------------> done 
+RSSI: -20 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4735.32N/00013.13EO306/006/A=063796Bat:4.06V/-106mA 
+rx --------------------------------> done 
+RSSI: -110 dBm
+buffer <ˇf4kmnKWQ^◊ËCRaJåA¬Sî!jEø!Í´≤⁄ãê?{<ˇÓ=3Èﬁ£¢îæ0©6&A=063796Bat04,06V/-106mA 
+rx --------------------------------> done 
+RSSI: -110 dBm
+buffer <ˇON7ULM-12>APLRT1,ON8BZ-3*,WIDE1*:!/4`c1O5X<U3qQ 
+rx --------------------------------> done 
+RSSI: -110 dBm
+buffer <ˇF1ZNV-3>APDR16:!4930.50NIàQgG“àπykI4S&LORA‡—ÂRW˚ìˇgÇY&g 
+rx --------------------------------> done 
+RSSI: -114 dBm
+buffer <ˇf4kmn-11>APLT00,F5ZYD-1*:!4735.32N/00013.13EO306/006/A=063796Bat:4.06V/-106mA 
+rx --------------------------------> done 
+RSSI: -110 dBm
+buffer <ˇF4CYQ-10>APLRG1,EA2TZ-14,WIDE1*:!Hò◊`Ìe~·´lxRd HP[S$åi‚lds  
+rx --------------------------------> done 
+RSSI: -20 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4735.21N/00013.01EO090/008/A=060848Bat:4.06V/-101mA 
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311508c...s...g...t073h03b03005 1.278320æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311508c...s...g...t073h03b03005 1.278320æ"
+
+rx --------------------------------> done 
+RSSI: -109 dBm
+buffer <ˇON7ULM-12>APLRT1,ON8BZ-3*,WIDE1*:!/4`ZzO5ApU6YQ 
+rx --------------------------------> done 
+RSSI: -110 dBm
+buffer <ˇF6KID-10>APLRG1,TCPIP,F4DVK-10:!L5F;PO@?(a xGLoRa APRS 
+rx --------------------------------> done 
+RSSI: -110 dBm
+buffer <ˇF6KID-10>APLRG1,F4DVK-10,WIDE1*:!L5F;PO@?(a xGLoRa APRS 
+rx --------------------------------> done 
+RSSI: -110 dBm
+buffer <ˇON7ULM-12>APLRT1,ON8BZ-3*,WIDE1*:!/4`V5O59hU5jQ 
+rx --------------------------------> done 
+RSSI: -27 dBm
+buffer <ˇF4HKP-8>APLRT1,WIDE1-1:!/"0*DˇBøñ 
+rx --------------------------------> done 
+RSSI: -109 dBm
+buffer <ˇf4kmn-11>APLT00,F4DVK-10,WIDE1*:!4735.10N/00012.92EO232/020/A=058089Bat:4.06V/-99mA 
+rx --------------------------------> done 
+RSSI: -111 dBm
+buffer <ˇf4km7^EPLT0,ƒ>CCD-10*:!4735.10N/00012.92EO232/020/A=058089Ba‘2¥å∞`ïC—öUA 
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311510c...s...g...t072h04b03005 1.280518æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311510c...s...g...t072h04b03005 1.280518æ"
+
+rx --------------------------------> done 
+RSSI: -7 dBm
+buffer <ˇF4GPJ-10>APLRGéUA‡‘¬	#1º~/f£Zkæ˚.≤ûÅ∆\âVÃ¬Ä;€`çQdÛœ∫uˆÖ,ø∆Ø⁄ú¥@˘ KåøLZù+¿NïŒã^ØÆ…à 
+rx --------------------------------> done 
+RSSI: -108 dBm
+buffer <ˇÒ¯ÿ].@PLT00,F4DV(1`,WIDE1j:a#«.T0∂NÓ,¥ıh£hÎ∫≤Ï¨kœËy1¥~ŒTz.tø*ms9b-e[J—[Îç 
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311512c...s...g...t071h03b03005 1.345459æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311512c...s...g...t071h03b03005 1.345459æ"
+
+rx --------------------------------> done 
+RSSI: -107 dBm
+buffer <ˇf4kmn-9>APLT00,F8KII-1*:_05311512c...s...g...t071h03b03005 1.345459æ 
+rx --------------------------------> done 
+RSSI: -109 dBm
+buffer <ˇf4kmn-11>APLT00,F5ZYD-1*:!4734.66N/00013.07EO233/005/A=051071Bat:4.06V/-92mA 
+rx --------------------------------> done 
+RSSI: -20 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4734.50N/00013.29EO190/001/A=048987Bat:4.06V/-93mA 
+rx --------------------------------> done 
+RSSI: -110 dBm
+buffer <ˇf4kmn-11>APLT00,F6KID-10*:!4734.50N/00013.29EO190/001/A=048987Bat:4.06V/-93mA 
+rx --------------------------------> done 
+RSSI: -108 dBm
+buffer <ˇON7ULM-12>—PL¬T1,ON8BZ-3*,WIDE1*:!/4`H]O5!CU3>Q 
+rx --------------------------------> done 
+RSSI: -113 dBm
+buffer <ˇF5ZYD-1>APLG01:=5022.37N\#í.:5Â&***z*DiÁi`n)B$du Radio lu;p„¥„¿˝Í"H 
+rx --------------------------------> done 
+RSSI: -108 dBm
+buffer <ˇ¡JÑÅWH98!UDR15¨õIÅ%¬∫â≤oh1c+÷Ö{∑W,æ/‘¡xùQ.	çìœŸÈUê§|ì%.ıTirFjbmail.com LORA 100mW
+ 
+rx --------------------------------> done 
+RSSI: -20 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4734.39N/00013.37EO145/015/A=047004Bat:4.06V/-101mA 
+rx --------------------------------> done 
+RSSI: -108 dBm
+buffer <ˇf4kmn-11>APLT00,F6KID-10*:!4734.39N/00013.37EO1<5#gy@=0470 5Jxu:4.06R+-141mA 
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311514c...s...g...t070h03b03005 1.355713æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311514c...s...g...t070h03b03005 1.355713æ"
+
+rx --------------------------------> done 
+RSSI: -107 dBm
+buffer <ˇf4kmn-9>APLT00,F8KIiñ£&p83'[’ºÎz,’ZoG?yõV"Õsm¯sÍ∞#33 ∞™s}π_Q3ﬁ 
+rx --------------------------------> done 
+RSSI: -108 dBm
+buffer <ˇf4kmn-11>APLT00,F5ZYD-1*:!4734.50N/00013.29EO190/001/A=048987Bat:4.06V/-93mA 
+rx --------------------------------> done 
+RSSI: -109 dBm
+buffer <ˇÅ.ËÇ˛M‹à_L“\9¸RTILê%˘®äTØ»≠+gÃú…PÊ‘Ôg√û~Ö◊è 
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311516c...s...g...t068h03b03005 1.288574æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311516c...s...g...t068h03b03005 1.288574æ"
+
+rx --------------------------------> done 
+RSSI: -21 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4733.44N/00013.92EO178/024/A=041711Bat:4.06V/-100mA 
+rx --------------------------------> done 
+RSSI: -20 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4733.02N/00014.19EO153/040/A=040159Bat:4.06V/-103mA 
+rx --------------------------------> done 
+RSSI: -105 dBm
+buffer <ˇf4kmn-11>APLT00,F4DVK-10,WIDE1*:!4733.02N/00014.19EO153/040/A=04S7Yat~4N mÑ¸¥Ò@h_ 
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311518c...s...g...t067h03b03005 1.177490æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311518c...s...g...t067h03b03005 1.177490æ"
+
+rx --------------------------------> done 
+RSSI: -7 dBm
+buffer <ˇF4ILmÜE6=Sl≥Û5b+W¯kÚﬂ80kùæﬂ˚– h⁄MıCiøhtœî’´ˆ…O
+‰Åh÷ 
+rx --------------------------------> done 
+RSSI: -110 dBm
+buffer <ˇf4kmn-11>APLT00,F6KID-10*:!4732.52N/00014.56EO165/043/AÒpwÙ163Bat~T$P√5˝— 
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311520c...s...g...t065h03b03005 1.171875æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311520c...s...g...t065h03b03005 1.171875æ"
+
+rx --------------------------------> done 
+RSSI: -20 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4730.68N/00015.87EO158/037/A=034351Bat:4.06V/-91mA 
+rx --------------------------------> done 
+RSSI: -107 dBm
+buffer <ˇf4kmn Ò5´1é“PÏÑ∆M◊∫W¸á$∫[	S`,à‡º´ˆÓÅ∫Á'zÙ}’‚Ω
+k 
+rx --------------------------------> done 
+RSSI: -110 dBm
+buffer <ˇF4DIW-9>APDR15,TCPIP,F4DVK-10::F4KMN-11 :73's de F4DIW depuis 77{3 
+rx --------------------------------> done 
+RSSI: -109 dBm
+buffer <ˇF4DIW-9>APDR15,F8KII-1*,qAR,F4DIW-10::F4KMN-11 :73's de F4DIW depuis 77{3 
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311522c...s...g...t063h03b03005 1.250977æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311522c...s...g...t063h03b03005 1.250977æ"
+
+rx --------------------------------> done 
+RSSI: -110 dBm
+buffer <ˇF1ZNV-3>APDR16:!4930.50NI00009.75E#APRS LORA F6KOH SHTSF  
+rx --------------------------------> done 
+RSSI: -110 dBm
+buffer <ˇF4DIW-9>APDR15,TCPIP,F4DVK-10::F4KMN-11 :73's de F4DIW depuis 77{: 
+rx --------------------------------> done 
+RSSI: -109 dBm
+buffer <ˇF4DIW-9>APDR15,F8KII-1*,qAR,F4DIW-10::F4KMN-11 :73's de F4DIW depuis 77{3 
+rx --------------------------------> done 
+RSSI: -109 dBm
+buffer <ˇF4DIW-9>APDR15,TCPIP,F4DVK-10‘0“«$†›éö02ô9.44E(291/012/A=000477 f4diwqsl@gmail.com LORA 100mW 
+rx --------------------------------> done 
+RSSI: -110 dBm
+buffer <ˇF4DIW-9>APDR15,F8KII-1*,qAR,F4DIW-10:=4845.28N/00233.44E(291/012/A=000477 f4diwqsl@gmail.com LORA 100mW 
+rx --------------------------------> done 
+RSSI: -21 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4729.95N/00016.39EO150/057/A=033092Bat:4.06V/-91mA 
+rx --------------------------------> done 
+RSSI: -105 dBm
+buffer <ˇF6KID-10>APLRG1,TCPU}S$AVK-16-@ı∆>ÄFD?àR#xDLoRa@2pâS 
+rx --------------------------------> done 
+RSSI: -19 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4729.12N/00016.93EO163/055/A=031900Bat:4.06V/-102mA 
+rx --------------------------------> done 
+RSSI: -104 dBm
+buffer <ˇd4imn-11>APLT00,F4DVJÆ8£%WIDE1*:!4729.12N/000Q6.93LÜ§™3z`05è~Új4900Bat:4.06V/-100oA 
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311524c...s...g...t062h03b03005 1.230225æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311524c...s...g...t062h03b03005 1.230225æ"
+
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311526c...s...g...t060h03b03162 1.119385æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311526c...s...g...t060h03b03162 1.119385æ"
+
+rx --------------------------------> done 
+RSSI: -20 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4726.36N/00018.52EO161/056/A=028283Bat:4.05V/-95mA 
+rx --------------------------------> done 
+RSSI: -21 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4725.37N/00019.00EO153/061/A=027171Bat:4.05V/-101mA 
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311528c...s...g...t058h04b03499 1.159424æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311528c...s...g...t058h04b03499 1.159424æ"
+
+rx --------------------------------> done 
+RSSI: -7 dBm
+buffer <ˇœ•—M
+Lw98e©Ô9«da†ù€-Ë¨µ∏5Ÿ+π`øJÊ∏>ŒcòÌ+â#A(´=N[≠) 
+rx --------------------------------> done 
+RSSI: -109 dBm
+buffer <ˇf4kmn-11>APLV00,&1\NVm3,WIDE1*:!47Ú=.î5N/00015.¯6IO170/050/A=8:æ013“h›:Ùé∏ï÷oèπM¡ 
+rx --------------------------------> done 
+RSSI: -109 dBm
+buffer <ˇF1ZVV-10>APLRG±:5=∞43.11NL00139.02EaLoRa iGAÙ≈ \LflD#°õóûì.{ 
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311530c...s...g...t056h04b03841 1.177734æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311530c...s...g...t056h04b03841 1.177734æ"
+
+rx --------------------------------> done 
+RSSI: -20 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4722.43N/00020.45EO151/039/A=023018Bat:4.05V/-96mA 
+rx --------------------------------> done 
+RSSI: -109 dBm
+buffer <ˇf4kmn-11>AÿL‘00,F4GPJΩ80K“aÙ}¶>∑Ò£“Ø:: 
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311532c...s...g...t055h04b04191 1.180176æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311532c...s...g...t055h04b04191 1.180176æ"
+
+rx --------------------------------> done 
+RSSI: -21 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4721.85N/00020.73EO160/042/A=022005Bat:4.05V/-95mA 
+rx --------------------------------> done 
+RSSI: -20 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4721.32N/00021.04EO156/038/A=021031Bat:4.05V/-95mA 
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311534c...s...g...t054h05b04560 1.185303æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311534c...s...g...t054h05b04560 1.185303æ"
+
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311536c...s...g...t053h05b04941 1.175537æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311536c...s...g...t053h05b04941 1.175537æ"
+
+rx --------------------------------> done 
+RSSI: -21 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4719.90N/00021.79EO173/033/A=018124Bat:4.05V/-96mA 
+rx --------------------------------> done 
+RSSI: -108 dBm
+buffer <ˇF1ZNV-3>APDR16:!4930.50NI00009.75E#APRS LORA F6KOH SHTSF  
+rx --------------------------------> done 
+RSSI: -21 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4719.50N/00021.97EO167/027/A=017170Bat:4.05V/-98mA 
+rx --------------------------------> done 
+RSSI: -108 dBm
+buffer <ˇf4kmn-11>APLT00,F1ZNV-s WIA@a*:!4719.50N/00022	7ÜA=47ü—<ıõE=017170Bat:4.05V/-98mA 
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311538c...s...g...t052h07b05346 1.187988æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311538c...s...g...t052h07b05346 1.187988æ"
+
+rx --------------------------------> done 
+RSSI: -108 dBm
+buffer <ˇF1ZNV-3>APDR16:!4930.50NI00009.75E#APRS LORA F6KOà,üàX_F  
+rx --------------------------------> done 
+RSSI: -20 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4719.11N/00022.23EO168/022/A=016253Bat:4.05V/-94mA 
+rx --------------------------------> done 
+RSSI: -108 dBm
+buffer <ˇf4kmn-11>APLT00,F1ZNV-3,WIDE1*:!4719.11N/00022.23EO168/022/A=016253Bat:4.05V/-94mA 
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311540c...s...g...t051h07b05744 1.218750æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311540c...s...g...t051h07b05744 1.218750æ"
+
+rx --------------------------------> done 
+RSSI: -20 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4718.20N/00023.06EO161/026/A=013648Bat:4.05V/-93mA 
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311542c...s...g...t051h09b06141 1.188477æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311542c...s...g...t051h09b06141 1.188477æ"
+
+rx --------------------------------> done 
+RSSI: -21 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4717.84N/00023.29EO148/029/A=012865Bat:4.05V/-96mA 
+rx --------------------------------> done 
+RSSI: -20 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4717.40N/00023.45EO175/022/A=012210Bat:4.04V/-107mA 
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311544c...s...g...t051h12b06541 1.162598æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311544c...s...g...t051h12b06541 1.162598æ"
+
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311546c...s...g...t051h14b06997 1.213135æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311546c...s...g...t051h14b06997 1.213135æ"
+
+rx --------------------------------> done 
+RSSI: -21 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4716.48N/00023.98EO148/013/A=009429Bat:4.04V/-99mA 
+rx --------------------------------> done 
+RSSI: -109 dBm
+buffer <ˇf4kmn-11>APLT00,F1JGP-10*:!4716.48N/00023.98EO148/013/A=009429Bat:4.04V/-99mA 
+rx --------------------------------> done 
+RSSI: -21 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4716.22N/00024.27EO133/025/A=008499Bat:4.04V/-98mA 
+rx --------------------------------> done 
+RSSI: -108 dBm
+buffer <ˇf4kmn-11>APLT00,F1JGP-10*:!4716.22N/00024.27EO133/025/A=008499Bat:4.04V/-98mA 
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311548c...s...g...t052h22b07509 1.156250æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311548c...s...g...t052h22b07509 1.156250æ"
+
+rx --------------------------------> done 
+RSSI: -20 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4715.96N/00024.62EO130/017/A=007668Bat:4.04V/-96mA 
+rx --------------------------------> done 
+RSSI: -105 dBm
+buffer <ˇf4kmn-11>APLT00,F1JGP-10*:!4715.96N/00024.62EO130/017/A=007668Bat:4.04V/-96mA 
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311550c...s...g...t052h27b08009 1.177734æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311550c...s...g...t052h27b08009 1.177734æ"
+
+rx --------------------------------> done 
+RSSI: -20 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4715.06N/00025.30EO140/022/A=005132Bat:4.04V/-101mA 
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311552c...s...g...t053h32b08527 1.156982æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311552c...s...g...t053h32b08527 1.156982æ"
+
+rx --------------------------------> done 
+RSSI: -20 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4714.79N/00025.51EO155/011/A=004260Bat:4.04V/-93mA 
+rx --------------------------------> done 
+RSSI: -19 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4714.58N/00025.71EO130/012/A=003368Bat:4.04V/-98mA 
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311554c...s...g...t054h38b09092 1.185547æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311554c...s...g...t054h38b09092 1.185547æ"
+
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311556c...s...g...t055h45b09654 1.218506æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311556c...s...g...t055h45b09654 1.218506æ"
+
+rx --------------------------------> done 
+RSSI: -20 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4713.99N/00026.44EO120/014/A=000932Bat:4.04V/-91mA 
+rx --------------------------------> done 
+RSSI: -20 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4713.92N/00026.67EO028/001/A=000306Bat:4.04V/-95mA 
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311558c...s...g...t056h48b10065 1.139648æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311558c...s...g...t056h48b10065 1.139648æ"
+
+rx --------------------------------> done 
+RSSI: -20 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4713.92N/00026.67EO051/000/A=000326Bat:4.04V/-96mA 
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311600c...s...g...t058h45b10064 1.132324æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311600c...s...g...t058h45b10064 1.132324æ"
+
+rx --------------------------------> done 
+RSSI: -19 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4713.92N/00026.66EO327/000/A=000321Bat:4.04V/-96mA 
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311602c...s...g...t059h43b10065 1.127197æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311602c...s...g...t059h43b10065 1.127197æ"
+
+rx --------------------------------> done 
+RSSI: -20 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4713.91N/00026.66EO327/000/A=000369Bat:4.04V/-98mA 
+rx --------------------------------> done 
+RSSI: -20 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4713.91N/00026.67EO322/000/A=000341Bat:4.04V/-91mA 
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311604c...s...g...t061h41b10065 1.139404æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311604c...s...g...t061h41b10065 1.139404æ"
+
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311606c...s...g...t062h38b10065 1.126953æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311606c...s...g...t062h38b10065 1.126953æ"
+
+rx --------------------------------> done 
+RSSI: -20 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4713.92N/00026.64EO278/000/A=000534Bat:4.04V/-104mA 
+rx --------------------------------> done 
+RSSI: -20 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4713.91N/00026.66EO270/000/A=000366Bat:4.04V/-99mA 
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311608c...s...g...t064h37b10065 1.121094æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311608c...s...g...t064h37b10065 1.121094æ"
+
+rx --------------------------------> done 
+RSSI: -20 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4713.91N/00026.67EO270/000/A=000342Bat:4.04V/-100mA 
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311610c...s...g...t066h36b10064 1.115479æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311610c...s...g...t066h36b10064 1.115479æ"
+
+rx --------------------------------> done 
+RSSI: -20 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4713.91N/00026.66EO275/001/A=000502Bat:4.04V/-101mA 
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311612c...s...g...t067h34b10065 1.120850æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311612c...s...g...t067h34b10065 1.120850æ"
+
+rx --------------------------------> done 
+RSSI: -20 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4713.92N/00026.66EO314/000/A=000354Bat:4.04V/-98mA 
+rx --------------------------------> done 
+RSSI: -21 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4713.92N/00026.66EO155/000/A=000329Bat:4.04V/-99mA 
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311614c...s...g...t069h33b10065 1.115967æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311614c...s...g...t069h33b10065 1.115967æ"
+
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311616c...s...g...t070h32b10065 1.111816æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311616c...s...g...t070h32b10065 1.111816æ"
+
+rx --------------------------------> done 
+RSSI: -21 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4713.90N/00026.68EO139/001/A=000472Bat:4.04V/-100mA 
+rx --------------------------------> done 
+RSSI: -20 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4713.91N/00026.67EO139/000/A=000345Bat:4.04V/-103mA 
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311618c...s...g...t071h31b10066 1.120605æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311618c...s...g...t071h31b10066 1.120605æ"
+
+rx --------------------------------> done 
+RSSI: -20 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4713.92N/00026.66EO335/000/A=000257Bat:4.04V/-99mA 
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311620c...s...g...t072h31b10066 1.111084æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311620c...s...g...t072h31b10066 1.111084æ"
+
+rx --------------------------------> done 
+RSSI: -20 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4713.92N/00026.66EO305/004/A=000452Bat:4.03V/-105mA 
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311622c...s...g...t073h30b10066 1.112549æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311622c...s...g...t073h30b10066 1.112549æ"
+
+rx --------------------------------> done 
+RSSI: -20 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4713.92N/00026.67EO169/000/A=000349Bat:4.04V/-98mA 
+rx --------------------------------> done 
+RSSI: -21 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4713.86N/00026.70EO163/002/A=000068Bat:4.04V/-100mA 
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311624c...s...g...t074h29b10067 1.124512æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311624c...s...g...t074h29b10067 1.124512æ"
+
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311626c...s...g...t075h29b10066 1.095215æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311626c...s...g...t075h29b10066 1.095215æ"
+
+rx --------------------------------> done 
+RSSI: -21 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4713.92N/00026.67EO082/001/A=000361Bat:4.03V/-102mA 
+rx --------------------------------> done 
+RSSI: -20 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4713.92N/00026.66EO121/000/A=000389Bat:4.03V/-100mA 
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311628c...s...g...t076h28b10067 1.132324æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311628c...s...g...t076h28b10067 1.132324æ"
+
+rx --------------------------------> done 
+RSSI: -21 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4713.91N/00026.67EO201/000/A=000356Bat:4.03V/-99mA 
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311630c...s...g...t077h28b10067 1.139648æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311630c...s...g...t077h28b10067 1.139648æ"
+
+rx --------------------------------> done 
+RSSI: -20 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4713.92N/00026.66EO314/000/A=000358Bat:4.03V/-100mA 
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311632c...s...g...t078h27b10071 1.107422æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311632c...s...g...t078h27b10071 1.107422æ"
+
+rx --------------------------------> done 
+RSSI: -29 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4713.91N/00026.66EO161/001/A=000375Bat:4.03V/-99mA 
+rx --------------------------------> done 
+RSSI: -30 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4713.91N/00026.67EO153/000/A=000309Bat:4.03V/-98mA 
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311634c...s...g...t078h27b10072 1.091553æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311634c...s...g...t078h27b10072 1.091553æ"
+
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311636c...s...g...t079h27b10070 0.917236æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311636c...s...g...t079h27b10070 0.917236æ"
+
+rx --------------------------------> done 
+RSSI: -22 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4713.86N/00026.75EO142/002/A=-00485Bat:4.03V/-100mA 
+rx --------------------------------> done 
+RSSI: -31 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4713.90N/00026.75EO194/002/A=000310Bat:4.03V/-98mA 
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311638c...s...g...t079h28b10067 0.827637æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311638c...s...g...t079h28b10067 0.827637æ"
+
+rx --------------------------------> done 
+RSSI: -32 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4713.90N/00026.79EO013/001/A=000320Bat:4.03V/-99mA 
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311640c...s...g...t079h28b10070 1.118652æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311640c...s...g...t079h28b10070 1.118652æ"
+
+rx --------------------------------> done 
+RSSI: -25 dBm
+buffer <ˇf4kmn-11>APLT00,WIDE1-1:!4713.91N/00026.83EO039/002/A=000437Bat:4.03V/-105mA 
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_05311642c...s...g...t081h36b10070 0.750000æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_05311642c...s...g...t081h36b10070 0.750000æ"
+
+Trame √† √©mettre
+Trame APRS <ˇf4kmn-9>APLT00,WIDE1-1:_06030824c...s...g...t066h58b10189 1.132568æ
+ len : 71
+tx --------------------------------> done;
+sent string: "<ˇf4kmn-9>APLT00,WIDE1-1:_06030824c...s...g...t066h58b10189 1.132568æ"
+
