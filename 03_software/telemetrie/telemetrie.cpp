@@ -1,12 +1,13 @@
 /*
- * File:   main.cpp
+ * File:   telemetrie.cpp
  * Author: dbrochard
  *
  * Created on 27 mars 2024, 15:01
- * 
- * 
- * 
- * sudo g++ -o ./main ./*.cpp ./*.h -lpthread -lrt && sudo ./main
+ *
+ *
+ *
+ * sudo g++ -o ./telemetrie ./*.cpp ./*.h -lpthread -lrt && sudo ./main
+ * ou make all
  */
 
 #include "GestionMesures.h"
