@@ -7,7 +7,9 @@
  
 #include "GestionMesures.h"
 
-GestionMesures::GestionMesures() : bme280(ADDRESS_BME280), mpu6050(ADDRESS_MPU6050)
+GestionMesures::GestionMesures() :
+    bme280(ADDRESS_BME280),
+    mpu6050(ADDRESS_MPU6050)
 {
     // Initialisation de la sensibilité de l'accéléromètre MPU6050
     mpu6050.setAccSensibility(FS_2G);
@@ -16,7 +18,7 @@ GestionMesures::GestionMesures() : bme280(ADDRESS_BME280), mpu6050(ADDRESS_MPU60
     std::ofstream fichier(CSV_PATH);
     if (fichier.is_open())
     {
-        fichier << "Date time,Température BME,Température LM,Température MPU,Pression,Humidité,Accélération Z" << std::endl;
+        fichier << "Date time,Température_BME,Température_LM,Température_MPU,Pression,Humidité,Accélération_Z" << std::endl;
     }
     else
     {

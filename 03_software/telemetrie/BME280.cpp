@@ -1,5 +1,4 @@
-/**************************************************************************
-/*!
+/*
     \file     bme280.cpp
     \author   Philippe SIMIER (Touchard Wahington le Mans)
     \license  BSD (see license.txt)
@@ -11,8 +10,7 @@
               sélectionner l'interface I²C. Son adresse sur le bus est 0x77 ou 0x76
               en fonction du niveau de tension appliquée sur la broche SDO.
     \version    2.0 - First release decembre 2019
-                2.1 - Second release mars 2024
-                2.2 - Modification de la pression minimale 0 hPa 
+ *              2.1 - Second release mars 2024
  */
 
 #include "BME280.h"
@@ -144,7 +142,7 @@ double BME280::obtenirPression() {
     double var2;
     double var3;
     double pressure;
-    double pressure_min = 0.0;  // La pression ne peut pas être négative
+    double pressure_min = 00000.0;
     double pressure_max = 110000.0;
 
     getRawData();
