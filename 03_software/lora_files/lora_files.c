@@ -118,6 +118,8 @@ int main(int argc, char** argv) {
     LoRa_ctl modem;
     int ret;
     int idFileTX;
+    int debug = 0;
+
     donnees fileTX;
 
     fileRX.type=2;
@@ -134,30 +136,29 @@ int main(int argc, char** argv) {
     }
 
     readConfiguration(&modem, header);
-
-    printf("lecture du fichier config.ini\n\r");
-    // Affiche les valeurs de la configuration du modem
-    printf("spiCS = %d\n\r", modem.spiCS);
-    printf("bw   = %d\n\r",  modem.eth.bw);
-    printf("sf   = %d\n\r",  modem.eth.sf);
-    printf("ecr  = %d\n\r",  modem.eth.ecr);
-    printf("CRC  = %d\n\r",  modem.eth.CRC);
-    printf("freq = %f\n\r",  modem.eth.freq);
-    printf("resetGpioN = %d\n\r", modem.eth.resetGpioN);
-    printf("dio0GpioN  = %d\n\r", modem.eth.dio0GpioN);
+    if (debug) { // Affiche les valeurs de la configuration du modem
+        printf("lecture du fichier config.ini\n\r");
+        printf("spiCS = %d\n\r", modem.spiCS);
+        printf("bw   = %d\n\r",  modem.eth.bw);
+        printf("sf   = %d\n\r",  modem.eth.sf);
+        printf("ecr  = %d\n\r",  modem.eth.ecr);
+        printf("CRC  = %d\n\r",  modem.eth.CRC);
+        printf("freq = %f\n\r",  modem.eth.freq);
+        printf("resetGpioN = %d\n\r", modem.eth.resetGpioN);
+        printf("dio0GpioN  = %d\n\r", modem.eth.dio0GpioN);
+    }
 
     modem.rx.data.userPtr = (void *)(&modem); //To handle with chip from rx callback
     modem.tx.data.userPtr = (void *)(&modem); //To handle with chip from tx callback
     modem.rx.callback = rx_f;
     modem.tx.callback = tx_f;
     modem.tx.data.buf = txbuf;
-    //modem.tx.data.size = strlen(txbuf); //Payload len
     modem.eth.preambleLen = 6;
-    modem.eth.outPower = OP20; //Output power
+    modem.eth.outPower = OP20;        //Output power
     modem.eth.powerOutPin = PA_BOOST; //Power Amplifire pin
-    modem.eth.AGC = 1; //Auto Gain Control
-    modem.eth.OCP = 240; // 45 to 240 mA. 0 to turn off protection
-    modem.eth.implicitHeader = 0; //Explicit header mode
+    modem.eth.AGC = 1;                //Auto Gain Control
+    modem.eth.OCP = 240;              // 45 to 240 mA. 0 to turn off protection
+    modem.eth.implicitHeader = 0;     //Explicit header mode
     modem.eth.syncWord = 0x12;
     //For detail information  https://www.semtech.com/uploads/documents/DS_SX1276-7-8-9_W_APP_V5.pdf
 
@@ -172,8 +173,6 @@ int main(int argc, char** argv) {
         //reception dans la file d'une trame à transmettre à la station sol
         ret = msgrcv(idFileTX, (void*) &fileTX, sizeof(txbuf), 2, IPC_NOWAIT);
         if (ret != -1) {
-            printf("Reception d'une trame à émettre en LoRa\r\n");
-	    printf("%s\r\n", fileTX.texte);
             LoRa_stop_receive(&modem);  //stop la réception
 
             memset(txbuf, '\0', sizeof(txbuf)); //header + payload de la file
@@ -181,14 +180,17 @@ int main(int argc, char** argv) {
             strcat(txbuf,fileTX.texte);
             txbuf[1] = 0xff;
             txbuf[2] = 0x01;
-            printf("Trame APRS %s\n\r len : %d\n\r", txbuf, strlen(txbuf)); 
+
+            if (debug)
+                printf("Trame APRS %s\n\r len : %d\n\r", txbuf, strlen(txbuf)); 
             modem.tx.data.size = strlen(txbuf); //Payload len
             LoRa_send(&modem);              //c'est parti, confirmation dans le handler tx_f
-            printf("Tsym: %f\n\r", modem.tx.data.Tsym);
-            printf("Tpkt: %f\n\r", modem.tx.data.Tpkt);
-            printf("payloadSymbNb: %u\n\r", modem.tx.data.payloadSymbNb);
-
-            printf("sleep %d seconds to transmit complete\n\r", (int) modem.tx.data.Tpkt / 1000);
+            if (debug) {
+                printf("Tsym: %f\n\r", modem.tx.data.Tsym);
+                printf("Tpkt: %f\n\r", modem.tx.data.Tpkt);
+                printf("payloadSymbNb: %u\n\r", modem.tx.data.payloadSymbNb);
+            }
+            printf("temps de transmission : %f ms\n\r", modem.tx.data.Tpkt);
             sleep(((int) modem.tx.data.Tpkt / 1000) + 1);
             LoRa_receive(&modem);  //on repasse en réception
         }
