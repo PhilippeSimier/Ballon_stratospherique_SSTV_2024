@@ -2,7 +2,7 @@
 PROG = lora_files
 
 # Fichiers source C
-SRC = main.c LoRa.c readConfig.c
+SRC = lora_files.c LoRa.c readConfig.c
 
 # Objets compilés
 OBJ = $(SRC:.c=.o)
