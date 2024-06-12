@@ -6,8 +6,10 @@
  * from https://github.com/yandievruslan/sx1278-lora-raspberrypi
  * on rpi must install pigpio before
  * sudo apt install pigpio
+
    compilation : gcc *.c -lpigpio -lpthread -lm -o lora_files
    pour lister les files utiliser la commande  ipcs
+
  * Edit config.ini according to lora.h and RA-02 GPIO
 [modem]
 spiCS= 0
@@ -71,7 +73,6 @@ sent string: "<▒f4kmn-9>APLT00,WIDE1-1:!4753.42N/00016.61Eb/A=001000"
 #include <sys/msg.h>
 #include "LoRa.h"
 #include "readConfig.h"
-#include <signal.h>
 
 
 
@@ -88,18 +89,18 @@ donnees fileRX;
 
 void tx_f(txData *tx) {
     LoRa_ctl *modem = (LoRa_ctl *)(tx->userPtr);
-    printf("tx --------------------------------> done;\n\r");
+    printf("tx --> done;\n\r");
     printf("sent string: \"%s\"\n\n", tx->buf);//Data we've sent
     LoRa_receive(modem);
 }
 
 void * rx_f(void *p) {
     rxData *rx = (rxData *) p;
-    printf("rx --------------------------------> done \n\r");
-    printf("CRC error: %d\n\r", rx->CRC);
+    printf("rx --> done ");
+    printf("CRC error: %d ", rx->CRC);
     printf("Data size: %d\n\r", rx->size);
     rx->buf[rx->size] = '\0';  // Ajoute une fin de chaîne de Caratères
-    printf("RSSI: %d dBm\n\r", rx->RSSI);
+    printf("RSSI: %d dBm ", rx->RSSI);
     printf("SNR: %f  dB\n\r", rx->SNR);
     strcpy(fileRX.texte,rx->buf);
     free(p);
@@ -109,13 +110,11 @@ void * rx_f(void *p) {
     return NULL;
 }
 
-
 int main(int argc, char** argv) {
 
-    printf("Programme LoRa_file \n\r");
+    printf("Programme LoRa Files \n\r");
     char txbuf[255];
     char header[255];
-    char *payload="!4753.42N/00016.61Eb/A=000261\0";
     LoRa_ctl modem;
     int ret;
     int idFileTX;
@@ -125,30 +124,30 @@ int main(int argc, char** argv) {
     idFileRX = msgget((key_t) 5678, 0666 | IPC_CREAT);
     if (idFileRX == -1) {
         printf("pb creation file : %s\n", strerror(errno));
-        exit(0);
+        exit(errno);
     }
 
     idFileTX = msgget((key_t) 5679, 0666 | IPC_CREAT);
     if (idFileTX == -1) {
         printf("pb creation file : %s\n", strerror(errno));
-        exit(0);
+        exit(errno);
     }
 
     readConfiguration(&modem, header);
 
-    printf("Configuration à partir de config.ini\n\r");
-    // Afficher les valeurs de la structure
+    printf("lecture du fichier config.ini\n\r");
+    // Affiche les valeurs de la configuration du modem
     printf("spiCS = %d\n\r", modem.spiCS);
-    printf("bw   = %d\n\r",    modem.eth.bw);
-    printf("sf   = %d\n\r",    modem.eth.sf);
-    printf("ecr  = %d\n\r",   modem.eth.ecr);
-    printf("CRC  = %d\n\r",   modem.eth.CRC);
+    printf("bw   = %d\n\r",  modem.eth.bw);
+    printf("sf   = %d\n\r",  modem.eth.sf);
+    printf("ecr  = %d\n\r",  modem.eth.ecr);
+    printf("CRC  = %d\n\r",  modem.eth.CRC);
     printf("freq = %f\n\r",  modem.eth.freq);
     printf("resetGpioN = %d\n\r", modem.eth.resetGpioN);
     printf("dio0GpioN  = %d\n\r", modem.eth.dio0GpioN);
 
-    modem.rx.data.userPtr = (void *)(&modem);//To handle with chip from rx callback
-    modem.tx.data.userPtr = (void *)(&modem);//To handle with chip from tx callback
+    modem.rx.data.userPtr = (void *)(&modem); //To handle with chip from rx callback
+    modem.tx.data.userPtr = (void *)(&modem); //To handle with chip from tx callback
     modem.rx.callback = rx_f;
     modem.tx.callback = tx_f;
     modem.tx.data.buf = txbuf;
@@ -160,13 +159,16 @@ int main(int argc, char** argv) {
     modem.eth.OCP = 240; // 45 to 240 mA. 0 to turn off protection
     modem.eth.implicitHeader = 0; //Explicit header mode
     modem.eth.syncWord = 0x12;
-    //For detail information about SF, Error Coding Rate, Explicit header, Bandwidth, AGC, Over current protection and other features refer to sx127x datasheet https://www.semtech.com/uploads/documents/DS_SX1276-7-8-9_W_APP_V5.pdf
+    //For detail information  https://www.semtech.com/uploads/documents/DS_SX1276-7-8-9_W_APP_V5.pdf
 
-    LoRa_begin(&modem);
+    int retour = LoRa_begin(&modem);
+    if (retour < 0){
+        printf(" problème avec LoRa_begin : %d\r\n", retour);
+	exit(retour);
+    }
     LoRa_receive(&modem);
 
     while (1) {
-
         //reception dans la file d'une trame à transmettre à la station sol
         ret = msgrcv(idFileTX, (void*) &fileTX, sizeof(txbuf), 2, IPC_NOWAIT);
         if (ret != -1) {
