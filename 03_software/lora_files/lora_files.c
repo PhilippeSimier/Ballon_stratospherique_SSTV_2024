@@ -44,22 +44,7 @@ header=<xxf4kmn-9>APLT00,WIDE1-1:
  * freq = 433775000.000000
  * resetGpioN = 0
  * dio0GpioN = 22
- * réception en provenance de la station sol
- * rx --------------------------------> done réception en provenance de la station sol
-CRC error: 0
-Data size: 70
-string: <▒f4goh-9>APLT00,WIDE1-1:!4753.41N/00016.61Eb/A=000271Bat:4.06V/-99mA▒~▒e▒~
-RSSI: -46
-SNR: 12.500000
-buffer <▒f4goh-9>APLT00,WIDE1-1:!4753.41N/00016.61Eb/A=000271Bat:4.06V/-99mA▒~▒e▒~
-Trame APRS <▒f4kmn-9>APLT00,WIDE1-1:!4753.42N/00016.61Eb/A=001000 55
-Tsym: 32.768000
-Tpkt: 2400.256000
-payloadSymbNb: 63
-sleep 2 seconds to transmit complete
- * envoi vers la station sol
-tx --------------------------------> done;
-sent string: "<▒f4kmn-9>APLT00,WIDE1-1:!4753.42N/00016.61Eb/A=001000"
+ * 
 */
 
 #include <sys/types.h>
@@ -85,30 +70,11 @@ typedef struct {
 int idFileRX;  //global pas le choix pour le handler de réception
 donnees fileRX;
 
-// Callback
+// Prototype des callbacks
 
-void tx_f(txData *tx) {
-    LoRa_ctl *modem = (LoRa_ctl *)(tx->userPtr);
-    printf("tx --> done;\n\r");
-    printf("sent string: \"%s\"\n\n", tx->buf);//Data we've sent
-    LoRa_receive(modem);
-}
+void tx_f(txData *tx); 
+void *rx_f(void *p); 
 
-void * rx_f(void *p) {
-    rxData *rx = (rxData *) p;
-    printf("rx --> done ");
-    printf("CRC error: %d ", rx->CRC);
-    printf("Data size: %d\n\r", rx->size);
-    rx->buf[rx->size] = '\0';  // Ajoute une fin de chaîne de Caratères
-    printf("RSSI: %d dBm ", rx->RSSI);
-    printf("SNR: %f  dB\n\r", rx->SNR);
-    strcpy(fileRX.texte,rx->buf);
-    free(p);
-    printf("buffer %s \n\r",fileRX.texte);
-    msgsnd(idFileRX, (void*) &fileRX, sizeof(fileRX.texte), IPC_NOWAIT);
-    sleep(1);
-    return NULL;
-}
 
 int main(int argc, char** argv) {
 
@@ -170,29 +136,31 @@ int main(int argc, char** argv) {
     LoRa_receive(&modem);
 
     while (1) {
-        //reception dans la file d'une trame à transmettre à la station sol
+        
         ret = msgrcv(idFileTX, (void*) &fileTX, sizeof(txbuf), 2, IPC_NOWAIT);
         if (ret != -1) {
-            LoRa_stop_receive(&modem);  //stop la réception
+         
+            //reception dans la file d'un payload à transmettre à la station sol
 
-            memset(txbuf, '\0', sizeof(txbuf)); //header + payload de la file
-            strcpy(txbuf, header);
-            strcat(txbuf,fileTX.texte);
-            txbuf[1] = 0xff;
+            memset(txbuf, '\0', sizeof(txbuf)); // remise à zero du packet 
+            strcpy(txbuf, header);              // met l'entête  
+            strcat(txbuf,fileTX.texte);         // ajoute le payload
+            txbuf[1] = 0xff;                    // ecrit le champ protocole        
             txbuf[2] = 0x01;
 
             if (debug)
                 printf("Trame APRS %s\n\r len : %d\n\r", txbuf, strlen(txbuf)); 
-            modem.tx.data.size = strlen(txbuf); //Payload len
-            LoRa_send(&modem);              //c'est parti, confirmation dans le handler tx_f
+            modem.tx.data.size = strlen(txbuf); // donne la longeur du packet à transmettre
+
+            LoRa_stop_receive(&modem);  // stop la réception
+            LoRa_send(&modem);          // puis démarre l'émission
             if (debug) {
                 printf("Tsym: %f\n\r", modem.tx.data.Tsym);
                 printf("Tpkt: %f\n\r", modem.tx.data.Tpkt);
                 printf("payloadSymbNb: %u\n\r", modem.tx.data.payloadSymbNb);
             }
-            printf("temps de transmission : %f ms\n\r", modem.tx.data.Tpkt);
-            sleep(((int) modem.tx.data.Tpkt / 1000) + 1);
-            LoRa_receive(&modem);  //on repasse en réception
+                        
+            usleep((int) modem.tx.data.Tpkt * 1000); // attend la fin de l'émission
         }
         sleep(1);
     }
@@ -201,4 +169,53 @@ int main(int argc, char** argv) {
     LoRa_end(&modem);
 
     return (EXIT_SUCCESS);
+}
+
+/*
+    Fonction pour afficher l'heure
+*/
+void afficher_heure(){
+
+    time_t current_time;
+    struct tm *time_info;
+    char time_string[9];  
+
+    time(&current_time);
+    time_info = localtime(&current_time);
+    strftime(time_string, sizeof(time_string), "%H:%M:%S", time_info);
+
+    printf(time_string);
+}
+
+/*
+   callback appelé à la fin d'une émission
+*/
+void tx_f(txData *tx) {
+    LoRa_ctl *modem = (LoRa_ctl *)(tx->userPtr);
+    afficher_heure();
+    printf(" tx-->done Tpkt=%.2fms\n\r", modem->tx.data.Tpkt);
+    printf("         %s\n\r\n\r", tx->buf);  //Data we've sent
+    LoRa_receive(modem); //on repasse en réception
+}
+
+/*
+    callback appelé à la fin d'une réception
+*/
+
+void * rx_f(void *p) {
+    rxData *rx = (rxData *) p;
+    afficher_heure();
+    printf(" rx-->done ");
+    printf("CRC_error=%d ", rx->CRC);
+    printf("Data_size=%d ", rx->size);
+    printf("RSSI=%ddBm ", rx->RSSI);
+    printf("SNR=%.2fdB\n\r", rx->SNR);
+
+    rx->buf[rx->size] = '\0';  // Ajoute une fin de chaîne de Caratères
+    strcpy(fileRX.texte,rx->buf);
+    free(p);
+    printf("         %s \n\r\n\r",fileRX.texte);
+    msgsnd(idFileRX, (void*) &fileRX, sizeof(fileRX.texte), IPC_NOWAIT);
+    sleep(1);
+    return NULL;
 }
