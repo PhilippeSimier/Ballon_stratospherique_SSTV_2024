@@ -4,7 +4,7 @@
  *
  * Created on 27 mars 2024, 15:01
  */
- 
+
 #include "GestionTemps.h"
 
 GestionTemps::GestionTemps()
@@ -19,10 +19,10 @@ GestionTemps::~GestionTemps()
 // Fonction pour obtenir l'heure actuelle
 std::tm GestionTemps::obtenirHeureActuelle()
 {
-  std::chrono::time_point<std::chrono::system_clock> maintenant = std::chrono::system_clock::now();
-  std::time_t tempsActuel = std::chrono::system_clock::to_time_t(maintenant);
-  std::tm tmMaintenant = *localtime(&tempsActuel);
-  return tmMaintenant;
+    std::chrono::time_point<std::chrono::system_clock> maintenant = std::chrono::system_clock::now();
+    std::time_t tempsActuel = std::chrono::system_clock::to_time_t(maintenant);
+    std::tm tmMaintenant = *localtime(&tempsActuel);
+    return tmMaintenant;
 }
 
 void GestionTemps::majDate()
@@ -52,45 +52,14 @@ void GestionTemps::majDate()
     if (tempsLocal->tm_sec < 10)
         temps.seconde = "0" + temps.seconde;
 
-    // Calculer le temps avant la prochaine sauvegarde en utilisant le modulo
-    tempsAvantProchaineSauvegarde = 10 - (tempsLocal->tm_sec % 10);
 
-    // Calculer le temps avant le prochain envoie de trame LoRa en utilisant le modulo
-    if (tempsLocal->tm_min % 2 == 0) {
-        if (tempsLocal->tm_sec < 30) {
-            tempsAvantProchainEnvoiLoRa = 30 - (tempsLocal->tm_sec % 30);
-        }
-        else if (tempsLocal->tm_sec > 30 && tempsLocal->tm_sec < 60) {
-            tempsAvantProchainEnvoiLoRa = 120 - (tempsLocal->tm_sec % 30);
-        }
-    }
-    else {
-        if (tempsLocal->tm_sec < 30) {
-            tempsAvantProchainEnvoiLoRa = 90 - (tempsLocal->tm_sec % 30);
-        }
-        else if (tempsLocal->tm_sec > 30 && tempsLocal->tm_sec < 60) {
-            tempsAvantProchainEnvoiLoRa = 60 - (tempsLocal->tm_sec % 30);
-        } 
-        else {
-            tempsAvantProchainEnvoiLoRa = 60;
-        }
-    }
-
-    //std::cout << temps.annee << "-" << temps.mois << "-" << temps.jour << " " << temps.heure << ":" << temps.minute << ":" << temps.seconde << " - mise à jour de la date" << std::endl;
 }
 
-int GestionTemps::getTempsAvantProchaineSauvegarde() const
-{
-    return tempsAvantProchaineSauvegarde;
-}
 
-int GestionTemps::getTempsAvantProchainEnvoiLoRa() const
-{
-    return tempsAvantProchainEnvoiLoRa;
-}
 
-std::string GestionTemps::getDateFormatee() const
+std::string GestionTemps::getDateFormatee()
 {
+    majDate();
     return getDateAnnee() + "-" + getDateMois() + "-" + getDateJour() + " " + getDateHeure() + ":" + getDateMinute() + ":" + getDateSeconde();
 }
 

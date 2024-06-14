@@ -17,6 +17,8 @@
 #include <fstream>
 #include <iostream>
 #include <iomanip>
+#include <sstream>
+
 #include <stdexcept>
 #include <chrono>
 #include <thread>
@@ -93,6 +95,8 @@ private:
     BME280 bme280;
     MPU6050 mpu6050;
     LM75 lm75;
+
+   std::string doubleToString(double value);
 };
 
 #endif /* GESTIONMESURES_H */

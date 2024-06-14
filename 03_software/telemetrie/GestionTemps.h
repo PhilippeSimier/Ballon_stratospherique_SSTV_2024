@@ -34,7 +34,7 @@ public:
 
     std::tm obtenirHeureActuelle(); // Méthode pour obtenir l'heure actuelle
     void majDate(); // Méthode pour mettre à jour la date
-    std::string getDateFormatee() const;
+    std::string getDateFormatee();
 
     // Fonctions pour obtenir les différentes parties de la date
     std::string getDateAnnee() const;
@@ -44,13 +44,11 @@ public:
     std::string getDateMinute() const;
     std::string getDateSeconde() const;
 
-    int getTempsAvantProchaineSauvegarde() const;
-    int getTempsAvantProchainEnvoiLoRa() const;
+
 
 private:
     Temps temps; // Variable pour stocker le temps
-    int tempsAvantProchaineSauvegarde;
-    int tempsAvantProchainEnvoiLoRa;
+
 };
 
 #endif /* GestionTemps_H */

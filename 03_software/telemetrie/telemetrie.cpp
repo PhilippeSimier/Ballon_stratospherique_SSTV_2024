@@ -6,96 +6,69 @@
  *
  *
  *
- * sudo g++ -o ./telemetrie ./*.cpp ./*.h -lpthread -lrt && sudo ./main
  * ou make all
  */
 
 #include "GestionMesures.h"
 #include "GestionTemps.h"
 #include "GestionFile.h"
-
 #include <chrono>
 #include <iostream>
-#include <mutex>
 #include <stdexcept>
 #include <thread>
 
 int main(int argc, char **argv)
 {
-  try
-  {
-    GestionMesures gestionMesures; // Objet pour la gestion des mesures
-    GestionFile gestionFile;       // Objet pour la gestion des files de messages
-    GestionTemps gestionTemps;     // Objet pour la gestion du temps
-
-    // Obtenir l'heure actuelle
-    std::tm tmMaintenant = gestionTemps.obtenirHeureActuelle();
-    std::tm tmPrecedent = gestionTemps.obtenirHeureActuelle();
-    tmPrecedent.tm_sec = tmPrecedent.tm_sec - 1;
-
-    while (true)
+    try
     {
-      tmMaintenant = gestionTemps.obtenirHeureActuelle();
-      gestionTemps.majDate();
+        GestionMesures gestionMesures; // Objet pour la gestion des mesures
+        GestionFile gestionFile;       // Objet pour la gestion des files de messages
+        GestionTemps gestionTemps;     // Objet pour la gestion du temps
 
-      if (tmPrecedent.tm_sec != tmMaintenant.tm_sec)
-      {
-        // Sauvegarder les mesures toutes les 10 secondes
-        if (tmMaintenant.tm_sec % 10 == 0)
+        while (true)
         {
-          gestionMesures.effectuerMesures();
-          gestionMesures.sauvegarderMesures();
-          std::cout << "-CSV--------------------------------CSV-\n"
-                    << gestionTemps.getDateFormatee() << " | Sauvegarde des mesures\n----------------------------------------" << std::endl;
-        }
-        else
-        { // Sinon afficher le temps avant la prochaine sauvegarde
-          std::cout << gestionTemps.getDateFormatee() << " | " << std::setfill(' ') << std::setw(3) << gestionTemps.getTempsAvantProchaineSauvegarde() << "s avant la prochaine sauvegarde des mesures dans le CSV" << std::endl;
-        }
+            std::tm tmMaintenant = gestionTemps.obtenirHeureActuelle();
 
-        // Envoyer les mesures par LoRa toutes les 2 minutes à la seconde 30
-        if (tmMaintenant.tm_min % 2 == 0 && tmMaintenant.tm_sec == 30)
-        {
-          gestionMesures.effectuerMesures();
-          if (gestionMesures.verifierMesures())
-          {
-            std::string payload = gestionMesures.formaterMesuresPourLora(); // Formater payload au format lisible par APRS.fi (station WX)
-            if (!gestionFile.ecrireDansLaFileIPC(payload))
+            // Sauvegarder les mesures toutes les 10 secondes
+            if (tmMaintenant.tm_sec % 10 == 0)
             {
-              std::cout << gestionTemps.getDateFormatee() << " | Erreur lors de l'écriture dans la file." << std::endl;
+                gestionMesures.effectuerMesures();
+                gestionMesures.sauvegarderMesures();
+                std::cout << gestionTemps.getDateFormatee();
+                std::cout << " | Ecriture des mesures dans fichier CSV" << std::endl;
             }
-            else
+
+
+            // Envoyer les mesures par LoRa toutes les 2 minutes à la seconde 30
+            if (tmMaintenant.tm_min % 2 == 0 && tmMaintenant.tm_sec == 30)
             {
-              std::cout << "=LORA==============================LORA=\n"
-                        << gestionTemps.getDateFormatee() << " | Envoie de la mesure dans la file IPC avec le payload : " << payload << "\n========================================" << std::endl;
+                gestionMesures.effectuerMesures();
+                if (gestionMesures.verifierMesures())
+                {
+                    std::string payload = gestionMesures.formaterMesuresPourLora(); // Formater payload au format lisible par APRS.fi (station WX)
+                    if (!gestionFile.ecrireDansLaFileIPC(payload))
+                    {
+                        std::cout << gestionTemps.getDateFormatee();
+                        std::cout << " | Erreur lors de l'écriture dans la file." << std::endl;
+                    }
+                    else
+                    {
+                        std::cout << gestionTemps.getDateFormatee();
+                        std::cout << " | Ecriture packet weather dans la file | ";
+                        std::cout << payload  << std::endl;
+                    }
+                }
             }
-          }
-        }
-        else if (tmMaintenant.tm_min % 2 == 0 && tmMaintenant.tm_sec != 30)
-        {
-          if (tmMaintenant.tm_sec < 30 && tmMaintenant.tm_sec >= 0)
-            std::cout << gestionTemps.getDateFormatee() << " | " << std::setfill(' ') << std::setw(3) << gestionTemps.getTempsAvantProchainEnvoiLoRa() << "s avant le prochain envoie de trame LoRa" << std::endl;
-          else if (tmMaintenant.tm_sec > 30 && tmMaintenant.tm_sec < 60)
-            std::cout << gestionTemps.getDateFormatee() << " | " << std::setfill(' ') << std::setw(3) << gestionTemps.getTempsAvantProchainEnvoiLoRa() << "s avant le prochain envoie de trame LoRa" << std::endl;
-        }
-        else if (tmMaintenant.tm_min % 2 == 1)
-        {
-          if (tmMaintenant.tm_sec < 30 && tmMaintenant.tm_sec >= 0)
-            std::cout << gestionTemps.getDateFormatee() << " | " << std::setfill(' ') << std::setw(3) << gestionTemps.getTempsAvantProchainEnvoiLoRa() << "s avant le prochain envoie de trame LoRa" << std::endl;
-          else
-            std::cout << gestionTemps.getDateFormatee() << " | " << std::setfill(' ') << std::setw(3) << gestionTemps.getTempsAvantProchainEnvoiLoRa() << "s avant le prochain envoie de trame LoRa" << std::endl;
-        }
 
-        tmPrecedent = tmMaintenant;
-      }
 
-      std::this_thread::sleep_for(std::chrono::milliseconds(500)); // Attendre pour ne pas surcharger avec la lecture des capteurs
+
+            std::this_thread::sleep_for(std::chrono::milliseconds(1000)); // Attendre 1000 ms
+        }
     }
-  }
-  catch (const std::exception &e)
-  {
-    std::cerr << "Exception attrapée: " << e.what() << std::endl;
-  }
+    catch (const std::exception &e)
+    {
+        std::cerr << "Exception attrapée: " << e.what() << std::endl;
+    }
 
-  return EXIT_SUCCESS;
+    return EXIT_SUCCESS;
 }

@@ -136,7 +136,13 @@ std::string GestionMesures::formaterMesuresPourLora()
     }
 
     // Construction du message formaté pour LoRa
-    std::string messageStr = "_" + gestionTemps.getDateMois() + gestionTemps.getDateJour() + gestionTemps.getDateHeure() + gestionTemps.getDateMinute() + "c...s...g...t" + t_str + "h" + h_str + "b" + p_str + " " + std::to_string(a_double); // \:F4KMN____:test
+    std::string messageStr = "_" + gestionTemps.getDateMois();
+    messageStr += gestionTemps.getDateJour();
+    messageStr += gestionTemps.getDateHeure();
+    messageStr += gestionTemps.getDateMinute();
+    messageStr += "c...s...g...t" + t_str + "h" + h_str + "b" + p_str + " ";
+    messageStr += doubleToString(a_double);
+
     return messageStr;
 }
 
@@ -147,7 +153,6 @@ void GestionMesures::sauvegarderMesures()
     if (fichier.is_open())
     {
         // Création de l'horodatage
-        gestionTemps.majDate();
         fichier << gestionTemps.getDateFormatee();
 
         // Écriture des mesures dans le fichier CSV
@@ -160,4 +165,10 @@ void GestionMesures::sauvegarderMesures()
     {
         throw std::runtime_error("Impossible d'ouvrir le fichier pour enregistrer les mesures.");
     }
+}
+
+std::string GestionMesures::doubleToString(double value) {
+    std::ostringstream out;
+    out << std::fixed << std::setprecision(2) << value;
+    return out.str();
 }
