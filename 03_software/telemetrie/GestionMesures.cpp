@@ -1,6 +1,6 @@
 /*
  * File:   GestionMesures.cpp
- * Author: dbrochard
+ * Authors: Damien Brochard, Philippe Simier
  *
  * Created on 27 mars 2024, 15:01
  */
@@ -18,7 +18,7 @@ GestionMesures::GestionMesures() :
     std::ofstream fichier(CSV_PATH);
     if (fichier.is_open())
     {
-        fichier << "Date time,Température_BME,Température_LM,Température_MPU,Pression,Humidité,Accélération_Z" << std::endl;
+        fichier << "Date time,Température_BME,Température_LM,Température_MPU,Pression,Humidité,Accel_X,Accel_Y,Accel_Z" << std::endl;
     }
     else
     {
@@ -29,17 +29,20 @@ GestionMesures::GestionMesures() :
 
 GestionMesures::~GestionMesures()
 {
+
 }
 
 void GestionMesures::effectuerMesures()
 {
     // Obtention des mesures des capteurs
-    mesuresNonFormatees.accelerationVerticale = mpu6050.getAccelZ();
-    mesuresNonFormatees.tempMpu = mpu6050.getTemperature();
-    mesuresNonFormatees.tempLm = lm75.getTemperature();
-    mesuresNonFormatees.tempBme = bme280.obtenirTemperatureEnC();
-    mesuresNonFormatees.pression = bme280.obtenirPression();
-    mesuresNonFormatees.humidite = bme280.obtenirHumidite();
+    mesures.accelX  = mpu6050.getAccelX();
+    mesures.accelY  = mpu6050.getAccelY();
+    mesures.accelZ  = mpu6050.getAccelZ();
+    mesures.tempMpu = mpu6050.getTemperature();
+    mesures.tempLm  = lm75.getTemperature();
+    mesures.tempBme = bme280.obtenirTemperatureEnC();
+    mesures.pression = bme280.obtenirPression();
+    mesures.humidite = bme280.obtenirHumidite();
 }
 
 bool GestionMesures::verifierMesures()
@@ -47,105 +50,81 @@ bool GestionMesures::verifierMesures()
     bool valid = true; // Variable pour indiquer si les mesures sont valides
 
     // Vérification de la validité des mesures
-    if (mesuresNonFormatees.pression <= VAL_MIN_PRESSION || mesuresNonFormatees.pression >= VAL_MAX_PRESSION)
+    if (mesures.pression <= VAL_MIN_PRESSION || mesures.pression >= VAL_MAX_PRESSION)
     {
         valid = false;
-        std::cerr << "La pression est invalide  : " << mesuresNonFormatees.pression << " hPa" << std::endl;
-        mesuresNonFormatees.pression = NAN;
+        mesures.pression = NAN;
     }
-    if (mesuresNonFormatees.humidite <= VAL_MIN_HUMIDITE || mesuresNonFormatees.humidite >= VAL_MAX_HUMIDITE)
+    if (mesures.humidite <= VAL_MIN_HUMIDITE || mesures.humidite >= VAL_MAX_HUMIDITE)
     {
         valid = false;
-        std::cerr << "L'humidité est invalide : " << mesuresNonFormatees.humidite << " %" << std::endl;
-        mesuresNonFormatees.humidite = NAN;
+        mesures.humidite = NAN;
     }
-    if (mesuresNonFormatees.tempBme <= VAL_MIN_TEMPERATURE || mesuresNonFormatees.tempBme >= VAL_MAX_TEMPERATURE)
+    if (mesures.tempBme <= VAL_MIN_TEMPERATURE || mesures.tempBme >= VAL_MAX_TEMPERATURE)
     {
         valid = false;
-        std::cerr << "La temperature est invalide : " << mesuresNonFormatees.tempBme << " °C" << std::endl;
-        mesuresNonFormatees.tempBme = NAN;
+        mesures.tempBme = NAN;
     }
-    if (mesuresNonFormatees.tempLm <= VAL_MIN_TEMPERATURE || mesuresNonFormatees.tempLm >= VAL_MAX_TEMPERATURE)
+    if (mesures.tempLm <= VAL_MIN_TEMPERATURE || mesures.tempLm >= VAL_MAX_TEMPERATURE)
     {
         valid = false;
-        std::cerr << "La temperature est invalide : " << mesuresNonFormatees.tempLm << " °C" << std::endl;
-        mesuresNonFormatees.tempLm = NAN;
+        std::cerr << "La temperature est invalide : " << mesures.tempLm << " °C" << std::endl;
+        mesures.tempLm = NAN;
     }
-    if (mesuresNonFormatees.tempMpu <= VAL_MIN_TEMPERATURE || mesuresNonFormatees.tempMpu >= VAL_MAX_TEMPERATURE)
+    if (mesures.tempMpu <= VAL_MIN_TEMPERATURE || mesures.tempMpu >= VAL_MAX_TEMPERATURE)
     {
         valid = false;
-        std::cerr << "La temperature est invalide : " << mesuresNonFormatees.tempMpu << " °C" << std::endl;
-        mesuresNonFormatees.tempMpu = NAN;
+        mesures.tempMpu = NAN;
     }
-    if (mesuresNonFormatees.accelerationVerticale <= VAL_MIN_ACCELERATION || mesuresNonFormatees.accelerationVerticale >= VAL_MAX_ACCELERATION)
+    if (mesures.accelX <= VAL_MIN_ACCELERATION || mesures.accelX >= VAL_MAX_ACCELERATION)
     {
         valid = false;
-        std::cerr << "L'acceleration verticale est invalide : " << mesuresNonFormatees.accelerationVerticale << " g" << std::endl;
-        mesuresNonFormatees.accelerationVerticale = NAN;
+        mesures.accelX = NAN;
+    }
+    if (mesures.accelY <= VAL_MIN_ACCELERATION || mesures.accelY >= VAL_MAX_ACCELERATION)
+    {
+        valid = false;
+        mesures.accelY = NAN;
+    }
+    if (mesures.accelZ <= VAL_MIN_ACCELERATION || mesures.accelZ >= VAL_MAX_ACCELERATION)
+    {
+        valid = false;
+        mesures.accelZ = NAN;
     }
 
     return valid; // Retourne vrai si toutes les mesures sont valides, sinon faux
 }
 
+/**
+ * @brief GestionMesures::formaterMesuresPourLora
+ * @return une trame au format aprs weather avec pour commentaire
+ *         les accelérations X,Y,Z
+ */
 std::string GestionMesures::formaterMesuresPourLora()
 {
-    effectuerMesures(); // Effectue les mesures
+    effectuerMesures();
 
-    // Stockage des mesures dans des variables locales
-    double t_double = mesuresNonFormatees.tempBme;
-    double h_double = mesuresNonFormatees.humidite;
-    double p_double = mesuresNonFormatees.pression;
-    double a_double = mesuresNonFormatees.accelerationVerticale;
+    // Conversion des mesures en valeur entière
+    int t = static_cast<int>((mesures.tempBme * 9.0 / 5.0) + 32.0);
+    int h = static_cast<int>(mesures.humidite + 0.5);
+    int p = static_cast<int>((mesures.pression + 0.5) * 10);
 
-    // Conversion des mesures en chaînes de caractères formatées
-    int t_int = static_cast<int>((t_double * 9.0 / 5.0) + 32.0);
-    std::string t_str = std::to_string(t_int);
-    if (t_int < 100 && t_int >= 10)
-    {
-        t_str = "0" + t_str;
-    }
-    else if (t_int < 10 && t_int >= 0)
-    {
-        t_str = "00" + t_str;
-    }
-    else if (t_int < 0 && t_int >= -10)
-    {
-        t_str = "-0" + t_str.erase(0, 1);
-    }
-    else if (t_int < -10 && t_int > -100)
-    {
-        t_str = "-" + t_str.erase(0, 1);
-    }
+    // Construction de la trame aprs weather
+    std::string trameAprsWeather = "_" + gestionTemps.getDateAprs();
+    trameAprsWeather += "c...s...g...t" + intToString(t, 3);
+    trameAprsWeather += "h" + intToString(h, 2);
+    trameAprsWeather += "b" + intToString(p, 4);
+    trameAprsWeather += " " + doubleToString(mesures.accelX);
+    trameAprsWeather += " " + doubleToString(mesures.accelY);
+    trameAprsWeather += " " + doubleToString(mesures.accelZ);
 
-    int h_int = static_cast<int>(h_double + 0.5);
-    std::string h_str = std::to_string(h_int);
-    if (h_int < 10)
-    {
-        h_str = "0" + h_str;
-    }
-
-    int p_int = static_cast<int>((p_double + 0.5) * 10);
-    std::string p_str = std::to_string(p_int);
-    if (p_int < 10000)
-    {
-        p_str = "0" + p_str;
-    }
-    else if (p_int < 1000)
-    {
-        p_str = "00" + p_str;
-    }
-
-    // Construction du message formaté pour LoRa
-    std::string messageStr = "_" + gestionTemps.getDateMois();
-    messageStr += gestionTemps.getDateJour();
-    messageStr += gestionTemps.getDateHeure();
-    messageStr += gestionTemps.getDateMinute();
-    messageStr += "c...s...g...t" + t_str + "h" + h_str + "b" + p_str + " ";
-    messageStr += doubleToString(a_double);
-
-    return messageStr;
+    return trameAprsWeather;
 }
 
+/**
+ * @brief GestionMesures::sauvegarderMesures
+ * @abstract ajoute une ligne de mesures dans le fichier CSV
+ */
 void GestionMesures::sauvegarderMesures()
 {
     // Ouverture du fichier CSV pour ajouter des données
@@ -156,8 +135,9 @@ void GestionMesures::sauvegarderMesures()
         fichier << gestionTemps.getDateFormatee();
 
         // Écriture des mesures dans le fichier CSV
-        fichier << setfill('0') << fixed << setprecision(2) << "," << mesuresNonFormatees.tempBme << "," << mesuresNonFormatees.tempLm << "," << mesuresNonFormatees.tempMpu;
-        fichier << "," << mesuresNonFormatees.pression << "," << mesuresNonFormatees.humidite << "," << mesuresNonFormatees.accelerationVerticale << std::endl;
+        fichier << setfill('0') << fixed << setprecision(2) << "," << mesures.tempBme << "," << mesures.tempLm << "," << mesures.tempMpu;
+        fichier << "," << mesures.pression << "," << mesures.humidite;
+        fichier << "," << mesures.accelX << "," << mesures.accelY << "," << mesures.accelZ << std::endl;
 
         fichier.close();
     }
@@ -167,8 +147,26 @@ void GestionMesures::sauvegarderMesures()
     }
 }
 
+/**
+ * @brief GestionMesures::doubleToString
+ * @param value
+ * @return la valeur représentée en string avec 2 chiffres derrière la virgule
+ */
 std::string GestionMesures::doubleToString(double value) {
     std::ostringstream out;
     out << std::fixed << std::setprecision(2) << value;
     return out.str();
+}
+
+/**
+ * @brief GestionMesures::intToString
+ * @param value un entier
+ * @param format le nombre de chiffres significatifs
+ * @return  la valeur représentée en string formatée avec le nb de chiffres
+ */
+std::string GestionMesures::intToString(int value, int format) {
+    std::ostringstream oss;
+    // Configure le flux pour remplir avec des zéros et avoir une largeur correspondant à format
+    oss << std::setw(format) << std::setfill('0') << value;
+    return oss.str();
 }

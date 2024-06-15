@@ -33,8 +33,9 @@ public:
     ~GestionTemps(); // Destructeur
 
     std::tm obtenirHeureActuelle(); // Méthode pour obtenir l'heure actuelle
-    void majDate(); // Méthode pour mettre à jour la date
-    std::string getDateFormatee();
+    void majDate();                 // Méthode pour mettre à jour la date
+    std::string getDateFormatee();  // Méthode pour obtenir la date et l'heure sous format aaaa-mm-jj hh:mm:ss
+    std::string getDateAprs();      // Méthode pour obtenir la date mois jour heure minute format aprs
 
     // Fonctions pour obtenir les différentes parties de la date
     std::string getDateAnnee() const;

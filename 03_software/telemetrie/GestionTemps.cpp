@@ -55,7 +55,10 @@ void GestionTemps::majDate()
 
 }
 
-
+std::string GestionTemps::getDateAprs(){
+    majDate();
+    return getDateMois() + getDateJour() + getDateHeure() + getDateMinute();
+}
 
 std::string GestionTemps::getDateFormatee()
 {

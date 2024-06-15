@@ -1,4 +1,5 @@
 #include "GestionFile.h"
+#include <iostream>
 
 GestionFile::GestionFile()
 {
@@ -19,7 +20,7 @@ int GestionFile::creerUneFileIPC()
 
     return msgid;
 }
-#include <iostream>
+
 
 bool GestionFile::ecrireDansLaFileIPC(const std::string &payload)
 {
@@ -28,9 +29,7 @@ bool GestionFile::ecrireDansLaFileIPC(const std::string &payload)
     Message message;
     message.mtype = 2;
 
-    payload.copy(message.mtext, sizeof(message.mtext) - 1);
-    // strncpy(msg.mtext, payload.c_str(), MAX_MESSAGE_SIZE);
-    message.mtext[sizeof(message.mtext) - 1] = '\0';
+    std::strcpy(message.mtext, payload.c_str());
 
     if (msgsnd(msgid, &message, sizeof(message.mtext), 0) == -1)
     {
