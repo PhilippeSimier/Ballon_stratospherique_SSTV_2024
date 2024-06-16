@@ -32,6 +32,10 @@ GestionMesures::~GestionMesures()
 
 }
 
+void GestionMesures::calibrerMPU(){
+    mpu6050.calibrate();
+}
+
 void GestionMesures::effectuerMesures()
 {
     // Obtention des mesures des capteurs

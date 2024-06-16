@@ -8,7 +8,11 @@
 #include "MPU6050.h"
 
 MPU6050::MPU6050(int8_t address) :
-deviceI2C(new i2c(address)) {
+deviceI2C(new i2c(address)),
+    ax_offset(0),
+    ay_offset(0),
+    az_offset(0)
+{
 
     // Configuration du registre d'alimentation
     deviceI2C->WriteReg8(0x6B, 0x00);
@@ -62,6 +66,8 @@ float MPU6050::getAccelZ() {
     dataAccel.uCData[0] = deviceI2C->ReadReg8(0x40);
     float val {0.0};
     
+    dataAccel.sData -= az_offset;
+
     switch (sensibility) {
         case FS_2G:
             val = dataAccel.sData / (float) LSB_FS_2G;
@@ -89,6 +95,8 @@ float MPU6050::getAccelY() {
     data dataAccel;
     dataAccel.uCData[1] = deviceI2C->ReadReg8(0x3d);
     dataAccel.uCData[0] = deviceI2C->ReadReg8(0x3e);
+
+    dataAccel.sData -= ay_offset;
 
     float val {0.0};
     
@@ -121,6 +129,8 @@ float MPU6050::getAccelX() {
     dataAccel.uCData[1] = deviceI2C->ReadReg8(0x3b);
     dataAccel.uCData[0] = deviceI2C->ReadReg8(0x3c);
 
+    dataAccel.sData -= ax_offset;
+
     float val {0.0};
     
     switch (sensibility) {
@@ -150,3 +160,40 @@ void MPU6050::setAccSensibility(AccelSensibility range){
     deviceI2C->WriteReg8(0x1C , val0 | range);
     sensibility = deviceI2C->ReadReg8(0x1C) & ACCEL_MASK;
 }
+/**
+ * @brief MPU6050::calibrate
+ * @abstract calcule la valeur des offsets
+ *           Assumer que l'axe Z pointe vers le haut (+1g)
+ */
+void MPU6050::calibrate(){
+
+    int numReadings = 1000;
+    long ax_sum = 0, ay_sum = 0, az_sum = 0;
+    data dataAccel;
+
+    setAccSensibility(FS_2G);
+
+    for (int i = 0; i < numReadings; i++) {
+
+        dataAccel.uCData[1] = deviceI2C->ReadReg8(0x3f);
+        dataAccel.uCData[0] = deviceI2C->ReadReg8(0x40);
+        az_sum += dataAccel.sData;
+
+        dataAccel.uCData[1] = deviceI2C->ReadReg8(0x3d);
+        dataAccel.uCData[0] = deviceI2C->ReadReg8(0x3e);
+        ay_sum += dataAccel.sData;
+
+        dataAccel.uCData[1] = deviceI2C->ReadReg8(0x3b);
+        dataAccel.uCData[0] = deviceI2C->ReadReg8(0x3c);
+        ax_sum += dataAccel.sData;
+
+        std::this_thread::sleep_for(std::chrono::milliseconds(10)); // Attendre 10 ms
+
+    }
+
+    ax_offset = ax_sum / numReadings;
+    ay_offset = ay_sum / numReadings;
+    az_offset = az_sum / numReadings - 16384;
+
+}
+

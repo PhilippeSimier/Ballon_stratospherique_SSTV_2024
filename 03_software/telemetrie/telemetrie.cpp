@@ -25,6 +25,11 @@ int main(int argc, char **argv)
         GestionFile gestionFile;       // Objet pour la gestion des files de messages
         GestionTemps gestionTemps;     // Objet pour la gestion du temps
 
+        gestionMesures.calibrerMPU();
+        std::cout << gestionTemps.getDateFormatee();
+        std::cout << " | Fin de la calibration du capteur MPU6050" << std::endl;
+
+
         while (true)
         {
             std::tm tmMaintenant = gestionTemps.obtenirHeureActuelle();

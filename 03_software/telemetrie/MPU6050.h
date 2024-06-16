@@ -13,6 +13,8 @@
 #include <stdint.h>
 #include <iostream>
 #include <unistd.h>
+#include <chrono>
+#include <thread>
 
 enum AccelSensibility {
         FS_2G = 0x00,     //xxx0 0xxx
@@ -39,6 +41,7 @@ public:
     float getAccelZ();
     
     void setAccSensibility(AccelSensibility range);
+    void calibrate();
     
 
 private:
@@ -50,6 +53,8 @@ private:
         short sData;
         unsigned char uCData[2];
     };
+
+    short ax_offset, ay_offset, az_offset;
 
 };
 
