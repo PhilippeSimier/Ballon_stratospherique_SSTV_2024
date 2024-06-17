@@ -16,16 +16,51 @@
 #include <chrono>
 #include <thread>
 
+#define EARTH_GRAVITY_0 9.80665
+
 enum AccelSensibility {
-        FS_2G = 0x00,     //xxx0 0xxx
-        FS_4G = 0x08,     //xxx0 1xxx
-        FS_8G = 0x10,     //xxx1 0xxx
-        FS_16G = 0x18,    //xxx1 1xxx
-        LSB_FS_2G = 16384, 
-        LSB_FS_4G = 8192,  
-        LSB_FS_8G = 4096,  
-        LSB_FS_16G = 2048, 
-        ACCEL_MASK = 0x18 //0001 1000
+    FS_2G = 0x00,     //xxx0 0xxx
+    FS_4G = 0x08,     //xxx0 1xxx
+    FS_8G = 0x10,     //xxx1 0xxx
+    FS_16G = 0x18,    //xxx1 1xxx
+    LSB_FS_2G = 16384,
+    LSB_FS_4G = 8192,
+    LSB_FS_8G = 4096,
+    LSB_FS_16G = 2048,
+    ACCEL_MASK = 0x18 //0001 1000
+};
+
+enum Registre {
+
+    XA_OFFS_H = 0x06, //[15:0] XA_OFFS
+    XA_OFFS_L = 0x07,
+    YA_OFFS_H = 0x08, //[15:0] YA_OFFS
+    YA_OFFS_L = 0x09,
+    ZA_OFFS_H = 0x0A, //[15:0] ZA_OFFS
+    ZA_OFFS_L = 0x0B,
+
+    CONFIG = 0x1A,
+    GYRO_CONFIG = 0x1B,
+    ACCEL_CONFIG = 0x1C,
+
+    ACCEL_XOUT_H = 0x3B,
+    ACCEL_XOUT_L = 0x3C,
+    ACCEL_YOUT_H = 0x3D,
+    ACCEL_YOUT_L = 0x3E,
+    ACCEL_ZOUT_H = 0x3F,
+    ACCEL_ZOUT_L = 0x40,
+    TEMP_OUT_H = 0x41,
+    TEMP_OUT_L = 0x42,
+    GYRO_XOUT_H = 0x43,
+    GYRO_XOUT_L = 0x44,
+    GYRO_YOUT_H = 0x45,
+    GYRO_YOUT_L = 0x46,
+    GYRO_ZOUT_H = 0x47,
+    GYRO_ZOUT_L = 0x48,
+
+    PWR_MGMT_1 = 0x6B,
+    WHO_AM_I = 0x75
+
 };
 
 class MPU6050 {
@@ -41,6 +76,11 @@ public:
     float getAccelZ();
     
     void setAccSensibility(AccelSensibility range);
+
+    void setAccelXOffset(short offset);
+    void setAccelYOffset(short offset);
+    void setAccelZOffset(short offset);
+
     void calibrate();
     
 
