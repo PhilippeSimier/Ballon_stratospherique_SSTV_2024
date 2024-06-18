@@ -3,7 +3,6 @@
 
 GestionFile::GestionFile()
 {
-
 }
 
 GestionFile::~GestionFile()
@@ -11,6 +10,7 @@ GestionFile::~GestionFile()
 }
 
 /**
+ *
  * @brief GestionFile::obtenirFileIPC
  * @param key Une clé (de type int) qui identifie de manière unique la file de messages.
  *
@@ -19,7 +19,7 @@ void GestionFile::obtenirFileIPC(const int key)
 {
     if ((msgid = msgget((key_t)key, MSG_FLAG)) == -1)
     {
-        throw std::runtime_error("Erreur lors de la création de la file de messages.");
+        throw std::runtime_error("Erreur lors de l'ouverture de la file de messages.");
     }
 }
 
@@ -50,17 +50,22 @@ bool GestionFile::ecrireDansLaFileIPC(const std::string &payload)
     return true;
 }
 
+/**
+ * @brief GestionFile::lireDansLaFileIPC fonction bloquante
+ * @param recu le message lu dans la file de reception
+ * @return true
+ */
 bool GestionFile::lireDansLaFileIPC(std::string &recu){
 
     Message message;
     int ret;
-    bool retour = false;
 
-    ret = msgrcv(msgid, (void*) &message, sizeof(message.mtext), 0, IPC_NOWAIT);
-    if (ret != -1){
-        std::cout << message.mtext << std::endl;
-        retour = true;
+    ret = msgrcv(msgid, &message, sizeof(message), 2, 0);
+    if (ret == -1){
+        throw std::runtime_error("Erreur lors de la reception d'un message.");
+        return false;
     }
-    return retour;
+    recu = message.mtext;
+    return true;
 
 }
