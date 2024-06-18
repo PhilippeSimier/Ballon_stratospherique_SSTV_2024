@@ -24,7 +24,7 @@ int main(int argc, char **argv)
             std::cout << recu << std::endl;
             if (recu == "ping"){
                std::cout << "procedure ping" << std::endl;
-               fileTX.ecrireDansLaFileIPC("pong");
+               fileTX.ecrireDansLaFileIPC(":F4KMN-8  :reception d'un ping{01");
             }
 
             std::this_thread::sleep_for(std::chrono::milliseconds(1000)); // Attendre 1000 ms
