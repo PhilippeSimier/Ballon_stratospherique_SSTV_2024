@@ -25,9 +25,14 @@ int main(int argc, char **argv)
         GestionFile gestionFile;       // Objet pour la gestion des files de messages
         GestionTemps gestionTemps;     // Objet pour la gestion du temps
 
-        gestionMesures.calibrerMPU();
         std::cout << gestionTemps.getDateFormatee();
-        std::cout << " | Fin de la calibration du capteur MPU6050" << std::endl;
+        std::cout << " : >LOG : Début de la calibration du capteur MPU6050" << std::endl;
+
+        string param = gestionMesures.calibrerMPU();
+        std::cout << gestionTemps.getDateFormatee();
+        std::cout << " : >LOG : "<< param  << std::endl;
+
+        gestionFile.obtenirFileIPC(5679);  // Obtenir la file pour l'émission key 5679
 
 
         while (true)
@@ -38,9 +43,10 @@ int main(int argc, char **argv)
             if (tmMaintenant.tm_sec % 10 == 0)
             {
                 gestionMesures.effectuerMesures();
-                gestionMesures.sauvegarderMesures();
                 std::cout << gestionTemps.getDateFormatee();
-                std::cout << " | Ecriture des mesures dans fichier CSV" << std::endl;
+                std::cout << " : >CSV : ";
+                gestionMesures.sauvegarderMesures();
+
             }
 
 
@@ -54,12 +60,12 @@ int main(int argc, char **argv)
                     if (!gestionFile.ecrireDansLaFileIPC(payload))
                     {
                         std::cout << gestionTemps.getDateFormatee();
-                        std::cout << " | Erreur lors de l'écriture dans la file." << std::endl;
+                        std::cout << " : >APLT : Erreur ecriture file" << std::endl;
                     }
                     else
                     {
                         std::cout << gestionTemps.getDateFormatee();
-                        std::cout << " | Ecriture packet weather dans la file | ";
+                        std::cout << " : >APLT : ";
                         std::cout << payload  << std::endl;
                     }
                 }

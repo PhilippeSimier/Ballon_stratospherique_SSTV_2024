@@ -63,7 +63,7 @@ public:
     GestionMesures(); // Constructeur
     ~GestionMesures(); // Destructeur
 
-    void calibrerMPU();      // Méthode pour calibrer le MPU6050
+    std::string calibrerMPU();      // Méthode pour calibrer le MPU6050
     void effectuerMesures(); // Fonction pour effectuer les mesures
     bool verifierMesures(); // Fonction pour vérifier les mesures
     std::string formaterMesuresPourLora(); // Fonction pour formater les mesures pour LoRa

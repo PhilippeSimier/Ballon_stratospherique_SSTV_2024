@@ -3,28 +3,38 @@
 
 GestionFile::GestionFile()
 {
-    creerUneFileIPC();
 }
 
 GestionFile::~GestionFile()
 {
-    // msgctl(msgid, IPC_RMID, NULL);
 }
 
-int GestionFile::creerUneFileIPC()
+/**
+ *
+ * @brief GestionFile::obtenirFileIPC
+ * @param key Une clé (de type int) qui identifie de manière unique la file de messages.
+ *
+ */
+void GestionFile::obtenirFileIPC(const int key)
 {
-    if ((msgid = msgget((key_t)FILE_KEY, MSG_FLAG)) == -1)
+    if ((msgid = msgget((key_t)key, MSG_FLAG)) == -1)
     {
-        throw std::runtime_error("Erreur lors de la création de la file de messages.");
+        throw std::runtime_error("Erreur lors de l'ouverture de la file de messages.");
     }
-
-    return msgid;
 }
 
-
+/**
+ * @brief GestionFile::ecrireDansLaFileIPC
+ * @param payload le message à placer dans la file
+ * @return true si le message a pu être mis dans la file
+ * @brief std::lock_guard verrouille le mutex mutexTx dès sa construction.
+ *        Cela signifie que dès que lock est créé, mutexTx est verrouillé.
+ *        Lorsque l'objet lock sort de sa portée son destructeur déverrouille le mutexTx.
+ *        même si une exception est levée
+ */
 bool GestionFile::ecrireDansLaFileIPC(const std::string &payload)
 {
-    std::lock_guard<std::mutex> lock(mutex);
+    std::lock_guard<std::mutex> lock(mutexTx);  // création d'un mutex verrouillé immédiatement
 
     Message message;
     message.mtype = 2;
@@ -38,4 +48,24 @@ bool GestionFile::ecrireDansLaFileIPC(const std::string &payload)
     }
 
     return true;
+}
+
+/**
+ * @brief GestionFile::lireDansLaFileIPC fonction bloquante
+ * @param recu le message lu dans la file de reception
+ * @return true
+ */
+bool GestionFile::lireDansLaFileIPC(std::string &recu){
+
+    Message message;
+    int ret;
+
+    ret = msgrcv(msgid, &message, sizeof(message), 2, 0);
+    if (ret == -1){
+        throw std::runtime_error("Erreur lors de la reception d'un message.");
+        return false;
+    }
+    recu = message.mtext;
+    return true;
+
 }

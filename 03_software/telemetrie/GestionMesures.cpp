@@ -18,7 +18,8 @@ GestionMesures::GestionMesures() :
     std::ofstream fichier(CSV_PATH);
     if (fichier.is_open())
     {
-        fichier << "Date time,Température_BME,Température_LM,Température_MPU,Pression,Humidité,Accel_X,Accel_Y,Accel_Z" << std::endl;
+        fichier << "Date Time Time_Zone,Température_BME,Température_LM,Température_MPU,Pression,Humidité,Accel_X,Accel_Y,Accel_Z" << std::endl;
+
     }
     else
     {
@@ -32,8 +33,8 @@ GestionMesures::~GestionMesures()
 
 }
 
-void GestionMesures::calibrerMPU(){
-    mpu6050.calibrate();
+std::string GestionMesures::calibrerMPU(){
+    return mpu6050.calibrate();
 }
 
 void GestionMesures::effectuerMesures()
@@ -135,15 +136,21 @@ void GestionMesures::sauvegarderMesures()
     std::ofstream fichier(CSV_PATH, std::ios_base::app);
     if (fichier.is_open())
     {
+        std::ostringstream out;
+
+        out << setfill('0') << fixed << setprecision(2)  << mesures.tempBme << "," << mesures.tempLm << "," << mesures.tempMpu;
+        out << "," << mesures.pression << "," << mesures.humidite;
+        out << "," << mesures.accelX << "," << mesures.accelY << "," << mesures.accelZ << std::endl;
+
         // Création de l'horodatage
         fichier << gestionTemps.getDateFormatee();
-
-        // Écriture des mesures dans le fichier CSV
-        fichier << setfill('0') << fixed << setprecision(2) << "," << mesures.tempBme << "," << mesures.tempLm << "," << mesures.tempMpu;
-        fichier << "," << mesures.pression << "," << mesures.humidite;
-        fichier << "," << mesures.accelX << "," << mesures.accelY << "," << mesures.accelZ << std::endl;
-
+        fichier << ",";
+        // Écriture des mesures dans le fichier CSV et sur la sortie cout
+        fichier << out.str();
+        std::cout << out.str();
         fichier.close();
+
+
     }
     else
     {

@@ -16,7 +16,7 @@ GestionTemps::~GestionTemps()
 {
 }
 
-// Fonction pour obtenir l'heure actuelle
+// Fonction pour obtenir l'heure actuelle (temps local)
 std::tm GestionTemps::obtenirHeureActuelle()
 {
     std::chrono::time_point<std::chrono::system_clock> maintenant = std::chrono::system_clock::now();
@@ -57,42 +57,12 @@ void GestionTemps::majDate()
 
 std::string GestionTemps::getDateAprs(){
     majDate();
-    return getDateMois() + getDateJour() + getDateHeure() + getDateMinute();
+    return temps.mois + temps.jour + temps.heure + temps.minute;
 }
 
 std::string GestionTemps::getDateFormatee()
 {
     majDate();
-    return getDateAnnee() + "-" + getDateMois() + "-" + getDateJour() + " " + getDateHeure() + ":" + getDateMinute() + ":" + getDateSeconde();
+    return temps.annee + "-" + temps.mois + "-" + temps.jour + " " + temps.heure + ":" + temps.minute + ":" + temps.seconde + " CEST";
 }
 
-// Fonctions pour obtenir les différentes parties de la date
-std::string GestionTemps::getDateAnnee() const
-{
-    return temps.annee;
-}
-
-std::string GestionTemps::getDateMois() const
-{
-    return temps.mois;
-}
-
-std::string GestionTemps::getDateJour() const
-{
-    return temps.jour;
-}
-
-std::string GestionTemps::getDateHeure() const
-{
-    return temps.heure;
-}
-
-std::string GestionTemps::getDateMinute() const
-{
-    return temps.minute;
-}
-
-std::string GestionTemps::getDateSeconde() const
-{
-    return temps.seconde;
-}
