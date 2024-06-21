@@ -4,6 +4,7 @@
 #include <sstream>
 #include <stdexcept>
 #include <thread>
+#include <cstring>   // pour les char*
 
 
 int main(int argc, char **argv)
@@ -12,25 +13,24 @@ int main(int argc, char **argv)
     {
         GestionFile fileRX;           // Objet pour la gestion des files de messages
         GestionFile fileTX;
-        int message_id = 0;           // A message number
-        std::string packet_recu;
 
+        fileRX.obtenirFileIPC(5678);  // Obtenir la file pour la réception key 5678
+        fileTX.obtenirFileIPC(5679);  // Obtenir la file pour l'émission   key 5679
 
-        fileRX.obtenirFileIPC(5678);  // Obtenir la file pour la réception LoRa (key 5678)
-        fileTX.obtenirFileIPC(5679);  // Obtenir la file pour la émission LoRa  (key 5679)
-
+        MessageRX message;
+        int idMessage = 1;
 
         while (true){
 
-            fileRX.lireDansLaFileIPC(packet_recu);
-            std::cout << packet_recu << std::endl;
+            message = fileRX.lireDansLaFileIPC(2);
+            std::cout << message.text << std::endl;
 
-            if (packet_recu == "ping"){
-                std::ostringstream packet_reponse;
-                message_id++;
-                packet_reponse << ":F4KMN-8  :reception d'un ping{" << message_id;
-
-                fileTX.ecrireDansLaFileIPC(packet_reponse.str());
+            if ( std::strcmp(message.text, "QSA?") == 0 ){
+               std::cout << "requête QSA?" << std::endl;
+               std::ostringstream out;
+               out << ":f4kmn    :QSA  RSSI=" << message.RSSI << "dBm SNR=" << message.SNR << "dB{" <<idMessage;
+               fileTX.ecrireDansLaFileIPC(out.str());
+               idMessage++;
             }
 
             std::this_thread::sleep_for(std::chrono::milliseconds(1000)); // Attendre 1000 ms

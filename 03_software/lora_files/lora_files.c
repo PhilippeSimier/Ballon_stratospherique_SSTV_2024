@@ -1,6 +1,6 @@
 /*
- * File:   main.c
- * Authors: ale psr
+ * File:   lora_files.c
+ * Authors: Anthony le Cren, Philippe Simier
  *
  * Created on 9 juin 2023, 20:18
  * from https://github.com/yandievruslan/sx1278-lora-raspberrypi
@@ -8,7 +8,7 @@
  * sudo apt install pigpio
 
    compilation : gcc *.c -lpigpio -lpthread -lm -o lora_files
-   pour lister les files utiliser la commande  ipcs
+   pour lister les files, utiliser la commande  ipcs -q
 
  * Edit config.ini according to lora.h and RA-02 GPIO
 [modem]
@@ -60,15 +60,23 @@ header=<xxf4kmn-9>APLT00,WIDE1-1:
 #include "readConfig.h"
 
 
-
+// structure des messages placés dans la file emission
 typedef struct {
 	long type;
-	char texte[255];
-}donnees;
+    char texte[256];
+}donneesTX;
+
+// structure des messages placés dans la file reception
+typedef struct {
+    long type;
+    char texte[256];
+    float SNR;
+    int   RSSI;
+}donneesRX;
 
 
-int idFileRX;  //global pas le choix pour le handler de réception
-donnees fileRX;
+int idFileRX;
+donneesRX dataRX;
 
 // Prototype des callbacks
 
@@ -86,18 +94,19 @@ int main(int argc, char** argv) {
     int idFileTX;
     int debug = 0;
 
-    donnees fileTX;
+    donneesTX dataTX;
 
-    fileRX.type=2;
+    dataRX.type=2;
+
     idFileRX = msgget((key_t) 5678, 0666 | IPC_CREAT);
     if (idFileRX == -1) {
-        printf("pb creation file : %s\n", strerror(errno));
+        printf("pb ouverture file RX: %s\n", strerror(errno));
         exit(errno);
     }
 
     idFileTX = msgget((key_t) 5679, 0666 | IPC_CREAT);
     if (idFileTX == -1) {
-        printf("pb creation file : %s\n", strerror(errno));
+        printf("pb ouverture file TX: %s\n", strerror(errno));
         exit(errno);
     }
 
@@ -133,18 +142,19 @@ int main(int argc, char** argv) {
         printf(" problème avec LoRa_begin : %d\r\n", retour);
 	exit(retour);
     }
+
     LoRa_receive(&modem);
 
     while (1) {
         
-        ret = msgrcv(idFileTX, (void*) &fileTX, sizeof(txbuf), 2, IPC_NOWAIT);
+        ret = msgrcv(idFileTX, (void*) &dataTX, sizeof(dataTX), 2, IPC_NOWAIT);
         if (ret != -1) {
          
             //reception dans la file d'un payload à transmettre à la station sol
 
             memset(txbuf, '\0', sizeof(txbuf)); // remise à zero du packet 
             strcpy(txbuf, header);              // met l'entête  
-            strcat(txbuf,fileTX.texte);         // ajoute le payload
+            strcat(txbuf,dataTX.texte);         // ajoute le payload
             txbuf[1] = 0xff;                    // ecrit le champ protocole        
             txbuf[2] = 0x01;
 
@@ -171,9 +181,11 @@ int main(int argc, char** argv) {
     return (EXIT_SUCCESS);
 }
 
-/*
-    Fonction pour afficher l'heure
-*/
+
+/**
+ * @brief afficher_heure
+ *        Fonction pour afficher l'heure locale CEST
+ */
 void afficher_heure(){
 
     time_t current_time;
@@ -187,9 +199,11 @@ void afficher_heure(){
     printf(time_string);
 }
 
-/*
-   callback appelé à la fin d'une émission
-*/
+
+/**
+ * @brief tx_f  callback appelé à la fin d'une émission
+ * @param tx    un pointeur sur txData
+ */
 void tx_f(txData *tx) {
     LoRa_ctl *modem = (LoRa_ctl *)(tx->userPtr);
     afficher_heure();
@@ -198,10 +212,14 @@ void tx_f(txData *tx) {
     LoRa_receive(modem); //on repasse en réception
 }
 
-/*
-    callback appelé à la fin d'une réception
-*/
 
+/**
+ * @brief rx_f
+ * @param p un pointeur sur une structure rxData
+ * @brief callback appelé à la fin d'une réception
+ *        met dans la file RX avec le type 2 le message reçu
+ * @return
+ */
 void * rx_f(void *p) {
     rxData *rx = (rxData *) p;
     afficher_heure();
@@ -210,12 +228,17 @@ void * rx_f(void *p) {
     printf("Data_size=%d ", rx->size);
     printf("RSSI=%ddBm ", rx->RSSI);
     printf("SNR=%.2fdB\n\r", rx->SNR);
+    rx->buf[rx->size] = '\0';                   // Ajoute une fin de chaîne de Caratères
+    printf("         %s \n\r\n\r", rx->buf);
 
-    rx->buf[rx->size] = '\0';  // Ajoute une fin de chaîne de Caratères
-    strcpy(fileRX.texte,rx->buf);
+    strcpy(dataRX.texte, rx->buf);
+    dataRX.type = 2;                            // type 2 pour les messages reçus
+    dataRX.RSSI = rx->RSSI;
+    dataRX.SNR  = rx->SNR;
     free(p);
-    printf("         %s \n\r\n\r",fileRX.texte);
-    msgsnd(idFileRX, (void*) &fileRX, sizeof(fileRX.texte), IPC_NOWAIT);
-    sleep(1);
+
+    msgsnd(idFileRX, (void*) &dataRX, sizeof(dataRX)-4, IPC_NOWAIT);
+
+    usleep(10000); // attente 10 ms
     return NULL;
 }

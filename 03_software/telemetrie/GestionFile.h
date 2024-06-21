@@ -14,29 +14,38 @@
 #include <sys/ipc.h> // Inclut la bibliothèque de système pour IPC_CREAT
 #include <sys/msg.h> // Inclut la bibliothèque de système pour les files de messages
 
-const int MAX_MESSAGE_SIZE = 255;      // Taille maximum du message
+const int MAX_MESSAGE_SIZE = 256;      // Taille maximum du message
 const int MSG_FLAG = 0666 | IPC_CREAT; // Flag de création de la file de messages
 
-// Structure pour le message
-struct Message
+// Structure pour le message TX
+struct MessageTX
 {
-    long mtype;
-    char mtext[MAX_MESSAGE_SIZE];
+    long type;
+    char text[MAX_MESSAGE_SIZE];
+};
+
+// Structure pour le message TX
+struct MessageRX
+{
+    long  type;
+    char  text[MAX_MESSAGE_SIZE];
+    float SNR;
+    int   RSSI;
 };
 
 class GestionFile
 {
 private:
     std::mutex mutexTx;
-    int msgid;
+    int fileId;
 
 public:
     GestionFile();
     ~GestionFile();
 
     void obtenirFileIPC(const int key);
-    bool ecrireDansLaFileIPC(const std::string &payload);   
-    bool lireDansLaFileIPC(std::string &message);
+    bool ecrireDansLaFileIPC(const std::string &payload);
+    MessageRX lireDansLaFileIPC(int type);
 };
 
 #endif // GESTIONFILE_H
