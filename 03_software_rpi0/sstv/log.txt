@@ -1,246 +1,0 @@
-Programme LoRa_file 
-Configuration Ã  partir de config.ini
-spiCS = 0
-bw   = 112
-sf   = 192
-ecr  = 2
-CRC  = 1
-freq = 433775000.000000
-resetGpioN = 0
-dio0GpioN  = 22
-Reception d'une trame Ã  Ã©mettre en LoRa
-_05231044c...s...g...t075h49b10130 1.121338¾
-Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05231044c...s...g...t075h49b10130 1.121338¾
- len : 71
-Tsym: 32.768000
-Tpkt: 3055.616000
-payloadSymbNb: 83
-sleep 3 seconds to transmit complete
-tx --------------------------------> done;
-sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05231044c...s...g...t075h49b10130 1.121338¾"
-
-Programme LoRa_file 
-Configuration Ã  partir de config.ini
-spiCS = 0
-bw   = 112
-sf   = 192
-ecr  = 2
-CRC  = 1
-freq = 433775000.000000
-resetGpioN = 0
-dio0GpioN  = 22
-Reception d'une trame Ã  Ã©mettre en LoRa
-_05231046c...s...g...t076h48b10129 1.124023¾
-Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05231046c...s...g...t076h48b10129 1.124023¾
- len : 71
-Tsym: 32.768000
-Tpkt: 3055.616000
-payloadSymbNb: 83
-sleep 3 seconds to transmit complete
-tx --------------------------------> done;
-sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05231046c...s...g...t076h48b10129 1.124023¾"
-
-Reception d'une trame Ã  Ã©mettre en LoRa
-_05231048c...s...g...t077h46b10131 1.109619¾
-Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05231048c...s...g...t077h46b10131 1.109619¾
- len : 71
-Tsym: 32.768000
-Tpkt: 3055.616000
-payloadSymbNb: 83
-sleep 3 seconds to transmit complete
-tx --------------------------------> done;
-sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05231048c...s...g...t077h46b10131 1.109619¾"
-
-Programme LoRa_file 
-Configuration Ã  partir de config.ini
-spiCS = 0
-bw   = 112
-sf   = 192
-ecr  = 2
-CRC  = 1
-freq = 433775000.000000
-resetGpioN = 0
-dio0GpioN  = 22
-Reception d'une trame Ã  Ã©mettre en LoRa
-_05231050c...s...g...t077h46b10130 1.101074¾
-Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05231050c...s...g...t077h46b10130 1.101074¾
- len : 71
-Tsym: 32.768000
-Tpkt: 3055.616000
-payloadSymbNb: 83
-sleep 3 seconds to transmit complete
-tx --------------------------------> done;
-sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05231050c...s...g...t077h46b10130 1.101074¾"
-
-Reception d'une trame Ã  Ã©mettre en LoRa
-_05231052c...s...g...t078h45b10130 1.106934¾
-Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05231052c...s...g...t078h45b10130 1.106934¾
- len : 71
-Tsym: 32.768000
-Tpkt: 3055.616000
-payloadSymbNb: 83
-sleep 3 seconds to transmit complete
-tx --------------------------------> done;
-sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05231052c...s...g...t078h45b10130 1.106934¾"
-
-Reception d'une trame Ã  Ã©mettre en LoRa
-_05231054c...s...g...t079h44b10129 1.097656¾
-Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05231054c...s...g...t079h44b10129 1.097656¾
- len : 71
-Tsym: 32.768000
-Tpkt: 3055.616000
-payloadSymbNb: 83
-sleep 3 seconds to transmit complete
-tx --------------------------------> done;
-sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05231054c...s...g...t079h44b10129 1.097656¾"
-
-Programme LoRa_file 
-Configuration Ã  partir de config.ini
-spiCS = 0
-bw   = 112
-sf   = 192
-ecr  = 2
-CRC  = 1
-freq = 433775000.000000
-resetGpioN = 0
-dio0GpioN  = 22
-Reception d'une trame Ã  Ã©mettre en LoRa
-_05231056c...s...g...t079h43b10129 1.115479¾
-Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05231056c...s...g...t079h43b10129 1.115479¾
- len : 71
-Tsym: 32.768000
-Tpkt: 3055.616000
-payloadSymbNb: 83
-sleep 3 seconds to transmit complete
-tx --------------------------------> done;
-sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05231056c...s...g...t079h43b10129 1.115479¾"
-
-Reception d'une trame Ã  Ã©mettre en LoRa
-_05231058c...s...g...t080h43b10130 1.120361¾
-Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05231058c...s...g...t080h43b10130 1.120361¾
- len : 71
-Tsym: 32.768000
-Tpkt: 3055.616000
-payloadSymbNb: 83
-sleep 3 seconds to transmit complete
-tx --------------------------------> done;
-sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05231058c...s...g...t080h43b10130 1.120361¾"
-
-Programme LoRa_file 
-Configuration Ã  partir de config.ini
-spiCS = 0
-bw   = 112
-sf   = 192
-ecr  = 2
-CRC  = 1
-freq = 433775000.000000
-resetGpioN = 0
-dio0GpioN  = 22
-Reception d'une trame Ã  Ã©mettre en LoRa
-_05231100c...s...g...t080h43b10128 1.105957¾
-Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05231100c...s...g...t080h43b10128 1.105957¾
- len : 71
-Tsym: 32.768000
-Tpkt: 3055.616000
-payloadSymbNb: 83
-sleep 3 seconds to transmit complete
-tx --------------------------------> done;
-sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05231100c...s...g...t080h43b10128 1.105957¾"
-
-Reception d'une trame Ã  Ã©mettre en LoRa
-_05231102c...s...g...t080h42b10129 1.107666¾
-Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05231102c...s...g...t080h42b10129 1.107666¾
- len : 71
-Tsym: 32.768000
-Tpkt: 3055.616000
-payloadSymbNb: 83
-sleep 3 seconds to transmit complete
-tx --------------------------------> done;
-sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05231102c...s...g...t080h42b10129 1.107666¾"
-
-Reception d'une trame Ã  Ã©mettre en LoRa
-_05231104c...s...g...t080h42b10127 1.113770¾
-Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05231104c...s...g...t080h42b10127 1.113770¾
- len : 71
-Tsym: 32.768000
-Tpkt: 3055.616000
-payloadSymbNb: 83
-sleep 3 seconds to transmit complete
-tx --------------------------------> done;
-sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05231104c...s...g...t080h42b10127 1.113770¾"
-
-Programme LoRa_file 
-Configuration Ã  partir de config.ini
-spiCS = 0
-bw   = 112
-sf   = 192
-ecr  = 2
-CRC  = 1
-freq = 433775000.000000
-resetGpioN = 0
-dio0GpioN  = 22
-Reception d'une trame Ã  Ã©mettre en LoRa
-_05231106c...s...g...t080h42b10129 1.112793¾
-Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05231106c...s...g...t080h42b10129 1.112793¾
- len : 71
-Tsym: 32.768000
-Tpkt: 3055.616000
-payloadSymbNb: 83
-sleep 3 seconds to transmit complete
-tx --------------------------------> done;
-sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05231106c...s...g...t080h42b10129 1.112793¾"
-
-Reception d'une trame Ã  Ã©mettre en LoRa
-_05231108c...s...g...t080h42b10129 1.109863¾
-Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05231108c...s...g...t080h42b10129 1.109863¾
- len : 71
-Tsym: 32.768000
-Tpkt: 3055.616000
-payloadSymbNb: 83
-sleep 3 seconds to transmit complete
-tx --------------------------------> done;
-sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05231108c...s...g...t080h42b10129 1.109863¾"
-
-Programme LoRa_file 
-Configuration Ã  partir de config.ini
-spiCS = 0
-bw   = 112
-sf   = 192
-ecr  = 2
-CRC  = 1
-freq = 433775000.000000
-resetGpioN = 0
-dio0GpioN  = 22
-Reception d'une trame Ã  Ã©mettre en LoRa
-_05231110c...s...g...t080h42b10128 1.099365¾
-Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05231110c...s...g...t080h42b10128 1.099365¾
- len : 71
-Tsym: 32.768000
-Tpkt: 3055.616000
-payloadSymbNb: 83
-sleep 3 seconds to transmit complete
-tx --------------------------------> done;
-sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05231110c...s...g...t080h42b10128 1.099365¾"
-
-Reception d'une trame Ã  Ã©mettre en LoRa
-_05231112c...s...g...t080h43b10127 1.111328¾
-Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05231112c...s...g...t080h43b10127 1.111328¾
- len : 71
-Tsym: 32.768000
-Tpkt: 3055.616000
-payloadSymbNb: 83
-sleep 3 seconds to transmit complete
-tx --------------------------------> done;
-sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05231112c...s...g...t080h43b10127 1.111328¾"
-
-Reception d'une trame Ã  Ã©mettre en LoRa
-_05231114c...s...g...t079h43b10127 1.122314¾
-Trame APRS <ÿf4kmn-9>APLT00,WIDE1-1:_05231114c...s...g...t079h43b10127 1.122314¾
- len : 71
-Tsym: 32.768000
-Tpkt: 3055.616000
-payloadSymbNb: 83
-sleep 3 seconds to transmit complete
-tx --------------------------------> done;
-sent string: "<ÿf4kmn-9>APLT00,WIDE1-1:_05231114c...s...g...t079h43b10127 1.122314¾"
-
