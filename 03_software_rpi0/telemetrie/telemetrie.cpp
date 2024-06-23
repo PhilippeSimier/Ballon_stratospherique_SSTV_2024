@@ -1,12 +1,12 @@
 /*
  * File:   telemetrie.cpp
- * Author: dbrochard
+ * Authors: Damien Brochard, Philippe Simier
  *
  * Created on 27 mars 2024, 15:01
  *
  *
- *
- * ou make all
+ *  pour compiler utiliser le fichier Makefile
+ *  make all
  */
 
 #include "GestionMesures.h"
@@ -34,6 +34,15 @@ int main(int argc, char **argv)
 
         gestionFile.obtenirFileIPC(5679);  // Obtenir la file pour l'émission key 5679
 
+        // Envoie d'une position pour obtenir un symbole sur la carte aprs.fi
+        // le ! indique une position APRS sans timestamp.
+        // le _ est le symbole aprs pour une station météo
+
+        std::string payload = "!4800.48N/00011.98E_/A=000268";
+        gestionFile.ecrireDansLaFileIPC(payload);
+        std::cout << gestionTemps.getDateFormatee();
+        std::cout << " : >APLT : ";
+        std::cout << payload  << std::endl;
 
         while (true)
         {
