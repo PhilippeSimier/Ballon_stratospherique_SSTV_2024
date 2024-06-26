@@ -1,4 +1,3 @@
-/***************************************************************************
 /*!
     \file     i2c.cpp
     \author   Philippe SIMIER (Touchard Wahington le Mans)

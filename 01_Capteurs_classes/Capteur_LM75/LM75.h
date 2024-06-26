@@ -1,6 +1,6 @@
 /* 
  * File:   LM75.h
- * Author: philippe
+ * Author: philippe Simier Lycée Touchard
  *
  * Created on 25 juillet 2023, 15:55
  */

@@ -1,22 +1,17 @@
 /* 
  * File:   main.cpp
- * Author: philippe
+ * Author: philippe SIMIER Lycée Touchard
  * 
  * Programe pour tester les leds GPIO13 et GPIO19
  * 
- * ce programme fonctionne avec les privilèges de root
- * installer la bibliothèque pigpio
- * apt install pigpio
  *
  * Created on 1 août 2023, 21:40
  */
-
 #include <cstdlib>
+#include <unistd.h>
+#include "GpioOut.h"
 
 using namespace std;
-
-#include <unistd.h>
-#include "Led.h"
 
 #define D2 13
 #define D1 19
@@ -25,8 +20,8 @@ int main(int argc, char** argv) {
 
     try {
 
-        Led d1(D1);
-        Led d2(D2);
+        GpioOut d1(D1);
+        GpioOut d2(D2);
 
         for (int compteur = 0; compteur < 60; compteur++) {
 
@@ -44,8 +39,6 @@ int main(int argc, char** argv) {
         cout << "Exception caught: " << e.what() << endl;
         return 1;
     }
-
-
 
     return 0;
 }

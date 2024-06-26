@@ -21,8 +21,6 @@ deviceI2C(new i2c(address)),
     unsigned char id = deviceI2C->ReadReg8(WHO_AM_I);
 
 
-
-
     if (id != 0x68) {
         throw std::runtime_error("Exception in constructor MPU5060");
     }
@@ -196,7 +194,9 @@ void MPU6050::setAccelZOffset(short offset)
  *           qui sont ensuite stockées dans les registres correspondants.
  *           Cette étape est essentielle pour assurer que le capteur fournit des mesures précises et cohérentes.
  */
-void MPU6050::calibrate(){
+std::string MPU6050::calibrate(){
+
+    std::ostringstream out;
 
     int numReadings = 1000;
     long ax_sum = 0, ay_sum = 0, az_sum = 0;
@@ -231,13 +231,11 @@ void MPU6050::calibrate(){
     ay_offset = ay_sum / numReadings;
     az_offset = az_sum / numReadings - 16384;
 
-    std::cout << "offset AX : " << ax_offset << std::endl;
-    std::cout << "offset AY : " << ay_offset << std::endl;
-    std::cout << "offset AZ : " << az_offset << std::endl;
+    out << " offset AX : " << ax_offset;
+    out << " offset AY : " << ay_offset;
+    out << " offset AZ : " << az_offset;
 
-    //setAccelXOffset(ax_offset/8);
-    //setAccelYOffset(ay_offset/8);
-    //setAccelZOffset(az_offset/8);
+    return out.str();
 
 }
 

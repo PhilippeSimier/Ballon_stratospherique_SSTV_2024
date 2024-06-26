@@ -8,6 +8,7 @@
 #include <cstdlib>
 #include <iostream>
 #include <iomanip>
+#include <chrono>
 #include "MPU6050.h"
 
 using namespace std;
@@ -22,12 +23,14 @@ int main(int argc, char** argv) {
         
         mpu.setAccSensibility(FS_2G);
 
+        mpu.calibrate();  // calibration du capteur
+
         while (1) {
-            cout << setfill('0') << fixed << setprecision(2) << mpu.getAccelX() << " g ";
-            cout << mpu.getAccelY() << " g ";
-            cout << mpu.getAccelZ() << " g ";
-            cout << setprecision(1) << mpu.getTemperature() << " °C\r" << endl;
-            sleep(1);
+            cout << setfill('0') << fixed << setprecision(2) << mpu.getAccelX() << ",";
+            cout << mpu.getAccelY() << ",";
+            cout << mpu.getAccelZ() << ",";
+            cout << setprecision(1) << mpu.getTemperature() << endl;
+            std::this_thread::sleep_for(std::chrono::milliseconds(100)); // Attendre 100 ms
         }
 
     } catch (const runtime_error &e) {

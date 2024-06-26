@@ -1,6 +1,6 @@
 /* 
  * File:   i2c.h
- * Author: psimier
+ * Author: Philippe Simier
  *
  * Created on 27 mars 2024, 11:03
  */

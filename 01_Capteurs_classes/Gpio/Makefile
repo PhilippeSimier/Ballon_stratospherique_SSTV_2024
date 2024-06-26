@@ -7,16 +7,16 @@ CXX = g++
 CXXFLAGS = -Wall -O2 -std=c++11
 
 # Options d'édition de liens
-LDFLAGS = -lpigpio -lpthread
+LDFLAGS = -lwiringPi -lpthread
 
 # Fichiers source
-SOURCES = main.cpp Led.cpp
+SOURCES = main.cpp GpioOut.cpp
 
 # Fichiers objets
 OBJECTS = $(SOURCES:.cpp=.o)
 
 # Nom de l'exécutable
-TARGET = my_program
+TARGET = test_unitaire
 
 # Règle par défaut
 all: $(TARGET)
@@ -39,7 +39,7 @@ distclean: clean
 
 # Règle pour exécuter le programme
 run: $(TARGET)
-	sudo ./$(TARGET)
+	./$(TARGET)
 
 .PHONY: all clean distclean run
 

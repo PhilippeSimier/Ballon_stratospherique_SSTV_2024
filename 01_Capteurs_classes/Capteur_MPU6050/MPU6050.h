@@ -15,6 +15,7 @@
 #include <unistd.h>
 #include <chrono>
 #include <thread>
+#include <sstream>
 
 #define EARTH_GRAVITY_0 9.80665
 
@@ -81,8 +82,8 @@ public:
     void setAccelYOffset(short offset);
     void setAccelZOffset(short offset);
 
-    void calibrate();
-    
+    std::string calibrate();
+
 
 private:
 

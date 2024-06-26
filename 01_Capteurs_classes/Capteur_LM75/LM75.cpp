@@ -8,8 +8,9 @@
 #include "LM75.h"
 
 LM75::LM75(int8_t address) :
-presence(false),
-deviceI2C(new i2c(address)) {
+deviceI2C(new i2c(address)),
+presence(false)
+{
     if (deviceI2C->getError()) {
 
         throw std::runtime_error("Exception in constructor LM75");
