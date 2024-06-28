@@ -14,13 +14,7 @@ apt install imagemagick
 -   **Prise de photos et de vidéos:**  Libcamera peut être utilisée pour prendre des photos et des vidéos avec la caméra connectée au Raspberry Pi 0.
 
 **Commandes libcamera :**
-
--   **libcamera-still:** Prendre une photo
-```bash
-libcamera-still --width 320 --height 256 -o photo.jpg
-```
--   **libcamera-video:**  Enregistrer une vidéo.
--   **libcamera-hello:**  Afficher des informations sur la caméra.
+- **libcamera-hello:**   Afficher des informations sur la caméra.
 ```bash
 ballon@ballon:~ $ libcamera-hello --list-camera
 Available cameras
@@ -32,6 +26,26 @@ Available cameras
 
 
 ```
+
+
+-   **libcamera-still:** Prendre une photo
+```bash
+libcamera-still --width 320 --height 256 -o photo.jpg
+```
+-   **libcamera-video:**  Enregistrer une vidéo.
+```bash
+libcamera-vid -t 10000 -o video.h264 --width 1920 --height 1080 --framerate 30 --inline
+```
+ `-t <durée>` : Spécifie la durée de l'enregistrement en millisecondes.
+ `-o <fichier>` : Spécifie le nom du fichier de sortie.
+ `--width <largeur>` et `--height <hauteur>` : Spécifie la résolution de la vidéo.
+ `--framerate <taux>` : Spécifie le taux de trame (frames per second) de la vidéo.
+ `--inline` : Pour générer un fichier H.264 compatible avec les lecteurs vidéo standard.
+- **convertir la vidéo avec ffmpeg**
+```bash
+ffmpeg -i video.h264 -c:v copy video.mp4
+```
+
 -   **libcamera-raw:**  Capturer des images brutes.
 -   **libcamera-controls:**  Contrôler les paramètres de la caméra.
 
