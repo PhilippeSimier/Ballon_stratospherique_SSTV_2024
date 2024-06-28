@@ -1,5 +1,4 @@
-/**************************************************************************
-/*!
+/*
     \file     bme280.cpp
     \author   Philippe SIMIER (Touchard Wahington le Mans)
     \license  BSD (see license.txt)
@@ -143,7 +142,7 @@ double BME280::obtenirPression() {
     double var2;
     double var3;
     double pressure;
-    double pressure_min = 30000.0;
+    double pressure_min = 0.0;
     double pressure_max = 110000.0;
 
     getRawData();

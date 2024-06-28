@@ -3,9 +3,9 @@
  * Author: philippe SIMIER
  *
  * Created on 14 mars 2024, 17:13
- * ajouter l'option de compilation -pthread lors de la compilation
- * et l'option -lpigpio
- * g++ ./*.cpp -o sstv -lpthread -lpigpio
+ * compilation make all
+ *
+ *
  */
 
 #include <stdio.h>
@@ -17,7 +17,7 @@
 #include <thread>
 #include "Camera.h"
 #include "bme280.h"
-#include "Led.h"
+#include "GpioOut.h"
 
 using namespace std;
 
@@ -66,6 +66,7 @@ void threadFunction1() {
 
     int pid;
     pid = run_lora_files();
+    GpioOut ptt(6);  // Commande Push To Talk
 
     while (true) {
 
@@ -81,8 +82,10 @@ void threadFunction1() {
 	    stop_lora_files(pid);
 
             // Appeler la methode envoyer photo en SSTV
+            ptt.setOn(); // active l'ampli
             Camera::envoyerPhoto(29000000);
             this_thread::sleep_for(chrono::seconds(1));
+            ptt.setOff(); // désactive l'ampli
 
 	    // redémarrer lora_files
 	    pid = run_lora_files();
@@ -95,13 +98,7 @@ void threadFunction1() {
 int main(int argc, char** argv) {
 
     BME280 capteur(0x77);
-
     Camera camera;
-
-
-    Led* ptt = new Led(6);  // Commande Push To Talk
-    ptt->setOn();           // active l'ampli en émission
-    delete ptt;
 
     thread t1(threadFunction1);
     while (true) {
@@ -115,6 +112,7 @@ int main(int argc, char** argv) {
 
             stringstream annotation;
             annotation << fixed << setprecision(1) << capteur.obtenirPression() << " hPa";
+            cout << "Pression : " << annotation.str() << endl;
             camera.enregistrerPhoto(annotation.str());
 
             this_thread::sleep_for(chrono::seconds(1));
