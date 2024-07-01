@@ -41,6 +41,13 @@ Les registres d'offset permettent de corriger les biais initiaux des mesures d'a
 Lors de la calibration, les valeurs de sortie du capteur sont comparées à des valeurs de référence connues. Les différences observées sont utilisées pour calculer les valeurs d'offset qui sont ensuite stockées dans les registres correspondants. Cette étape est essentielle pour assurer que le capteur fournit des mesures précises et cohérentes.
 
 Pour définir les biais de l'accéléromètre dans les registres matériels appropriés, il est nécessaire de prendre en compte les valeurs de trim d'usine présentes dans ces registres, qui doivent être ajoutées aux biais calculés de l'accéléromètre. Au démarrage, ces registres contiennent des valeurs non nulles. Par ailleurs, le bit 0 de l'octet de poids faible doit être conservé, car il est utilisé pour les calculs de compensation de température. Les registres de biais de l'accéléromètre attendent une entrée de biais de 2 048 LSB par g, ce qui implique que les biais de l'accéléromètre calculés précédemment doivent être divisés par **8**.
+
+## Détection de la chute libre
+
+Il est possible de détecter la chute d'un objet en utilisant le MPU6050. La chute libre d'un objet se traduit par une réduction significative ou même l'absence de l'accélération mesurée par l'accéléromètre du capteur, car durant la chute libre, l'accélération ressentie par l'objet (due à la gravité) devient très faible ou proche de zéro.
+
+**Accélération totale** : Pendant la chute libre, l'accélération totale ressentie par le capteur devrait approcher zéro (sauf quelques variations dues à la résistance de l'air et autres facteurs mineurs). 
+L'accélération totale peut être calculée en déterminant le module de accélération mesurée sur les trois axes.​ Si cette valeur est significativement inférieure à l'accélération de la gravité (environ 9.81 m/s²), il est probable que l'objet soit en chute libre.
  
  
 

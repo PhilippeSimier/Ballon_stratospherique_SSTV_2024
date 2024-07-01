@@ -7,7 +7,7 @@ CXX = g++
 CXXFLAGS = -Wall -O2 -std=c++11
 
 # Options d'édition de liens
-LDFLAGS = -lwiringPi -lpthread
+LDFLAGS = -lwiringPi -lpthread -lm
 
 # Fichiers source
 SOURCES = main.cpp MPU6050.cpp i2c.cpp

@@ -149,6 +149,21 @@ float MPU6050::getAccelX() {
 }
 
 /**
+ * @brief MPU6050::getAccelM
+ *        Calcul le module de l'accélération
+ * @return accélération totale ressentie par le capteur
+ */
+float MPU6050::getAccelM(){
+
+    auto accX = getAccelX();
+    auto accY = getAccelY();
+    auto accZ = getAccelZ();
+    return sqrt(accZ*accZ +accX*accX + accY*accY);
+}
+
+
+
+/**
  * @brief methode pour configurer la sensibilité de l'accélérometre.
  * @param range FS_2G ou FS_4G ou FS_8G ou FS_16G
  */

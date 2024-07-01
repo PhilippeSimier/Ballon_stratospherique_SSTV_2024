@@ -22,15 +22,22 @@ int main(int argc, char** argv) {
         MPU6050 mpu(0x69);
         
         mpu.setAccSensibility(FS_2G);
-
         mpu.calibrate();  // calibration du capteur
 
-        while (1) {
-            cout << setfill('0') << fixed << setprecision(2) << mpu.getAccelX() << ",";
-            cout << mpu.getAccelY() << ",";
-            cout << mpu.getAccelZ() << ",";
-            cout << setprecision(1) << mpu.getTemperature() << endl;
-            std::this_thread::sleep_for(std::chrono::milliseconds(100)); // Attendre 100 ms
+        auto accM = mpu.getAccelM();
+
+        cout << setfill('0') << fixed << setprecision(2) << accM << endl;
+        // attente du début de la chute libre
+        while (accM > 0.8){
+           std::this_thread::sleep_for(std::chrono::milliseconds(10)); // Attendre 10 ms
+           accM = mpu.getAccelM();
+        }
+        for( int i = 0; i<400; i++)
+        {
+            std::this_thread::sleep_for(std::chrono::milliseconds(10)); // Attendre 10 ms
+
+            cout << mpu.getAccelM() << endl;
+
         }
 
     } catch (const runtime_error &e) {

@@ -13,6 +13,7 @@
 #include <stdint.h>
 #include <iostream>
 #include <unistd.h>
+#include <math.h>
 #include <chrono>
 #include <thread>
 #include <sstream>
@@ -75,6 +76,7 @@ public:
     float getAccelX();
     float getAccelY();
     float getAccelZ();
+    float getAccelM();
     
     void setAccSensibility(AccelSensibility range);
 
