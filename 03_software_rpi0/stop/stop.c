@@ -1,6 +1,6 @@
 /*
  * File:   stop.c
- * Author: philippe SIMIER
+ * Author: philippe SIMIER  Lycée touchard Le Mans
  *
  * Created on 24 mai 2024, 14:13
  * Installer git clone https://github.com/WiringPi/WiringPi.git
@@ -13,33 +13,45 @@
  */
 
 
+
+
+#include <wiringPi.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <unistd.h>
-#include <wiringPi.h> // Include WiringPi library!
 
-int main(void)
-{
+#define BP 25
 
-  wiringPiSetupGpio();
 
-  // pin mode ..(INPUT, OUTPUT, PWM_OUTPUT, GPIO_CLOCK)
-  // set pin 25 to input (BP)
-  pinMode(25, INPUT);
+void fallingEdgeBP(void);
 
-  // pull up/down mode (PUD_OFF, PUD_UP, PUD_DOWN) => down
-  pullUpDnControl(25, PUD_OFF);
+int main(void) {
 
-  while(1) {
-      // get state of pin 25 (BP)
-      int value = digitalRead(25);
+    if (wiringPiSetupGpio() == -1) {
+        printf("Échec de l'initialisation de WiringPi\n");
+            return 1;
+    }
 
-      if (value == LOW)
-      {
-          printf("bouton pousoir actionné\r\n");
-          system("/usr/sbin/halt -p"); // chemin absolu vers la commande halt
-      }
+    pinMode(BP, INPUT);
+    pullUpDnControl(BP, PUD_OFF);  // La résistance de tirage est sur la carte
 
-      sleep(1);
-  }
+    // Définir une interruption sur le front montant (rising edge) pour BP
+    if (wiringPiISR(BP, INT_EDGE_FALLING, &fallingEdgeBP) < 0) {
+        printf("Impossible de configurer l'interruption\n");
+        return 1;
+    }
+
+
+    while (1) {
+
+        delay(1000);
+    }
+
+    return 0;
 }
+
+
+void fallingEdgeBP(void) {
+    printf("Détection d'un front descendant sur BP GPIO %d\n", BP);
+    system("/usr/sbin/halt -p"); // chemin absolu vers la commande halt
+}
+
