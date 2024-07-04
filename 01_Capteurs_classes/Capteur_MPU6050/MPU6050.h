@@ -20,16 +20,29 @@
 
 #define EARTH_GRAVITY_0 9.80665
 
+// Il y a 4 calibres pour l'accélération
 enum AccelSensibility {
-    FS_2G = 0x00,     //xxx0 0xxx
-    FS_4G = 0x08,     //xxx0 1xxx
-    FS_8G = 0x10,     //xxx1 0xxx
-    FS_16G = 0x18,    //xxx1 1xxx
+    FS_2G = 0x00,     //xxx0 0xxx  calibre 0 : +/-2g
+    FS_4G = 0x08,     //xxx0 1xxx  calibre 1 : +/- 4g
+    FS_8G = 0x10,     //xxx1 0xxx  calibre 2 : +/- 8g
+    FS_16G = 0x18,    //xxx1 1xxx  calibre 3 : +/- 16g
     LSB_FS_2G = 16384,
     LSB_FS_4G = 8192,
     LSB_FS_8G = 4096,
     LSB_FS_16G = 2048,
     ACCEL_MASK = 0x18 //0001 1000
+};
+
+// Le filtre passe-bas numérique intégré dans le MPU6050 peut être configuré avec différentes bandes passantes
+// Le prix à payer pour ce filtrage est le léger retard du signal numérique par rapport au signal analogique.
+enum Dlpf {
+    DLPF_260,  // 260Hz     | 0ms
+    DLPF_184,  // 184Hz     | 2.0ms
+    DLPF_94,   // 94Hz      | 3.0ms
+    DLPF_44,   // 44Hz      | 4.9ms
+    DLPF_21,   // 21Hz      | 8.5ms
+    DLPF_10,   // 10Hz      | 13.8ms
+    DLPF_5,    //  5Hz      | 19.0ms
 };
 
 enum Registre {
@@ -79,6 +92,7 @@ public:
     float getAccelM();
     
     void setAccSensibility(AccelSensibility range);
+    void setDLPFMode(Dlpf dlpf);
 
     void setAccelXOffset(short offset);
     void setAccelYOffset(short offset);

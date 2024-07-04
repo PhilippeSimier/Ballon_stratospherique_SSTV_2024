@@ -174,6 +174,18 @@ void MPU6050::setAccSensibility(AccelSensibility range){
     sensibility = deviceI2C->ReadReg8(ACCEL_CONFIG) & ACCEL_MASK;
 }
 
+
+/**
+ * @brief MPU6050::setDLPFMode méthode pour configurer le filtre passe bas
+ * @param dlpf de DLPF_0 à DLPF_6
+ */
+void MPU6050::setDLPFMode(Dlpf dlpf){
+
+    char val0 = deviceI2C->ReadReg8(CONFIG) & 0xF8;
+    deviceI2C->WriteReg8(CONFIG, val0 | dlpf);
+
+}
+
 void MPU6050::setAccelXOffset(short offset)
 {
     data dataOffset;

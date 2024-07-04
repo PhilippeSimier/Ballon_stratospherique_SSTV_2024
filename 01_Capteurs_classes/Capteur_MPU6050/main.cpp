@@ -22,13 +22,14 @@ int main(int argc, char** argv) {
         MPU6050 mpu(0x69);
         
         mpu.setAccSensibility(FS_2G);
-        mpu.calibrate();  // calibration du capteur
+        mpu.calibrate();          // calibration du capteur
+        mpu.setDLPFMode(DLPF_5);  // Filtrage passe bas 5Hz
 
         auto accM = mpu.getAccelM();
 
         cout << setfill('0') << fixed << setprecision(2) << accM << endl;
         // attente du début de la chute libre
-        while (accM > 0.8){
+        while (accM > 0.5){
            std::this_thread::sleep_for(std::chrono::milliseconds(10)); // Attendre 10 ms
            accM = mpu.getAccelM();
         }
