@@ -10,7 +10,7 @@
 
 #include <cstdlib>
 #include <iostream>
-#include "Spi.h"
+#include "SX1278.h"
 
 #define REG_FIFO 0x00
 #define REG_FIFO_TX_BASE_ADDR 0x0E
@@ -24,29 +24,26 @@ using namespace std;
 int main(int argc, char** argv) {
 
     cout << "Programme LoRa" << endl;
-
+    unsigned char message[] = "Coucou";
+    unsigned char mode;
+    
     try {
 
-        Spi spi;
+        SX1278 loRa;  // channel SPI 0
+        
+        loRa.begin(433775000);
+        
+        
+        loRa.send(message, 6);
+        sleep(3);
+        loRa.send(message, 6);
+        sleep(3);
+        loRa.send(message, 6);
+        sleep(3);
+        
 
-        auto value = spi.read_reg(0x42);
-        cout << "RegVersion : " << hex << (int)value << endl;
-        
-        spi.write_reg(0x40, 1<<6);
-        value = spi.read_reg(0x40);
-        cout << "Reg 0x40 : " << hex << (int)value << endl;
-        
-        unsigned char chaine[] = "Bonjour\0";
-        spi.write_reg(REG_FIFO_TX_BASE_ADDR, TX_BASE_ADDR);
-        spi.write_reg(REG_FIFO_RX_BASE_ADDR, RX_BASE_ADDR);
-        spi.write_reg(REG_PAYLOAD_LENGTH, 8);
-        
-        spi.write_fifo(REG_FIFO, chaine, 8);
-        unsigned char buffer[255] = {};
-        spi.read_fifo(REG_FIFO, buffer, 8);
-        
-        cout << buffer << endl;
-        
+
+       
     } catch (const std::runtime_error &e) {
         
         std::cout << "Exception caught: " << e.what() << std::endl;
