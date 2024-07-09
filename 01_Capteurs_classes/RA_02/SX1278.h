@@ -12,6 +12,10 @@
 #include <unistd.h>
 #include <stdbool.h>
 #include <math.h>
+#include <cstdlib>
+#include <cstring>
+#include <string>
+#include <iostream>
 
 #define REG_FIFO 0x00
 #define REG_OP_MODE 0x01
@@ -139,20 +143,37 @@ public:
     virtual ~SX1278();
     
     
-    void begin(double freq);
-    void send(unsigned char *buf, unsigned char size);
+    void begin();
+    void send(int8_t *buf, int8_t size);
+    void send(const std::string &message);
     
-    unsigned char get_op_mode();
+    void receive();
+    
+    
     
     
 private:
     
     Spi *spi;
-    int gpio_reset;
-    int gpio_DIO_0;
+    int gpio_reset;        //raspberry GPIO pin connected to RESET pin of LoRa chip
+    int gpio_DIO_0;        //raspberry GPIO pin connected to DIO0 pin of LoRa chip to detect TX and Rx done events. 
+    
+    BandWidth bw;
+    SpreadingFactor sf;    //only from SF7 to SF12. SF6 not support yet.
+    ErrorCodingRate ecr;
+    double freq;           // Frequency in Hz. Example 433775000
+    unsigned int preambleLen;
+    unsigned char syncWord;
+    
+    OutputPower outPower;
+    PowerAmplifireOutputPin powerOutPin; //This chips has to outputs for signal "High power" and regular.
+    unsigned char ocp;     //Over Current Protection. 0 to turn OFF. Else reduces current from 45mA to 240mA    
+    
+    int8_t bufferRX[257];  // Buffer de réception 
     
     void reset();
-
+    
+    int8_t get_op_mode();
     void set_explicit_header();
     void set_errorcrc(ErrorCodingRate cr);
     void set_crc_on();
@@ -171,15 +192,25 @@ private:
     void set_lowdatarateoptimize_off();
     void set_lowdatarateoptimize_on();
     
-    void lora_write_fifo(unsigned char *buf, unsigned char size);
+    void lora_write_fifo(int8_t *buf, int8_t size);
     
     void set_lora_mode();
     void set_sleep_mode();
     void set_standby_mode();
     void set_tx_mode();
+    void set_rxcont_mode();
     
+    void calculate_packet_t(int8_t payloadLen);
     
+    void set_dio_rx_mapping();
+    void set_dio_tx_mapping();
+    void reset_irq_flags();
+    void DoneISRf();
+    
+    static void ISR_Function();
 };
+
+extern SX1278 loRa;  
 
 #endif /* SX1278_H */
 

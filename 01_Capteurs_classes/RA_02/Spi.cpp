@@ -84,7 +84,7 @@ int Spi::write_reg(int8_t reg, int8_t value) {
  * @param size  la taille des données 
  * @return      le nombre d'octets lus
  */
-int Spi::read_fifo(int8_t reg, unsigned char *buff, unsigned char size) {
+int Spi::read_fifo(int8_t reg, int8_t *buff, int8_t size) {
 
     int ret;
     char unsigned data[257] = {0};
@@ -104,7 +104,7 @@ int Spi::read_fifo(int8_t reg, unsigned char *buff, unsigned char size) {
  * @param size la taille des datas à écrire
  * @return le nombre de d'octets écrits
  */
-int Spi::write_fifo(int8_t reg, unsigned char *buff, unsigned char size) {
+int Spi::write_fifo(int8_t reg, int8_t *buff, int8_t size) {
 
     int ret;
     char unsigned data[257] = {0};

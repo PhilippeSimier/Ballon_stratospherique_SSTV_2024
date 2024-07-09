@@ -14,14 +14,29 @@
  */
 SX1278::SX1278(int channel) :
 spi(new Spi(channel)),
+gpio_reset(0),
 gpio_DIO_0(22),
-gpio_reset(0) {
+bw(BW125),
+sf(SF12),
+ecr(CR5),
+freq(433775000),
+preambleLen(6),
+syncWord(0x12),
+outPower(OP20),
+powerOutPin(PA_BOOST),
+ocp(240) {
     // Lecture du registre de version 
     int8_t value = spi->read_reg(0x42);
     if (value != 0x12) {
         throw std::runtime_error("Exception in constructor SX1278");
     }
     pinMode(gpio_reset, OUTPUT);
+
+    pinMode(gpio_DIO_0, INPUT);
+    // appelle de la fonction ISR_Function sur interruption au front montant de DIO_0
+    if (wiringPiISR(gpio_DIO_0, INT_EDGE_RISING, &ISR_Function) < 0) {
+        throw std::runtime_error("Exception in constructor DIO_0");
+    }
 
 }
 
@@ -30,22 +45,22 @@ SX1278::~SX1278() {
         delete spi;
 }
 
-void SX1278::begin(double freq) {
+void SX1278::begin() {
 
     reset();
-    set_lora_mode(); // configure la modulation LoRa
+    set_lora_mode(); // configure la modulation mode LoRa
     set_explicit_header(); // configure l'entête explicite
-    set_errorcrc(CR5); // configure error coding rate sur CR5
-    
-    set_bandwidth(BW125); // configure la largeur de bande
-    set_sf(SF12); // configure le spreading factor
+    set_errorcrc(ecr); // configure error coding rate
+
+    set_bandwidth(bw); // configure la largeur de bande
+    set_sf(sf); // configure le spreading factor
     set_crc_on();
-    set_tx_power(OP20, PA_BOOST);
-    set_syncw(0x12);
-    set_preamble(6);
-    set_agc(1);    // On/Off AGC. If AGC is on, LNAGain not used
+    set_tx_power(outPower, powerOutPin);
+    set_syncw(syncWord);
+    set_preamble(preambleLen);
+    set_agc(1); // On/Off AGC. If AGC is on, LNAGain not used
     //set_lna(G6, 0); // à creuser !!!
-    set_ocp(240); // 45 to 240 mA. 0 to turn off protection
+    set_ocp(ocp); // 45 to 240 mA. 0 to turn off protection
 
     spi->write_reg(REG_FIFO_TX_BASE_ADDR, TX_BASE_ADDR);
     spi->write_reg(REG_FIFO_RX_BASE_ADDR, RX_BASE_ADDR);
@@ -55,22 +70,44 @@ void SX1278::begin(double freq) {
     set_freq(freq);
 }
 
-void SX1278::send(unsigned char *buf, unsigned char size) {
+void SX1278::send(int8_t *buf, int8_t size) {
 
     if (get_op_mode() != STDBY_MODE) {
         set_standby_mode();
     }
-    set_lowdatarateoptimize_on();
+    calculate_packet_t(size); // Calcule le temps pour émettre le packet 
 
     spi->write_reg(REG_FIFO_ADDR_PTR, TX_BASE_ADDR);
     spi->write_reg(REG_PAYLOAD_LENGTH, size);
     spi->write_fifo(REG_FIFO, buf, size);
-    
+
+    set_dio_tx_mapping();
     set_tx_mode();
 
 }
 
-unsigned char SX1278::get_op_mode() {
+void SX1278::send(const std::string &message) {
+
+
+    auto longueur = message.length();
+    if (longueur > 255) {
+        throw std::runtime_error("Exception in send(char*) SX1278");
+    }
+    send((int8_t *) message.c_str(), (int8_t) longueur);
+}
+
+void SX1278::receive() {
+
+    calculate_packet_t(0);
+    if (get_op_mode() != STDBY_MODE) {
+        set_standby_mode();
+    }
+
+    set_dio_rx_mapping();
+    set_rxcont_mode();
+}
+
+int8_t SX1278::get_op_mode() {
 
     return (spi->read_reg(REG_OP_MODE) & 0x07);
 
@@ -87,6 +124,13 @@ void SX1278::set_tx_mode() {
 
     int8_t value = spi->read_reg(REG_OP_MODE) & 0xf8;
     spi->write_reg(REG_OP_MODE, value | TX_MODE);
+
+}
+
+void SX1278::set_rxcont_mode() {
+
+    int8_t value = spi->read_reg(REG_OP_MODE) & 0xf8;
+    spi->write_reg(REG_OP_MODE, value | RXCONT_MODE);
 
 }
 
@@ -179,7 +223,7 @@ void SX1278::set_preamble(int preambleLen) {
     len_revers += ((unsigned char) (preambleLen >> 0)) << 8;
     len_revers += ((unsigned char) (preambleLen >> 8)) << 0;
 
-    spi->write_fifo(REG_PREAMBLE_MSB, (unsigned char *) &len_revers, 2);
+    spi->write_fifo(REG_PREAMBLE_MSB, (int8_t *) & len_revers, 2);
 }
 
 void SX1278::set_agc(_Bool AGC) {
@@ -231,7 +275,7 @@ void SX1278::set_freq(double freq) {
     frf_revers += (int) ((unsigned char) (frf >> 0)) << 16;
     frf_revers += (int) ((unsigned char) (frf >> 8)) << 8;
     frf_revers += (int) ((unsigned char) (frf >> 16) << 0);
-    spi->write_fifo(REG_FR_MSB, (unsigned char *) &frf_revers, 3);
+    spi->write_fifo(REG_FR_MSB, (int8_t *) & frf_revers, 3);
 
 }
 
@@ -247,10 +291,93 @@ void SX1278::set_lowdatarateoptimize_on() {
     spi->write_reg(REG_MODEM_CONFIG_3, value | (0x01 << 3));
 }
 
-void SX1278::lora_write_fifo(unsigned char *buf, unsigned char size) {
+void SX1278::lora_write_fifo(int8_t *buf, int8_t size) {
 
     spi->write_reg(REG_FIFO_ADDR_PTR, TX_BASE_ADDR);
     spi->write_reg(REG_PAYLOAD_LENGTH, size);
     spi->write_fifo(REG_FIFO, buf, size);
 
 }
+
+void SX1278::calculate_packet_t(int8_t payloadLen) {
+
+    unsigned BW_VAL[10] = {7800, 10400, 15600, 20800, 31250, 41700, 62500, 125000, 250000, 500000};
+
+    unsigned bw_val = BW_VAL[(bw >> 4)];
+    unsigned sf_val = sf >> 4;
+    unsigned char ecr_val = 4 + (ecr / 2);
+
+    double Tsym = (pow(2, sf_val) / bw_val)*1000;
+    bool lowDataRateOptimize = (Tsym > 16);
+
+    if (lowDataRateOptimize)
+        set_lowdatarateoptimize_on();
+    else
+        set_lowdatarateoptimize_off();
+
+    double Tpreambule = (preambleLen + 4.25) * Tsym;
+    int tmpPoly = (8 * payloadLen - 4 * sf_val + 28 + 16);
+    if (tmpPoly < 0) {
+        tmpPoly = 0;
+    }
+    unsigned payloadSymbNb = 8 + ceil(((double) tmpPoly) / (4 * (sf_val - 2 * lowDataRateOptimize))) * ecr_val;
+    double Tpayload = payloadSymbNb * Tsym;
+    double Tpacket = Tpayload + Tpreambule;
+
+    std::cout << "Tpacket : " << Tpacket << std::endl;
+
+}
+
+void SX1278::set_dio_rx_mapping() {
+    spi->write_reg(REG_DIO_MAPPING_1, 0 << 6);
+}
+
+void SX1278::set_dio_tx_mapping() {
+    spi->write_reg(REG_DIO_MAPPING_1, 1 << 6);
+}
+
+void SX1278::reset_irq_flags() {
+    spi->write_reg(REG_IRQ_FLAGS, 0xff);
+}
+
+/**
+ * Méthode exécutée suite à une interruption
+ */
+void SX1278::DoneISRf() {
+
+    if (spi->read_reg(REG_IRQ_FLAGS) & IRQ_RXDONE) { // fin de réception d'un payload
+       
+        std::cout << "RX done" << std::endl;
+        
+        int8_t value = spi->read_reg( REG_FIFO_RX_CURRENT_ADDR );
+        spi->write_reg( REG_FIFO_ADDR_PTR, value );
+        int8_t rx_nb_bytes = spi->read_reg(REG_RX_NB_BYTES);
+        spi->read_fifo(REG_FIFO, bufferRX, rx_nb_bytes);
+        bufferRX[rx_nb_bytes] = '\0';
+        std::cout << bufferRX << std::endl;
+    }
+    if (spi->read_reg(REG_IRQ_FLAGS) & IRQ_TXDONE) { // fin de l'émission d'un payload
+        
+        std::cout << "TX done" << std::endl;
+
+        set_standby_mode();
+        set_dio_rx_mapping();
+        set_rxcont_mode(); // passage en réception continue
+    }
+
+    reset_irq_flags();
+}
+
+/**
+ * Cette fonction est statique 
+ * elle  utilise la variable globale loRa pour accéder
+ * au contexte 
+ */
+void SX1278::ISR_Function() {
+
+    extern SX1278 loRa;
+    loRa.DoneISRf();
+}
+
+SX1278 loRa;
+

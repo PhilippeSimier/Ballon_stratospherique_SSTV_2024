@@ -10,31 +10,34 @@
 
 #include <cstdlib>
 #include <iostream>
+#include <string> 
 #include "SX1278.h"
 
-
-
 using namespace std;
+
 
 int main(int argc, char** argv) {
 
     cout << "Programme LoRa" << endl;
-    unsigned char message[] = "Coucou";
-    unsigned char mode;
+       
+    int8_t buffer[] = "LoRa";
+    string message = "Bonjour le monde";
     
     try {
 
-        SX1278 loRa;  // channel SPI 0
         
-        loRa.begin(433775000);
+        
+        loRa.begin();
      
        
-        loRa.send(message, 6);
+        loRa.send(buffer, 4);
         sleep(3);
-        loRa.send(message, 6);
-        sleep(3);
-        loRa.send(message, 6);
-        sleep(3);
+        loRa.send(message);
+        
+        
+        while(1){
+            sleep(1);
+        }
       
        
     } catch (const std::runtime_error &e) {

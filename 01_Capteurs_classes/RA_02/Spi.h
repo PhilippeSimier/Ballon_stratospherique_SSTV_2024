@@ -29,8 +29,8 @@ public:
     int8_t read_reg(int8_t reg);
     int write_reg(int8_t reg, int8_t byte);
     
-    int read_fifo( int8_t reg, unsigned char *buff, unsigned char size);
-    int write_fifo(int8_t reg, unsigned char *buff, unsigned char size);
+    int read_fifo( int8_t reg, int8_t *buff, int8_t size);
+    int write_fifo(int8_t reg, int8_t *buff, int8_t size);
     
     
     
