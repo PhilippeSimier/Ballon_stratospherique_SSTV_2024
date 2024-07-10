@@ -16,6 +16,9 @@
 #include <cstring>
 #include <string>
 #include <iostream>
+#include <chrono>
+#include <thread>
+
 
 #define REG_FIFO 0x00
 #define REG_OP_MODE 0x01
@@ -148,8 +151,11 @@ public:
     void send(const std::string &message);
     
     void receive();
+    void set_callback_RX(void (*ptrFuncRX)(void));
     
-    
+    int8_t bufferRX[257];  // Buffer de réception
+    int rssi;
+    float snr;
     
     
 private:
@@ -170,8 +176,8 @@ private:
     OutputPower outPower;
     PowerAmplifireOutputPin powerOutPin; //This chips has to outputs for signal "High power" and regular.
     unsigned char ocp;     //Over Current Protection. 0 to turn OFF. Else reduces current from 45mA to 240mA    
-    
-    int8_t bufferRX[257];  // Buffer de réception 
+        
+    void (*ptr_callback_Rx)(void);  // pointeur sur une fonction utilisateur de type void(void)
     
     void reset();
     
@@ -209,6 +215,9 @@ private:
     void set_dio_tx_mapping();
     void reset_irq_flags();
     void DoneISRf();
+    
+    void get_rssi_pkt();
+    void get_snr();
     
     static void ISR_Function();
 };

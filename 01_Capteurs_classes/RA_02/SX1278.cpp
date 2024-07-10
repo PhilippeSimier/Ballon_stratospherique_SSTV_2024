@@ -87,13 +87,11 @@ void SX1278::begin() {
 void SX1278::send(int8_t *buf, int8_t size) {
 
     while (get_op_mode() == TX_MODE){  // attend la fin de l'émission
-        sleep(1);
+        std::this_thread::sleep_for(std::chrono::milliseconds(100)); // Attendre 100 ms;
     }
     
     set_standby_mode();
-    
-    double tpacket = calculate_packet_t(size); // Calcule le temps pour émettre le packet 
-
+        
     spi->write_reg(REG_FIFO_ADDR_PTR, TX_BASE_ADDR);
     spi->write_reg(REG_PAYLOAD_LENGTH, size);
     spi->write_fifo(REG_FIFO, buf, size);
@@ -333,8 +331,7 @@ void SX1278::calculate_tsym(){
 
     unsigned bw_val = BW_VAL[(bw >> 4)];
     unsigned sf_val = sf >> 4;
-    unsigned char ecr_val = 4 + (ecr / 2);
-
+    
     tsym = (pow(2, sf_val) / bw_val)*1000;
     
 }
@@ -379,21 +376,26 @@ void SX1278::reset_irq_flags() {
  */
 void SX1278::DoneISRf() {
 
-    if (spi->read_reg(REG_IRQ_FLAGS) & IRQ_RXDONE) { // fin de réception d'un payload
-       
-        std::cout << "RX done" << std::endl;
-        
+    bool crc = spi->read_reg(REG_IRQ_FLAGS) & 0x20;
+    bool rxDone = spi->read_reg(REG_IRQ_FLAGS) & IRQ_RXDONE;
+    
+    if (rxDone & !crc) { // fin de la réception d'un payload sans erreur
+              
         int8_t value = spi->read_reg( REG_FIFO_RX_CURRENT_ADDR );
         spi->write_reg( REG_FIFO_ADDR_PTR, value );
         int8_t rx_nb_bytes = spi->read_reg(REG_RX_NB_BYTES);
         spi->read_fifo(REG_FIFO, bufferRX, rx_nb_bytes);
         bufferRX[rx_nb_bytes] = '\0';
-        std::cout << bufferRX << std::endl;
+        get_rssi_pkt();
+        get_snr();
+        
+        
+        // appel de la fonction utilisateur RX
+        ptr_callback_Rx();
+        
     }
     if (spi->read_reg(REG_IRQ_FLAGS) & IRQ_TXDONE) { // fin de l'émission d'un payload
         
-        std::cout << "TX done" << std::endl;
-
         set_standby_mode();
         set_dio_rx_mapping();
         set_rxcont_mode(); // passage en réception continue
@@ -414,6 +416,28 @@ void SX1278::ISR_Function() {
     extern SX1278 loRa;
     loRa.DoneISRf();
 }
+
+/**
+ * @brief  Assignation de l'adresse de la fonction utilisateur
+ * @param _ptrFuncRX
+ */
+void SX1278::set_callback_RX(void (*ptrFuncRX)(void)){
+   ptr_callback_Rx = ptrFuncRX; 
+}
+/**
+ * @brief fonction pour obtenir le RSSI du dernier packet reçu
+ * @return 
+ */
+void SX1278::get_rssi_pkt(){
+   unsigned char value = spi->read_reg(REG_PKT_RSSI_VALUE);
+   rssi = value - (freq < 779E6 ? 164 : 157);     
+}
+
+void SX1278::get_snr(){
+    snr = spi->read_reg(REG_PKT_SNR_VALUE) * 0.25;
+    
+}
+
 
 // déclaration d'une variable globale instance de la classe SX1278
 // Elle permet de donner a la méthode statique ISR_Function 
