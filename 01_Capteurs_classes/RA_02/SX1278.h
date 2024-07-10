@@ -162,6 +162,8 @@ private:
     SpreadingFactor sf;    //only from SF7 to SF12. SF6 not support yet.
     ErrorCodingRate ecr;
     double freq;           // Frequency in Hz. Example 433775000
+    double tsym;           // temps du symbole
+    
     unsigned int preambleLen;
     unsigned char syncWord;
     
@@ -200,7 +202,8 @@ private:
     void set_tx_mode();
     void set_rxcont_mode();
     
-    void calculate_packet_t(int8_t payloadLen);
+    void calculate_tsym();
+    double calculate_packet_t(int8_t payloadLen);
     
     void set_dio_rx_mapping();
     void set_dio_tx_mapping();

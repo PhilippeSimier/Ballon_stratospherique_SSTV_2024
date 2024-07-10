@@ -25,15 +25,11 @@ int main(int argc, char** argv) {
     
     try {
 
-        
-        
+      
         loRa.begin();
-     
-       
+      
         loRa.send(buffer, 4);
-        sleep(3);
         loRa.send(message);
-        
         
         while(1){
             sleep(1);

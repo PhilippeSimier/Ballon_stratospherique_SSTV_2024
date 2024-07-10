@@ -44,7 +44,9 @@ SX1278::~SX1278() {
     if (spi != nullptr)
         delete spi;
 }
-
+/**
+ * @brief methode pour initialiser le composant SX1278
+ */
 void SX1278::begin() {
 
     reset();
@@ -61,21 +63,36 @@ void SX1278::begin() {
     set_agc(1); // On/Off AGC. If AGC is on, LNAGain not used
     //set_lna(G6, 0); // à creuser !!!
     set_ocp(ocp); // 45 to 240 mA. 0 to turn off protection
-
+    calculate_tsym();   // calcul du temps de symbole
+      
+    if ((tsym > 16))
+        set_lowdatarateoptimize_on();
+    else
+        set_lowdatarateoptimize_off();
+    
     spi->write_reg(REG_FIFO_TX_BASE_ADDR, TX_BASE_ADDR);
     spi->write_reg(REG_FIFO_RX_BASE_ADDR, RX_BASE_ADDR);
     spi->write_reg(REG_DETECT_OPTIMIZE, 0xc3); //LoRa Detection Optimize for SF > 6
     spi->write_reg(REG_DETECTION_THRESHOLD, 0x0a); //DetectionThreshold for SF > 6
 
     set_freq(freq);
+    set_rxcont_mode(); // passage en réception continue
 }
 
+/**
+ * @brief méthode pour émettre le contenu d'un buffer
+ * @param buf un pointeur sur un buffer d'otects
+ * @param size le nombre d'octet du paylaod à émettre
+ */
 void SX1278::send(int8_t *buf, int8_t size) {
 
-    if (get_op_mode() != STDBY_MODE) {
-        set_standby_mode();
+    while (get_op_mode() == TX_MODE){  // attend la fin de l'émission
+        sleep(1);
     }
-    calculate_packet_t(size); // Calcule le temps pour émettre le packet 
+    
+    set_standby_mode();
+    
+    double tpacket = calculate_packet_t(size); // Calcule le temps pour émettre le packet 
 
     spi->write_reg(REG_FIFO_ADDR_PTR, TX_BASE_ADDR);
     spi->write_reg(REG_PAYLOAD_LENGTH, size);
@@ -83,9 +100,14 @@ void SX1278::send(int8_t *buf, int8_t size) {
 
     set_dio_tx_mapping();
     set_tx_mode();
+    
 
 }
 
+/**
+ * @brief méthode pour émettre un std::string
+ * @param message un std::string
+ */
 void SX1278::send(const std::string &message) {
 
 
@@ -96,9 +118,12 @@ void SX1278::send(const std::string &message) {
     send((int8_t *) message.c_str(), (int8_t) longueur);
 }
 
+/**
+ * Méthode pour passer en mode réception continue
+ */
 void SX1278::receive() {
 
-    calculate_packet_t(0);
+    
     if (get_op_mode() != STDBY_MODE) {
         set_standby_mode();
     }
@@ -299,32 +324,41 @@ void SX1278::lora_write_fifo(int8_t *buf, int8_t size) {
 
 }
 
-void SX1278::calculate_packet_t(int8_t payloadLen) {
-
+/**
+ * @brief Calcule la durée d'un symbole en ms
+ */
+void SX1278::calculate_tsym(){
+        
     unsigned BW_VAL[10] = {7800, 10400, 15600, 20800, 31250, 41700, 62500, 125000, 250000, 500000};
 
     unsigned bw_val = BW_VAL[(bw >> 4)];
     unsigned sf_val = sf >> 4;
     unsigned char ecr_val = 4 + (ecr / 2);
 
-    double Tsym = (pow(2, sf_val) / bw_val)*1000;
-    bool lowDataRateOptimize = (Tsym > 16);
+    tsym = (pow(2, sf_val) / bw_val)*1000;
+    
+}
 
-    if (lowDataRateOptimize)
-        set_lowdatarateoptimize_on();
-    else
-        set_lowdatarateoptimize_off();
-
-    double Tpreambule = (preambleLen + 4.25) * Tsym;
+/**
+ * Calcule la durée pour émettre un paquet
+ * @param payloadLen
+ */
+double SX1278::calculate_packet_t(int8_t payloadLen) {
+    
+    unsigned sf_val = sf >> 4;
+    unsigned char ecr_val = 4 + (ecr / 2);
+    
+    double Tpreambule = (preambleLen + 4.25) * tsym;
     int tmpPoly = (8 * payloadLen - 4 * sf_val + 28 + 16);
     if (tmpPoly < 0) {
         tmpPoly = 0;
     }
-    unsigned payloadSymbNb = 8 + ceil(((double) tmpPoly) / (4 * (sf_val - 2 * lowDataRateOptimize))) * ecr_val;
-    double Tpayload = payloadSymbNb * Tsym;
+    unsigned payloadSymbNb = 8 + ceil(((double) tmpPoly) / (4 * (sf_val - 2 * (tsym > 16)))) * ecr_val;
+    double Tpayload = payloadSymbNb * tsym;
     double Tpacket = Tpayload + Tpreambule;
-
-    std::cout << "Tpacket : " << Tpacket << std::endl;
+    
+    return Tpacket;
+    
 
 }
 
@@ -372,6 +406,8 @@ void SX1278::DoneISRf() {
  * Cette fonction est statique 
  * elle  utilise la variable globale loRa pour accéder
  * au contexte 
+ * Cette fonction est appelée sur interruption émise par le SX1278 
+ * sur la broche DIO_0
  */
 void SX1278::ISR_Function() {
 
@@ -379,5 +415,8 @@ void SX1278::ISR_Function() {
     loRa.DoneISRf();
 }
 
+// déclaration d'une variable globale instance de la classe SX1278
+// Elle permet de donner a la méthode statique ISR_Function 
+// un  accès à l'instance. 
 SX1278 loRa;
 
