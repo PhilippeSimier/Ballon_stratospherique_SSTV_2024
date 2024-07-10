@@ -72,6 +72,7 @@ void SX1278::begin() {
     
     spi->write_reg(REG_FIFO_TX_BASE_ADDR, TX_BASE_ADDR);
     spi->write_reg(REG_FIFO_RX_BASE_ADDR, RX_BASE_ADDR);
+    
     spi->write_reg(REG_DETECT_OPTIMIZE, 0xc3); //LoRa Detection Optimize for SF > 6
     spi->write_reg(REG_DETECTION_THRESHOLD, 0x0a); //DetectionThreshold for SF > 6
 
@@ -376,10 +377,10 @@ void SX1278::reset_irq_flags() {
  */
 void SX1278::DoneISRf() {
 
-    bool crc = spi->read_reg(REG_IRQ_FLAGS) & 0x20;
+    bool erreur = spi->read_reg(REG_IRQ_FLAGS) & 0x20;  // test le CRC
     bool rxDone = spi->read_reg(REG_IRQ_FLAGS) & IRQ_RXDONE;
     
-    if (rxDone & !crc) { // fin de la réception d'un payload sans erreur
+    if (rxDone) { // fin de la réception d'un payload sans erreur
               
         int8_t value = spi->read_reg( REG_FIFO_RX_CURRENT_ADDR );
         spi->write_reg( REG_FIFO_ADDR_PTR, value );
@@ -391,7 +392,8 @@ void SX1278::DoneISRf() {
         
         
         // appel de la fonction utilisateur RX
-        ptr_callback_Rx();
+        if (!erreur)
+            ptr_callback_Rx();
         
     }
     if (spi->read_reg(REG_IRQ_FLAGS) & IRQ_TXDONE) { // fin de l'émission d'un payload
