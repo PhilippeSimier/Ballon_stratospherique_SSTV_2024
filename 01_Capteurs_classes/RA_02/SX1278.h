@@ -66,8 +66,9 @@
 #define TX_MODE 0x03
 #define RXCONT_MODE 0x05
 
-#define IRQ_RXDONE 0x40
-#define IRQ_TXDONE 0x08
+#define FLAG_RXDONE 0x40
+#define FLAG_TXDONE 0x08
+#define FLAG_CRC    0x20
 
 typedef enum BandWidth{
     BW7_8 =0,
@@ -150,8 +151,9 @@ public:
     void send(int8_t *buf, int8_t size);
     void send(const std::string &message);
     
-    void receive();
+    void continuous_receive();
     void set_callback_RX(void (*ptrFuncRX)(void));
+    void set_callback_TX(void (*ptrFuncTX)(void));
     
     int8_t bufferRX[257];  // Buffer de réception
     int rssi;
@@ -177,7 +179,8 @@ private:
     PowerAmplifireOutputPin powerOutPin; //This chips has to outputs for signal "High power" and regular.
     unsigned char ocp;     //Over Current Protection. 0 to turn OFF. Else reduces current from 45mA to 240mA    
         
-    void (*ptr_callback_Rx)(void);  // pointeur sur une fonction utilisateur de type void(void)
+    void (*callback_Rx)(void);  // pointeur sur une fonction callback utilisateur de type void(void)
+    void (*callback_Tx)(void);
     
     void reset();
     
@@ -211,15 +214,15 @@ private:
     void calculate_tsym();
     double calculate_packet_t(int8_t payloadLen);
     
-    void set_dio_rx_mapping();
-    void set_dio_tx_mapping();
+    void set_dio0_rx_mapping();
+    void set_dio0_tx_mapping();
     void reset_irq_flags();
-    void DoneISRf();
+    void Done_TX_RX();
     
     void get_rssi_pkt();
     void get_snr();
     
-    static void ISR_Function();
+    static void ISR_TX_RX();
 };
 
 extern SX1278 loRa;  

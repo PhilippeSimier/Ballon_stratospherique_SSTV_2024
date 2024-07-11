@@ -16,6 +16,7 @@
 using namespace std;
 
 void callback_Rx(void);  // fonction de rappel pour traiter les messages reçus
+void callback_Tx(void);  // fonction de rappel packet envoyé
 
 int main(int argc, char** argv) {
 
@@ -27,7 +28,9 @@ int main(int argc, char** argv) {
       
         loRa.begin();
         loRa.set_callback_RX(callback_Rx);
-      
+        loRa.set_callback_TX(callback_Tx);
+        loRa.continuous_receive(); // passsage en mode reception continue
+        sleep(60);
         loRa.send(buffer, 4);
         loRa.send("Bonjour le monde");
         
@@ -47,4 +50,9 @@ void callback_Rx(void) {
     std::cout << " SNR  : " << loRa.snr  << "dB" << std::endl; 
  
 }
+
+void callback_Tx(void) {
+    std::cout << "Tx done : " << std::endl;
+}
+
 

@@ -24,7 +24,11 @@ preambleLen(6),
 syncWord(0x12),
 outPower(OP20),
 powerOutPin(PA_BOOST),
-ocp(240) {
+ocp(240),
+callback_Rx(nullptr),
+callback_Tx(nullptr)
+
+{
     // Lecture du registre de version 
     int8_t value = spi->read_reg(0x42);
     if (value != 0x12) {
@@ -34,7 +38,7 @@ ocp(240) {
 
     pinMode(gpio_DIO_0, INPUT);
     // appelle de la fonction ISR_Function sur interruption au front montant de DIO_0
-    if (wiringPiISR(gpio_DIO_0, INT_EDGE_RISING, &ISR_Function) < 0) {
+    if (wiringPiISR(gpio_DIO_0, INT_EDGE_RISING, &ISR_TX_RX) < 0) {
         throw std::runtime_error("Exception in constructor DIO_0");
     }
 
@@ -97,7 +101,7 @@ void SX1278::send(int8_t *buf, int8_t size) {
     spi->write_reg(REG_PAYLOAD_LENGTH, size);
     spi->write_fifo(REG_FIFO, buf, size);
 
-    set_dio_tx_mapping();
+    set_dio0_tx_mapping();
     set_tx_mode();
     
 
@@ -120,14 +124,14 @@ void SX1278::send(const std::string &message) {
 /**
  * Méthode pour passer en mode réception continue
  */
-void SX1278::receive() {
+void SX1278::continuous_receive() {
 
     
     if (get_op_mode() != STDBY_MODE) {
         set_standby_mode();
     }
 
-    set_dio_rx_mapping();
+    set_dio0_rx_mapping();
     set_rxcont_mode();
 }
 
@@ -360,12 +364,23 @@ double SX1278::calculate_packet_t(int8_t payloadLen) {
 
 }
 
-void SX1278::set_dio_rx_mapping() {
-    spi->write_reg(REG_DIO_MAPPING_1, 0 << 6);
+/**
+ * Configure la sortie DIO_0 pour le signal RXDone
+ */
+void SX1278::set_dio0_rx_mapping() {
+    auto value = spi->read_reg(REG_DIO_MAPPING_1);
+    spi->write_reg(REG_DIO_MAPPING_1, value & 0x3f);  // met le bit 7 et 6 à zéro
 }
 
-void SX1278::set_dio_tx_mapping() {
-    spi->write_reg(REG_DIO_MAPPING_1, 1 << 6);
+/**
+ * Configure la sortie DIO_0 pour le signal TXDone
+ * bit 7 à 0 et bit 6 à 1
+ */
+void SX1278::set_dio0_tx_mapping() {
+    auto value = spi->read_reg(REG_DIO_MAPPING_1);
+    value = value & 0x7f;
+    value = value | 0x40;
+    spi->write_reg(REG_DIO_MAPPING_1, value);
 }
 
 void SX1278::reset_irq_flags() {
@@ -373,14 +388,14 @@ void SX1278::reset_irq_flags() {
 }
 
 /**
- * Méthode exécutée suite à une interruption
+ * Méthode exécutée suite à une interruption sur DIO_0
  */
-void SX1278::DoneISRf() {
+void SX1278::Done_TX_RX() {
 
-    bool erreur = spi->read_reg(REG_IRQ_FLAGS) & 0x20;  // test le CRC
-    bool rxDone = spi->read_reg(REG_IRQ_FLAGS) & IRQ_RXDONE;
+    bool erreurCRC = spi->read_reg(REG_IRQ_FLAGS) & FLAG_CRC;  // lecture du CRC
+    bool rxDone = spi->read_reg(REG_IRQ_FLAGS) & FLAG_RXDONE;
     
-    if (rxDone) { // fin de la réception d'un payload sans erreur
+    if (rxDone) { // fin de la réception d'un payload 
               
         int8_t value = spi->read_reg( REG_FIFO_RX_CURRENT_ADDR );
         spi->write_reg( REG_FIFO_ADDR_PTR, value );
@@ -389,18 +404,19 @@ void SX1278::DoneISRf() {
         bufferRX[rx_nb_bytes] = '\0';
         get_rssi_pkt();
         get_snr();
-        
-        
-        // appel de la fonction utilisateur RX
-        if (!erreur)
-            ptr_callback_Rx();
+               
+        // appel de la fonction callback définie par l'utilisateur
+        if (!erreurCRC & (callback_Rx != nullptr))
+            callback_Rx();
         
     }
-    if (spi->read_reg(REG_IRQ_FLAGS) & IRQ_TXDONE) { // fin de l'émission d'un payload
+    if (spi->read_reg(REG_IRQ_FLAGS) & FLAG_TXDONE) { // fin de l'émission d'un payload
         
         set_standby_mode();
-        set_dio_rx_mapping();
+        set_dio0_rx_mapping();
         set_rxcont_mode(); // passage en réception continue
+        if (callback_Tx != nullptr)
+            callback_Tx();
     }
 
     reset_irq_flags();
@@ -408,15 +424,14 @@ void SX1278::DoneISRf() {
 
 /**
  * Cette fonction est statique 
- * elle  utilise la variable globale loRa pour accéder
- * au contexte 
+ * elle  utilise la variable globale loRa pour accéder au contexte 
  * Cette fonction est appelée sur interruption émise par le SX1278 
- * sur la broche DIO_0
+ * elle connecte le signal DIO_0 au slot Done_TX_RX
  */
-void SX1278::ISR_Function() {
+void SX1278::ISR_TX_RX() {
 
     extern SX1278 loRa;
-    loRa.DoneISRf();
+    loRa.Done_TX_RX();
 }
 
 /**
@@ -424,7 +439,11 @@ void SX1278::ISR_Function() {
  * @param _ptrFuncRX
  */
 void SX1278::set_callback_RX(void (*ptrFuncRX)(void)){
-   ptr_callback_Rx = ptrFuncRX; 
+   callback_Rx = ptrFuncRX; 
+}
+
+void SX1278::set_callback_TX(void (*ptrFuncTX)(void)){
+    callback_Tx = ptrFuncTX;
 }
 /**
  * @brief fonction pour obtenir le RSSI du dernier packet reçu
