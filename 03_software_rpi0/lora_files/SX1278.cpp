@@ -57,7 +57,7 @@ void SX1278::begin(double frequency) {
 
     spi = new Spi(channel);
     // Lecture du registre de version 
-    int8_t value = spi->read_reg(0x42);
+    int8_t value = spi->read_reg(REG_VERSION);
     if (value != 0x12) {
         throw std::runtime_error("Exception in begin SX1278");
     }

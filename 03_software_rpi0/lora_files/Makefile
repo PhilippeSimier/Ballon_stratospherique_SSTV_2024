@@ -1,27 +1,44 @@
-# Nom du programme final
-PROG = lora_files
+# Makefile
 
-# Fichiers source C
-SRC = lora_files.c LoRa.c readConfig.c
+# Nom du compilateur
+CXX = g++
 
-# Objets compilés
-OBJ = $(SRC:.c=.o)
+# Options de compilation
+CXXFLAGS = -Wall -O2 -std=c++11
 
-# Bibliothèques
-LIBS = -lpigpio -lpthread -lm
+# Options d'édition de liens
+LDFLAGS = -lwiringPi
 
-# Compilateur et options
-CC = gcc
-CFLAGS = -Wall -O2
+# Fichiers source
+SOURCES = main.cpp Spi.cpp SX1278.cpp GestionFile.cpp
 
-# Règle de compilation principale
-$(PROG): $(OBJ)
-	$(CC) $(CFLAGS) -o $(PROG) $(OBJ) $(LIBS)
+# Fichiers objets
+OBJECTS = $(SOURCES:.cpp=.o)
 
-# Règle de compilation pour chaque objet
-.PHONY: all clean
+# Nom de l'exécutable
+TARGET = lora_files
 
-all: $(PROG)
+# Règle par défaut
+all: $(TARGET)
 
+# Règle pour créer l'exécutable
+$(TARGET): $(OBJECTS)
+	$(CXX) $(OBJECTS) -o $(TARGET) $(LDFLAGS)
+
+# Règle pour créer les fichiers objets
+%.o: %.cpp
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+
+# Règle pour nettoyer les fichiers générés
 clean:
-	-rm $(OBJ) $(PROG)
+	rm -f $(OBJECTS) $(TARGET)
+
+# Règle pour tout nettoyer (y compris les fichiers temporaires)
+distclean: clean
+	rm -f *~
+
+# Règle pour exécuter le programme
+run: $(TARGET)
+	./$(TARGET)
+
+.PHONY: all clean distclean run
