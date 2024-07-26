@@ -1,27 +1,26 @@
 #include "GestionFile.h"
 #include <iostream>
 
-GestionFile::GestionFile()
+/**
+ *
+ * @brief GestionFile::GestionFile
+ * @param key Une clé (de type int) qui identifie de manière unique la file de messages.
+ *
+ */
+GestionFile::GestionFile(const int key)
 {
+     if ((fileId = msgget((key_t)key, MSG_FLAG)) == -1)
+    {
+        throw std::runtime_error("Erreur lors de l'ouverture de la file de messages.");
+    }
 }
 
 GestionFile::~GestionFile()
 {
 }
 
-/**
- *
- * @brief GestionFile::obtenirFileIPC
- * @param key Une clé (de type int) qui identifie de manière unique la file de messages.
- *
- */
-void GestionFile::obtenirFileIPC(const int key)
-{
-    if ((fileId = msgget((key_t)key, MSG_FLAG)) == -1)
-    {
-        throw std::runtime_error("Erreur lors de l'ouverture de la file de messages.");
-    }
-}
+
+
 
 /**
  * @brief GestionFile::ecrireDansLaFileIPC
@@ -32,11 +31,11 @@ void GestionFile::obtenirFileIPC(const int key)
  *        Lorsque l'objet lock sort de sa portée son destructeur déverrouille le mutexTx.
  *        même si une exception est levée
  */
-bool GestionFile::writeFileTX(const std::string &payload)
+bool GestionFile::write(const std::string &payload)
 {
-    std::lock_guard<std::mutex> lock(mutexTx);  // création d'un mutex verrouillé immédiatement
+    std::lock_guard<std::mutex> lock(mutex);  // création d'un mutex verrouillé immédiatement
 
-    MessageTX message;
+    Message message;
     message.type = 2;
 
     std::strcpy(message.text, payload.c_str());
@@ -49,10 +48,10 @@ bool GestionFile::writeFileTX(const std::string &payload)
     return true;
 }
 
-bool GestionFile::writeFileRX(char* payload, int rssi, float snr)
+bool GestionFile::write(char* payload, int rssi, float snr)
 {
-    std::lock_guard<std::mutex> lock(mutexTx);  // création d'un mutex verrouillé immédiatement
-    MessageRX message;
+    std::lock_guard<std::mutex> lock(mutex);  // création d'un mutex verrouillé immédiatement
+    Message message;
     message.type = 2;
     std::strcpy(message.text, payload);
     message.RSSI = rssi;
@@ -69,25 +68,15 @@ bool GestionFile::writeFileRX(char* payload, int rssi, float snr)
 
 
 /**
- * @brief GestionFile::lireDansLaFileRX fonction bloquante
+ * @brief GestionFile::lireDansLaFile fonction bloquante
  * @param type le type du message
- * @return une structure MessageRX
+ * @return une structure Message
  */
- MessageRX GestionFile::readFileRX(int type){
-
-    MessageRX message;
-    int ret;
-
-    ret = msgrcv(fileId, &message, sizeof(message) - 4, type, 0);
-    if (ret == -1){
-        throw std::runtime_error("Erreur lecture fileRX !");
-    }   
-    return message;
-}
  
-MessageTX GestionFile::readFileTX(int type){
+ 
+Message GestionFile::read(int type){
     
-    MessageTX message;
+    Message message;
     int ret;
 
     ret = msgrcv(fileId, &message, sizeof(message) - 4, type, 0);

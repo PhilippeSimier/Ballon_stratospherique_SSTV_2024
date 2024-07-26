@@ -14,38 +14,46 @@
 #include <string> 
 #include "SX1278.h"
 #include "GestionFile.h"
+#include "SimpleIni.h"
+
+#define CONFIGURATION "/home/ballon//lora_files/config.ini"
 
 using namespace std;
 
 void callback_Rx(char* payload, int rssi, float snr); // user callback function for when a packet is received. 
 void callback_Tx(void); // user callback function for when a packet is transmited.
 
-GestionFile fileRX; // Objets pour la gestion de la file des messages reçus
-GestionFile fileTX;
+GestionFile fileRX(5678);  // Objets pour la gestion de la file des messages reçus key 5678
+GestionFile fileTX(5679);  // file pour les messages emis key 5679
 
 int main(int argc, char** argv) {
 
     cout << "Programme LoRa" << endl;
-    MessageTX message;
+    SimpleIni ini;
+    
+    
+
+    
+    Message message;
 
     try {
 
-
-        fileRX.obtenirFileIPC(5678); // Obtenir la file pour la réception key 5678
-        fileTX.obtenirFileIPC(5679); // Obtenir la file pour l'émission   key 5679
-
+        ini.Load(CONFIGURATION);
         loRa.onRxDone(callback_Rx); // Register a user callback function 
         loRa.onTxDone(callback_Tx); // Register a user callback function
-        loRa.begin(433775000); // settings the radio     
-        loRa.continuous_receive(); // Puts the radio in continuous receive mode.
+        
+        double freq   = ini.GetValue<double>("modem", "freq", 433800000);
+        loRa.begin(freq);      // settings the radio     
+        loRa.continuous_receive();  // Puts the radio in continuous receive mode.
 
         sleep(1);
-
-        loRa.send("Welcome LoRa");
+        string indicatif = ini.GetValue("aprs", "indicatif", "F4ABC");
+        loRa << beginPacket << "Welcome " << indicatif << endPacket;
+        string chemin = ini.GetValue("aprs", "chemin", "??");
  
         while (1) {
-            message = fileTX.readFileTX(2);
-            loRa << beginPacket << "<\xff\x01" << "f4JRE-9>APLT00,WIDE1-1:";
+            message = fileTX.read(2);
+            loRa << beginPacket << "<\xff\x01" << indicatif << chemin;
             loRa << message.text << endPacket;
             sleep(1);
         }
@@ -67,7 +75,7 @@ void callback_Rx(char* payload, int rssi, float snr) {
     cout << "Rx done : " << payload;
     cout << " RSSI : " << rssi << "dBm";
     cout << " SNR  : " << snr << "dB" << endl;
-    fileRX.writeFileRX(payload, rssi, snr);
+    fileRX.write(payload, rssi, snr);
     
 
 }

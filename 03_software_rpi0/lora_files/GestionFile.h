@@ -17,16 +17,9 @@
 const int MAX_MESSAGE_SIZE = 256; // Taille maximum du message
 const int MSG_FLAG = 0666 | IPC_CREAT; // Flag de création de la file de messages
 
-// Structure pour le message TX
+// Structure pour le message
 
-struct MessageTX {
-    long type;
-    char text[MAX_MESSAGE_SIZE];
-};
-
-// Structure pour le message RX
-
-struct MessageRX {
+struct Message {
     long type;
     char text[MAX_MESSAGE_SIZE];
     float SNR;
@@ -35,20 +28,19 @@ struct MessageRX {
 
 class GestionFile {
 private:
-    std::mutex mutexTx;
+    std::mutex mutex;
     int fileId;
 
 public:
-    GestionFile();
+    GestionFile(const int key);
     ~GestionFile();
 
-    void obtenirFileIPC(const int key);
     
-    bool writeFileTX(const std::string &payload);
-    MessageTX readFileTX(int type);
+    Message read(int type);
     
-    bool writeFileRX(char* payload, int rssi, float snr);
-    MessageRX readFileRX(int type);
+    bool write(const std::string &payload);  
+    bool write(char* payload, int rssi, float snr);
+    
     
 };
 
