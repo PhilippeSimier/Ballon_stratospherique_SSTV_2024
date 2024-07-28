@@ -2,9 +2,10 @@
  * File:   main.cpp
  * Author: philippe SIMIER Lycée Touchard Washington
  * 
- * Programme test unitaire classe SX1278
+ * Programme transmission radio LoRa avec la classe SX1278
  * test les 2 méthodes continuous_receive() & send() 
  * test l'operateur << 
+ * test la configuration à partir d'un fichier .ini
  *
  * Created on 7 juillet 2024, 16:14
  */
@@ -16,7 +17,7 @@
 #include "GestionFile.h"
 #include "SimpleIni.h"
 
-#define CONFIGURATION "/home/ballon//lora_files/config.ini"
+#define CONFIGURATION "/home/ballon/lora_files/config.ini"
 
 using namespace std;
 
@@ -29,12 +30,8 @@ GestionFile fileTX(5679);  // file pour les messages emis key 5679
 int main(int argc, char** argv) {
 
     cout << "Programme LoRa" << endl;
-    SimpleIni ini;
-    
-    
-
-    
-    Message message;
+    SimpleIni ini;  
+    Payload payload;
 
     try {
 
@@ -42,8 +39,13 @@ int main(int argc, char** argv) {
         loRa.onRxDone(callback_Rx); // Register a user callback function 
         loRa.onTxDone(callback_Tx); // Register a user callback function
         
-        double freq   = ini.GetValue<double>("modem", "freq", 433800000);
-        loRa.begin(freq);      // settings the radio     
+        double freq = ini.GetValue<double>("modem", "freq", 433800000);
+        loRa.begin(freq);      // settings the radio 
+        
+        loRa.set_bandwidth(loRa.bwFromString( ini.GetValue("modem", "bw", "??")));
+        loRa.set_ecr(loRa.ecrFromString( ini.GetValue("modem", "ecr", "??")));
+        loRa.set_sf(loRa.sfFromString( ini.GetValue("modem", "sf", "??")));
+        
         loRa.continuous_receive();  // Puts the radio in continuous receive mode.
 
         sleep(1);
@@ -52,9 +54,9 @@ int main(int argc, char** argv) {
         string chemin = ini.GetValue("aprs", "chemin", "??");
  
         while (1) {
-            message = fileTX.read(2);
+            payload = fileTX.read(2);
             loRa << beginPacket << "<\xff\x01" << indicatif << chemin;
-            loRa << message.text << endPacket;
+            loRa << payload.text << endPacket;
             sleep(1);
         }
 

@@ -19,7 +19,7 @@ const int MSG_FLAG = 0666 | IPC_CREAT; // Flag de création de la file de messag
 
 // Structure pour le message
 
-struct Message {
+struct Payload {
     long type;
     char text[MAX_MESSAGE_SIZE];
     float SNR;
@@ -36,7 +36,7 @@ public:
     ~GestionFile();
 
     
-    Message read(int type);
+    Payload read(int type);
     
     bool write(const std::string &payload);  
     bool write(char* payload, int rssi, float snr);

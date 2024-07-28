@@ -35,7 +35,7 @@ bool GestionFile::write(const std::string &payload)
 {
     std::lock_guard<std::mutex> lock(mutex);  // création d'un mutex verrouillé immédiatement
 
-    Message message;
+    Payload message;
     message.type = 2;
 
     std::strcpy(message.text, payload.c_str());
@@ -51,7 +51,7 @@ bool GestionFile::write(const std::string &payload)
 bool GestionFile::write(char* payload, int rssi, float snr)
 {
     std::lock_guard<std::mutex> lock(mutex);  // création d'un mutex verrouillé immédiatement
-    Message message;
+    Payload message;
     message.type = 2;
     std::strcpy(message.text, payload);
     message.RSSI = rssi;
@@ -74,9 +74,9 @@ bool GestionFile::write(char* payload, int rssi, float snr)
  */
  
  
-Message GestionFile::read(int type){
+Payload GestionFile::read(int type){
     
-    Message message;
+    Payload message;
     int ret;
 
     ret = msgrcv(fileId, &message, sizeof(message) - 4, type, 0);
