@@ -41,7 +41,7 @@ int main(int argc, char** argv) {
         
         
         loRa.begin( ini.GetValue<double>("modem", "freq", 433800000));      // settings the radio 
-        loRa.set_bandwidth( loRa.bwFromString( ini.GetValue("modem", "bw", "??")));
+        loRa.set_bandwidth( loRa.bwFromDouble(ini.GetValue<double>("modem", "bw", 15.6)));     // setting the BandWidth
         loRa.set_ecr( loRa.ecrFromString( ini.GetValue("modem", "ecr", "??")));
         loRa.set_sf( loRa.sfFromString( ini.GetValue("modem", "sf", "??")));
         
