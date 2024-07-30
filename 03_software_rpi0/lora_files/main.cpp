@@ -39,12 +39,11 @@ int main(int argc, char** argv) {
         loRa.onRxDone(callback_Rx); // Register a user callback function 
         loRa.onTxDone(callback_Tx); // Register a user callback function
         
-        double freq = ini.GetValue<double>("modem", "freq", 433800000);
-        loRa.begin(freq);      // settings the radio 
         
-        loRa.set_bandwidth(loRa.bwFromString( ini.GetValue("modem", "bw", "??")));
-        loRa.set_ecr(loRa.ecrFromString( ini.GetValue("modem", "ecr", "??")));
-        loRa.set_sf(loRa.sfFromString( ini.GetValue("modem", "sf", "??")));
+        loRa.begin( ini.GetValue<double>("modem", "freq", 433800000));      // settings the radio 
+        loRa.set_bandwidth( loRa.bwFromString( ini.GetValue("modem", "bw", "??")));
+        loRa.set_ecr( loRa.ecrFromString( ini.GetValue("modem", "ecr", "??")));
+        loRa.set_sf( loRa.sfFromString( ini.GetValue("modem", "sf", "??")));
         
         loRa.continuous_receive();  // Puts the radio in continuous receive mode.
 
