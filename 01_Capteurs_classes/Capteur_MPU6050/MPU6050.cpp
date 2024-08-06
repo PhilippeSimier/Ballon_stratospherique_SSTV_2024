@@ -9,14 +9,10 @@
 
 MPU6050::MPU6050() :
 callback_FFD(nullptr),
-callback_ZMD(nullptr),        
+callback_ZMD(nullptr),
 callback_MD(nullptr),
 deviceI2C(nullptr),
-gpio_int(26),
-ax_offset(0),
-ay_offset(0),
-az_offset(0)
- {
+gpio_int(26) {
 
 }
 
@@ -89,8 +85,6 @@ float MPU6050::getAccelZ() {
     dataAccel.uCData[0] = deviceI2C->ReadReg8(ACCEL_ZOUT_L);
     float val{0.0};
 
-    dataAccel.sData -= az_offset;
-
     switch (sensibility) {
         case FS_2G:
             val = dataAccel.sData / (float) LSB_FS_2G;
@@ -118,8 +112,6 @@ float MPU6050::getAccelY() {
     data dataAccel;
     dataAccel.uCData[1] = deviceI2C->ReadReg8(ACCEL_YOUT_H);
     dataAccel.uCData[0] = deviceI2C->ReadReg8(ACCEL_YOUT_L);
-
-    dataAccel.sData -= ay_offset;
 
     float val{0.0};
 
@@ -152,8 +144,6 @@ float MPU6050::getAccelX() {
     dataAccel.uCData[1] = deviceI2C->ReadReg8(ACCEL_XOUT_H);
     dataAccel.uCData[0] = deviceI2C->ReadReg8(ACCEL_XOUT_L);
 
-    dataAccel.sData -= ax_offset;
-
     float val{0.0};
 
     switch (sensibility) {
@@ -171,6 +161,21 @@ float MPU6050::getAccelX() {
             break;
     }
     return val;
+}
+
+void MPU6050::getMotion3(int16_t &ax, int16_t &ay, int16_t &az) {
+
+    data dataAccel[3];
+    dataAccel[0].uCData[1] = deviceI2C->ReadReg8(ACCEL_XOUT_H);
+    dataAccel[0].uCData[0] = deviceI2C->ReadReg8(ACCEL_XOUT_L);
+    dataAccel[1].uCData[1] = deviceI2C->ReadReg8(ACCEL_YOUT_H);
+    dataAccel[1].uCData[0] = deviceI2C->ReadReg8(ACCEL_YOUT_L);
+    dataAccel[2].uCData[1] = deviceI2C->ReadReg8(ACCEL_ZOUT_H);
+    dataAccel[2].uCData[0] = deviceI2C->ReadReg8(ACCEL_ZOUT_L);
+
+    ax = dataAccel[0].sData;
+    ay = dataAccel[1].sData;
+    az = dataAccel[2].sData;
 }
 
 /**
@@ -208,26 +213,31 @@ void MPU6050::setDLPFMode(Dlpf dlpf) {
 
 }
 
-void MPU6050::setAccelXOffset(short offset) {
+void MPU6050::setAccelOffset(int16_t offsetX, int16_t offsetY, int16_t offsetZ) {
     data dataOffset;
-    dataOffset.sData = offset;
+    dataOffset.sData = offsetX;
     deviceI2C->WriteReg8(XA_OFFS_H, dataOffset.uCData[1]);
     deviceI2C->WriteReg8(XA_OFFS_L, dataOffset.uCData[0]);
-}
-
-void MPU6050::setAccelYOffset(short offset) {
-    data dataOffset;
-    dataOffset.sData = offset;
+    dataOffset.sData = offsetY;
     deviceI2C->WriteReg8(YA_OFFS_H, dataOffset.uCData[1]);
     deviceI2C->WriteReg8(YA_OFFS_L, dataOffset.uCData[0]);
-
-}
-
-void MPU6050::setAccelZOffset(short offset) {
-    data dataOffset;
-    dataOffset.sData = offset;
+    dataOffset.sData = offsetZ;
     deviceI2C->WriteReg8(ZA_OFFS_H, dataOffset.uCData[1]);
     deviceI2C->WriteReg8(ZA_OFFS_L, dataOffset.uCData[0]);
+}
+
+void MPU6050::getAccelOffset(int16_t &offsetX, int16_t &offsetY, int16_t &offsetZ) {
+    data dataAccel[3];
+    dataAccel[0].uCData[1] = deviceI2C->ReadReg8(XA_OFFS_H);
+    dataAccel[0].uCData[0] = deviceI2C->ReadReg8(XA_OFFS_L);
+    dataAccel[1].uCData[1] = deviceI2C->ReadReg8(YA_OFFS_H);
+    dataAccel[1].uCData[0] = deviceI2C->ReadReg8(YA_OFFS_L);
+    dataAccel[2].uCData[1] = deviceI2C->ReadReg8(ZA_OFFS_H);
+    dataAccel[2].uCData[0] = deviceI2C->ReadReg8(ZA_OFFS_L);
+
+    offsetX = dataAccel[0].sData;
+    offsetY = dataAccel[1].sData;
+    offsetZ = dataAccel[2].sData;
 
 }
 
@@ -240,49 +250,61 @@ void MPU6050::setAccelZOffset(short offset) {
  *           qui sont ensuite stockées dans les registres correspondants.
  *           Cette étape est essentielle pour assurer que le capteur fournit des mesures précises et cohérentes.
  */
-std::string MPU6050::calibrate() {
+void MPU6050::calibrate() {
 
-    std::ostringstream out;
+    int16_t ax, ay, az, ox, oy, oz;
+    int ready, i = 0;
 
-    int numReadings = 1000;
-    long ax_sum = 0, ay_sum = 0, az_sum = 0;
-    data dataAccel;
+    setAccelOffset(0, 0, 0);
 
-    setAccSensibility(FS_2G);
+    meansensors(200, ax, ay, az);
+    cout << "i 0 => " << ax << " , " << ay << " , " << az << endl;
+    // Calcul des offsets
+    ox = -ax / 8;
+    oy = -ay / 8;
+    oz = (16384 - az) / 8;
 
-    // reset offsets
-    setAccelXOffset(0);
-    setAccelYOffset(0);
-    setAccelZOffset(0);
 
-    for (int i = 0; i < numReadings; i++) {
+    do {
+        i++;
+        if (i > 25) {
+            throw std::runtime_error("Exception calibrate MPU5060");
+        }
+        ready = 0;
+        setAccelOffset(ox, oy, oz);
 
-        dataAccel.uCData[1] = deviceI2C->ReadReg8(ACCEL_ZOUT_H);
-        dataAccel.uCData[0] = deviceI2C->ReadReg8(ACCEL_ZOUT_L);
-        az_sum += dataAccel.sData;
+        meansensors(100, ax, ay, az);
+        cout << "i  " << i << " => " << ax << " , " << ay << " , " << az << endl;
 
-        dataAccel.uCData[1] = deviceI2C->ReadReg8(ACCEL_YOUT_H);
-        dataAccel.uCData[0] = deviceI2C->ReadReg8(ACCEL_YOUT_L);
-        ay_sum += dataAccel.sData;
+        if (ax > 8 || ax < -8)
+            ox = ox - ax / 8;
+        else ready++;
+        if (ay > 8 || ay < -8)
+            oy = oy - ay / 8;
+        else ready++;
+        if (((az - 16384) > 8) || ((az - 16384) < -8))
+            oz = oz - (az - 16384) / 8;
+        else ready++;
+    } while (ready < 3);
 
-        dataAccel.uCData[1] = deviceI2C->ReadReg8(ACCEL_XOUT_H);
-        dataAccel.uCData[0] = deviceI2C->ReadReg8(ACCEL_XOUT_L);
-        ax_sum += dataAccel.sData;
+}
 
-        std::this_thread::sleep_for(std::chrono::milliseconds(10)); // Attendre 10 ms
+void MPU6050::meansensors(int nb, int16_t &mean_ax, int16_t &mean_ay, int16_t &mean_az) {
+    long som_ax = 0, som_ay = 0, som_az = 0;
+    int16_t ax, ay, az;
 
+    setDLPFMode(MPU6050::DLPF_5);
+
+    for (int i = 0; i < nb; i++) {
+        getMotion3(ax, ay, az);
+        som_ax += ax;
+        som_ay += ay;
+        som_az += az;
+        std::this_thread::sleep_for(std::chrono::milliseconds(2));
     }
-
-    ax_offset = ax_sum / numReadings;
-    ay_offset = ay_sum / numReadings;
-    az_offset = az_sum / numReadings - 16384;
-
-    out << " offset AX : " << ax_offset;
-    out << " offset AY : " << ay_offset;
-    out << " offset AZ : " << az_offset;
-
-    return out.str();
-
+    mean_ax = som_ax / nb;
+    mean_ay = som_ay / nb;
+    mean_az = som_az / nb;
 }
 
 void MPU6050::enableMotion(uint8_t thresold, uint8_t duration) {

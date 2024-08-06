@@ -101,13 +101,13 @@ public:
     float getAccelY();
     float getAccelZ();
     float getAccelM();
+    void  getMotion3(int16_t &ax, int16_t &ay, int16_t &az);
 
     void setAccSensibility(AccelSensibility range);
     void setDLPFMode(Dlpf dlpf);
 
-    void setAccelXOffset(short offset);
-    void setAccelYOffset(short offset);
-    void setAccelZOffset(short offset);
+    void setAccelOffset(int16_t offsetX, int16_t offsetY, int16_t offsetZ);
+    void getAccelOffset(int16_t &offsetX, int16_t &offsetY, int16_t &offsetZ);
 
 
     void enableMotion(uint8_t thresold, uint8_t duration);
@@ -117,7 +117,7 @@ public:
     void onFreeFall(void (*userFunct)(void));
     void onMotion(void (*userFunct)(void));
     void onZeroMotion(void (*userFunct)(void));
-    // Pointeurs de fonction utilisateur
+    // Pointeurs des fonctions utilisateur
     void (*callback_FFD)(void);
     void (*callback_ZMD)(void);
     void (*callback_MD)(void);
@@ -125,8 +125,8 @@ public:
     uint8_t getStatusInt();
 
     
-    std::string calibrate();
-
+    void calibrate();
+    
 
 private:
 
@@ -139,9 +139,9 @@ private:
         unsigned char uCData[2];
     };
 
-    short ax_offset, ay_offset, az_offset;
-    
+    void meansensors(int nb, int16_t &mean_ax, int16_t &mean_ay, int16_t &mean_az);   
     static void interruptHandler();
+    
     
 
 
