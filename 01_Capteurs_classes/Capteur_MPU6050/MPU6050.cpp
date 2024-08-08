@@ -33,10 +33,11 @@ void MPU6050::begin(int8_t address) {
     if (id != 0x68) {
         throw std::runtime_error("Exception identification MPU5060");
     }
-    deviceI2C->WriteReg8(SAMPLRT_DIV, 0x00); // Taux d'echantillonnage 1kHz
+    
     setDLPFMode(MPU6050::DLPF_260); // Filtrage passe bas 260Hz
     // lecture de la sensibilité dans le  registre de configuration
-    sensibility = deviceI2C->ReadReg8(ACCEL_CONFIG) & ACCEL_MASK;
+    sensibilityAcc = deviceI2C->ReadReg8(ACCEL_CONFIG) & SENSIBILITY_MASK;
+    sensibilityGyr = deviceI2C->ReadReg8(GYRO_CONFIG) & SENSIBILITY_MASK;
 
     if (wiringPiSetupGpio() == -1) {
         throw std::runtime_error("Exception initialisation de WiringPi MPU5060");
@@ -52,8 +53,7 @@ void MPU6050::begin(int8_t address) {
 
 }
 
-MPU6050::MPU6050(const MPU6050& orig) {
-}
+
 
 MPU6050::~MPU6050() {
     if (deviceI2C != nullptr)
@@ -85,18 +85,18 @@ float MPU6050::getAccelZ() {
     dataAccel.uCData[0] = deviceI2C->ReadReg8(ACCEL_ZOUT_L);
     float val{0.0};
 
-    switch (sensibility) {
+    switch (sensibilityAcc) {
         case FS_2G:
-            val = dataAccel.sData / (float) LSB_FS_2G;
+            val = dataAccel.sData / 16384.0;
             break;
         case FS_4G:
-            val = dataAccel.sData / (float) LSB_FS_4G;
+            val = dataAccel.sData / 8192.0;
             break;
         case FS_8G:
-            val = dataAccel.sData / (float) LSB_FS_8G;
+            val = dataAccel.sData / 4096.0;
             break;
         case FS_16G:
-            val = dataAccel.sData / (float) LSB_FS_16G;
+            val = dataAccel.sData / 2048.0;
             break;
     }
     return val;
@@ -115,18 +115,18 @@ float MPU6050::getAccelY() {
 
     float val{0.0};
 
-    switch (sensibility) {
+    switch (sensibilityAcc) {
         case FS_2G:
-            val = dataAccel.sData / (float) LSB_FS_2G;
+            val = dataAccel.sData / 16384.0;
             break;
         case FS_4G:
-            val = dataAccel.sData / (float) LSB_FS_4G;
+            val = dataAccel.sData / 8192.0;
             break;
         case FS_8G:
-            val = dataAccel.sData / (float) LSB_FS_8G;
+            val = dataAccel.sData / 4096.0;
             break;
         case FS_16G:
-            val = dataAccel.sData / (float) LSB_FS_16G;
+            val = dataAccel.sData / 2048.0;
             break;
     }
     return val;
@@ -146,18 +146,18 @@ float MPU6050::getAccelX() {
 
     float val{0.0};
 
-    switch (sensibility) {
+    switch (sensibilityAcc) {
         case FS_2G:
-            val = dataAccel.sData / (float) LSB_FS_2G;
+            val = dataAccel.sData / 16384.0;
             break;
         case FS_4G:
-            val = dataAccel.sData / (float) LSB_FS_4G;
+            val = dataAccel.sData / 8192.0;
             break;
         case FS_8G:
-            val = dataAccel.sData / (float) LSB_FS_8G;
+            val = dataAccel.sData / 4096.0;
             break;
         case FS_16G:
-            val = dataAccel.sData / (float) LSB_FS_16G;
+            val = dataAccel.sData / 2048.0;
             break;
     }
     return val;
@@ -192,14 +192,107 @@ float MPU6050::getAccelM() {
 }
 
 /**
+ * 
+ * @return la vitesse de rotation autour de X en °/s
+ */
+float MPU6050::getRotationX() {
+
+    data dataGyro;
+    dataGyro.uCData[1] = deviceI2C->ReadReg8(GYRO_XOUT_H);
+    dataGyro.uCData[0] = deviceI2C->ReadReg8(GYRO_XOUT_L);
+    
+    float val{0.0};
+
+    switch (sensibilityGyr) {
+        case FS_250DPS:
+            val = dataGyro.sData / 131.0;
+            break;
+        case FS_500DPS:
+            val = dataGyro.sData / 65.5;
+            break;
+        case FS_1000DPS:
+            val = dataGyro.sData / 32.8;
+            break;
+        case FS_2000DPS:
+            val = dataGyro.sData / 16.4;
+            break;
+    }
+    return val;
+
+
+}
+
+float MPU6050::getRotationY() {
+
+    data dataGyro;
+    dataGyro.uCData[1] = deviceI2C->ReadReg8(GYRO_YOUT_H);
+    dataGyro.uCData[0] = deviceI2C->ReadReg8(GYRO_YOUT_L);
+    
+    float val{0.0};   
+    switch (sensibilityGyr) {
+        case FS_250DPS:
+            val = dataGyro.sData / 131.0;
+            break;
+        case FS_500DPS:
+            val = dataGyro.sData / 65.5;
+            break;
+        case FS_1000DPS:
+            val = dataGyro.sData / 32.8;
+            break;
+        case FS_2000DPS:
+            val = dataGyro.sData / 16.4;
+            break;
+    }
+    return val;
+
+}
+
+float MPU6050::getRotationZ() {
+
+    data dataGyro;
+    dataGyro.uCData[1] = deviceI2C->ReadReg8(GYRO_ZOUT_H);
+    dataGyro.uCData[0] = deviceI2C->ReadReg8(GYRO_ZOUT_L);
+    
+    float val{0.0};    
+    switch (sensibilityGyr) {
+        case FS_250DPS:
+            val = dataGyro.sData / 131.0;
+            break;
+        case FS_500DPS:
+            val = dataGyro.sData / 65.5;
+            break;
+        case FS_1000DPS:
+            val = dataGyro.sData / 32.8;
+            break;
+        case FS_2000DPS:
+            val = dataGyro.sData / 16.4;
+            break;
+    }
+    return val;
+
+}
+
+/**
  * @brief methode pour configurer la sensibilité de l'accélérometre.
  * @param range FS_2G ou FS_4G ou FS_8G ou FS_16G
  */
-void MPU6050::setAccSensibility(AccelSensibility range) {
+void MPU6050::setAccSensibility(Sensibility range) {
 
-    char val0 = deviceI2C->ReadReg8(ACCEL_CONFIG) & ~ACCEL_MASK;
+    char val0 = deviceI2C->ReadReg8(ACCEL_CONFIG) & ~SENSIBILITY_MASK;
     deviceI2C->WriteReg8(ACCEL_CONFIG, val0 | range);
-    sensibility = deviceI2C->ReadReg8(ACCEL_CONFIG) & ACCEL_MASK;
+    sensibilityAcc = deviceI2C->ReadReg8(ACCEL_CONFIG) & SENSIBILITY_MASK;
+}
+
+/**
+ * @brief methode pour configurer la sensibilité du gyroscope
+ * @param range FS_250DPS FS_500DPS FS_1000DPS FS_2000DPS
+ */
+void MPU6050::setGyroSensibility(MPU6050::Sensibility range) {
+    
+    char val0 = deviceI2C->ReadReg8(GYRO_CONFIG) & ~SENSIBILITY_MASK;
+    deviceI2C->WriteReg8(GYRO_CONFIG, val0 | range);
+    sensibilityGyr = deviceI2C->ReadReg8(GYRO_CONFIG) & SENSIBILITY_MASK;
+    
 }
 
 /**
@@ -250,14 +343,15 @@ void MPU6050::getAccelOffset(int16_t &offsetX, int16_t &offsetY, int16_t &offset
  *           qui sont ensuite stockées dans les registres correspondants.
  *           Cette étape est essentielle pour assurer que le capteur fournit des mesures précises et cohérentes.
  */
-void MPU6050::calibrate() {
+void MPU6050::calibrateA() {
 
     int16_t ax, ay, az, ox, oy, oz;
     int ready, i = 0;
-
+    
+    setAccSensibility(MPU6050::FS_2G);
     setAccelOffset(0, 0, 0);
 
-    meansensors(200, ax, ay, az);
+    meansensorsA(200, ax, ay, az);
     cout << "i 0 => " << ax << " , " << ay << " , " << az << endl;
     // Calcul des offsets
     ox = -ax / 8;
@@ -268,12 +362,12 @@ void MPU6050::calibrate() {
     do {
         i++;
         if (i > 25) {
-            throw std::runtime_error("Exception calibrate MPU5060");
+            throw std::runtime_error("Exception calibrate acc MPU5060");
         }
         ready = 0;
         setAccelOffset(ox, oy, oz);
 
-        meansensors(100, ax, ay, az);
+        meansensorsA(100, ax, ay, az);
         cout << "i  " << i << " => " << ax << " , " << ay << " , " << az << endl;
 
         if (ax > 8 || ax < -8)
@@ -289,7 +383,7 @@ void MPU6050::calibrate() {
 
 }
 
-void MPU6050::meansensors(int nb, int16_t &mean_ax, int16_t &mean_ay, int16_t &mean_az) {
+void MPU6050::meansensorsA(int nb, int16_t &mean_ax, int16_t &mean_ay, int16_t &mean_az) {
     long som_ax = 0, som_ay = 0, som_az = 0;
     int16_t ax, ay, az;
 

@@ -68,17 +68,17 @@ class MPU6050 {
 public:
 
     // There are 4 sensibities for acceleration.
-
-    enum AccelSensibility {
+    // and 4 for full scale range of gyroscopes.
+    enum Sensibility {
         FS_2G = 0x00, //xxx0 0xxx  calibre 0 : +/-2g
         FS_4G = 0x08, //xxx0 1xxx  calibre 1 : +/- 4g
         FS_8G = 0x10, //xxx1 0xxx  calibre 2 : +/- 8g
         FS_16G = 0x18, //xxx1 1xxx  calibre 3 : +/- 16g
-        LSB_FS_2G = 16384,
-        LSB_FS_4G = 8192,
-        LSB_FS_8G = 4096,
-        LSB_FS_16G = 2048,
-        ACCEL_MASK = 0x18 //0001 1000
+        FS_250DPS = 0x00,
+        FS_500DPS = 0x08,
+        FS_1000DPS = 0x10,
+        FS_2000DPS = 0x18,
+        SENSIBILITY_MASK = 0x18 //0001 1000
     };
 
     enum Dlpf {
@@ -88,12 +88,11 @@ public:
         DLPF_44, // 44Hz      | 4.9ms
         DLPF_21, // 21Hz      | 8.5ms
         DLPF_10, // 10Hz      | 13.8ms
-        DLPF_5, //  5Hz      | 19.0ms
+        DLPF_5 //  5Hz      | 19.0ms
     };
 
-    MPU6050();
-    MPU6050(const MPU6050& orig);
-    virtual ~MPU6050();
+    MPU6050(void);
+    virtual ~MPU6050(void);
 
     void  begin(int8_t address = 0x68);
     float getTemperature();
@@ -102,9 +101,14 @@ public:
     float getAccelZ();
     float getAccelM();
     void  getMotion3(int16_t &ax, int16_t &ay, int16_t &az);
+    
+    float getRotationX();
+    float getRotationY();
+    float getRotationZ();
 
-    void setAccSensibility(AccelSensibility range);
-    void setDLPFMode(Dlpf dlpf);
+    void setAccSensibility(MPU6050::Sensibility range);
+    void setGyroSensibility(MPU6050::Sensibility range);
+    void setDLPFMode(MPU6050::Dlpf dlpf);
 
     void setAccelOffset(int16_t offsetX, int16_t offsetY, int16_t offsetZ);
     void getAccelOffset(int16_t &offsetX, int16_t &offsetY, int16_t &offsetZ);
@@ -123,29 +127,26 @@ public:
     void (*callback_MD)(void);
     
     uint8_t getStatusInt();
-
-    
-    void calibrate();
+  
+    void calibrateA();
     
 
 private:
 
     i2c *deviceI2C; // file descriptor
     int gpio_int; //raspberry GPIO pin connected to INT pin of MPU6050 chip
-    char sensibility;
-
+    char sensibilityAcc;
+    char sensibilityGyr;
+    
     union data {
         short sData;
         unsigned char uCData[2];
     };
 
-    void meansensors(int nb, int16_t &mean_ax, int16_t &mean_ay, int16_t &mean_az);   
+    void meansensorsA(int nb, int16_t &mean_ax, int16_t &mean_ay, int16_t &mean_az);   
     static void interruptHandler();
     
-    
-
-
-};
+ };
 
 
 extern MPU6050 mpu;
