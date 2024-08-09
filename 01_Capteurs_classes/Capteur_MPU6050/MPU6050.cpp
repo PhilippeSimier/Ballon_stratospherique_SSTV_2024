@@ -33,8 +33,8 @@ void MPU6050::begin(int8_t address) {
     if (id != 0x68) {
         throw std::runtime_error("Exception identification MPU5060");
     }
-    
-    setDLPFMode(MPU6050::DLPF_260); // Filtrage passe bas 260Hz
+
+    setDLPFMode(MPU6050::DLPF_5); // Filtrage passe bas 5Hz
     // lecture de la sensibilité dans le  registre de configuration
     sensibilityAcc = deviceI2C->ReadReg8(ACCEL_CONFIG) & SENSIBILITY_MASK;
     sensibilityGyr = deviceI2C->ReadReg8(GYRO_CONFIG) & SENSIBILITY_MASK;
@@ -52,8 +52,6 @@ void MPU6050::begin(int8_t address) {
     }
 
 }
-
-
 
 MPU6050::~MPU6050() {
     if (deviceI2C != nullptr)
@@ -200,21 +198,21 @@ float MPU6050::getRotationX() {
     data dataGyro;
     dataGyro.uCData[1] = deviceI2C->ReadReg8(GYRO_XOUT_H);
     dataGyro.uCData[0] = deviceI2C->ReadReg8(GYRO_XOUT_L);
-    
+
     float val{0.0};
 
     switch (sensibilityGyr) {
         case FS_250DPS:
-            val = dataGyro.sData / 131.0;
+            val = (float)(dataGyro.sData * 250) / 32768;
             break;
         case FS_500DPS:
-            val = dataGyro.sData / 65.5;
+            val = (float)(dataGyro.sData * 500) / 32768;
             break;
         case FS_1000DPS:
-            val = dataGyro.sData / 32.8;
+            val = (float)(dataGyro.sData * 1000) / 32768;
             break;
         case FS_2000DPS:
-            val = dataGyro.sData / 16.4;
+            val = (float)(dataGyro.sData * 2000) / 32768;
             break;
     }
     return val;
@@ -227,20 +225,20 @@ float MPU6050::getRotationY() {
     data dataGyro;
     dataGyro.uCData[1] = deviceI2C->ReadReg8(GYRO_YOUT_H);
     dataGyro.uCData[0] = deviceI2C->ReadReg8(GYRO_YOUT_L);
-    
-    float val{0.0};   
+
+    float val{0.0};
     switch (sensibilityGyr) {
         case FS_250DPS:
-            val = dataGyro.sData / 131.0;
+            val = (float)(dataGyro.sData * 250) / 32768;
             break;
         case FS_500DPS:
-            val = dataGyro.sData / 65.5;
+            val = (float)(dataGyro.sData * 500) / 32768;
             break;
         case FS_1000DPS:
-            val = dataGyro.sData / 32.8;
+            val = (float)(dataGyro.sData * 1000) / 32768;
             break;
         case FS_2000DPS:
-            val = dataGyro.sData / 16.4;
+            val = (float)(dataGyro.sData * 2000) / 32768;
             break;
     }
     return val;
@@ -252,23 +250,39 @@ float MPU6050::getRotationZ() {
     data dataGyro;
     dataGyro.uCData[1] = deviceI2C->ReadReg8(GYRO_ZOUT_H);
     dataGyro.uCData[0] = deviceI2C->ReadReg8(GYRO_ZOUT_L);
-    
-    float val{0.0};    
+
+    float val{0.0};
     switch (sensibilityGyr) {
         case FS_250DPS:
-            val = dataGyro.sData / 131.0;
+            val = (float)(dataGyro.sData * 250) / 32768;
             break;
         case FS_500DPS:
-            val = dataGyro.sData / 65.5;
+            val = (float)(dataGyro.sData * 500) / 32768;
             break;
         case FS_1000DPS:
-            val = dataGyro.sData / 32.8;
+            val = (float)(dataGyro.sData * 1000) / 32768;
             break;
         case FS_2000DPS:
-            val = dataGyro.sData / 16.4;
+            val = (float)(dataGyro.sData * 2000) / 32768;
             break;
     }
     return val;
+
+}
+
+void MPU6050::getGyro3(int16_t &gx, int16_t &gy, int16_t &gz) {
+
+    data dataGyro[3];
+    dataGyro[0].uCData[1] = deviceI2C->ReadReg8(GYRO_XOUT_H);
+    dataGyro[0].uCData[0] = deviceI2C->ReadReg8(GYRO_XOUT_L);
+    dataGyro[1].uCData[1] = deviceI2C->ReadReg8(GYRO_YOUT_H);
+    dataGyro[1].uCData[0] = deviceI2C->ReadReg8(GYRO_YOUT_L);
+    dataGyro[2].uCData[1] = deviceI2C->ReadReg8(GYRO_ZOUT_H);
+    dataGyro[2].uCData[0] = deviceI2C->ReadReg8(GYRO_ZOUT_L);
+
+    gx = dataGyro[0].sData;
+    gy = dataGyro[1].sData;
+    gz = dataGyro[2].sData;
 
 }
 
@@ -288,11 +302,11 @@ void MPU6050::setAccSensibility(Sensibility range) {
  * @param range FS_250DPS FS_500DPS FS_1000DPS FS_2000DPS
  */
 void MPU6050::setGyroSensibility(MPU6050::Sensibility range) {
-    
+
     char val0 = deviceI2C->ReadReg8(GYRO_CONFIG) & ~SENSIBILITY_MASK;
     deviceI2C->WriteReg8(GYRO_CONFIG, val0 | range);
     sensibilityGyr = deviceI2C->ReadReg8(GYRO_CONFIG) & SENSIBILITY_MASK;
-    
+
 }
 
 /**
@@ -319,6 +333,19 @@ void MPU6050::setAccelOffset(int16_t offsetX, int16_t offsetY, int16_t offsetZ) 
     deviceI2C->WriteReg8(ZA_OFFS_L, dataOffset.uCData[0]);
 }
 
+void MPU6050::setGyroOffset(int16_t offsetX, int16_t offsetY, int16_t offsetZ) {
+    data dataOffset;
+    dataOffset.sData = offsetX;
+    deviceI2C->WriteReg8(XG_OFFS_H, dataOffset.uCData[1]);
+    deviceI2C->WriteReg8(XG_OFFS_L, dataOffset.uCData[0]);
+    dataOffset.sData = offsetY;
+    deviceI2C->WriteReg8(YG_OFFS_H, dataOffset.uCData[1]);
+    deviceI2C->WriteReg8(YG_OFFS_L, dataOffset.uCData[0]);
+    dataOffset.sData = offsetZ;
+    deviceI2C->WriteReg8(ZG_OFFS_H, dataOffset.uCData[1]);
+    deviceI2C->WriteReg8(ZG_OFFS_L, dataOffset.uCData[0]);
+}
+
 void MPU6050::getAccelOffset(int16_t &offsetX, int16_t &offsetY, int16_t &offsetZ) {
     data dataAccel[3];
     dataAccel[0].uCData[1] = deviceI2C->ReadReg8(XA_OFFS_H);
@@ -331,6 +358,21 @@ void MPU6050::getAccelOffset(int16_t &offsetX, int16_t &offsetY, int16_t &offset
     offsetX = dataAccel[0].sData;
     offsetY = dataAccel[1].sData;
     offsetZ = dataAccel[2].sData;
+
+}
+
+void MPU6050::getGyroOffset(int16_t &offsetX, int16_t &offsetY, int16_t &offsetZ) {
+    data dataGyro[3];
+    dataGyro[0].uCData[1] = deviceI2C->ReadReg8(XG_OFFS_H);
+    dataGyro[0].uCData[0] = deviceI2C->ReadReg8(XG_OFFS_L);
+    dataGyro[1].uCData[1] = deviceI2C->ReadReg8(YG_OFFS_H);
+    dataGyro[1].uCData[0] = deviceI2C->ReadReg8(YG_OFFS_L);
+    dataGyro[2].uCData[1] = deviceI2C->ReadReg8(ZG_OFFS_H);
+    dataGyro[2].uCData[0] = deviceI2C->ReadReg8(ZG_OFFS_L);
+
+    offsetX = dataGyro[0].sData;
+    offsetY = dataGyro[1].sData;
+    offsetZ = dataGyro[2].sData;
 
 }
 
@@ -347,7 +389,7 @@ void MPU6050::calibrateA() {
 
     int16_t ax, ay, az, ox, oy, oz;
     int ready, i = 0;
-    
+
     setAccSensibility(MPU6050::FS_2G);
     setAccelOffset(0, 0, 0);
 
@@ -361,7 +403,7 @@ void MPU6050::calibrateA() {
 
     do {
         i++;
-        if (i > 25) {
+        if (i > 35) {
             throw std::runtime_error("Exception calibrate acc MPU5060");
         }
         ready = 0;
@@ -387,8 +429,6 @@ void MPU6050::meansensorsA(int nb, int16_t &mean_ax, int16_t &mean_ay, int16_t &
     long som_ax = 0, som_ay = 0, som_az = 0;
     int16_t ax, ay, az;
 
-    setDLPFMode(MPU6050::DLPF_5);
-
     for (int i = 0; i < nb; i++) {
         getMotion3(ax, ay, az);
         som_ax += ax;
@@ -399,6 +439,62 @@ void MPU6050::meansensorsA(int nb, int16_t &mean_ax, int16_t &mean_ay, int16_t &
     mean_ax = som_ax / nb;
     mean_ay = som_ay / nb;
     mean_az = som_az / nb;
+}
+
+void MPU6050::meansensorsG(int nb, int16_t &mean_gx, int16_t &mean_gy, int16_t &mean_gz) {
+    long som_gx = 0, som_gy = 0, som_gz = 0;
+    int16_t gx, gy, gz;
+
+    for (int i = 0; i < nb; i++) {
+        getGyro3(gx, gy, gz);
+        som_gx += gx;
+        som_gy += gy;
+        som_gz += gz;
+        std::this_thread::sleep_for(std::chrono::milliseconds(2));
+    }
+    mean_gx = som_gx / nb;
+    mean_gy = som_gy / nb;
+    mean_gz = som_gz / nb;
+
+}
+
+void MPU6050::calibrateG(){
+    int16_t gx, gy, gz, ox, oy, oz;
+    int ready[3] = {0,0,0};
+    int i = 0;
+
+    setGyroSensibility(MPU6050::FS_250DPS);
+    setGyroOffset(0, 0, 0);
+
+    meansensorsG(100, gx, gy, gz);
+    cout << "i 0 => " << gx << " , " << gy << " , " << gz << endl;
+    // Calcul des offsets
+    ox = -gx / 4;
+    oy = -gy / 4;
+    oz = -gz / 4;
+
+
+    do {
+        i++;
+        if (i > 35) {
+            throw std::runtime_error("Exception calibrate gyro MPU5060");
+        }
+        
+        setGyroOffset(ox, oy, oz);
+
+        meansensorsG(100, gx, gy, gz);
+        cout << "i  " << i << " => " << gx << " , " << gy << " , " << gz << endl;
+
+        if ((gx != 0) && !ready[0])
+            ox = ox - gx / 8;
+        else ready[0] = 1;
+        if ((gy != 0) && !ready[1])
+            oy = oy - gy / 8;
+        else ready[1] = 1;
+        if ((gz != 0) && !ready[2])
+            oz = oz - gz / 8;
+        else ready[2] = 1;
+    } while (!ready[0] && !ready[1] && !ready[2]);
 }
 
 void MPU6050::enableMotion(uint8_t thresold, uint8_t duration) {

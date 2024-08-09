@@ -1,4 +1,4 @@
-/* 
+/*
  * File:   main.cpp
  * Author: philippe SIMIER (Lycée Touchard Washington Le Mans)
  *
@@ -24,26 +24,30 @@ int main(int argc, char** argv) {
     try {
 
         mpu.begin(0x69);
-        
-        mpu.calibrateA();                      // calibration du capteur
+
+        mpu.calibrateA();                      // calibration du capteur Acc
         mpu.getAccelOffset(ox, oy, oz);
-        cout << "offset : " << ox << " , " << oy << " , " << oz << endl;
+        cout << "offset Acc: " << ox << " , " << oy << " , " << oz << "\r\n" << endl;
+        mpu.calibrateG();                      // calibration du capteur Gyro
+        mpu.getGyroOffset(ox,oy,oz);
+        cout << "offset Gyro: " << ox << " , " << oy << " , " << oz << "\r\n" << endl;
         sleep(2);
-        
-        mpu.setDLPFMode(MPU6050::DLPF_5);   // Filtrage passe bas 5Hz
-        mpu.onFreeFall(callback_FF);          // Register a user callback function 
-        mpu.onZeroMotion(callback_ZM);        // Register a user callback function 
+
+        mpu.setDLPFMode(MPU6050::DLPF_5);     // Filtrage passe bas 5Hz
+        mpu.onFreeFall(callback_FF);          // Register a user callback function
+        mpu.onZeroMotion(callback_ZM);        // Register a user callback function
         mpu.enableFreeFall(0x80, 1);          // seuil (FF très sensible) 0x80 durée 1 ms
-        mpu.enableZeroMotion(0x05, 1);       // seuil (10 très sensible) durée 1 ms
+        mpu.enableZeroMotion(0x05, 1);        // seuil (10 très sensible) durée 1 ms
         mpu.setAccSensibility(MPU6050::FS_4G);
         mpu.setGyroSensibility(MPU6050::FS_1000DPS);
-        
-        cout << setfill('0') << fixed << setprecision(2);
+
+        cout << setfill('0') << fixed << setprecision(2) << std::showpos;
 
         while (1) {
-            
-            cout << mpu.getAccelX() << " : " << mpu.getAccelY() << " : " << mpu.getAccelZ() << " : ";
-            cout << mpu.getRotationX() << " : " << mpu.getRotationY() << " : " << mpu.getRotationZ() << endl;
+
+            cout << "Accel:  " << mpu.getAccelX() << "\t" << mpu.getAccelY() << "\t" << mpu.getAccelZ() << " g\t";
+            cout << "Gyro:  " << mpu.getRotationX() << "\t" << mpu.getRotationY() << "\t" << mpu.getRotationZ() << " dps\t";
+            cout << "Temp:   " << mpu.getTemperature() << " °C" << endl;
             sleep(1);
         }
 

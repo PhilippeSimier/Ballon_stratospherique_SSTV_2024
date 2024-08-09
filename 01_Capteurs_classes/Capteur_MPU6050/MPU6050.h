@@ -29,6 +29,13 @@
 #define    ZA_OFFS_H  0x0A //[15:0] ZA_OFFS
 #define    ZA_OFFS_L  0x0B
 
+#define    XG_OFFS_H  0x13
+#define    XG_OFFS_L  0x14
+#define    YG_OFFS_H  0x15
+#define    YG_OFFS_L  0x16
+#define    ZG_OFFS_H  0x17
+#define    ZG_OFFS_L  0x18
+
 #define    SAMPLRT_DIV 	0x19
 #define    CONFIG       0x1A  // registre 26 Configuration du filtrage Passe Bas
 #define    GYRO_CONFIG  0x1B  // registre 27 Gyroscope Configuration
@@ -105,6 +112,7 @@ public:
     float getRotationX();
     float getRotationY();
     float getRotationZ();
+    void  getGyro3(int16_t &gx, int16_t &gy, int16_t &gz);
 
     void setAccSensibility(MPU6050::Sensibility range);
     void setGyroSensibility(MPU6050::Sensibility range);
@@ -112,7 +120,8 @@ public:
 
     void setAccelOffset(int16_t offsetX, int16_t offsetY, int16_t offsetZ);
     void getAccelOffset(int16_t &offsetX, int16_t &offsetY, int16_t &offsetZ);
-
+    void setGyroOffset(int16_t offsetX, int16_t offsetY, int16_t offsetZ);
+    void getGyroOffset(int16_t &offsetX, int16_t &offsetY, int16_t &offsetZ);
 
     void enableMotion(uint8_t thresold, uint8_t duration);
     void enableZeroMotion(uint8_t thresold, uint8_t duration);
@@ -129,7 +138,7 @@ public:
     uint8_t getStatusInt();
   
     void calibrateA();
-    
+    void calibrateG();
 
 private:
 
@@ -143,7 +152,8 @@ private:
         unsigned char uCData[2];
     };
 
-    void meansensorsA(int nb, int16_t &mean_ax, int16_t &mean_ay, int16_t &mean_az);   
+    void meansensorsA(int nb, int16_t &mean_ax, int16_t &mean_ay, int16_t &mean_az);
+    void meansensorsG(int nb, int16_t &mean_gx, int16_t &mean_gy, int16_t &mean_gz);
     static void interruptHandler();
     
  };

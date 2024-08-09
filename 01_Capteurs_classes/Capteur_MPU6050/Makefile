@@ -16,7 +16,7 @@ SOURCES = main.cpp MPU6050.cpp i2c.cpp
 OBJECTS = $(SOURCES:.cpp=.o)
 
 # Nom de l'exécutable
-TARGET = test_unitaire
+TARGET = read_registers
 
 # Règle par défaut
 all: $(TARGET)
