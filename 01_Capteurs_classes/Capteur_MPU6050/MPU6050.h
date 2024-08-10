@@ -139,6 +139,9 @@ public:
   
     void calibrateA();
     void calibrateG();
+    
+    MPU6050::Sensibility sensibilityFromString(const std::string& str);
+    MPU6050::Dlpf dlpfFromString(const std::string& str);
 
 private:
 

@@ -203,16 +203,16 @@ float MPU6050::getRotationX() {
 
     switch (sensibilityGyr) {
         case FS_250DPS:
-            val = (float)(dataGyro.sData * 250) / 32768;
+            val = (float) (dataGyro.sData * 250) / 32768;
             break;
         case FS_500DPS:
-            val = (float)(dataGyro.sData * 500) / 32768;
+            val = (float) (dataGyro.sData * 500) / 32768;
             break;
         case FS_1000DPS:
-            val = (float)(dataGyro.sData * 1000) / 32768;
+            val = (float) (dataGyro.sData * 1000) / 32768;
             break;
         case FS_2000DPS:
-            val = (float)(dataGyro.sData * 2000) / 32768;
+            val = (float) (dataGyro.sData * 2000) / 32768;
             break;
     }
     return val;
@@ -229,16 +229,16 @@ float MPU6050::getRotationY() {
     float val{0.0};
     switch (sensibilityGyr) {
         case FS_250DPS:
-            val = (float)(dataGyro.sData * 250) / 32768;
+            val = (float) (dataGyro.sData * 250) / 32768;
             break;
         case FS_500DPS:
-            val = (float)(dataGyro.sData * 500) / 32768;
+            val = (float) (dataGyro.sData * 500) / 32768;
             break;
         case FS_1000DPS:
-            val = (float)(dataGyro.sData * 1000) / 32768;
+            val = (float) (dataGyro.sData * 1000) / 32768;
             break;
         case FS_2000DPS:
-            val = (float)(dataGyro.sData * 2000) / 32768;
+            val = (float) (dataGyro.sData * 2000) / 32768;
             break;
     }
     return val;
@@ -254,16 +254,16 @@ float MPU6050::getRotationZ() {
     float val{0.0};
     switch (sensibilityGyr) {
         case FS_250DPS:
-            val = (float)(dataGyro.sData * 250) / 32768;
+            val = (float) (dataGyro.sData * 250) / 32768;
             break;
         case FS_500DPS:
-            val = (float)(dataGyro.sData * 500) / 32768;
+            val = (float) (dataGyro.sData * 500) / 32768;
             break;
         case FS_1000DPS:
-            val = (float)(dataGyro.sData * 1000) / 32768;
+            val = (float) (dataGyro.sData * 1000) / 32768;
             break;
         case FS_2000DPS:
-            val = (float)(dataGyro.sData * 2000) / 32768;
+            val = (float) (dataGyro.sData * 2000) / 32768;
             break;
     }
     return val;
@@ -458,9 +458,9 @@ void MPU6050::meansensorsG(int nb, int16_t &mean_gx, int16_t &mean_gy, int16_t &
 
 }
 
-void MPU6050::calibrateG(){
+void MPU6050::calibrateG() {
     int16_t gx, gy, gz, ox, oy, oz;
-    int ready[3] = {0,0,0};
+    int ready[3] = {0, 0, 0};
     int i = 0;
 
     setGyroSensibility(MPU6050::FS_250DPS);
@@ -479,7 +479,7 @@ void MPU6050::calibrateG(){
         if (i > 35) {
             throw std::runtime_error("Exception calibrate gyro MPU5060");
         }
-        
+
         setGyroOffset(ox, oy, oz);
 
         meansensorsG(100, gx, gy, gz);
@@ -565,6 +565,31 @@ void MPU6050::interruptHandler() {
         if (mpu.callback_ZMD != nullptr)
             mpu.callback_ZMD();
     }
+}
+
+MPU6050::Sensibility MPU6050::sensibilityFromString(const std::string& str) {
+    
+    if (str == "FS_2G")  return FS_2G;
+    if (str == "FS_4G")  return FS_4G;
+    if (str == "FS_8G")  return FS_8G;
+    if (str == "FS_16G") return FS_16G;
+    if (str == "FS_250DPS") return FS_250DPS;
+    if (str == "FS_500DPS") return FS_500DPS;
+    if (str == "FS_1000DPS") return FS_1000DPS;
+    if (str == "FS_2000DPS") return FS_2000DPS;
+    throw std::invalid_argument("Invalid MPU6050 sensibility String");
+}
+
+MPU6050::Dlpf MPU6050::dlpfFromString(const std::string& str) {
+    
+    if (str == "DLPF_260")  return DLPF_260;
+    if (str == "DLPF_184")  return DLPF_184;
+    if (str == "DLPF_94")  return DLPF_94;
+    if (str == "DLPF_44")  return DLPF_44;    
+    if (str == "DLPF_21")  return DLPF_21;
+    if (str == "DLPF_10")  return DLPF_10;
+    if (str == "DLPF_5")  return DLPF_5;
+    throw std::invalid_argument("Invalid MPU6050 dlpf String");
 }
 
 MPU6050 mpu;
