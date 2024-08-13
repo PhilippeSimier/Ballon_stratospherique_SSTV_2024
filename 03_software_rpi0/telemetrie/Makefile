@@ -1,31 +1,44 @@
 # Makefile
 
-# Nom du fichier binaire généré
+# Nom du compilateur
+CXX = g++
+
+# Options de compilation
+CXXFLAGS = -Wall -O2 -std=c++11
+
+# Options d'édition de liens
+LDFLAGS = -lwiringPi
+
+# Fichiers source
+SOURCES = telemetrie.cpp i2c.cpp MPU6050.cpp LM75.cpp BME280.cpp GestionFile.cpp GestionMesures.cpp GestionTemps.cpp
+
+# Fichiers objets
+OBJECTS = $(SOURCES:.cpp=.o)
+
+# Nom de l'exécutable
 TARGET = telemetrie
 
-# Compilateurs croisés
-CC = arm-linux-gnueabihf-gcc
-CXX = arm-linux-gnueabihf-g++
-
-# Options de compilation et d'édition de liens
-CFLAGS = -Wall -O2 -march=armv6 -mfpu=vfp -mfloat-abi=hard -marm
-CXXFLAGS = -Wall -O2 -march=armv6 -mfpu=vfp -mfloat-abi=hard -marm -lpthread -lrt
-LDFLAGS =
-
-# Fichiers source et objets
-SRCS = telemetrie.cpp GestionMesures.cpp GestionTemps.cpp i2c.cpp BME280.cpp MPU6050.cpp LM75.cpp GestionFile.cpp
-OBJS = $(SRCS:.cpp=.o)
-
-# Règle de compilation
+# Règle par défaut
 all: $(TARGET)
 
-$(TARGET): $(OBJS)
-	$(CXX) $(LDFLAGS) -o $@ $^
+# Règle pour créer l'exécutable
+$(TARGET): $(OBJECTS)
+	$(CXX) $(OBJECTS) -o $(TARGET) $(LDFLAGS)
 
+# Règle pour créer les fichiers objets
 %.o: %.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
+# Règle pour nettoyer les fichiers générés
 clean:
-	rm -f $(TARGET) $(OBJS)
+	rm -f $(OBJECTS) $(TARGET)
 
-.PHONY: all clean
+# Règle pour tout nettoyer (y compris les fichiers temporaires)
+distclean: clean
+	rm -f *~
+
+# Règle pour exécuter le programme
+run: $(TARGET)
+	./$(TARGET)
+
+.PHONY: all clean distclean run

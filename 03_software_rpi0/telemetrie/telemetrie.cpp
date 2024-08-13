@@ -25,12 +25,6 @@ int main(int argc, char **argv)
         GestionFile gestionFile;       // Objet pour la gestion des files de messages
         GestionTemps gestionTemps;     // Objet pour la gestion du temps
 
-        std::cout << gestionTemps.getDateFormatee();
-        std::cout << " : >LOG : Début de la calibration du capteur MPU6050" << std::endl;
-
-        string param = gestionMesures.calibrerMPU();
-        std::cout << gestionTemps.getDateFormatee();
-        std::cout << " : >LOG : "<< param  << std::endl;
 
         gestionFile.obtenirFileIPC(5679);  // Obtenir la file pour l'émission key 5679
 

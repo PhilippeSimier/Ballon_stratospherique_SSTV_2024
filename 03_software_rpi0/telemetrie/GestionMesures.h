@@ -86,7 +86,7 @@ private:
 
     // Objets des capteurs
     BME280 bme280;
-    MPU6050 mpu6050;
+
     LM75 lm75;
 
     std::string doubleToString(double value);

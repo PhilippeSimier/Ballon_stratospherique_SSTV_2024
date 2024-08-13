@@ -8,11 +8,12 @@
 #include "GestionMesures.h"
 
 GestionMesures::GestionMesures() :
-    bme280(ADDRESS_BME280),
-    mpu6050(ADDRESS_MPU6050)
+    bme280(ADDRESS_BME280)
 {
+    mpu.begin(ADDRESS_MPU6050);
     // Initialisation de la sensibilité de l'accéléromètre MPU6050
-    mpu6050.setAccSensibility(FS_2G);
+    mpu.setAccSensibility(MPU6050::FS_2G);
+    // Initialisation des offsets to do
 
     // Ouverture du fichier CSV et écriture de l'en-tête
     std::ofstream fichier(CSV_PATH);
@@ -33,17 +34,15 @@ GestionMesures::~GestionMesures()
 
 }
 
-std::string GestionMesures::calibrerMPU(){
-    return mpu6050.calibrate();
-}
+
 
 void GestionMesures::effectuerMesures()
 {
     // Obtention des mesures des capteurs
-    mesures.accelX  = mpu6050.getAccelX();
-    mesures.accelY  = mpu6050.getAccelY();
-    mesures.accelZ  = mpu6050.getAccelZ();
-    mesures.tempMpu = mpu6050.getTemperature();
+    mesures.accelX  = mpu.getAccelX();
+    mesures.accelY  = mpu.getAccelY();
+    mesures.accelZ  = mpu.getAccelZ();
+    mesures.tempMpu = mpu.getTemperature();
     mesures.tempLm  = lm75.getTemperature();
     mesures.tempBme = bme280.obtenirTemperatureEnC();
     mesures.pression = bme280.obtenirPression();
