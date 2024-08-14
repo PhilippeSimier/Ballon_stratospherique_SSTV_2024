@@ -12,6 +12,7 @@
 #include "LM75.h"
 #include "BME280.h"
 #include "GestionTemps.h"
+#include "SimpleIni.h"
 
 #include <ctime>
 #include <fstream>
@@ -52,6 +53,9 @@ struct Mesures
     double accelX;
     double accelY;
     double accelZ;
+    double giroX;
+    double giroY;
+    double giroZ;
 };
 
 
@@ -88,6 +92,8 @@ private:
     BME280 bme280;
 
     LM75 lm75;
+
+    SimpleIni ini;
 
     std::string doubleToString(double value);
     std::string intToString(int value, int format);

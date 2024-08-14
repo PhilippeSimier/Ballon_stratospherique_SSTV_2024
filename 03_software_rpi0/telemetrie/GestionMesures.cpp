@@ -12,14 +12,27 @@ GestionMesures::GestionMesures() :
 {
     mpu.begin(ADDRESS_MPU6050);
     // Initialisation de la sensibilité de l'accéléromètre MPU6050
-    mpu.setAccSensibility(MPU6050::FS_2G);
-    // Initialisation des offsets to do
+    mpu.setAccSensibility(MPU6050::FS_4G);
+    mpu.setGyroSensibility(MPU6050::FS_500DPS);
+
+    // Initialisation des offsets
+    ini.Load("/home/ballon/telemetrie/config_MPU6050.ini");
+    int16_t oax = ini.GetValue<int16_t>("MPU6050", "offsetAX", 0);
+    int16_t oay = ini.GetValue<int16_t>("MPU6050", "offsetAY", 0);
+    int16_t oaz = ini.GetValue<int16_t>("MPU6050", "offsetAZ", 0);
+    cout << "offset Acc : " << oax << " : " << oay << " : " << oaz << endl;
+    mpu.setAccelOffset(oax,oay,oaz);
+    int16_t ogx = ini.GetValue<int16_t>("MPU6050", "offsetGX", 0);
+    int16_t ogy = ini.GetValue<int16_t>("MPU6050", "offsetGY", 0);
+    int16_t ogz = ini.GetValue<int16_t>("MPU6050", "offsetGZ", 0);
+    cout << "offset Gyro : " << ogx << " : " << ogy << " : " << ogz << endl;
+    mpu.setGyroOffset(ogx,ogy,ogz);
 
     // Ouverture du fichier CSV et écriture de l'en-tête
     std::ofstream fichier(CSV_PATH);
     if (fichier.is_open())
     {
-        fichier << "Date Time Time_Zone,Température_BME,Température_LM,Température_MPU,Pression,Humidité,Accel_X,Accel_Y,Accel_Z" << std::endl;
+        fichier << "Date Time Time_Zone,Température_BME,Température_LM,Température_MPU,Pression,Humidité,Accel_X,Accel_Y,Accel_Z,Gyro_X,Gyro_Y,Gyro_Z" << std::endl;
 
     }
     else
@@ -42,6 +55,9 @@ void GestionMesures::effectuerMesures()
     mesures.accelX  = mpu.getAccelX();
     mesures.accelY  = mpu.getAccelY();
     mesures.accelZ  = mpu.getAccelZ();
+    mesures.giroX   = mpu.getRotationX();
+    mesures.giroY   = mpu.getRotationY();
+    mesures.giroZ   = mpu.getRotationZ();
     mesures.tempMpu = mpu.getTemperature();
     mesures.tempLm  = lm75.getTemperature();
     mesures.tempBme = bme280.obtenirTemperatureEnC();
@@ -139,8 +155,8 @@ void GestionMesures::sauvegarderMesures()
 
         out << setfill('0') << fixed << setprecision(2)  << mesures.tempBme << "," << mesures.tempLm << "," << mesures.tempMpu;
         out << "," << mesures.pression << "," << mesures.humidite;
-        out << "," << mesures.accelX << "," << mesures.accelY << "," << mesures.accelZ << std::endl;
-
+        out << "," << mesures.accelX << "," << mesures.accelY << "," << mesures.accelZ;
+        out << "," << setprecision(1) << mesures.giroX << "," << mesures.giroY << "," << mesures.giroZ << std::endl;
         // Création de l'horodatage
         fichier << gestionTemps.getDateFormatee();
         fichier << ",";

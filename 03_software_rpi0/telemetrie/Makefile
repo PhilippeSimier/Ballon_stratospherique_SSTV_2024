@@ -10,7 +10,7 @@ CXXFLAGS = -Wall -O2 -std=c++11
 LDFLAGS = -lwiringPi
 
 # Fichiers source
-SOURCES = telemetrie.cpp i2c.cpp MPU6050.cpp LM75.cpp BME280.cpp GestionFile.cpp GestionMesures.cpp GestionTemps.cpp
+SOURCES = telemetrie.cpp i2c.cpp MPU6050.cpp LM75.cpp BME280.cpp GestionFile.cpp GestionMesures.cpp GestionTemps.cpp SimpleIni.cpp
 
 # Fichiers objets
 OBJECTS = $(SOURCES:.cpp=.o)
