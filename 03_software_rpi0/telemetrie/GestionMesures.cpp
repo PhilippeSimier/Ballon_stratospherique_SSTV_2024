@@ -137,6 +137,9 @@ std::string GestionMesures::formaterMesuresPourLora()
     trameAprsWeather += " " + doubleToString(mesures.accelX);
     trameAprsWeather += " " + doubleToString(mesures.accelY);
     trameAprsWeather += " " + doubleToString(mesures.accelZ);
+    trameAprsWeather += " " + doubleToString(mesures.giroX);
+    trameAprsWeather += " " + doubleToString(mesures.giroY);
+    trameAprsWeather += " " + doubleToString(mesures.giroZ);
 
     return trameAprsWeather;
 }
