@@ -11,12 +11,17 @@ GestionMesures::GestionMesures() :
     bme280(ADDRESS_BME280)
 {
     mpu.begin(ADDRESS_MPU6050);
-    // Initialisation de la sensibilité de l'accéléromètre MPU6050
-    mpu.setAccSensibility(MPU6050::FS_4G);
-    mpu.setGyroSensibility(MPU6050::FS_500DPS);
 
-    // Initialisation des offsets
     ini.Load("/home/ballon/telemetrie/config_MPU6050.ini");
+
+    // Initialisation de la sensibilité du MPU6050
+    string rangeAcc = ini.GetValue("MPU6050", "rangeAcc", "FS_2G");
+    string rangeGyro = ini.GetValue("MPU6050", "rangeGyro", "FS_250DPS");
+    mpu.setAccSensibility(mpu.sensibilityFromString(rangeAcc));
+    mpu.setGyroSensibility(mpu.sensibilityFromString(rangeGyro));
+    cout << "sensibilité : " << rangeAcc << " : " << rangeGyro << endl;
+
+    // Initialisation des offsets   
     int16_t oax = ini.GetValue<int16_t>("MPU6050", "offsetAX", 0);
     int16_t oay = ini.GetValue<int16_t>("MPU6050", "offsetAY", 0);
     int16_t oaz = ini.GetValue<int16_t>("MPU6050", "offsetAZ", 0);
@@ -32,7 +37,7 @@ GestionMesures::GestionMesures() :
     std::ofstream fichier(CSV_PATH);
     if (fichier.is_open())
     {
-        fichier << "Date Time Time_Zone,Température_BME,Température_LM,Température_MPU,Pression,Humidité,Accel_X,Accel_Y,Accel_Z,Gyro_X,Gyro_Y,Gyro_Z" << std::endl;
+        fichier << "Date Time Time_Zone;Température_BME;Température_LM;Température_MPU;Pression;Humidité;Accel_X;Accel_Y;Accel_Z;Gyro_X;Gyro_Y;Gyro_Z" << std::endl;
 
     }
     else
@@ -130,18 +135,17 @@ std::string GestionMesures::formaterMesuresPourLora()
     int p = static_cast<int>((mesures.pression + 0.5) * 10);
 
     // Construction de la trame aprs weather
-    std::string trameAprsWeather = "_" + gestionTemps.getDateAprs();
-    trameAprsWeather += "c...s...g...t" + intToString(t, 3);
-    trameAprsWeather += "h" + intToString(h, 2);
-    trameAprsWeather += "b" + intToString(p, 4);
-    trameAprsWeather += " " + doubleToString(mesures.accelX);
-    trameAprsWeather += " " + doubleToString(mesures.accelY);
-    trameAprsWeather += " " + doubleToString(mesures.accelZ);
-    trameAprsWeather += " " + doubleToString(mesures.giroX);
-    trameAprsWeather += " " + doubleToString(mesures.giroY);
-    trameAprsWeather += " " + doubleToString(mesures.giroZ);
+    std::ostringstream out;
+    out << setfill('0') << fixed;
+    out << "_" << gestionTemps.getDateAprs();
+    out << "c...s...g...t" << std::setw(3) << t;
+    out << "h" << std::setw(2) << h;
+    out << "b" << std::setw(4) << p;
+    out << showpos;
+    out << " " << setprecision(2) << mesures.accelX << " " << mesures.accelY << " " << mesures.accelZ;
+    out << " " << setprecision(1) << mesures.giroX << " " << mesures.giroY << " " << mesures.giroZ;
 
-    return trameAprsWeather;
+    return out.str();
 }
 
 /**
@@ -150,19 +154,24 @@ std::string GestionMesures::formaterMesuresPourLora()
  */
 void GestionMesures::sauvegarderMesures()
 {
+    // Définir la locale personnalisée avec la virgule comme séparateur décimal
+    std::locale localeAvecVirgule(std::locale(), new VirguleDecimal);
+
     // Ouverture du fichier CSV pour ajouter des données
     std::ofstream fichier(CSV_PATH, std::ios_base::app);
     if (fichier.is_open())
     {
         std::ostringstream out;
+        out.imbue(localeAvecVirgule); // Appliquer la locale personnalisée au flux
 
-        out << setfill('0') << fixed << setprecision(2)  << mesures.tempBme << "," << mesures.tempLm << "," << mesures.tempMpu;
-        out << "," << mesures.pression << "," << mesures.humidite;
-        out << "," << mesures.accelX << "," << mesures.accelY << "," << mesures.accelZ;
-        out << "," << setprecision(1) << mesures.giroX << "," << mesures.giroY << "," << mesures.giroZ << std::endl;
+        out << setfill('0') << fixed << setprecision(2)  << mesures.tempBme << ";" << mesures.tempLm << ";" << mesures.tempMpu;
+        out << ";" << mesures.pression << ";" << mesures.humidite;
+        out << showpos;  // affiche le signe +
+        out << ";" << mesures.accelX << ";" << mesures.accelY << ";" << mesures.accelZ;
+        out << ";" << setprecision(1) << mesures.giroX << ";" << mesures.giroY << ";" << mesures.giroZ << std::endl;
         // Création de l'horodatage
         fichier << gestionTemps.getDateFormatee();
-        fichier << ",";
+        fichier << ";";
         // Écriture des mesures dans le fichier CSV et sur la sortie cout
         fichier << out.str();
         std::cout << out.str();
@@ -176,26 +185,4 @@ void GestionMesures::sauvegarderMesures()
     }
 }
 
-/**
- * @brief GestionMesures::doubleToString
- * @param value
- * @return la valeur représentée en string avec 2 chiffres derrière la virgule
- */
-std::string GestionMesures::doubleToString(double value) {
-    std::ostringstream out;
-    out << std::fixed << std::setprecision(2) << value;
-    return out.str();
-}
 
-/**
- * @brief GestionMesures::intToString
- * @param value un entier
- * @param format le nombre de chiffres significatifs
- * @return  la valeur représentée en string formatée avec le nb de chiffres
- */
-std::string GestionMesures::intToString(int value, int format) {
-    std::ostringstream oss;
-    // Configure le flux pour remplir avec des zéros et avoir une largeur correspondant à format
-    oss << std::setw(format) << std::setfill('0') << value;
-    return oss.str();
-}
