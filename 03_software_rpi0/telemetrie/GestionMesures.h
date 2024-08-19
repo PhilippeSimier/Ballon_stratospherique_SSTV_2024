@@ -19,6 +19,7 @@
 #include <iostream>
 #include <iomanip>
 #include <sstream>
+#include <locale>
 
 #include <stdexcept>
 #include <chrono>
@@ -58,7 +59,14 @@ struct Mesures
     double giroZ;
 };
 
-
+// Création d'une classe personnalisée dérivée de std::numpunct
+class VirguleDecimal : public std::numpunct<char> {
+protected:
+    // Surcharge de la fonction do_decimal_point() pour retourner une virgule
+    virtual char do_decimal_point() const override {
+        return ',';
+    }
+};
 
 class GestionMesures
 {
