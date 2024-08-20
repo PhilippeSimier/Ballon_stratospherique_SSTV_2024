@@ -98,13 +98,12 @@ private:
 
     // Objets des capteurs
     BME280 bme280;
-
     LM75 lm75;
-
     SimpleIni ini;
 
-    std::string doubleToString(double value);
-    std::string intToString(int value, int format);
+    std::locale localeAvecVirgule;
+
+
 };
 
 #endif /* GESTIONMESURES_H */

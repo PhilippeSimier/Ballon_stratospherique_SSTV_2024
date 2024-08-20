@@ -3,6 +3,7 @@
  * Authors: Damien Brochard, Philippe Simier
  *
  * Created on 27 mars 2024, 15:01
+ * Improve on 16 august 2024
  */
  
 #include "GestionMesures.h"
@@ -11,6 +12,9 @@ GestionMesures::GestionMesures() :
     bme280(ADDRESS_BME280)
 {
     mpu.begin(ADDRESS_MPU6050);
+
+    // Affectation de la locale personnalisée à localeAvecVirgule
+    localeAvecVirgule = std::locale(std::locale(), new VirguleDecimal);
 
     ini.Load("/home/ballon/telemetrie/config_MPU6050.ini");
 
@@ -68,6 +72,8 @@ void GestionMesures::effectuerMesures()
     mesures.tempBme = bme280.obtenirTemperatureEnC();
     mesures.pression = bme280.obtenirPression();
     mesures.humidite = bme280.obtenirHumidite();
+
+    verifierMesures();
 }
 
 bool GestionMesures::verifierMesures()
@@ -116,6 +122,15 @@ bool GestionMesures::verifierMesures()
         valid = false;
         mesures.accelZ = NAN;
     }
+    if ((mesures.giroX <= 0.2) && (mesures.giroX >= -0.2)){
+        mesures.giroX = 0.0;
+    }
+    if ((mesures.giroY <= 0.2) && (mesures.giroY >= -0.2)){
+        mesures.giroY = 0.0;
+    }
+    if ((mesures.giroZ <= 0.2) && (mesures.giroZ >= -0.2)){
+        mesures.giroZ = 0.0;
+    }
 
     return valid; // Retourne vrai si toutes les mesures sont valides, sinon faux
 }
@@ -136,6 +151,7 @@ std::string GestionMesures::formaterMesuresPourLora()
 
     // Construction de la trame aprs weather
     std::ostringstream out;
+    out.imbue(localeAvecVirgule); // Appliquer la locale personnalisée au flux
     out << setfill('0') << fixed;
     out << "_" << gestionTemps.getDateAprs();
     out << "c...s...g...t" << std::setw(3) << t;
@@ -154,8 +170,8 @@ std::string GestionMesures::formaterMesuresPourLora()
  */
 void GestionMesures::sauvegarderMesures()
 {
-    // Définir la locale personnalisée avec la virgule comme séparateur décimal
-    std::locale localeAvecVirgule(std::locale(), new VirguleDecimal);
+
+    effectuerMesures();
 
     // Ouverture du fichier CSV pour ajouter des données
     std::ofstream fichier(CSV_PATH, std::ios_base::app);

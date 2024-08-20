@@ -54,7 +54,6 @@ int main(int argc, char **argv)
             // Sauvegarder les mesures toutes les 10 secondes
             if (tmMaintenant.tm_sec % 10 == 0)
             {
-                gestionMesures.effectuerMesures();
                 std::cout << gestionTemps.getDateFormatee();
                 std::cout << " : >CSV : ";
                 gestionMesures.sauvegarderMesures();
@@ -65,22 +64,20 @@ int main(int argc, char **argv)
             // Envoyer les mesures par LoRa toutes les 2 minutes à la seconde 30
             if (tmMaintenant.tm_min % 2 == 0 && tmMaintenant.tm_sec == 30)
             {
-                gestionMesures.effectuerMesures();
-                if (gestionMesures.verifierMesures())
+
+                std::string payload = gestionMesures.formaterMesuresPourLora(); // Formater payload au format lisible par APRS.fi (station WX)
+                if (!gestionFile.ecrireDansLaFileIPC(payload))
                 {
-                    std::string payload = gestionMesures.formaterMesuresPourLora(); // Formater payload au format lisible par APRS.fi (station WX)
-                    if (!gestionFile.ecrireDansLaFileIPC(payload))
-                    {
-                        std::cout << gestionTemps.getDateFormatee();
-                        std::cout << " : >APLT : Erreur ecriture file" << std::endl;
-                    }
-                    else
-                    {
-                        std::cout << gestionTemps.getDateFormatee();
-                        std::cout << " : >APLT : ";
-                        std::cout << payload  << std::endl;
-                    }
+                    std::cout << gestionTemps.getDateFormatee();
+                    std::cout << " : >APLT : Erreur ecriture file" << std::endl;
                 }
+                else
+                {
+                    std::cout << gestionTemps.getDateFormatee();
+                    std::cout << " : >APLT : ";
+                    std::cout << payload  << std::endl;
+                }
+
             }
 
 
