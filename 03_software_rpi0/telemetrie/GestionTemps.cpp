@@ -66,3 +66,8 @@ std::string GestionTemps::getDateFormatee()
     return temps.annee + "-" + temps.mois + "-" + temps.jour + " " + temps.heure + ":" + temps.minute + ":" + temps.seconde + " CEST";
 }
 
+std::string GestionTemps::generateFilename(){
+    majDate();
+    return "data_" + temps.annee + "-" + temps.mois + "-" + temps.jour + "_" + temps.heure + "-" + temps.minute + "-" + temps.seconde + ".csv";
+}
+

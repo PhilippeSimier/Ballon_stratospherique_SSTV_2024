@@ -36,7 +36,7 @@ public:
     void majDate();                 // Méthode pour mettre à jour la date
     std::string getDateFormatee();  // Méthode pour obtenir la date et l'heure sous format aaaa-mm-jj hh:mm:ss
     std::string getDateAprs();      // Méthode pour obtenir la date mois jour heure minute format aprs
-
+    std::string generateFilename(); // Méthode pour générer un nom de fichier
 
 
 

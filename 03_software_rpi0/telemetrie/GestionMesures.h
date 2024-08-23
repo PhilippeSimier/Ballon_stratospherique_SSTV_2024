@@ -27,7 +27,7 @@
 
 namespace
 {
-constexpr char CSV_PATH[] = "/home/ballon/data.csv"; // Chemin du fichier CSV
+
 
 constexpr int ADDRESS_BME280 = 0x77; // Adresse du capteur BME280
 constexpr int ADDRESS_MPU6050 = 0x69; // Adresse du capteur MPU6050
@@ -102,6 +102,7 @@ private:
     SimpleIni ini;
 
     std::locale localeAvecVirgule;
+    string fichierCSV;
 
 
 };

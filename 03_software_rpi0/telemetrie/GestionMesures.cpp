@@ -37,8 +37,11 @@ GestionMesures::GestionMesures() :
     cout << "offset Gyro : " << ogx << " : " << ogy << " : " << ogz << endl;
     mpu.setGyroOffset(ogx,ogy,ogz);
 
+    string path = ini.GetValue("telemetrie","path","chemin");
+    fichierCSV = path + gestionTemps.generateFilename();
+    cout << fichierCSV << endl;
     // Ouverture du fichier CSV et écriture de l'en-tête
-    std::ofstream fichier(CSV_PATH);
+    std::ofstream fichier(fichierCSV);
     if (fichier.is_open())
     {
         fichier << "Date Time Time_Zone;Température_BME;Température_LM;Température_MPU;Pression;Humidité;Accel_X;Accel_Y;Accel_Z;Gyro_X;Gyro_Y;Gyro_Z" << std::endl;
@@ -174,7 +177,7 @@ void GestionMesures::sauvegarderMesures()
     effectuerMesures();
 
     // Ouverture du fichier CSV pour ajouter des données
-    std::ofstream fichier(CSV_PATH, std::ios_base::app);
+    std::ofstream fichier(fichierCSV, std::ios_base::app);
     if (fichier.is_open())
     {
         std::ostringstream out;
