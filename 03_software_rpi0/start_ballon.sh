@@ -4,5 +4,10 @@ sleep 5
 sleep 1
 /home/ballon/sstv/sstv &
 sleep 1
-/home/ballon/telemetrie/telemetrie &
-
+/home/ballon/Telemetrie/Telemetrie &
+sleep 1
+/home/ballon/Reception/reception &
+sleep 1
+/home/ballon/lora_files/lora_files >> /home/ballon/log.txt 2>&1 &
+sleep 1
+/home/ballon/lora_files/lora_files >> /home/ballon/log.txt 2>&1 &
