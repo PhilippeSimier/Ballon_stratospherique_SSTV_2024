@@ -201,9 +201,9 @@ void SX1278::set_rxcont_mode() {
 void SX1278::reset() {
 
     digitalWrite(gpio_reset, LOW);
-    usleep(100);
+    usleep(1000);
     digitalWrite(gpio_reset, HIGH);
-    usleep(5000);
+    usleep(10000);
 }
 
 void SX1278::set_lora_mode() {
