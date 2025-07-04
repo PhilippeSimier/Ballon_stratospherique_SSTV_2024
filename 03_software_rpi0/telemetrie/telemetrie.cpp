@@ -30,10 +30,10 @@ int main(int argc, char **argv)
         GestionTemps gestionTemps;     // Objet pour la gestion du temps
 
         mpu.onFreeFall(callback_FF); // Register a user callback function
-        mpu.enableFreeFall(0x80, 1); // seuil (FF très sensible) 0x80 durée 1 ms
+        mpu.enableFreeFall(0x80, 10); // seuil (FF très sensible) 0x80 durée 1 ms
 
         mpu.onZeroMotion(callback_ZM); // Register a user callback function
-        mpu.enableZeroMotion(0x05, 1); // seuil (05 très sensible) durée 1 ms
+        mpu.enableZeroMotion(0x05, 10); // seuil (05 très sensible) durée 1 ms
 
         gestionFile.obtenirFileIPC(5679);  // Obtenir la file pour l'émission key 5679
 

@@ -36,16 +36,16 @@ void Camera::envoyerPhoto(const unsigned long frequence){
 void Camera::enregistrerPhoto(const std::string annotation){
     
     std::ostringstream commande_still;
-    commande_still << "libcamera-still --width 2304 --height 1296 -o /home/ballon/photo_";
+    commande_still << "libcamera-still --width 2304 --height 1296 -o /home/ballon/photos/photo_";
     commande_still << std::setw(3) << std::setfill('0') << i << ".jpg ";
     system(commande_still.str().c_str());
     
     std::ostringstream commande_convert;
     commande_convert << "convert -pointsize 80 -box white -draw \"text 10,80 'F4KMN `date +\"%d/%m/%Y %T\"` ";
     commande_convert << annotation << "' \" ";
-    commande_convert << "/home/ballon/photo_";
+    commande_convert << "/home/ballon/photos/photo_";
     commande_convert << std::setw(3) << std::setfill('0') << i << ".jpg ";
-    commande_convert << "/home/ballon/photo_";
+    commande_convert << "/home/ballon/photos/photo_";
     commande_convert << std::setw(3) << std::setfill('0') << i << ".jpg ";
     system(commande_convert.str().c_str());
     i++;
