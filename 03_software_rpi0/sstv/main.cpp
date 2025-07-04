@@ -41,9 +41,7 @@ int main(int argc, char** argv) {
 
         if (tmMaintenant.tm_sec == 30) {
 
-            stringstream annotation;
-	    annotation << "test";
-            camera.enregistrerPhoto(annotation.str());
+            camera.enregistrerPhoto("");
 
             this_thread::sleep_for(chrono::seconds(1));
 
