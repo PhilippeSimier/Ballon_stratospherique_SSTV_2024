@@ -27,10 +27,13 @@ public:
     virtual ~Position();
 
     std::string getPduAprs(bool compressed = false);
+    std::string getLocator(int nbChar);
+    
     void setLatitude(const float _latitude);
     void setLongitude(const float _longitude);
     void setComment(std::string _comment);
     void setAltitude(const float _alt);
+    
 
 private:
 

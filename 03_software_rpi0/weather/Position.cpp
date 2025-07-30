@@ -22,7 +22,7 @@ symboleTable(_symboleTable),
 symbole(_symbole),
 alt(0),
 comment(_comment) {
-    
+
 }
 
 Position::Position(const Position& orig) {
@@ -55,82 +55,49 @@ void Position::setAltitude(const float _alt) {
  */
 std::string Position::getPduAprs(bool compressed) {
 
-    std::ostringstream oss;   
-    if (compressed) {       
+    std::ostringstream oss;
+    if (compressed) {
         oss << '!' << symboleTable << latitude_APRS_comp() << longitude_APRS_comp() << symbole;
         if (alt > 0) {
             oss << altitude_APRS_comp();
-        }else{
+        } else {
             oss << "  G";
         }
     } else {
-        oss << '!' << latitude_APRS() << symboleTable << longitude_APRS() << symbole; 
-         if (alt > 0) {
-             oss << "/A=" << std::setw(6) << std::setfill('0') << alt << " ";
-         } 
+        oss << '!' << latitude_APRS() << symboleTable << longitude_APRS() << symbole;
+        if (alt > 0) {
+            oss << "/A=" << std::setw(6) << std::setfill('0') << alt << " ";
+        }
     }
-    oss << comment;  
-    return oss.str();;
+    oss << comment;
+    return oss.str();
+    ;
 }
 
 std::string Position::latitude_APRS() {
-    char hemi; // Hemisphere: N or S
-    int ideg; // Degrés entiers
-    double dmin; // Minutes décimales
-    float latAbs = 0.0;
 
-    if (latitudeDec < 0.0) {
-        latAbs = -latitudeDec;
-        hemi = 'S';
-    } else {
-        latAbs = latitudeDec;
-        hemi = 'N';
-    }
-
-    ideg = static_cast<int> (latAbs);
-    dmin = (latAbs - ideg) * 60.0;
-
-    // Arrondi pour éviter que 59.99 devienne 60.00
-    if (std::round(dmin * 100) >= 6000) {
-        dmin = 0.0;
-        ideg++;
-    }
+    char hemi = (latitudeDec >= 0) ? 'N' : 'S';
+    float absLat = abs(latitudeDec);
+    int deg = static_cast<int> (absLat);
+    float min = (absLat - deg) * 60.0;
 
     std::ostringstream oss;
-    oss << std::setfill('0') << std::setw(2) << ideg
-            << std::fixed << std::setprecision(2) << std::setw(5) << dmin
-            << hemi;
+    oss << std::setw(2) << std::setfill('0') << deg;
+    oss << std::setw(5) << std::setfill('0') << std::fixed << std::setprecision(2) << min << hemi;
 
     return oss.str();
 }
 
 std::string Position::longitude_APRS() {
-    char hemi; // Hemisphere: W or E
-    int ideg; // Degrés entiers
-    double dmin; // Minutes décimales
-    float longAbs = 0.0;
 
-    if (longitudeDec < 0.0) {
-        longAbs = -longitudeDec;
-        hemi = 'W';
-    } else {
-        longAbs = longitudeDec;
-        hemi = 'E';
-    }
-
-    ideg = static_cast<int> (longAbs);
-    dmin = (longAbs - ideg) * 60.0;
-
-    // Correction pour éviter d’afficher 60.00 minutes
-    if (std::round(dmin * 100) >= 6000) {
-        dmin = 0.0;
-        ideg++;
-    }
+    char hemi = (longitudeDec >= 0) ? 'E' : 'W';
+    float absLon = abs(longitudeDec);
+    int deg = static_cast<int> (absLon);
+    float min = (absLon - deg) * 60.0;
 
     std::ostringstream oss;
-    oss << std::setfill('0') << std::setw(3) << ideg
-            << std::fixed << std::setprecision(2) << std::setw(5) << dmin
-            << hemi;
+    oss << std::setw(3) << std::setfill('0') << deg;
+    oss << std::setw(5) << std::setfill('0') << std::fixed << std::setprecision(2) << min << hemi;
 
     return oss.str();
 }
@@ -161,7 +128,7 @@ std::string Position::altitude_APRS_comp() {
     alt91[1] = (x % 91) + 33;
     alt91[2] = 'S';
     return alt91;
-    
+
 }
 
 std::string Position::convBase91(int x) {
@@ -175,3 +142,37 @@ std::string Position::convBase91(int x) {
     return base91;
 }
 
+
+std::string Position::getLocator(int nbChar) {
+        
+
+        float lon = longitudeDec + 180.0f;
+        float lat = latitudeDec + 90.0f;
+
+        char locator[9];
+
+        // Field (A-R)
+        locator[0] = 'A' + static_cast<int>(lon / 20);
+        locator[1] = 'A' + static_cast<int>(lat / 10);
+
+        // Square (0-9)
+        locator[2] = '0' + static_cast<int>(fmod(lon, 20) / 2);
+        locator[3] = '0' + static_cast<int>(fmod(lat, 10) / 1);
+
+        // Subsquare (A-X)
+        locator[4] = 'A' + static_cast<int>(fmod(lon, 2) * 12);
+        locator[5] = 'A' + static_cast<int>(fmod(lat, 1) * 24);
+
+        // Extended square (0-9)
+        locator[6] = '0' + static_cast<int>(fmod(lon * 120, 10));
+        locator[7] = '0' + static_cast<int>(fmod(lat * 240, 10));
+
+        locator[8] = '\0';
+
+        // Clamp nbChar
+        if (nbChar < 2) nbChar = 2;
+        if (nbChar > 8) nbChar = 8;
+        if (nbChar % 2 != 0) nbChar--; // Ensure even number
+
+        return std::string(locator, nbChar);
+    }
