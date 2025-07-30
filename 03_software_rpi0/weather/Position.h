@@ -32,29 +32,20 @@ public:
     void setComment(std::string _comment);
     void setAltitude(const float _alt);
 
-
-
 private:
 
-
-
-    std::string slat;
-    std::string slong;
-    std::string salt;
-    float latitude;
-    float longitude;
+    float latitudeDec;
+    float longitudeDec;
     char symboleTable;
     char symbole;
-    std::string pdu;
-
     int alt;
     std::string comment;
     
-    void latitude_to_str();
-    void longitude_to_str();
-    void latitude_to_comp_str();
-    void longitude_to_comp_str();
-    void altitude_to_comp_str();
+    std::string latitude_APRS();
+    std::string longitude_APRS();
+    std::string latitude_APRS_comp();
+    std::string longitude_APRS_comp();
+    std::string altitude_APRS_comp();
     std::string convBase91(int x);
 };
 

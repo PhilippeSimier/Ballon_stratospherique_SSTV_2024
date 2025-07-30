@@ -16,8 +16,8 @@
  * @param _symbole        char pour désigner un symbole dans la table 
  */
 Position::Position(const float _latitude, const float _longitude, std::string _comment, const char _symboleTable, const char _symbole) :
-latitude(_latitude),
-longitude(_longitude),
+latitudeDec(_latitude),
+longitudeDec(_longitude),
 symboleTable(_symboleTable),
 symbole(_symbole),
 alt(0),
@@ -32,11 +32,11 @@ Position::~Position() {
 }
 
 void Position::setLatitude(const float _latitude) {
-    latitude = _latitude;
+    latitudeDec = _latitude;
 }
 
 void Position::setLongitude(const float _longitude) {
-    longitude = _longitude;
+    longitudeDec = _longitude;
 }
 
 void Position::setComment(std::string _comment) {
@@ -51,54 +51,39 @@ void Position::setAltitude(const float _alt) {
  * @brief Fabrique le PDU APRS position 
  *        si compressed est true la position est compressée (base91)
  * @param bool compressed indique si la position doit être compressée
- * @return char* Le pdu APRS position 
+ * @return std::string Le pdu APRS position 
  */
 std::string Position::getPduAprs(bool compressed) {
 
-    std::string scom;
-    
-    if (alt != 0) {
-        std::ostringstream oss;
-        oss << "/A=" << std::setw(6) << std::setfill('0') << alt;
-        oss << " " << comment;
-        scom = oss.str();
+    std::ostringstream oss;   
+    if (compressed) {       
+        oss << '!' << symboleTable << latitude_APRS_comp() << longitude_APRS_comp() << symbole;
+        if (alt > 0) {
+            oss << altitude_APRS_comp();
+        }else{
+            oss << "  G";
+        }
     } else {
-        scom = " " + comment;
+        oss << '!' << latitude_APRS() << symboleTable << longitude_APRS() << symbole; 
+         if (alt > 0) {
+             oss << "/A=" << std::setw(6) << std::setfill('0') << alt << " ";
+         } 
     }
-
-
-    if (compressed) {
-
-        latitude_to_comp_str();
-        longitude_to_comp_str();
-        altitude_to_comp_str();
-
-        std::ostringstream oss;
-        oss << '!' << symboleTable << slat << slong << symbole << salt << comment;
-        pdu = oss.str();
-    } else {
-
-        latitude_to_str();
-        longitude_to_str();
-
-        std::ostringstream oss;
-        oss << '!' << slat << symboleTable << slong << symbole << scom;
-        pdu = oss.str();
-    }
-    return pdu;
+    oss << comment;  
+    return oss.str();;
 }
 
-void Position::latitude_to_str() {
+std::string Position::latitude_APRS() {
     char hemi; // Hemisphere: N or S
     int ideg; // Degrés entiers
     double dmin; // Minutes décimales
     float latAbs = 0.0;
 
-    if (latitude < 0.0) {
-        latAbs = -latitude;
+    if (latitudeDec < 0.0) {
+        latAbs = -latitudeDec;
         hemi = 'S';
     } else {
-        latAbs = latitude;
+        latAbs = latitudeDec;
         hemi = 'N';
     }
 
@@ -116,20 +101,20 @@ void Position::latitude_to_str() {
             << std::fixed << std::setprecision(2) << std::setw(5) << dmin
             << hemi;
 
-    slat = oss.str();
+    return oss.str();
 }
 
-void Position::longitude_to_str() {
+std::string Position::longitude_APRS() {
     char hemi; // Hemisphere: W or E
     int ideg; // Degrés entiers
     double dmin; // Minutes décimales
     float longAbs = 0.0;
 
-    if (longitude < 0.0) {
-        longAbs = -longitude;
+    if (longitudeDec < 0.0) {
+        longAbs = -longitudeDec;
         hemi = 'W';
     } else {
-        longAbs = longitude;
+        longAbs = longitudeDec;
         hemi = 'E';
     }
 
@@ -147,27 +132,27 @@ void Position::longitude_to_str() {
             << std::fixed << std::setprecision(2) << std::setw(5) << dmin
             << hemi;
 
-    slong = oss.str();
+    return oss.str();
 }
 
-void Position::latitude_to_comp_str() {
+std::string Position::latitude_APRS_comp() {
 
     int y;
-    y = static_cast<int> (380926. * (90. - latitude));
-    slat = convBase91(y);
+    y = static_cast<int> (380926. * (90. - latitudeDec));
+    return convBase91(y);
 }
 
-void Position::longitude_to_comp_str() {
+std::string Position::longitude_APRS_comp() {
 
     int x;
-    x = static_cast<int> (190463. * (180. + longitude));
-    slong = convBase91(x);
+    x = static_cast<int> (190463. * (180. + longitudeDec));
+    return convBase91(x);
 }
 
 /**
  * Méthode pour compresser l'altitude 
  */
-void Position::altitude_to_comp_str() {
+std::string Position::altitude_APRS_comp() {
 
     int x;
     x = static_cast<int> (log(alt) / 0.001998003);
@@ -175,7 +160,7 @@ void Position::altitude_to_comp_str() {
     alt91[0] = (x / 91) + 33;
     alt91[1] = (x % 91) + 33;
     alt91[2] = 'S';
-    salt = alt91;
+    return alt91;
     
 }
 
