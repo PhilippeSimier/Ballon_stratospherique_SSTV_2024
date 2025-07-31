@@ -10,7 +10,7 @@
 #include "MPU6050.h"
 #include "SimpleIni.h"
 
-#define CONFIGURATION "/home/ballon/weather/config_MPU6050.ini"
+#define CONFIGURATION "/home/ballon/configuration.ini"
 
 using namespace std;
 

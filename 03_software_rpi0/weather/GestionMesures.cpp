@@ -8,6 +8,8 @@
  
 #include "GestionMesures.h"
 
+#define CONFIGURATION "/home/ballon/configuration.ini"
+
 GestionMesures::GestionMesures() :
     bme280(ADDRESS_BME280)
 {
@@ -16,7 +18,7 @@ GestionMesures::GestionMesures() :
     // Affectation de la locale personnalisée à localeAvecVirgule
     localeAvecVirgule = std::locale(std::locale(), new VirguleDecimal);
 
-    ini.Load("/home/ballon/weather/config_MPU6050.ini");
+    ini.Load(CONFIGURATION);
 
     // Initialisation de la sensibilité du MPU6050
     string rangeAcc = ini.GetValue("MPU6050", "rangeAcc", "FS_2G");

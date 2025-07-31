@@ -1,39 +1,44 @@
+# Makefile
+
 # Nom du compilateur
-CC = gcc
+CXX = g++
 
-# Drapeaux de compilation
-CFLAGS = -Wall -Wextra -Werror -O2
+# Options de compilation
+CXXFLAGS = -Wall -O2 -std=c++11
 
-# Drapeaux de liaison pour wiringPi
+# Options d'édition de liens
 LDFLAGS = -lwiringPi
+
+# Fichiers source
+SOURCES = stop.cpp GestionFile.cpp
+
+# Fichiers objets
+OBJECTS = $(SOURCES:.cpp=.o)
 
 # Nom de l'exécutable
 TARGET = stop
 
-# Fichiers sources
-SRCS = stop.c
-
-# Fichiers objets
-OBJS = $(SRCS:.c=.o)
-
-# Règle par défaut : compile et lie
+# Règle par défaut
 all: $(TARGET)
 
 # Règle pour créer l'exécutable
-$(TARGET): $(OBJS)
-	$(CC) $(CFLAGS) -o $@ $^ $(LDFLAGS)
+$(TARGET): $(OBJECTS)
+	$(CXX) $(OBJECTS) -o $(TARGET) $(LDFLAGS)
 
-# Règle pour compiler les fichiers objets
-%.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+# Règle pour créer les fichiers objets
+%.o: %.cpp
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
-# Règle pour nettoyer les fichiers objets et l'exécutable
+# Règle pour nettoyer les fichiers générés
 clean:
-	rm -f $(OBJS) $(TARGET)
+	rm -f $(OBJECTS) $(TARGET)
 
-# Règle pour tout nettoyer y compris les fichiers temporaires
+# Règle pour tout nettoyer (y compris les fichiers temporaires)
 distclean: clean
 	rm -f *~
 
-# Indique à make que ces règles ne sont pas des fichiers réels
-.PHONY: all clean distclean
+# Règle pour exécuter le programme
+run: $(TARGET)
+	./$(TARGET)
+
+.PHONY: all clean distclean run
