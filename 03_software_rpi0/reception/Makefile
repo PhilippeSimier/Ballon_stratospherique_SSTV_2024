@@ -10,7 +10,7 @@ CXXFLAGS = -Wall -O2 -std=c++11
 LDFLAGS = -lwiringPi
 
 # Fichiers source
-SOURCES = reception.cpp GestionFile.cpp
+SOURCES = reception.cpp GestionFile.cpp APRSFrame.cpp
 
 # Fichiers objets
 OBJECTS = $(SOURCES:.cpp=.o)
