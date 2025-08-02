@@ -21,7 +21,7 @@ public:
     Camera(const Camera& orig);
     virtual ~Camera();
     
-    static void envoyerPhoto(const unsigned long frequence = 28680000);
+    static void envoyerPhoto(const unsigned long frequence, const std::string annotation);
     void enregistrerPhoto(const std::string annotation);
 
 private:

@@ -10,7 +10,7 @@ CXXFLAGS = -Wall -O2 -std=c++11
 LDFLAGS = -lwiringPi -lpthread
 
 # Fichiers source
-SOURCES = main.cpp i2c.cpp Camera.cpp bme280.cpp GpioOut.cpp
+SOURCES = sstv.cpp  Camera.cpp  GpioOut.cpp SimpleIni.cpp
 
 # Fichiers objets
 OBJECTS = $(SOURCES:.cpp=.o)
