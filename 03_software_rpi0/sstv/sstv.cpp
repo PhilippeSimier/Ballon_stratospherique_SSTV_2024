@@ -1,6 +1,6 @@
 /*
  * File:   main.cpp
- * Author: philippe SIMIER
+ * Author: philippe SIMIER (F4JRE)
  *
  * Created on 14 mars 2024, 17:13
  * compilation make all
@@ -29,7 +29,7 @@ GpioOut ptt(6);  // Commande Push To Talk
 int main(int argc, char** argv) {
 
 
-    Camera camera;
+
     SimpleIni ini;
 
     ini.Load(CONFIGURATION);
@@ -37,6 +37,7 @@ int main(int argc, char** argv) {
     string indicatif = ini.GetValue("aprs", "indicatif", "F4ABC");
 
     cout << "sstv freq = " << freq << " ssid = " << indicatif << endl;
+    Camera camera(freq, indicatif);
 
     while (true) {
 
@@ -47,8 +48,7 @@ int main(int argc, char** argv) {
 
         if (tmMaintenant.tm_sec == 30) {
 
-            camera.enregistrerPhoto(indicatif);
-
+            camera.enregistrerPhoto();
             this_thread::sleep_for(chrono::seconds(1));
 
         }
@@ -56,13 +56,11 @@ int main(int argc, char** argv) {
 
             // Appeler la methode envoyer photo en SSTV
             ptt.setOn(); // active l'ampli
-            Camera::envoyerPhoto(freq, indicatif );
+            camera.envoyerPhoto();
             this_thread::sleep_for(chrono::seconds(1));
             ptt.setOff(); // désactive l'ampli
 
         }
-
-
     }
 
     return 0;

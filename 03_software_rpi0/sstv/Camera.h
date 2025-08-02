@@ -17,14 +17,16 @@
 class Camera {
 public:
     
-    Camera();
+    Camera(const unsigned long _frequence, const std::string _indicatif);
     Camera(const Camera& orig);
     virtual ~Camera();
     
-    static void envoyerPhoto(const unsigned long frequence, const std::string annotation);
-    void enregistrerPhoto(const std::string annotation);
+    void envoyerPhoto();
+    void enregistrerPhoto();
 
 private:
+    unsigned long frequence;
+    const std::string indicatif;
     int i;
 
 };
