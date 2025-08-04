@@ -12,6 +12,7 @@ void repondre(std::string requete, std::string source);
 
 GestionFile fileRX;
 GestionFile fileTX;
+MessageRX message;
 int idMessage = 1;
 
 int main() {
@@ -19,16 +20,14 @@ int main() {
         // Initialisation des files IPC
 
         fileRX.obtenirFileIPC(5678);
-        fileTX.obtenirFileIPC(5679);
-
-        MessageRX message;
+        fileTX.obtenirFileIPC(5679);      
         APRSFrame frame;
 
         while (true) {
             message = fileRX.lireDansLaFileIPC(2);
-            std::string raw(message.text);
-            frame.setRaw(raw.substr(3));
-            frame.print();
+            std::string raw(message.text);           
+            frame.setRaw(raw.substr(3));    // retire les 3 premiers caractères
+            cout << get_local_datetime() << " received " << APRSFrame::typeToString(frame.getFrameType()) << '\t' << raw << endl;  // pour log
             if (frame.getFrameType() == APRSFrame::FrameType::Message && frame.getAddressee()=="F4JRE-5") {
                 repondre(frame.getMessage(), frame.getSource());
             }
@@ -58,18 +57,24 @@ void repondre(std::string requete, std::string source) {
     os << ":" << source << ":";
 
     if (requete.find("QTR?") != std::string::npos){
-        os << get_local_datetime() << '{' << idMessage;
+        os << "QTR " << get_local_datetime() << '{' << idMessage;
         ok = true;
     }
 
     if (requete.find("QRZ?") != std::string::npos){
-        os << "Ballon Touchard Le Mans" << '{' << idMessage;
+        os << "QRZ Ballon Touchard Le Mans" << '{' << idMessage;
+        ok = true;
+    }
+
+    if (requete.find("QSA?") != std::string::npos){
+        os << "QSA RSSI = " << message.RSSI << "dBm SNR = " << message.SNR << "dB";
+        os << '{' << idMessage;
         ok = true;
     }
 
     if (ok){
         fileTX.ecrireDansLaFileIPC(os.str());
-        std::cout << "Réponse : " << os.str() << std::endl;
+        std::cout << get_local_datetime() << " send     Message\t" << os.str() << std::endl;
         ++idMessage;
     }
 
@@ -78,9 +83,8 @@ void repondre(std::string requete, std::string source) {
 
 std::string get_local_datetime() {
     std::time_t now = std::time(nullptr);
-    char buffer[64];
-    // Format : Jour-Mois-Année Heure:Minute:Seconde
+    char buffer[20];
     std::strftime(buffer, sizeof(buffer), "%d/%m/%Y %H:%M:%S", std::localtime(&now));
-    return std::string("QTR : ") + buffer;
+    return std::string(buffer);
 }
 
