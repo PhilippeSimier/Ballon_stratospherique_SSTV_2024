@@ -22,6 +22,7 @@ public:
     virtual ~Camera();
     
     void envoyerPhoto();
+    void envoyerMire();
     void enregistrerPhoto();
 
 private:

@@ -39,12 +39,19 @@ int main(int argc, char** argv) {
     cout << "sstv freq = " << freq << " ssid = " << indicatif << endl;
     Camera camera(freq, indicatif);
 
+    for (int i=0; i < 10; i++){
+        cout << "mire : " << i << endl;
+        camera.envoyerMire();
+        this_thread::sleep_for(chrono::seconds(60));
+
+    }
+
     while (true) {
 
         // Obtenir l'heure actuelle
         auto maintenant = chrono::system_clock::now();
         auto tempsActuel = chrono::system_clock::to_time_t(maintenant);
-        auto tmMaintenant = *localtime(&tempsActuel);
+        auto tmMaintenant = *localtime(&tempsActuel); 
 
         if (tmMaintenant.tm_sec == 30) {
 
