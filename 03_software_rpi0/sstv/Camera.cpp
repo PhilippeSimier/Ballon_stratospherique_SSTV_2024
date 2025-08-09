@@ -12,6 +12,21 @@ Camera::Camera(const unsigned long _frequence, const std::string _indicatif):
     indicatif(_indicatif),
     i(0)
 {
+    // Copie de la mire avec l'indicatif dans ramfs
+    std::ostringstream commande;
+    commande << "convert -pointsize 12 -fill white -box black -draw \"text 125,32 '" << indicatif;
+    commande << "'\" /home/ballon/sstv/mire_320_256.jpg /ramfs/mire.jpg";
+    system(commande.str().c_str());
+
+    float fMHz = frequence / 1000000.0;
+
+    commande.str(""); commande.clear();
+    commande << "mogrify -pointsize 12 -fill white -undercolor black -gravity northwest ";
+    commande << "-annotate +125+201 '" << std::setfill('0') << std::fixed << std::setprecision(3) << fMHz << " MHz' /ramfs/mire.jpg";
+    system(commande.str().c_str());
+
+    // Convertion en RGB 8 bits
+    system("convert -depth 8 /ramfs/mire.jpg /ramfs/mireRGB.rgb");
 }
 
 Camera::Camera(const Camera& orig) {
@@ -26,48 +41,47 @@ void Camera::envoyerPhoto(){
     system("libcamera-still --width 320 --height 256 -o /ramfs/photo.jpg");
 
     // add texte & date
-    std::ostringstream commande_convert;
-    commande_convert << "convert -pointsize 20 -box white -draw \"text 10,20 '" << indicatif;
-    commande_convert << "  `date +\"%d/%m/%Y %T\"`'\" /ramfs/photo.jpg /ramfs/photo_date.jpg";
-    system(commande_convert.str().c_str());
+    std::ostringstream commande;
+    commande << "convert -pointsize 20 -box white -draw \"text 10,20 '" << indicatif;
+    commande << "  `date +\"%d/%m/%Y %T\"`'\" /ramfs/photo.jpg /ramfs/photo_date.jpg";
+    system(commande.str().c_str());
 
     // Convertion en RGB 8 bits
-    system(R"(convert -depth 8 /ramfs/photo_date.jpg /ramfs/photo_date.rgb)");
+    system("convert -depth 8 /ramfs/photo_date.jpg /ramfs/photo_date.rgb");
 
     // Emission SSTV
-    std::ostringstream commande_rpitx;
-    commande_rpitx << "/home/ballon/sstv/pisstv /ramfs/photo_date.rgb ";
-    commande_rpitx << frequence;
-    system(commande_rpitx.str().c_str());
+    commande.str(""); commande.clear();
+    commande << "/home/ballon/sstv/pisstv /ramfs/photo_date.rgb ";
+    commande << frequence;
+    system(commande.str().c_str());
 }
 
 void Camera::envoyerMire(){
-    // Convertion en RGB 8 bits
-    system(R"(convert -depth 8 /home/ballon/sstv/mire_320_256.jpg /ramfs/mire.rgb)");
 
     // Emission SSTV
-    std::ostringstream commande_rpitx;
-    commande_rpitx << "/home/ballon/sstv/pisstv /ramfs/mire.rgb ";
-    commande_rpitx << frequence;
-    system(commande_rpitx.str().c_str());
+    std::ostringstream commande;
+    commande << "/home/ballon/sstv/pisstv /ramfs/mireRGB.rgb ";
+    commande << frequence;
+    system(commande.str().c_str());
 
 }
 
 void Camera::enregistrerPhoto(){
     
-    std::ostringstream commande_still;
-    commande_still << "libcamera-still --width 2304 --height 1296 -o /home/ballon/photos/photo_";
-    commande_still << std::setw(3) << std::setfill('0') << i << ".jpg ";
-    system(commande_still.str().c_str());
+    std::ostringstream commande;
+    commande << "libcamera-still --width 2304 --height 1296 -o /home/ballon/photos/photo_";
+    commande << std::setw(3) << std::setfill('0') << i << ".jpg ";
+    system(commande.str().c_str());
     
-    std::ostringstream commande_convert;
-    commande_convert << "convert -pointsize 80 -box white -draw \"text 10,80 '"<< indicatif << "  `date +\"%d/%m/%Y %T\"` ";
-    commande_convert << "' \" ";
-    commande_convert << "/home/ballon/photos/photo_";
-    commande_convert << std::setw(3) << std::setfill('0') << i << ".jpg ";
-    commande_convert << "/home/ballon/photos/photo_";
-    commande_convert << std::setw(3) << std::setfill('0') << i << ".jpg ";
-    system(commande_convert.str().c_str());
+
+    commande.str(""); commande.clear();
+    commande << "convert -pointsize 80 -box white -draw \"text 10,80 '"<< indicatif << "  `date +\"%d/%m/%Y %T\"` ";
+    commande << "' \" ";
+    commande << "/home/ballon/photos/photo_";
+    commande << std::setw(3) << std::setfill('0') << i << ".jpg ";
+    commande << "/home/ballon/photos/photo_";
+    commande << std::setw(3) << std::setfill('0') << i << ".jpg ";
+    system(commande.str().c_str());
     i++;
     
 }
