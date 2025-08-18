@@ -4,7 +4,7 @@
 CXX = g++
 
 # Options de compilation
-CXXFLAGS = -Wall -O2 -std=c++11
+CXXFLAGS = -Wall -O2 -std=c++17
 
 # Options d'édition de liens
 LDFLAGS = -lwiringPi -lpthread

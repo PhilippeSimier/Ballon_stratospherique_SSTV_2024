@@ -12,6 +12,7 @@
 #include <stdlib.h>
 #include <signal.h>
 #include <iostream>
+#include <filesystem>
 #include <unistd.h>
 #include <chrono>
 #include <thread>
@@ -22,13 +23,14 @@
 #define CONFIGURATION "/home/ballon/configuration.ini"
 using namespace std;
 
-
-
 GpioOut ptt(6);  // Commande Push To Talk
 
 int main(int argc, char** argv) {
 
-
+    if (geteuid() != 0) {
+        std::cerr << "Ce programme doit être lancé en tant que root." << std::endl;
+        return 1;
+    }
 
     SimpleIni ini;
 
@@ -38,20 +40,21 @@ int main(int argc, char** argv) {
 
     cout << "sstv freq = " << freq << " ssid = " << indicatif << endl;
     Camera camera(freq, indicatif);
-
-    for (int i=0; i < 10; i++){
-        cout << "mire : " << i << endl;
-        camera.envoyerMire();
-        this_thread::sleep_for(chrono::seconds(60));
-
-    }
+    int i = 1;
 
     while (true) {
 
         // Obtenir l'heure actuelle
         auto maintenant = chrono::system_clock::now();
         auto tempsActuel = chrono::system_clock::to_time_t(maintenant);
-        auto tmMaintenant = *localtime(&tempsActuel); 
+        auto tmMaintenant = *localtime(&tempsActuel);
+
+        if (std::filesystem::exists("/ramfs/mire")) {
+            cout << "mire : " << i++ << endl;
+            camera.envoyerMire();
+            this_thread::sleep_for(chrono::seconds(60));
+
+        }
 
         if (tmMaintenant.tm_sec == 30) {
 
