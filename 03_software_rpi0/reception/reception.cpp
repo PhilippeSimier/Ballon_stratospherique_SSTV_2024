@@ -2,17 +2,24 @@
 #include <string>
 #include <thread>
 #include <sstream>
+#include <fstream>
+#include <filesystem>
+#include "SimpleIni.h"
 #include "GestionFile.h"
 #include "APRSFrame.h"
 
+#define CONFIGURATION "/home/ballon/configuration.ini"
 using namespace std;
 
 std::string get_local_datetime();
 void repondre(std::string requete, std::string source);
+void touch(const std::string& chemin);
 
 GestionFile fileRX;
 GestionFile fileTX;
 MessageRX message;
+SimpleIni ini;
+
 int idMessage = 1;
 
 int main() {
@@ -20,31 +27,33 @@ int main() {
         // Initialisation des files IPC
 
         fileRX.obtenirFileIPC(5678);
-        fileTX.obtenirFileIPC(5679);      
+        fileTX.obtenirFileIPC(5679);
         APRSFrame frame;
+        ini.Load(CONFIGURATION);
+        string indicatif = ini.GetValue("aprs", "indicatif", "F4ABC");
 
         while (true) {
             message = fileRX.lireDansLaFileIPC(2);
-            std::string raw(message.text);           
+            string raw(message.text);
             frame.setRaw(raw.substr(3));    // retire les 3 premiers caractères
             cout << get_local_datetime() << " received " << APRSFrame::typeToString(frame.getFrameType()) << '\t' << raw << endl;  // pour log
-            if (frame.getFrameType() == APRSFrame::FrameType::Message && frame.getAddressee()=="F4JRE-5") {
+            if (frame.getFrameType() == APRSFrame::FrameType::Message && frame.getAddressee() == indicatif) {
                 repondre(frame.getMessage(), frame.getSource());
             }
 
 
             // Pause de 1000 ms avant de traiter la trame suivante
-            std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+            this_thread::sleep_for(chrono::milliseconds(1000));
         }
     }
-    catch (const std::exception &e) {
-        std::cerr << "Exception attrapée: " << e.what() << std::endl;
+    catch (const exception &e) {
+        cerr << "Exception attrapée: " << e.what() << endl;
     }
 
     return EXIT_SUCCESS;
 }
 
-void repondre(std::string requete, std::string source) {
+void repondre(string requete, string source) {
 
     bool ok = false;
     // Ajustement de l'indicatif source sur exactement 9 caractères
@@ -53,38 +62,62 @@ void repondre(std::string requete, std::string source) {
     else if (source.size() > 9)
         source.resize(9);
 
-    std::ostringstream os;
+    ostringstream os;
     os << ":" << source << ":";
 
-    if (requete.find("QTR?") != std::string::npos){
+    if (requete.find("QTR?") != string::npos){
         os << "QTR " << get_local_datetime() << '{' << idMessage;
         ok = true;
     }
 
-    if (requete.find("QRZ?") != std::string::npos){
+    if (requete.find("QRZ?") != string::npos){
         os << "QRZ Ballon Touchard Le Mans" << '{' << idMessage;
         ok = true;
     }
 
-    if (requete.find("QSA?") != std::string::npos){
+    if (requete.find("QSA?") != string::npos){
         os << "QSA RSSI = " << message.RSSI << "dBm SNR = " << message.SNR << "dB";
         os << '{' << idMessage;
         ok = true;
     }
 
-    if (ok){
-        fileTX.ecrireDansLaFileIPC(os.str());
-        std::cout << get_local_datetime() << " send     Message\t" << os.str() << std::endl;
-        ++idMessage;
+    if (requete.find("MIRE") != string::npos){
+        touch("/ramfs/mire");   // création d'un fichier mire dans ramfs
+        os << "Mire = ON" << '{' << idMessage;
+        ok = true;
     }
 
+    if (requete.find("PHOTO") != string::npos){
+        if (remove("/ramfs/mire") == 0) {   // suppression du fichier mire
+            os << "Mire = OFF" << '{' << idMessage;
+            ok = true;
+        }
+    }
 
+    if (ok){
+        fileTX.ecrireDansLaFileIPC(os.str());
+        cout << get_local_datetime() << " send     Message\t" << os.str() << endl;
+        ++idMessage;
+    }
 }
 
-std::string get_local_datetime() {
-    std::time_t now = std::time(nullptr);
+string get_local_datetime() {
+    time_t now = time(nullptr);
     char buffer[20];
-    std::strftime(buffer, sizeof(buffer), "%d/%m/%Y %H:%M:%S", std::localtime(&now));
-    return std::string(buffer);
+    strftime(buffer, sizeof(buffer), "%d/%m/%Y %H:%M:%S", localtime(&now));
+    return string(buffer);
 }
+
+void touch(const string& chemin) {
+
+    if (!filesystem::exists(chemin)) {
+        // Crée un fichier vide
+        ofstream(chemin).close();
+    } else {
+        // Met à jour la date de modification
+        auto maintenant = filesystem::file_time_type::clock::now();
+        filesystem::last_write_time(chemin, maintenant);
+    }
+}
+
 
