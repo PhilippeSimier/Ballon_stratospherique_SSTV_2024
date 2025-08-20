@@ -4,13 +4,13 @@
 CXX = g++
 
 # Options de compilation
-CXXFLAGS = -Wall -O2 -std=c++11
+CXXFLAGS = -Wall -O2 -std=c++17
 
 # Options d'édition de liens
 LDFLAGS = -lwiringPi
 
 # Fichiers source
-SOURCES = reception.cpp GestionFile.cpp APRSFrame.cpp
+SOURCES = reception.cpp GestionFile.cpp APRSFrame.cpp SimpleIni.cpp
 
 # Fichiers objets
 OBJECTS = $(SOURCES:.cpp=.o)
