@@ -13,6 +13,7 @@ using namespace std;
 
 std::string get_local_datetime();
 void repondre(std::string requete, std::string source);
+int savePosition(const double latitude, const double longitude, const double altitude);
 void touch(const std::string& chemin);
 
 GestionFile fileRX;
@@ -36,14 +37,18 @@ int main() {
             message = fileRX.lireDansLaFileIPC(2);
             string raw(message.text);
             frame.setRaw(raw.substr(3));    // retire les 3 premiers caractères
-            cout << get_local_datetime() << " received " << APRSFrame::typeToString(frame.getFrameType()) << '\t' << raw << endl;  // pour log
+            cout << get_local_datetime() << " received " << APRSFrame::typeToString(frame.getFrameType()) << '\t' << raw.substr(3) << endl;  // pour log
             if (frame.getFrameType() == APRSFrame::FrameType::Message && frame.getAddressee() == indicatif) {
                 repondre(frame.getMessage(), frame.getSource());
             }
+            // si la trame est une position reçue du tracker interne
+            if (frame.getFrameType() == APRSFrame::FrameType::Position && frame.getSource() == indicatif) {
+                savePosition(frame.getLatitude(), frame.getLongitude(), frame.getAltitude());
+            }
 
 
-            // Pause de 1000 ms avant de traiter la trame suivante
-            this_thread::sleep_for(chrono::milliseconds(1000));
+            // Pause de 100 ms avant de traiter la trame suivante
+            this_thread::sleep_for(chrono::milliseconds(100));
         }
     }
     catch (const exception &e) {
@@ -118,6 +123,22 @@ void touch(const string& chemin) {
         auto maintenant = filesystem::file_time_type::clock::now();
         filesystem::last_write_time(chemin, maintenant);
     }
+}
+
+int savePosition(const double latitude, const double longitude, const double altitude){
+
+    std::ofstream fichier("/ramfs/position.txt"); // ouvre (ou crée) le fichier
+
+    if (!fichier) {
+        std::cerr << "Erreur d'ouverture du fichier !" << std::endl;
+        return 1;
+    }
+
+    // Écrire les trois valeurs séparées par un espace
+    fichier << latitude << " " << longitude << " " << altitude << std::endl;
+
+    fichier.close();
+    return 0;
 }
 
 

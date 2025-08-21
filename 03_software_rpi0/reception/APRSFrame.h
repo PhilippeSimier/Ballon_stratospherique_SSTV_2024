@@ -9,7 +9,9 @@
 #define APRSFRAME_H
 
 #include <iostream>
+#include <iomanip>
 #include <string>
+#include <map>
 
 class APRSFrame {
 public:
@@ -37,7 +39,9 @@ public:
     std::string getMessage() const; 
     
     double getLatitude() const;
-    double getLongitude() const; 
+    double getLongitude() const;
+    double getAltitude() const;
+    std::string getSymbolDescription() const;
     
     FrameType getFrameType() const; 
     
@@ -64,6 +68,12 @@ private:
     double latitude = 0.0;   
     double longitude = 0.0;  
     bool hasPosition = false; 
+    char symbolTable = ' ';  
+    char symbolCode = ' ';  
+    int altitudeFeet = -1;        // Altitude en pieds -1 si absente
+    double altitudeMetre = 0.0;
+    bool hasAltitude = false; // ALTITUDE
+    
 
 };
 

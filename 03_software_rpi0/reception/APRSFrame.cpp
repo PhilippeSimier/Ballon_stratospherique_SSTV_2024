@@ -94,17 +94,23 @@ void APRSFrame::print() const {
     std::cout << "Destination: " << destination << "\n";
     std::cout << "Path: " << path << "\n";
     std::cout << "Type de trame : " << typeToString(type) << "\n";
-    
+
     if (type == FrameType::Message) {
         std::cout << "Addressee: " << addressee << "\n";
         std::cout << "Message: " << message << "\n";
     }
-    
+
     if (type == FrameType::Position && hasPosition) {
         std::cout << "latitude: " << latitude << "\n";
         std::cout << "longitude: " << longitude << "\n";
+        std::cout << "Symbole APRS : " << symbolTable << symbolCode << " → " << getSymbolDescription() << std::endl;
+        if (hasAltitude) {
+            std::cout << "Altitude: " << altitudeFeet << " ft (" << std::fixed  << std::setprecision(1) << altitudeMetre  << " m)\n";
+        }
     }
-    
+
+
+
     std::cout << "\n";
 }
 
@@ -147,14 +153,20 @@ APRSFrame::FrameType APRSFrame::getFrameType() const {
 double APRSFrame::getLatitude() const {
     return latitude;
 }
-    
+
 double APRSFrame::getLongitude() const {
     return longitude;
 }
 
+double APRSFrame::getAltitude() const {
+    return altitudeMetre;
+}
+
 void APRSFrame::parsePosition(std::string payload) {
-    
+
     hasPosition = false;
+    hasAltitude = false;
+
     if (payload.length() < 19) return; // trop court
 
     std::string lat_str = payload.substr(1, 8); // 8 caractères : ddmm.mmN
@@ -164,8 +176,21 @@ void APRSFrame::parsePosition(std::string payload) {
         latitude = parseCoordinate(lat_str, lat_str.back());
         longitude = parseCoordinate(lon_str, lon_str.back());
         hasPosition = true;
+        symbolTable = payload[9]; // SYMBOL overlay
+        symbolCode = payload[19];
+
+        // ALTITUDE: chercher "/A="
+        size_t alt_pos = payload.find("/A=");
+        if (alt_pos != std::string::npos && alt_pos + 6 < payload.size()) {
+            std::string alt_str = payload.substr(alt_pos + 3, 6);
+            altitudeFeet = std::stoi(alt_str);
+            altitudeMetre = altitudeFeet * 0.3048; // conversion en m
+            hasAltitude = true;
+        }
+
     } catch (...) {
         hasPosition = false;
+        hasAltitude = false;
     }
 
 }
@@ -183,9 +208,34 @@ double APRSFrame::parseCoordinate(const std::string& coord, char direction) {
     return decimal;
 }
 
+std::string APRSFrame::getSymbolDescription() const {
+
+    static const std::map<char, std::string> symbolMap = {
+        {'>', "Voiture"},
+        {'<', "Moto"},
+        {'O', "Ballon sonde"},
+        {'_', "Station météo"},
+        {'\\', "Inconnu (table alternative)"},
+        {'-', "Maison / QTH"},
+        {'*', "Digipeater"},
+        {'[', "iGate"},
+        {'K', "Camion / utilitaire"},
+        {'[', "iGate"},
+        {'Y', "Bateau"},
+        {'V', "Voiture de secours"},
+    };
+
+    auto it = symbolMap.find(symbolCode);
+    if (it != symbolMap.end())
+        return it->second;
+    else
+        return "Symbole inconnu";
+}
+
 // Fonction utilitaire pour supprimer les espaces en fin de chaîne
+
 void APRSFrame::rtrim(std::string &s) {
-    while (!s.empty() && std::isspace(static_cast<unsigned char>(s.back()))) {
+    while (!s.empty() && std::isspace(static_cast<unsigned char> (s.back()))) {
         s.pop_back();
     }
 }
