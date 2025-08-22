@@ -15,6 +15,7 @@ std::string get_local_datetime();
 void repondre(std::string requete, std::string source);
 int savePosition(const double latitude, const double longitude, const double altitude);
 void touch(const std::string& chemin);
+bool isLoRaHeader(const std::string& frame);
 
 GestionFile fileRX;
 GestionFile fileTX;
@@ -36,16 +37,18 @@ int main() {
         while (true) {
             message = fileRX.lireDansLaFileIPC(2);
             string raw(message.text);
-            frame.setRaw(raw.substr(3));    // retire les 3 premiers caractères
-            cout << get_local_datetime() << " received " << APRSFrame::typeToString(frame.getFrameType()) << '\t' << raw.substr(3) << endl;  // pour log
-            if (frame.getFrameType() == APRSFrame::FrameType::Message && frame.getAddressee() == indicatif) {
-                repondre(frame.getMessage(), frame.getSource());
-            }
-            // si la trame est une position reçue du tracker interne
-            if (frame.getFrameType() == APRSFrame::FrameType::Position && frame.getSource() == indicatif) {
-                savePosition(frame.getLatitude(), frame.getLongitude(), frame.getAltitude());
-            }
 
+            if (isLoRaHeader(raw)) {
+                frame.setRaw(raw.substr(3));    // retire les 3 premiers caractères
+                cout << get_local_datetime() << " received " << APRSFrame::typeToString(frame.getFrameType()) << '\t' << raw.substr(3) << endl;  // pour log
+                if (frame.getFrameType() == APRSFrame::FrameType::Message && frame.getAddressee() == indicatif) {
+                    repondre(frame.getMessage(), frame.getSource());
+                }
+                // si la trame est une position reçue du tracker interne
+                if (frame.getFrameType() == APRSFrame::FrameType::Position && frame.getSource() == indicatif) {
+                    savePosition(frame.getLatitude(), frame.getLongitude(), frame.getAltitude());
+                }
+            }
 
             // Pause de 100 ms avant de traiter la trame suivante
             this_thread::sleep_for(chrono::milliseconds(100));
@@ -135,10 +138,20 @@ int savePosition(const double latitude, const double longitude, const double alt
     }
 
     // Écrire les trois valeurs séparées par un espace
-    fichier << latitude << " " << longitude << " " << altitude << std::endl;
+    fichier << fixed << setprecision(5);
+    fichier << latitude << " " << longitude << " " << setprecision(1) << altitude << std::endl;
 
     fichier.close();
     return 0;
+}
+
+bool isLoRaHeader(const std::string& frame) {
+    // Vérifier qu'il y a au moins 3 octets
+    if (frame.size() < 3) return false;
+
+    return (static_cast<unsigned char>(frame[0]) == 0x3C &&  // '<'
+            static_cast<unsigned char>(frame[1]) == 0xFF &&
+            static_cast<unsigned char>(frame[2]) == 0x01);
 }
 
 

@@ -62,7 +62,7 @@ void APRSFrame::parse() {
     if (!payload.empty()) {
         char c = payload[0];
         if (c == '!' || c == '=' || c == '/' || c == '@') {
-            
+
             if (isCompressed(payload)) {
                 type = FrameType::CompressedPosition;
                 parseCompressedPosition(payload);
@@ -74,23 +74,26 @@ void APRSFrame::parse() {
         } else if (c == '>') {
             type = FrameType::Status;
 
+        } else if (c == '_') {
+            type = FrameType::Weather;
+
         } else if (payload.rfind("T#", 0) == 0) { // commence par "T#"
             type = FrameType::Telemetry;
 
         } else if (c == ':' && payload[10] == ':') {
+            
             type = FrameType::Message;
+            addressee = payload.substr(1, 9);
+            rtrim(addressee);
+            message = payload.substr(11);
+            rtrim(message);
+
         } else {
             type = FrameType::Unknown;
         }
     }
 
-    // Message frame format ::addressee:message
-    if (type == FrameType::Message) {
-        addressee = payload.substr(1, 9);
-        rtrim(addressee);
-        message = payload.substr(11);
-        rtrim(message);
-    }
+    
 
 }
 
@@ -106,7 +109,7 @@ void APRSFrame::print() const {
         std::cout << "Message       : " << message << "\n";
     }
 
-    if ( hasPosition) {
+    if (hasPosition) {
         std::cout << "Symbole APRS  : " << symbolTable << symbolCode << " → " << getSymbolDescription() << std::endl;
         std::cout << std::setprecision(5);
         std::cout << "Latitude      : " << latitude << "\n";
@@ -210,16 +213,16 @@ void APRSFrame::parseUncompressedPosition(std::string payload) {
  */
 bool APRSFrame::isCompressed(const std::string& payload) {
 
-    return (payload.size() >= 13 && !std::isdigit(static_cast<unsigned char>(payload[1])));
+    return (payload.size() >= 13 && !std::isdigit(static_cast<unsigned char> (payload[1])));
 
 
 }
 
 void APRSFrame::parseCompressedPosition(std::string payload) {
-    
+
     hasPosition = false;
     hasAltitude = false;
-    
+
     symbolTable = payload[1];
     std::string lat_str = payload.substr(2, 4);
     std::string lon_str = payload.substr(6, 4);
