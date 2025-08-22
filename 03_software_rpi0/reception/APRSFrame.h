@@ -12,6 +12,7 @@
 #include <iomanip>
 #include <string>
 #include <map>
+#include <cctype>  // pour std::isdigit
 
 class APRSFrame {
 public:
@@ -19,6 +20,7 @@ public:
     enum class FrameType {
         Message,
         Position,
+        CompressedPosition,
         Status,
         Telemetry,
         Weather,
@@ -51,11 +53,15 @@ public:
     static std::string typeToString(FrameType type);
     static double parseCoordinate(const std::string& coord, char direction);
     static void rtrim(std::string &s);
+    static long base91ToDecimal(const std::string& str);
+    
 
 private:
     void parse();
-    void parsePosition(std::string payload);
-
+    void parseUncompressedPosition(std::string payload);
+    bool isCompressed(const std::string& payload);
+    void parseCompressedPosition(std::string payload);
+    
     std::string rawFrame;
     FrameType type;
     std::string source;

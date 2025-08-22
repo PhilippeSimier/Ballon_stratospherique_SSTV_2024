@@ -62,8 +62,14 @@ void APRSFrame::parse() {
     if (!payload.empty()) {
         char c = payload[0];
         if (c == '!' || c == '=' || c == '/' || c == '@') {
-            type = FrameType::Position;
-            parsePosition(payload);
+            
+            if (isCompressed(payload)) {
+                type = FrameType::CompressedPosition;
+                parseCompressedPosition(payload);
+            } else {
+                type = FrameType::Position;
+                parseUncompressedPosition(payload);
+            }
 
         } else if (c == '>') {
             type = FrameType::Status;
@@ -89,27 +95,27 @@ void APRSFrame::parse() {
 }
 
 void APRSFrame::print() const {
-    std::cout << "Raw: " << rawFrame << "\n";
-    std::cout << "Source: " << source << "\n";
-    std::cout << "Destination: " << destination << "\n";
-    std::cout << "Path: " << path << "\n";
+    std::cout << "Raw : " << rawFrame << "\n";
+    std::cout << "Source        : " << source << "\n";
+    std::cout << "Destination   : " << destination << "\n";
+    std::cout << "Path          : " << path << "\n";
     std::cout << "Type de trame : " << typeToString(type) << "\n";
 
     if (type == FrameType::Message) {
-        std::cout << "Addressee: " << addressee << "\n";
-        std::cout << "Message: " << message << "\n";
+        std::cout << "Addressee     : " << addressee << "\n";
+        std::cout << "Message       : " << message << "\n";
     }
 
-    if (type == FrameType::Position && hasPosition) {
-        std::cout << "latitude: " << latitude << "\n";
-        std::cout << "longitude: " << longitude << "\n";
-        std::cout << "Symbole APRS : " << symbolTable << symbolCode << " → " << getSymbolDescription() << std::endl;
+    if ( hasPosition) {
+        std::cout << "Symbole APRS  : " << symbolTable << symbolCode << " → " << getSymbolDescription() << std::endl;
+        std::cout << std::setprecision(5);
+        std::cout << "Latitude      : " << latitude << "\n";
+        std::cout << "Longitude     : " << longitude << "\n";
+
         if (hasAltitude) {
-            std::cout << "Altitude: " << altitudeFeet << " ft (" << std::fixed  << std::setprecision(1) << altitudeMetre  << " m)\n";
+            std::cout << "Altitude      : " << altitudeFeet << " ft (" << std::fixed << std::setprecision(1) << altitudeMetre << " m)\n";
         }
     }
-
-
 
     std::cout << "\n";
 }
@@ -119,6 +125,7 @@ std::string APRSFrame::typeToString(FrameType type) {
     switch (type) {
         case APRSFrame::FrameType::Message: return "Message";
         case APRSFrame::FrameType::Position: return "Position";
+        case APRSFrame::FrameType::CompressedPosition: return "Compressed Position";
         case APRSFrame::FrameType::Status: return "Status";
         case APRSFrame::FrameType::Telemetry: return "Telemetry";
         case APRSFrame::FrameType::Weather: return "Weather";
@@ -162,7 +169,7 @@ double APRSFrame::getAltitude() const {
     return altitudeMetre;
 }
 
-void APRSFrame::parsePosition(std::string payload) {
+void APRSFrame::parseUncompressedPosition(std::string payload) {
 
     hasPosition = false;
     hasAltitude = false;
@@ -181,7 +188,7 @@ void APRSFrame::parsePosition(std::string payload) {
 
         // ALTITUDE: chercher "/A="
         size_t alt_pos = payload.find("/A=");
-        if (alt_pos != std::string::npos && alt_pos + 6 < payload.size()) {
+        if (alt_pos != std::string::npos && alt_pos + 9 < payload.size()) {
             std::string alt_str = payload.substr(alt_pos + 3, 6);
             altitudeFeet = std::stoi(alt_str);
             altitudeMetre = altitudeFeet * 0.3048; // conversion en m
@@ -192,6 +199,38 @@ void APRSFrame::parsePosition(std::string payload) {
         hasPosition = false;
         hasAltitude = false;
     }
+
+}
+
+/**
+ * Vérifie si une trame position est compressée ou pas
+ * Le caractère qui suit le ! n'est pas un chiffre c'est le symboleTable
+ * @param payload
+ * @return true ou false
+ */
+bool APRSFrame::isCompressed(const std::string& payload) {
+
+    return (payload.size() >= 13 && !std::isdigit(static_cast<unsigned char>(payload[1])));
+
+
+}
+
+void APRSFrame::parseCompressedPosition(std::string payload) {
+    
+    hasPosition = false;
+    hasAltitude = false;
+    
+    symbolTable = payload[1];
+    std::string lat_str = payload.substr(2, 4);
+    std::string lon_str = payload.substr(6, 4);
+    symbolCode = payload[10];
+
+    long lat_val = base91ToDecimal(lat_str);
+    long lon_val = base91ToDecimal(lon_str);
+
+    latitude = 90.0 - (lat_val / 380926.0);
+    longitude = -180.0 + (lon_val / 190463.0);
+    hasPosition = true;
 
 }
 
@@ -209,27 +248,42 @@ double APRSFrame::parseCoordinate(const std::string& coord, char direction) {
 }
 
 std::string APRSFrame::getSymbolDescription() const {
-
-    static const std::map<char, std::string> symbolMap = {
-        {'>', "Voiture"},
-        {'<', "Moto"},
-        {'O', "Ballon sonde"},
-        {'_', "Station météo"},
-        {'\\', "Inconnu (table alternative)"},
-        {'-', "Maison / QTH"},
-        {'*', "Digipeater"},
-        {'[', "iGate"},
-        {'K', "Camion / utilitaire"},
-        {'[', "iGate"},
-        {'Y', "Bateau"},
-        {'V', "Voiture de secours"},
+    static const std::map<std::string, std::string> symbolMap = {
+        {"/>", "Car"},
+        {"/<", "Motorcycle"},
+        {"/b", "Bicycle"},
+        {"/O", "Balloon"},
+        {"/_", "Weather station"},
+        {"/-", "House"},
+        {"/*", "Snowmobile"},
+        {"/[", "Human"},
+        {"/k", "Truck"},
+        {"/r", "Repeater tower"},
+        {"/s", "Ship, power boat"},
+        {"/Y", "Sailboat"},
+        {"/v", "Van"},
+        {"\\O", "Rocket"},
+        {"\\-", "House, HF antenna"},
+        {"\\^", "Aircraft"},
+        {"\\s", "Ship, boat"},
+        {"\\S", "Satellite"},
+        {"L#", "Digipeater, green star + L"},
+        {"La", "Red diamond + L"},
+        {"L_", "Weather site + L"},
+        {"L&", "Gateway station + L"},
+        {"R&", "Gateway station + R"},
+        {"D&", "Gateway station + D"},
     };
 
-    auto it = symbolMap.find(symbolCode);
+    std::string key;
+    key.push_back(symbolTable); // ex: '/' ou '\'
+    key.push_back(symbolCode); // ex: 'O', '>', etc.
+
+    auto it = symbolMap.find(key);
     if (it != symbolMap.end())
         return it->second;
     else
-        return "Symbole inconnu";
+        return "Symbole inconnu (" + key + ")";
 }
 
 // Fonction utilitaire pour supprimer les espaces en fin de chaîne
@@ -238,4 +292,18 @@ void APRSFrame::rtrim(std::string &s) {
     while (!s.empty() && std::isspace(static_cast<unsigned char> (s.back()))) {
         s.pop_back();
     }
+}
+
+/**
+ * Décodeur Base91
+ * @param str
+ * @return  la valeur decimal décodée
+ */
+long APRSFrame::base91ToDecimal(const std::string& str) {
+
+    long value = 0;
+    for (char c : str) {
+        value = value * 91 + (c - 33);
+    }
+    return value;
 }
