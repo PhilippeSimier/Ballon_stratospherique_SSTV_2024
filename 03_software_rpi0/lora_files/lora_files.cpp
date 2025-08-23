@@ -1,5 +1,5 @@
-/* 
- * File:   main.cpp
+/*
+ * File:   lora_files.cpp
  * Author: philippe SIMIER Lycée Touchard Washington
  * 
  * Programme transmission radio LoRa avec la classe SX1278
@@ -23,13 +23,14 @@ using namespace std;
 
 void callback_Rx(char* payload, int rssi, float snr); // user callback function for when a packet is received. 
 void callback_Tx(void); // user callback function for when a packet is transmited.
+std::string get_local_datetime();
 
 GestionFile fileRX(5678);  // Objets pour la gestion de la file des messages reçus key 5678
 GestionFile fileTX(5679);  // file pour les messages emis key 5679
 
 int main(int argc, char** argv) {
 
-    cout << "Start lora_files" << endl;
+    cout << get_local_datetime() << " Start lora_files" << endl;
     SimpleIni ini;  
     Payload payload;
 
@@ -52,18 +53,19 @@ int main(int argc, char** argv) {
         string indicatif = ini.GetValue("aprs", "indicatif", "F4ABC");
         string path = ini.GetValue("aprs", "path", "WIDE1-1");
         string to = ini.GetValue("aprs", "to", "APLPS0");
-        loRa << beginPacket << "<\xff\x01" << indicatif << ">" << to << "," << path << ":";
-        loRa << ":f4kmn    :Ballon Touchard QRV" << endPacket;
+
 
         while (1) {
             payload = fileTX.read(2);
-            loRa << beginPacket << "<\xff\x01" << indicatif << ">" << to << "," << path << ":";
+            loRa << beginPacket << "<\xff\x01" << indicatif << '>' << to << ',' << path << ':';
             loRa << payload.text << endPacket;
-            sleep(1);
+            cout << get_local_datetime() << " send : ";
+            cout << indicatif << '>' << to << ',' << path << ':' << payload.text << endl;
+            this_thread::sleep_for(chrono::milliseconds(2000)); // pause de 2 s
         }
 
     } catch (const std::runtime_error &e) {
-        cout << "Exception caught: " << e.what() << endl;
+        cout << get_local_datetime() << " Exception caught: " << e.what() << endl;
     }
     return 0;
 }
@@ -76,16 +78,27 @@ int main(int argc, char** argv) {
  * @param snr   le rapport signal / bruit
  */
 void callback_Rx(char* payload, int rssi, float snr) {
-    cout << "Rx done : " << payload;
-    cout << " RSSI : " << rssi << "dBm";
-    cout << " SNR  : " << snr << "dB" << endl;
-    fileRX.write(payload, rssi, snr);
-    
+
+    if (std::strlen(payload) < 3) return;  // trop court
+    if (payload[0] == 0x3C && payload[1] == 0xFF && payload[2] == 0x01){
+        payload += 3;  // déplace le pointeur de 3 caractères
+        cout << get_local_datetime() << " Received : " << payload;
+        cout << " RSSI : " << rssi << "dBm";
+        cout << " SNR  : " << snr << "dB" << endl;
+        fileRX.write(payload, rssi, snr);
+    }
 
 }
 
 void callback_Tx(void) {
 
+}
+
+string get_local_datetime() {
+    time_t now = time(nullptr);
+    char buffer[20];
+    strftime(buffer, sizeof(buffer), "%d/%m/%Y %H:%M:%S", localtime(&now));
+    return string(buffer);
 }
 
 
