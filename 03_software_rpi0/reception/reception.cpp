@@ -7,13 +7,13 @@
 #include "SimpleIni.h"
 #include "GestionFile.h"
 #include "APRSFrame.h"
+#include "Position.h"
 
 #define CONFIGURATION "/home/ballon/configuration.ini"
 using namespace std;
 
 std::string get_local_datetime();
 void repondre(std::string requete, std::string source);
-int savePosition(const double latitude, const double longitude, const double altitude);
 void touch(const std::string& chemin);
 
 
@@ -31,8 +31,24 @@ int main() {
         fileRX.obtenirFileIPC(5678);
         fileTX.obtenirFileIPC(5679);
         APRSFrame frame;
+
+
         ini.Load(CONFIGURATION);
         string indicatif = ini.GetValue("aprs", "indicatif", "F4ABC");
+
+        double latitude = ini.GetValue<double>("beacon", "latitude", 48.0);
+        double longitude = ini.GetValue<double>("beacon", "longitude", 0.0);
+        double altitude = ini.GetValue<double>("beacon", "altitude", 1);
+        std::string comment = ini.GetValue<string>("beacon", "comment", "comment default");
+        char symbol_table = ini.GetValue<char>("beacon", "symbol_table", '/');
+        char symbol  = ini.GetValue<char>("beacon", "symbol", 'O');
+
+        Position posBallon(latitude, longitude, altitude, symbol_table, symbol, comment); // icon ballon
+        posBallon.save("/ramfs/position.txt");
+        std::string positionAPRS = posBallon.getPduAprs();
+        fileTX.ecrireDansLaFileIPC(positionAPRS);
+        std::cout << get_local_datetime() << " send     Position\t" << positionAPRS  << std::endl;;
+
 
         // envoie un message pour informer que LoRa est prêt
         fileTX.ecrireDansLaFileIPC(":f4kmn    :Ballon Touchard QRV");
@@ -51,7 +67,8 @@ int main() {
             }
             // si la trame est une position reçue du tracker interne
             if (frame.getFrameType() == APRSFrame::FrameType::Position && frame.getSource() == indicatif) {
-                savePosition(frame.getLatitude(), frame.getLongitude(), frame.getAltitude());
+                posBallon.set(frame.getLatitude(), frame.getLongitude(), frame.getAltitude());
+                posBallon.save("/ramfs/position.txt");
             }
 
 
@@ -133,22 +150,7 @@ void touch(const string& chemin) {
     }
 }
 
-int savePosition(const double latitude, const double longitude, const double altitude){
 
-    std::ofstream fichier("/ramfs/position.txt"); // ouvre (ou crée) le fichier
-
-    if (!fichier) {
-        std::cerr << "Erreur d'ouverture du fichier !" << std::endl;
-        return 1;
-    }
-
-    // Écrire les trois valeurs séparées par un espace
-    fichier << fixed << setprecision(5);
-    fichier << latitude << " " << longitude << " " << setprecision(1) << altitude << std::endl;
-
-    fichier.close();
-    return 0;
-}
 
 
 
