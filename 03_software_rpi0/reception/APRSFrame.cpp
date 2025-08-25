@@ -62,12 +62,10 @@ void APRSFrame::parse() {
     if (!payload.empty()) {
         char c = payload[0];
         if (c == '!' || c == '=' || c == '/' || c == '@') {
-
+            type = FrameType::Position;
             if (isCompressed(payload)) {
-                type = FrameType::CompressedPosition;
                 parseCompressedPosition(payload);
-            } else {
-                type = FrameType::Position;
+            } else {  
                 parseUncompressedPosition(payload);
             }
 
@@ -128,7 +126,6 @@ std::string APRSFrame::typeToString(FrameType type) {
     switch (type) {
         case APRSFrame::FrameType::Message: return "Message";
         case APRSFrame::FrameType::Position: return "Position";
-        case APRSFrame::FrameType::CompressedPosition: return "Compressed Position";
         case APRSFrame::FrameType::Status: return "Status";
         case APRSFrame::FrameType::Telemetry: return "Telemetry";
         case APRSFrame::FrameType::Weather: return "Weather";

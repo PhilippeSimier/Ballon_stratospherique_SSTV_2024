@@ -39,15 +39,15 @@ int main() {
         double latitude = ini.GetValue<double>("beacon", "latitude", 48.0);
         double longitude = ini.GetValue<double>("beacon", "longitude", 0.0);
         double altitude = ini.GetValue<double>("beacon", "altitude", 1);
-        std::string comment = ini.GetValue<string>("beacon", "comment", "comment default");
+        string comment = ini.GetValue<string>("beacon", "comment", "comment default");
         char symbol_table = ini.GetValue<char>("beacon", "symbol_table", '/');
         char symbol  = ini.GetValue<char>("beacon", "symbol", 'O');
 
         Position posBallon(latitude, longitude, altitude, symbol_table, symbol, comment); // icon ballon
         posBallon.save("/ramfs/position.txt");
-        std::string positionAPRS = posBallon.getPduAprs();
+        string positionAPRS = posBallon.getPduAprs(true);
         fileTX.ecrireDansLaFileIPC(positionAPRS);
-        std::cout << get_local_datetime() << " send     Position\t" << positionAPRS  << std::endl;;
+        cout << get_local_datetime() << " send     Position\t" << positionAPRS  << endl;;
 
 
         // envoie un message pour informer que LoRa est prêt
@@ -59,18 +59,24 @@ int main() {
             message = fileRX.lireDansLaFileIPC(2);
             string raw(message.text);
             frame.setRaw(raw);
-            cout << get_local_datetime() << " received " << APRSFrame::typeToString(frame.getFrameType()) << '\t' << raw << endl;  // pour log
 
             // si la trame est un message qui nous est addressé
             if (frame.getFrameType() == APRSFrame::FrameType::Message && frame.getAddressee() == indicatif) {
                 repondre(frame.getMessage(), frame.getSource());
             }
-            // si la trame est une position reçue du tracker interne
-            if (frame.getFrameType() == APRSFrame::FrameType::Position && frame.getSource() == indicatif) {
-                posBallon.set(frame.getLatitude(), frame.getLongitude(), frame.getAltitude());
-                posBallon.save("/ramfs/position.txt");
+            // si la trame est une position
+            if (frame.getFrameType() == APRSFrame::FrameType::Position){
+                // si l'indicatif est celui du ballon
+                if (frame.getSource() == indicatif) {
+                    posBallon.set(frame.getLatitude(), frame.getLongitude(), frame.getAltitude());
+                    posBallon.save("/ramfs/position.txt");
+                } else {
+                    Position pos1(frame.getLatitude(), frame.getLongitude(), frame.getAltitude());
+                    cout << get_local_datetime() << " received Position\t" << frame.getSymbolDescription();
+                    cout << "\t" << frame.getSource() << " Distance = " << posBallon.distanceTo(pos1) / 1000.0 ;
+                    cout << " km" << std::endl;
+                }   
             }
-
 
             // Pause de 100 ms avant de traiter la trame suivante
             this_thread::sleep_for(chrono::milliseconds(100));

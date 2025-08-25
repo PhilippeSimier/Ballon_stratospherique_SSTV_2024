@@ -20,7 +20,6 @@ public:
     enum class FrameType {
         Message,
         Position,
-        CompressedPosition,
         Status,
         Telemetry,
         Weather,
