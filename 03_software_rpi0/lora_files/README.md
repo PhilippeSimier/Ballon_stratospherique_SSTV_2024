@@ -79,30 +79,32 @@ Le programme **lora_files** assure la gestion de l’émission et de la récepti
                             │   requêtes                 │
                             └────────────────────────────┘
 ```
+## 5.Schéma de fonctionnement
+
 ```mermaid
 flowchart TD
 
     subgraph Config
-        A[configuration.ini<br/>(paramètres radio)]
+        A["configuration.ini\n(paramètres radio)"]
     end
 
     subgraph Radio
-        B[Radio LoRa<br/>(RX continu)]
+        B["Radio LoRa\n(RX continu)"]
     end
 
     subgraph Files
-        C[File émission]
-        D[File réception<br/>(trames + RSSI + SNR)]
+        C["File émission"]
+        D["File réception\n(trames + RSSI + SNR)"]
     end
 
     subgraph Emission
-        E[Ajout en-têtes<br/>LoRa + APRS]
-        F[Émission radio]
+        E["Ajout en-têtes\nLoRa + APRS"]
+        F["Émission radio"]
     end
 
     subgraph Reception
-        G[callback_Rx<br/>(vérif. entête LoRa,<br>décapsulation APRS conservé)]
-        H[Processus reception<br/>(traitement & réponses)]
+        G["callback_Rx\n(vérif. en-tête LoRa,\ndécapsulation APRS conservé)"]
+        H["Processus reception\n(traitement & réponses)"]
     end
 
     A --> B
@@ -111,6 +113,7 @@ flowchart TD
 
     C --> E --> F --> B
     D --> G --> H
+
 ```
 # Changelog
 
