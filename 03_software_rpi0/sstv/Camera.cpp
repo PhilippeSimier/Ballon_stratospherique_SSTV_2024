@@ -51,7 +51,7 @@ void Camera::envoyerPhoto(){
 
     // Emission SSTV
     commande.str(""); commande.clear();
-    commande << "/home/ballon/sstv/pisstv /ramfs/photo_date.rgb ";
+    commande << "/home/ballon/rpitx/pisstv/ramfs/photo_date.rgb ";
     commande << frequence;
     system(commande.str().c_str());
 }
@@ -60,7 +60,7 @@ void Camera::envoyerMire(){
 
     // Emission SSTV
     std::ostringstream commande;
-    commande << "/home/ballon/sstv/pisstv /ramfs/mireRGB.rgb ";
+    commande << "/home/ballon/rpitx/pisstv /ramfs/mireRGB.rgb ";
     commande << frequence;
     system(commande.str().c_str());
 
