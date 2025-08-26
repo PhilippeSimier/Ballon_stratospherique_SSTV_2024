@@ -51,7 +51,7 @@ void Camera::envoyerPhoto(){
 
     // Emission SSTV
     commande.str(""); commande.clear();
-    commande << "/home/ballon/rpitx/pisstv/ramfs/photo_date.rgb ";
+    commande << "/home/ballon/rpitx/pisstv /ramfs/photo_date.rgb ";
     commande << frequence;
     system(commande.str().c_str());
 }
