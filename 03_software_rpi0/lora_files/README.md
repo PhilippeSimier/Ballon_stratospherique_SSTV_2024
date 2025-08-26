@@ -25,6 +25,60 @@ Le programme **lora_files** assure la gestion de l’émission et de la récepti
 - La trame ainsi décapsulée, accompagnée du **RSSI** et du **SNR**, est insérée dans la file de réception.  
 - Le traitement de cette file est délégué au processus indépendant **`reception`**, chargé de traiter et de répondre aux requêtes.
 
+## 4. Schéma de fonctionnement
+
+```text
+            ┌───────────────────────────────┐
+            │       configuration.ini       │
+            └──────────────┬────────────────┘
+                           │
+                           ▼
+                ┌──────────────────────┐
+                │  Paramétrage radio   │
+                └─────────┬────────────┘
+                          │
+        ┌─────────────────┼─────────────┐
+        │                               │
+        ▼                               ▼
+┌───────────────────┐          ┌─────────────────────┐
+│ File Émission     │          │ File Réception      │
+│ (messages à Tx)   │          │ (messages Rx)       │
+└───────┬───────────┘          └──────────┬──────────┘
+        │                                 │
+        ▼                                 │
+┌───────────────────┐                     │
+│ Ajout en-têtes    │                     │
+│ LoRa + APRS       │                     │
+└───────┬───────────┘                     │
+        ▼                                 │
+┌───────────────────┐                     │
+│  Radio en Tx      │                     │
+│  → émission       │                     │
+└───────┬───────────┘                     │
+        ▼                                 │
+┌───────────────────┐   Interruption      │
+│  Radio en Rx      │────────────────────▶│
+│  (écoute continue)│   trame reçue       │
+└───────────────────┘                     │
+                                          ▼
+                            ┌────────────────────────────┐
+                            │  callback_Rx               │
+                            │ - vérifie entête LoRa      │
+                            │ - retire entête LoRa       │
+                            │ - conserve entête APRS     │
+                            └───────────┬────────────────┘
+                                        ▼
+                            ┌────────────────────────────┐
+                            │ Ajout trame + RSSI + SNR   │
+                            │ dans file de réception     │
+                            └───────────┬────────────────┘
+                                        ▼
+                            ┌────────────────────────────┐
+                            │   Processus reception      │
+                            │ → traite et répond aux     │
+                            │   requêtes                 │
+                            └────────────────────────────┘
+```
 # Changelog
 
 **25/08/2025** :  Création du README.md 
