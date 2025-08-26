@@ -50,7 +50,7 @@ flowchart TD
     end
 
     subgraph Reception
-        G["callback_Rx\n(vérif. en-tête LoRa,<br/>décapsulation APRS conservé)"]
+        G["callback_Rx<br/>(vérif. en-tête LoRa,<br/>décapsulation APRS conservé)"]
         H["Processus reception<br/>(traitement & réponses)"]
     end
 
