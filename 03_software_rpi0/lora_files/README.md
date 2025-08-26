@@ -25,86 +25,33 @@ Le programme **lora_files** assure la gestion de l’émission et de la récepti
 - La trame ainsi décapsulée, accompagnée du **RSSI** et du **SNR**, est insérée dans la file de réception.  
 - Le traitement de cette file est délégué au processus indépendant **`reception`**, chargé de traiter et de répondre aux requêtes.
 
-## 4. Schéma de fonctionnement
 
-```text
-            ┌───────────────────────────────┐
-            │       configuration.ini       │
-            └──────────────┬────────────────┘
-                           │
-                           ▼
-                ┌──────────────────────┐
-                │  Paramétrage radio   │
-                └─────────┬────────────┘
-                          │
-        ┌─────────────────┼─────────────┐
-        │                               │
-        ▼                               ▼
-┌───────────────────┐          ┌─────────────────────┐
-│ File Émission     │          │ File Réception      │
-│ (messages à Tx)   │          │ (messages Rx)       │
-└───────┬───────────┘          └──────────┬──────────┘
-        │                                 │
-        ▼                                 │
-┌───────────────────┐                     │
-│ Ajout en-têtes    │                     │
-│ LoRa + APRS       │                     │
-└───────┬───────────┘                     │
-        ▼                                 │
-┌───────────────────┐                     │
-│  Radio en Tx      │                     │
-│  → émission       │                     │
-└───────┬───────────┘                     │
-        ▼                                 │
-┌───────────────────┐   Interruption      │
-│  Radio en Rx      │────────────────────▶│
-│  (écoute continue)│   trame reçue       │
-└───────────────────┘                     │
-                                          ▼
-                            ┌────────────────────────────┐
-                            │  callback_Rx               │
-                            │ - vérifie entête LoRa      │
-                            │ - retire entête LoRa       │
-                            │ - conserve entête APRS     │
-                            └───────────┬────────────────┘
-                                        ▼
-                            ┌────────────────────────────┐
-                            │ Ajout trame + RSSI + SNR   │
-                            │ dans file de réception     │
-                            └───────────┬────────────────┘
-                                        ▼
-                            ┌────────────────────────────┐
-                            │   Processus reception      │
-                            │ → traite et répond aux     │
-                            │   requêtes                 │
-                            └────────────────────────────┘
-```
 ## 5.Schéma de fonctionnement
 
 ```mermaid
 flowchart TD
 
     subgraph Config
-        A["configuration.ini\n(paramètres radio)"]
+        A["configuration.ini<br/>(paramètres radio)"]
     end
 
     subgraph Radio
-        B["Radio LoRa\n(RX continu)"]
+        B["Radio LoRa<br/>(RX continu)"]
     end
 
     subgraph Files
         C["File émission"]
-        D["File réception\n(trames + RSSI + SNR)"]
+        D["File réception<br/>(trames + RSSI + SNR)"]
     end
 
     subgraph Emission
-        E["Ajout en-têtes\nLoRa + APRS"]
+        E["Ajout en-têtes<br/>LoRa + APRS"]
         F["Émission radio"]
     end
 
     subgraph Reception
-        G["callback_Rx\n(vérif. en-tête LoRa,\ndécapsulation APRS conservé)"]
-        H["Processus reception\n(traitement & réponses)"]
+        G["callback_Rx\n(vérif. en-tête LoRa,<br/>décapsulation APRS conservé)"]
+        H["Processus reception<br/>(traitement & réponses)"]
     end
 
     A --> B
