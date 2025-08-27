@@ -38,7 +38,7 @@ Camera::~Camera() {
 void Camera::envoyerPhoto(){
     
     // Prise d'une photo en basse résolution
-    system("libcamera-still --width 320 --height 256 -o /ramfs/photo.jpg");
+    system("rpicam-still --width 320 --height 256 -o /ramfs/photo.jpg");
 
     // add texte & date
     std::ostringstream commande;
@@ -69,7 +69,7 @@ void Camera::envoyerMire(){
 void Camera::enregistrerPhoto(){
     
     std::ostringstream commande;
-    commande << "libcamera-still --width 2304 --height 1296 -o /home/ballon/photos/photo_";
+    commande << "rpicam-still --width 2304 --height 1296 -o /home/ballon/photos/photo_";
     commande << std::setw(3) << std::setfill('0') << i << ".jpg ";
     system(commande.str().c_str());
     
