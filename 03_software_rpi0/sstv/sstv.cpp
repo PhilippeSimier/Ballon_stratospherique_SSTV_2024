@@ -23,6 +23,7 @@
 #define CONFIGURATION "/home/ballon/configuration.ini"
 using namespace std;
 
+std::string get_local_datetime();
 GpioOut ptt(6);  // Commande Push To Talk
 
 int main(int argc, char** argv) {
@@ -50,7 +51,7 @@ int main(int argc, char** argv) {
         auto tmMaintenant = *localtime(&tempsActuel);
 
         if (std::filesystem::exists("/ramfs/mire")) {
-            cout << "mire : " << i++ << endl;
+            cout << get_local_datetime() << " mire SSTV : " << i++ << endl;
             camera.envoyerMire();
             this_thread::sleep_for(chrono::seconds(60));
 
@@ -58,6 +59,7 @@ int main(int argc, char** argv) {
 
         if (tmMaintenant.tm_sec == 30) {
 
+            cout << get_local_datetime() << " photo SDcard : " << i++ << endl;
             camera.enregistrerPhoto();
             this_thread::sleep_for(chrono::seconds(1));
 
@@ -65,6 +67,7 @@ int main(int argc, char** argv) {
         if (tmMaintenant.tm_sec == 55 && tmMaintenant.tm_min % 5 == 4) {
 
             // Appeler la methode envoyer photo en SSTV
+            cout << get_local_datetime() << " photo SSTV : " << i++ << endl;
             ptt.setOn(); // active l'ampli
             camera.envoyerPhoto();
             this_thread::sleep_for(chrono::seconds(1));
@@ -75,6 +78,13 @@ int main(int argc, char** argv) {
 
     return 0;
 
+}
+
+string get_local_datetime() {
+    time_t now = time(nullptr);
+    char buffer[20];
+    strftime(buffer, sizeof(buffer), "%d/%m/%Y %H:%M:%S", localtime(&now));
+    return string(buffer);
 }
 
 

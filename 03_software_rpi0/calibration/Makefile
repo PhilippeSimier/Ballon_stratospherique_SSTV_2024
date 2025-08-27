@@ -10,7 +10,7 @@ CXXFLAGS = -Wall -O2 -std=c++11
 LDFLAGS = -lwiringPi
 
 # Fichiers source
-SOURCES = main.cpp i2c.cpp MPU6050.cpp  SimpleIni.cpp
+SOURCES = calibration.cpp i2c.cpp MPU6050.cpp  SimpleIni.cpp
 
 # Fichiers objets
 OBJECTS = $(SOURCES:.cpp=.o)
