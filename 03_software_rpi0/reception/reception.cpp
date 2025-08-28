@@ -130,6 +130,20 @@ void repondre(string requete, string source) {
         }
     }
 
+    if (requete.find("SSTV=ON") != string::npos){
+        if (remove("/ramfs/stop") == 0) {   // suppression du fichier stop
+            os << "SSTV = ON" << '{' << idMessage;
+            ok = true;
+        }
+    }
+
+    if (requete.find("SSTV=OFF") != string::npos){
+        touch("/ramfs/stop");   // création d'un fichier stop dans ramfs
+        os << "SSTV = OFF" << '{' << idMessage;
+        ok = true;
+
+    }
+
     if (ok){
         fileTX.ecrireDansLaFileIPC(os.str());
         cout << get_local_datetime() << " send     Message\t" << os.str() << endl;

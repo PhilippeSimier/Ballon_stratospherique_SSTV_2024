@@ -1,5 +1,6 @@
 ﻿# Programme réception
- Le programme **réception** exécute les étapes suivantes :
+
+Le programme **réception** exécute les étapes suivantes :
 
 ##  1.  Initialisation des trames APRS au démarrage
     
@@ -24,16 +25,18 @@ Le programme entre ensuite dans une boucle d’attente passive sur les trames en
    **Message → ballon** : si le destinataire est le ballon et que le contenu correspond à une requête connue, une trame de réponse est générée et envoyée. Les requêtes sont :
    
 
- - QRZ? réponse → QRZ Ballon Touchard Le Mans
- - QTR? réponse → La date et l'heure locale de OS
- - QSA? réponse → le RSSI et le SNR des signaux reçus
- - MIRE action → émission  de la mire en SSTV
- - PHOTO action -> émission de la photo du ballon en SSTV 
+ - **QRZ?** réponse → QRZ Ballon Touchard Le Mans
+ - **QTR?** réponse → La date et l'heure locale de OS
+ - **QSA?** réponse → le RSSI et le SNR des signaux reçus
+ - **SSTV=ON** action → SSTV en fonctionnement
+ - **SSTV=OFF** action → Arrêt de l'émission SSTV 
+ - **MIRE** action → émission  de la mire en SSTV
+ - **PHOTO** action -> émission de la photo du ballon en SSTV 
 
         
 **Position → ballon (traqueur interne)** : la position courante du ballon est mise à jour, puis enregistrée dans un fichier de données (`/ramfs/position.txt`)
         
-**Position → station sol** : la distance entre la position reçue d'une station et la position courante du ballon est calculée, puis consignée dans les fichiers de logs.
+**Position → station sol** : la distance entre la position reçue d'une station et la position courante du ballon est calculée, puis consignée dans le fichier `reception.log`.
 
 
 

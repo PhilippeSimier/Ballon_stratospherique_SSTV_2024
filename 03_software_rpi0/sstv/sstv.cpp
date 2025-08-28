@@ -29,7 +29,7 @@ GpioOut ptt(6);  // Commande Push To Talk
 int main(int argc, char** argv) {
 
     if (geteuid() != 0) {
-        std::cerr << "Ce programme doit être lancé en tant que root." << std::endl;
+        std::cerr << "SSTV doit être lancé en tant que root." << std::endl;
         return 1;
     }
 
@@ -39,16 +39,16 @@ int main(int argc, char** argv) {
     unsigned long freq = ini.GetValue<unsigned long>("sstv", "freq", 29000000);      // setting freq sstv
     string indicatif = ini.GetValue("aprs", "indicatif", "F4ABC");
 
-    cout << "sstv freq = " << freq << " ssid = " << indicatif << endl;
+    cout << get_local_datetime() << " start SSTV freq = " << freq << " ssid = " << indicatif << endl;
     Camera camera(freq, indicatif);
     int i = 1;
 
     while (true) {
 
-        // Obtenir l'heure actuelle
-        auto maintenant = chrono::system_clock::now();
-        auto tempsActuel = chrono::system_clock::to_time_t(maintenant);
-        auto tmMaintenant = *localtime(&tempsActuel);
+        if (std::filesystem::exists("/ramfs/stop")) {
+            this_thread::sleep_for(chrono::seconds(1));
+            continue;
+        }
 
         if (std::filesystem::exists("/ramfs/mire")) {
             cout << get_local_datetime() << " mire SSTV : " << i++ << endl;
@@ -56,6 +56,11 @@ int main(int argc, char** argv) {
             this_thread::sleep_for(chrono::seconds(60));
 
         }
+
+        // Obtenir l'heure actuelle
+        auto maintenant = chrono::system_clock::now();
+        auto tempsActuel = chrono::system_clock::to_time_t(maintenant);
+        auto tmMaintenant = *localtime(&tempsActuel);
 
         if (tmMaintenant.tm_sec == 30) {
 
