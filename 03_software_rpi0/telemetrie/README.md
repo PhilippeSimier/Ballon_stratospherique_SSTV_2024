@@ -78,6 +78,38 @@ Sep 04 15:35:59 ballon battery_monitor[449]: 04/09/2025 15:35:59 battery_monitor
 Sep 04 15:47:22 ballon battery_monitor[449]: Signal SIGHUP reçu, sauvegarde immédiate.
 ```
 La dernière ligne confirme que le **signal SIGHUP** est bien pris en compte et que la sauvegarde a été effectuée.
+
+## 3. Utilisation
+
+### a) Vérification de la charge sauvegardée
+Le programme enregistre régulièrement la valeur de `charge_mAh` dans un fichier texte.  
+Pour consulter la dernière valeur sauvegardée :  
+```bash
+cat /home/ballon/battery_state.txt
+```
+### b) Sauvegarde manuelle
+
+Il est possible de forcer une sauvegarde immédiate de l’état de charge **sans arrêter le service** :
+
+`kill -HUP <pid>` 
+
+-   Le message `Signal SIGHUP reçu, sauvegarde immédiate.` apparaît alors dans les logs.
+
+### c) Consultation des logs
+
+Pour visualiser les messages produits par le service en temps réel :
+
+`journalctl -fu battery-monitor.service` 
+
+### d) Arrêt et redémarrage du service
+
+-   Arrêt propre avec sauvegarde automatique :
+    
+    `sudo systemctl stop battery-monitor.service` 
+    
+-   Redémarrage du service :
+    
+    `sudo systemctl restart battery-monitor.service`
    
 # Changelog
 
