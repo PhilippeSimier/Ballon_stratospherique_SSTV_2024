@@ -34,8 +34,26 @@ double Battery::getSOC(){
     double voltage = capteur.obtenirTension_V();
     double soc_voltage = socFromVoltage(voltage);
 
-    // Fusion simple : pondération 70% coulomb counting, 30% tension
-    return 0.7 * soc_coulomb + 0.3 * soc_voltage;
+    double soc;
+
+    if (voltage > 12.3) {
+        // zone de pleine charge : recaler vers 100 %
+        soc = 0.2 * soc_coulomb + 0.8 * soc_voltage;
+    }
+    else if (voltage < 9.7) {
+        // zone de décharge profonde : recaler vers 0 %
+        soc = 0.2 * soc_coulomb + 0.8 * soc_voltage;
+    }
+    else {
+        // zone intermédiaire : fusion standard
+        soc = 0.7 * soc_coulomb + 0.3 * soc_voltage;
+    }
+
+    // bornes de sécurité
+    if (soc < 0) soc = 0;
+    if (soc > 100) soc = 100;
+
+    return soc;
 }
 
 double Battery::getTension_V() {
