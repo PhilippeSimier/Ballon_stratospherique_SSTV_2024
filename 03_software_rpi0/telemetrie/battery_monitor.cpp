@@ -28,21 +28,21 @@ int main(){
         // enregistre les handlers pour SIGTERM et SIGINT (Ctrl+C)
         std::signal(SIGTERM, signalHandler);
         std::signal(SIGINT, signalHandler);
+        std::signal(SIGHUP,  signalHandler);
+
+        cout << get_local_datetime() << " battery_monitor start" << fixed;
+        cout << ' '  << setprecision(2) << batt.getTension_V();
+        cout << ' '  << setprecision(1) << batt.getCurrent_mA();
+        cout << ' '  << setprecision(1) << batt.getCharge_mAh();
+        cout << ' '  << setprecision(1) << batt.getSOC() << endl;
 
         while(running){
 
             batt.update();
-
-            cout << get_local_datetime() << fixed;
-            cout << ' '  << setprecision(2) << batt.getTension_V();
-            cout << ' '  << setprecision(1) << batt.getCurrent_mA();
-            cout << ' '  << setprecision(1) << batt.getCharge_mAh();
-            cout << ' '  << setprecision(1) << batt.getSOC() << endl;
-
             this_thread::sleep_for(chrono::seconds(1));
         }
 
-        std::cout << get_local_datetime() << " battery_monitor terminé proprement." << std::endl;
+        std::cout << get_local_datetime() << " battery_monitor stop." << std::endl;
         return 0;
 
     }
@@ -60,9 +60,16 @@ string get_local_datetime() {
 
 void signalHandler(int signum) {
 
-    std::cout << "Signal reçu (" << signum << "), sauvegarde en cours..." << std::endl;
-    if (g_battery) {
+    if (!g_battery) return;
+
+    if (signum == SIGTERM || signum == SIGINT) {
+        std::cout << "Signal reçu (" << signum << "), sauvegarde et arrêt..." << std::endl;
         g_battery->saveState("/home/ballon/battery_state.txt");
+        running = false;  // permet à la boucle principale de s’arrêter proprement
     }
-    running = false; // permet à la boucle principale de s’arrêter proprement
+    else if (signum == SIGHUP) {
+        std::cout << "Signal SIGHUP reçu, sauvegarde immédiate." << std::endl;
+        g_battery->saveState("/home/ballon/battery_state.txt");
+        running = true;  // mais pas d'arrêt → le programme continue
+    }
 }
