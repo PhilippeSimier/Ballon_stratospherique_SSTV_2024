@@ -31,6 +31,7 @@ private:
 
     double capacity_mAh;        // capacité nominale en mAh
     double charge_mAh;          // charge actuelle estimée en Ah
+
     std::chrono::steady_clock::time_point lastUpdate;
     ina219 capteur;
 

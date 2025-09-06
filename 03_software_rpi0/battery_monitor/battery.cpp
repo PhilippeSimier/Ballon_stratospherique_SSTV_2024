@@ -85,11 +85,11 @@ void Battery::saveState(const std::string &filename){
     std::ofstream file(filename);
     if (file.is_open()) {
 
-        file << charge_mAh;
+        file << charge_mAh << ' ' << getTension_V() << ' ' << getSOC() << '\n';
         file.close();
 
     } else {
-        throw std::runtime_error("Erreur : impossible d'ouvrir le fichier en écriture");
+        throw std::runtime_error("Erreur : impossible d'ouvrir le fichier en écriture\n");
 
     }
 }
