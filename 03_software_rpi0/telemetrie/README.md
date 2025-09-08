@@ -9,7 +9,8 @@ La tension de la batterie doit donc être mise à l’échelle (mapping linéair
 Plage réelle de la tension  : 9.0 V → 12.5 V
 Plage numérique : 0 → 255
 
-La formule est $ value = \text{round}\!\left( \frac{12.5 - 9.0}{U - 9.0} \times 255 \right) $.
+`value` est calculé par :  
+$ value = \text{round}\!\left( 12.5 - \frac{9.0}{U - 9.0} \times 255 \right) $
 
 
    
