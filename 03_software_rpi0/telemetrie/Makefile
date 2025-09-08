@@ -10,7 +10,7 @@ CXXFLAGS = -Wall -O2 -std=c++17
 LDFLAGS = -lwiringPi
 
 # Fichiers source
-SOURCES = telemetry.cpp  telemetryAprs.cpp
+SOURCES = telemetry.cpp  telemetryAprs.cpp SimpleIni.cpp GestionFile.cpp
 
 # Fichiers objets
 OBJECTS = $(SOURCES:.cpp=.o)
