@@ -85,7 +85,10 @@ void Battery::saveState(const std::string &filename){
     std::ofstream file(filename);
     if (file.is_open()) {
 
-        file << charge_mAh << ' ' << getTension_V() << ' ' << getSOC() << '\n';
+        file << charge_mAh << ' '
+             << getTension_V() << ' '
+             << getSOC() << ' '
+             << getCurrent_mA() << '\n';
         file.close();
 
     } else {

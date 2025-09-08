@@ -11,7 +11,7 @@ using namespace std;
 
 int main() {
 
-    double charge,tension,soc;
+    double charge,tension,soc,courant;
 
     SimpleIni ini;
     ini.Load(CONFIGURATION);
@@ -38,9 +38,9 @@ int main() {
             std::ifstream file("/home/ballon/battery_state.txt");
 
             if (file.is_open()) {
-                file >> charge >> tension >> soc;
+                file >> charge >> tension >> soc >> courant;
                 file.close();
-                fileTX.ecrireDansLaFileIPC(aprs.createFrame(tension, soc, -100.0));
+                fileTX.ecrireDansLaFileIPC(aprs.createFrame(tension, soc, courant));
 
             } else {
                 std::cerr << "Info : pas de fichier battery_state !" << std::endl;
