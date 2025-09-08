@@ -10,7 +10,10 @@ Plage réelle de la tension  : 9.0 V → 12.5 V
 Plage numérique : 0 → 255
 
 `value` est calculé par :  
-$ value = \text{round}\!\left( 12.5 - \frac{9.0}{U - 9.0} \times 255 \right) $
+$$
+\text{value} = \text{round}\!\left( 12.5 - \frac{9.0}{U - 9.0} \times 255 \right)
+$$
+
 
 
    
