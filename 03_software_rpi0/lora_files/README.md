@@ -62,6 +62,28 @@ flowchart TD
     D --> G --> H
 
 ```
+
+## 6. Installation du service
+
+1.  Copier le fichier  `lora_files.service`  dans le répertoire :  `/etc/systemd/system/`
+`~/lora_files $ sudo cp lora_files.service /etc/systemd/system/`
+
+2.  Recharger systemd et activer le service
+`sudo systemctl daemon-reload`
+`sudo systemctl enable lora_files.service`
+`sudo systemctl start lora_files.service`
+
+👉 Attention toutefois : la commande `enable` **n’active pas le service immédiatement**, elle programme juste son lancement au boot. c'est pourquoi elle est suivi de la commande `start`
+
+
+3.  Vérifier que le service est actif
+`sudo systemctl status lora_files.service`
+
+## 7. Consultation des logs
+
+`journalctl -fu lora_files.service`
+
+
 # Changelog
 
 **25/08/2025** :  Création du README.md 
