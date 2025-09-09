@@ -1,0 +1,14 @@
+[Unit]
+Description=LoraFiles
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/home/ballon/lora_files/lora_files
+Restart=always
+RestartSec=5
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
