@@ -64,6 +64,8 @@ un commentaire peut être ajouté pour donner des informations complémentaires.
 
 **08/01/2024 : ** Actualisation de la présentation
 
+**24/10/2025 : ** Correction d'un bug methode GestionTemps::majDate()
+
 > **Notes :**
 
 

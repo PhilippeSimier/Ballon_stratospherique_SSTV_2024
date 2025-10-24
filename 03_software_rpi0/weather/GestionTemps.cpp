@@ -37,7 +37,7 @@ void GestionTemps::majDate()
     if (tempsLocal->tm_year + 1900 < 1000)
         temps.annee = "0" + temps.annee;
     temps.mois = std::to_string(tempsLocal->tm_mon + 1);
-    if (tempsLocal->tm_mon < 10)
+    if (tempsLocal->tm_mon < 9)
         temps.mois = "0" + temps.mois;
     temps.jour = std::to_string(tempsLocal->tm_mday);
     if (tempsLocal->tm_mday < 10)
